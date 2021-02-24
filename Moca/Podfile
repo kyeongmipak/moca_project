@@ -17,4 +17,6 @@ target 'Moca' do
 
   pod 'IBPCollectionViewCompositionalLayout'
 
+  pod 'Kanna','~>5.0.0' 
+
 end

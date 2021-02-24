@@ -32,6 +32,9 @@
 		8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969C25E6650400AF92BC /* BoardViewController.swift */; };
 		814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969F25E6653100AF92BC /* ReviewViewController.swift */; };
 		814896A325E6656900AF92BC /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814896A225E6656900AF92BC /* MyPageViewController.swift */; };
+		814896A925E6683800AF92BC /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A625E6683800AF92BC /* google.png */; };
+		814896AA25E6683800AF92BC /* kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A725E6683800AF92BC /* kakao.png */; };
+		814896AB25E6683800AF92BC /* naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A825E6683800AF92BC /* naver.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		8148969C25E6650400AF92BC /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		8148969F25E6653100AF92BC /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		814896A225E6656900AF92BC /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		814896A625E6683800AF92BC /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
+		814896A725E6683800AF92BC /* kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kakao.png; sourceTree = "<group>"; };
+		814896A825E6683800AF92BC /* naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naver.png; sourceTree = "<group>"; };
 		8AB789062D98B83880DCC915 /* Pods-Moca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.release.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +155,9 @@
 		8148963925E61ABF00AF92BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				814896A625E6683800AF92BC /* google.png */,
+				814896A725E6683800AF92BC /* kakao.png */,
+				814896A825E6683800AF92BC /* naver.png */,
 				8148969625E64A9000AF92BC /* login.png */,
 				8148967625E63D3200AF92BC /* no_like.png */,
 				8148967825E63D3200AF92BC /* splash.png */,
@@ -287,10 +296,13 @@
 			files = (
 				8138C36325E5F74D00F5887D /* LaunchScreen.storyboard in Resources */,
 				8148969725E64A9000AF92BC /* login.png in Resources */,
+				814896AB25E6683800AF92BC /* naver.png in Resources */,
+				814896A925E6683800AF92BC /* google.png in Resources */,
 				8148966725E6316700AF92BC /* GoogleService-Info.plist in Resources */,
 				8148966F25E632D300AF92BC /* kakao_login_medium_wide.png in Resources */,
 				8138C36025E5F74D00F5887D /* Assets.xcassets in Resources */,
 				8148967A25E63D3200AF92BC /* yes_like.png in Resources */,
+				814896AA25E6683800AF92BC /* kakao.png in Resources */,
 				8138C35E25E5F74900F5887D /* Main.storyboard in Resources */,
 				8148967025E632D300AF92BC /* kakao_login_medium_narrow.png in Resources */,
 				8148967B25E63D3200AF92BC /* splash.png in Resources */,

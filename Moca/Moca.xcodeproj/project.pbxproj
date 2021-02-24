@@ -29,6 +29,9 @@
 		8148969425E6491900AF92BC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969325E6491900AF92BC /* SearchViewController.swift */; };
 		8148969725E64A9000AF92BC /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 8148969625E64A9000AF92BC /* login.png */; };
 		8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969925E6545700AF92BC /* SearchDBModel.swift */; };
+		8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969C25E6650400AF92BC /* BoardViewController.swift */; };
+		814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148969F25E6653100AF92BC /* ReviewViewController.swift */; };
+		814896A325E6656900AF92BC /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814896A225E6656900AF92BC /* MyPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		8148969325E6491900AF92BC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8148969625E64A9000AF92BC /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		8148969925E6545700AF92BC /* SearchDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDBModel.swift; sourceTree = "<group>"; };
+		8148969C25E6650400AF92BC /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		8148969F25E6653100AF92BC /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
+		814896A225E6656900AF92BC /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		8AB789062D98B83880DCC915 /* Pods-Moca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.release.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				8148964025E61BBB00AF92BC /* LoginViewController.swift */,
+				814896A225E6656900AF92BC /* MyPageViewController.swift */,
 			);
 			path = User_Controller;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 		8148968025E6429000AF92BC /* Review_Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8148969F25E6653100AF92BC /* ReviewViewController.swift */,
 			);
 			path = Review_Controller;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 		8148968125E642AD00AF92BC /* Board_Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8148969C25E6650400AF92BC /* BoardViewController.swift */,
 			);
 			path = Board_Controller;
 			sourceTree = "<group>";
@@ -357,15 +366,18 @@
 			files = (
 				8148969425E6491900AF92BC /* SearchViewController.swift in Sources */,
 				8148969025E6486200AF92BC /* SearchTableViewCell.swift in Sources */,
+				814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */,
 				8148968C25E6471B00AF92BC /* MenuDBModel.swift in Sources */,
 				8148964125E61BBB00AF92BC /* LoginViewController.swift in Sources */,
 				8148964525E61D1700AF92BC /* Share.swift in Sources */,
 				8138C35725E5F74900F5887D /* AppDelegate.swift in Sources */,
 				8138C35925E5F74900F5887D /* SceneDelegate.swift in Sources */,
 				8148967425E63BB300AF92BC /* MainViewController.swift in Sources */,
+				814896A325E6656900AF92BC /* MyPageViewController.swift in Sources */,
 				8148968425E645CE00AF92BC /* SearchJsonModel.swift in Sources */,
 				8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
+				8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

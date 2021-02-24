@@ -13,9 +13,11 @@
 		8138C35E25E5F74900F5887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8138C35C25E5F74900F5887D /* Main.storyboard */; };
 		8138C36025E5F74D00F5887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8138C35F25E5F74D00F5887D /* Assets.xcassets */; };
 		8138C36325E5F74D00F5887D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8138C36125E5F74D00F5887D /* LaunchScreen.storyboard */; };
+		BFDF54031E08C3231A1B9C08 /* Pods_Moca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E84B4FF0A563FF0A9EF8F43 /* Pods_Moca.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E84B4FF0A563FF0A9EF8F43 /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8138C35325E5F74900F5887D /* Moca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8138C35625E5F74900F5887D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8138C35825E5F74900F5887D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		8138C35F25E5F74D00F5887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8138C36225E5F74D00F5887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8138C36425E5F74D00F5887D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		989E18D28E34BC4AE94DDBB9 /* Pods-Moca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.release.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.release.xcconfig"; sourceTree = "<group>"; };
+		A910EB742039352D61D48A5A /* Pods-Moca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.debug.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDF54031E08C3231A1B9C08 /* Pods_Moca.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02315CE55FB4D14B7D6F7E99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A910EB742039352D61D48A5A /* Pods-Moca.debug.xcconfig */,
+				989E18D28E34BC4AE94DDBB9 /* Pods-Moca.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8138C34A25E5F74900F5887D = {
 			isa = PBXGroup;
 			children = (
 				8138C35525E5F74900F5887D /* Moca */,
 				8138C35425E5F74900F5887D /* Products */,
+				02315CE55FB4D14B7D6F7E99 /* Pods */,
+				8DADB6CAE4384E03A906BA2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +84,14 @@
 			path = Moca;
 			sourceTree = "<group>";
 		};
+		8DADB6CAE4384E03A906BA2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E84B4FF0A563FF0A9EF8F43 /* Pods_Moca.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8138C36725E5F74D00F5887D /* Build configuration list for PBXNativeTarget "Moca" */;
 			buildPhases = (
+				0729DA89FFD9E08CF13254B5 /* [CP] Check Pods Manifest.lock */,
 				8138C34F25E5F74900F5887D /* Sources */,
 				8138C35025E5F74900F5887D /* Frameworks */,
 				8138C35125E5F74900F5887D /* Resources */,
+				74B8859CC1BE2CDF828596FC /* [CP] Embed Pods Frameworks */,
+				B9EF0B3919DE94DE8B7E0BD6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +159,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0729DA89FFD9E08CF13254B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Moca-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74B8859CC1BE2CDF828596FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9EF0B3919DE94DE8B7E0BD6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Moca/Pods-Moca-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8138C34F25E5F74900F5887D /* Sources */ = {
@@ -283,6 +370,7 @@
 		};
 		8138C36825E5F74D00F5887D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A910EB742039352D61D48A5A /* Pods-Moca.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +390,7 @@
 		};
 		8138C36925E5F74D00F5887D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 989E18D28E34BC4AE94DDBB9 /* Pods-Moca.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

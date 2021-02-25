@@ -7,6 +7,13 @@
 
 import UIKit
 
+// kakao
+import KakaoSDKCommon
+
+// google
+import GoogleSignIn
+import Firebase
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -14,6 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // launch screen 
+        sleep(3)
+        
+        // 카카오 로그인 앱키
+        KakaoSDKCommon.initSDK(appKey: "ed5d4ef21df85e7f6eddb48b5cc2579d")
+
+        
+        // 파이어베이스와 구글 로그인 연동 추가
+        FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance()?.clientID = "408732211320-g2pg9o7h2qmhu3dhulpdba1k3sfm5q6m.apps.googleusercontent.com"
+        
         return true
     }
 

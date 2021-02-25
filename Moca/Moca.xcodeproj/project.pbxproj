@@ -15,6 +15,10 @@
 		6217548825E7EEA2004FFAE9 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548125E7EEA2004FFAE9 /* on.png */; };
 		6217548925E7EEA2004FFAE9 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548225E7EEA2004FFAE9 /* off.png */; };
 		6217548A25E7EEA2004FFAE9 /* like_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548325E7EEA2004FFAE9 /* like_list.png */; };
+		6217549025E7F6E4004FFAE9 /* MyUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217548F25E7F6E4004FFAE9 /* MyUpdateViewController.swift */; };
+		6217549525E7F7C2004FFAE9 /* OftenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549425E7F7C2004FFAE9 /* OftenViewController.swift */; };
+		6217549925E7F7EA004FFAE9 /* LikeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */; };
+		6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549B25E7F833004FFAE9 /* QnaData.swift */; };
 		8138C35725E5F74900F5887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8138C35625E5F74900F5887D /* AppDelegate.swift */; };
 		8138C35925E5F74900F5887D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8138C35825E5F74900F5887D /* SceneDelegate.swift */; };
 		8138C35E25E5F74900F5887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8138C35C25E5F74900F5887D /* Main.storyboard */; };
@@ -52,6 +56,10 @@
 		6217548125E7EEA2004FFAE9 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = ../../../image/myPage_Button/on.png; sourceTree = "<group>"; };
 		6217548225E7EEA2004FFAE9 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../../../image/myPage_Button/off.png; sourceTree = "<group>"; };
 		6217548325E7EEA2004FFAE9 /* like_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_list.png; path = ../../../image/myPage_Button/like_list.png; sourceTree = "<group>"; };
+		6217548F25E7F6E4004FFAE9 /* MyUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUpdateViewController.swift; sourceTree = "<group>"; };
+		6217549425E7F7C2004FFAE9 /* OftenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OftenViewController.swift; sourceTree = "<group>"; };
+		6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewController.swift; sourceTree = "<group>"; };
+		6217549B25E7F833004FFAE9 /* QnaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnaData.swift; sourceTree = "<group>"; };
 		62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		778B512726A6878155B35E6C /* Pods-Moca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.debug.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.debug.xcconfig"; sourceTree = "<group>"; };
 		8138C35325E5F74900F5887D /* Moca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6217549225E7F751004FFAE9 /*  Other_Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6217549425E7F7C2004FFAE9 /* OftenViewController.swift */,
+				6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */,
+				6217549B25E7F833004FFAE9 /* QnaData.swift */,
+			);
+			path = " Other_Controller";
+			sourceTree = "<group>";
+		};
 		8138C34A25E5F74900F5887D = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +144,7 @@
 				8148968025E6429000AF92BC /* Review_Controller */,
 				8148963A25E61ACC00AF92BC /* User_Controller */,
 				8148963825E61AB000AF92BC /* Main_Controller */,
+				6217549225E7F751004FFAE9 /*  Other_Controller */,
 				8148963725E61A4600AF92BC /* Json */,
 				8148963625E61A3500AF92BC /* Model */,
 				8148968E25E647C200AF92BC /* Cell */,
@@ -194,6 +213,7 @@
 			children = (
 				8148964025E61BBB00AF92BC /* LoginViewController.swift */,
 				814896A225E6656900AF92BC /* MyPageViewController.swift */,
+				6217548F25E7F6E4004FFAE9 /* MyUpdateViewController.swift */,
 			);
 			path = User_Controller;
 			sourceTree = "<group>";
@@ -406,6 +426,7 @@
 			files = (
 				8148969425E6491900AF92BC /* SearchViewController.swift in Sources */,
 				8148969025E6486200AF92BC /* SearchTableViewCell.swift in Sources */,
+				6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */,
 				814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */,
 				8148968C25E6471B00AF92BC /* MenuDBModel.swift in Sources */,
 				8148964125E61BBB00AF92BC /* LoginViewController.swift in Sources */,
@@ -418,6 +439,9 @@
 				8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
 				8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */,
+				6217549025E7F6E4004FFAE9 /* MyUpdateViewController.swift in Sources */,
+				6217549925E7F7EA004FFAE9 /* LikeTableViewController.swift in Sources */,
+				6217549525E7F7C2004FFAE9 /* OftenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

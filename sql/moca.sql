@@ -32,7 +32,7 @@ CREATE TABLE `board` (
   `boardInsertDate` datetime DEFAULT NULL,
   `boardDeleteDate` datetime DEFAULT NULL,
   PRIMARY KEY (`boardNo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
+INSERT INTO `board` VALUES (1,'점심 뭐먹었냐 다들?','배고픈데 점심 추천좀ㅠ','39CD48B4-339C-4C78-9749-8A909C7D7E8A.jpeg','2020-09-11 00:00:00',NULL);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,6 +152,33 @@ INSERT INTO `menu` VALUES (1,'아메리카노',4100,NULL,NULL,NULL,NULL),(2,'카
 UNLOCK TABLES;
 
 --
+-- Table structure for table `register`
+--
+
+DROP TABLE IF EXISTS `register`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `register` (
+  `userInfo_userEmail` varchar(30) NOT NULL,
+  `board_boardNo` int(11) NOT NULL,
+  KEY `fk_write_userInfo1_idx` (`userInfo_userEmail`),
+  KEY `fk_write_board1_idx` (`board_boardNo`),
+  CONSTRAINT `fk_write_board1` FOREIGN KEY (`board_boardNo`) REFERENCES `board` (`boardNo`),
+  CONSTRAINT `fk_write_userInfo1` FOREIGN KEY (`userInfo_userEmail`) REFERENCES `userinfo` (`userEmail`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `register`
+--
+
+LOCK TABLES `register` WRITE;
+/*!40000 ALTER TABLE `register` DISABLE KEYS */;
+INSERT INTO `register` VALUES ('test',1);
+/*!40000 ALTER TABLE `register` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `review`
 --
 
@@ -238,32 +266,6 @@ LOCK TABLES `userInfo` WRITE;
 INSERT INTO `userInfo` VALUES ('test','test','테스트','테스트','010-1234-5678',NULL,NULL,'2020-01-01 00:00:00',NULL),('test1','test1','테슽테슽','테슽테슽','010-1234-5678',NULL,NULL,'2020-05-01 00:00:00',NULL),('test2','test2','텟텟텟','텟텟텟','010-1234-5678',NULL,NULL,'2021-01-01 00:00:00',NULL);
 /*!40000 ALTER TABLE `userInfo` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `write`
---
-
-DROP TABLE IF EXISTS `write`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `write` (
-  `userInfo_userEmail` varchar(30) NOT NULL,
-  `board_boardNo` int(11) NOT NULL,
-  KEY `fk_write_userInfo1_idx` (`userInfo_userEmail`),
-  KEY `fk_write_board1_idx` (`board_boardNo`),
-  CONSTRAINT `fk_write_board1` FOREIGN KEY (`board_boardNo`) REFERENCES `board` (`boardNo`),
-  CONSTRAINT `fk_write_userInfo1` FOREIGN KEY (`userInfo_userEmail`) REFERENCES `userinfo` (`userEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `write`
---
-
-LOCK TABLES `write` WRITE;
-/*!40000 ALTER TABLE `write` DISABLE KEYS */;
-/*!40000 ALTER TABLE `write` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -274,4 +276,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-02-25 12:47:22
+-- Dump completed on 2021-02-25 15:09:26

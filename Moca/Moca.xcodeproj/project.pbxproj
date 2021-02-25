@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3D3E8377CA58D641DF585023 /* Pods_Moca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */; };
+		6217548425E7EEA2004FFAE9 /* qa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547D25E7EEA2004FFAE9 /* qa.png */; };
+		6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547E25E7EEA2004FFAE9 /* myUpdate.png */; };
+		6217548625E7EEA2004FFAE9 /* signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547F25E7EEA2004FFAE9 /* signout.png */; };
+		6217548725E7EEA2004FFAE9 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548025E7EEA2004FFAE9 /* logout.png */; };
+		6217548825E7EEA2004FFAE9 /* on.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548125E7EEA2004FFAE9 /* on.png */; };
+		6217548925E7EEA2004FFAE9 /* off.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548225E7EEA2004FFAE9 /* off.png */; };
+		6217548A25E7EEA2004FFAE9 /* like_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217548325E7EEA2004FFAE9 /* like_list.png */; };
 		8138C35725E5F74900F5887D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8138C35625E5F74900F5887D /* AppDelegate.swift */; };
 		8138C35925E5F74900F5887D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8138C35825E5F74900F5887D /* SceneDelegate.swift */; };
 		8138C35E25E5F74900F5887D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8138C35C25E5F74900F5887D /* Main.storyboard */; };
@@ -38,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6217547D25E7EEA2004FFAE9 /* qa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qa.png; path = ../../../image/myPage_Button/qa.png; sourceTree = "<group>"; };
+		6217547E25E7EEA2004FFAE9 /* myUpdate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myUpdate.png; path = ../../../image/myPage_Button/myUpdate.png; sourceTree = "<group>"; };
+		6217547F25E7EEA2004FFAE9 /* signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signout.png; path = ../../../image/myPage_Button/signout.png; sourceTree = "<group>"; };
+		6217548025E7EEA2004FFAE9 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = ../../../image/myPage_Button/logout.png; sourceTree = "<group>"; };
+		6217548125E7EEA2004FFAE9 /* on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = on.png; path = ../../../image/myPage_Button/on.png; sourceTree = "<group>"; };
+		6217548225E7EEA2004FFAE9 /* off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = off.png; path = ../../../image/myPage_Button/off.png; sourceTree = "<group>"; };
+		6217548325E7EEA2004FFAE9 /* like_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like_list.png; path = ../../../image/myPage_Button/like_list.png; sourceTree = "<group>"; };
 		62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		778B512726A6878155B35E6C /* Pods-Moca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.debug.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.debug.xcconfig"; sourceTree = "<group>"; };
 		8138C35325E5F74900F5887D /* Moca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +169,13 @@
 		8148963925E61ABF00AF92BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6217548325E7EEA2004FFAE9 /* like_list.png */,
+				6217548025E7EEA2004FFAE9 /* logout.png */,
+				6217547E25E7EEA2004FFAE9 /* myUpdate.png */,
+				6217548225E7EEA2004FFAE9 /* off.png */,
+				6217548125E7EEA2004FFAE9 /* on.png */,
+				6217547D25E7EEA2004FFAE9 /* qa.png */,
+				6217547F25E7EEA2004FFAE9 /* signout.png */,
 				814896A625E6683800AF92BC /* google.png */,
 				814896A725E6683800AF92BC /* kakao.png */,
 				814896A825E6683800AF92BC /* naver.png */,
@@ -294,13 +315,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6217548A25E7EEA2004FFAE9 /* like_list.png in Resources */,
+				6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */,
 				8138C36325E5F74D00F5887D /* LaunchScreen.storyboard in Resources */,
+				6217548825E7EEA2004FFAE9 /* on.png in Resources */,
 				8148969725E64A9000AF92BC /* login.png in Resources */,
 				814896AB25E6683800AF92BC /* naver.png in Resources */,
 				814896A925E6683800AF92BC /* google.png in Resources */,
+				6217548925E7EEA2004FFAE9 /* off.png in Resources */,
 				8148966725E6316700AF92BC /* GoogleService-Info.plist in Resources */,
 				8148966F25E632D300AF92BC /* kakao_login_medium_wide.png in Resources */,
+				6217548725E7EEA2004FFAE9 /* logout.png in Resources */,
+				6217548625E7EEA2004FFAE9 /* signout.png in Resources */,
 				8138C36025E5F74D00F5887D /* Assets.xcassets in Resources */,
+				6217548425E7EEA2004FFAE9 /* qa.png in Resources */,
 				8148967A25E63D3200AF92BC /* yes_like.png in Resources */,
 				814896AA25E6683800AF92BC /* kakao.png in Resources */,
 				8138C35E25E5F74900F5887D /* Main.storyboard in Resources */,

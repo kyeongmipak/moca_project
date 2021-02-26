@@ -11,6 +11,10 @@ class MyPageViewController: UIViewController {
 
     @IBOutlet weak var alertImg: UIImageView!
     
+    // 상단에 띄울 나의 프로필 이미지와 닉네임 **********
+    @IBOutlet weak var myNickName: UILabel!
+    @IBOutlet weak var myImg: UIImageView!
+    // *******************
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +25,7 @@ class MyPageViewController: UIViewController {
         // ++++++++++++++++++++++++++++++++++++++++
     }
     
+    // 알림 설정 기능 구현해서 넣기 -> 사진 바뀌는 것만 추가함
     @objc func touchToAlert(sender: UITapGestureRecognizer) {
         
         if (sender.state == .ended) {
@@ -35,7 +40,15 @@ class MyPageViewController: UIViewController {
             }
         }
     }
-
+    
+    
+    // 로그아웃 기능 구현
+    @IBAction func btnLogout(_ sender: UIButton) {
+    }
+    
+    // 회원탈퇴 기능 구현
+    @IBAction func btnSignout(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

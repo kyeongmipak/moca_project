@@ -269,6 +269,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="마이페이지" image="person.crop.square" catalog="system" id="8aq-6N-QvI"/>
+                    <connections>
+                        <outlet property="alertImg" destination="ylY-Cf-bY4" id="KUU-jU-0Ys"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-un-dDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

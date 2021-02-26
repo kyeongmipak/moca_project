@@ -9,12 +9,32 @@ import UIKit
 
 class MyPageViewController: UIViewController {
 
+    @IBOutlet weak var alertImg: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 이미지뷰를 터치했을때 이벤트 주기 +++++++++++++++++
+        let tapAlert = UITapGestureRecognizer(target: self, action: #selector(touchToAlert))
+        alertImg.addGestureRecognizer(tapAlert)
+        alertImg.isUserInteractionEnabled = true
+        // ++++++++++++++++++++++++++++++++++++++++
     }
     
+    @objc func touchToAlert(sender: UITapGestureRecognizer) {
+        
+        if (sender.state == .ended) {
+            // 켜져있을 때
+            if alertImg.image == UIImage(named: "on.png") {
+                print("끄기")
+                alertImg.image = UIImage(named: "off.png")
+            }else{
+                // 꺼져있을 때
+                print("켜기")
+                alertImg.image = UIImage(named: "on.png")
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

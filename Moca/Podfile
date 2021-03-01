@@ -19,4 +19,10 @@ target 'Moca' do
 
   pod 'Kanna','~>5.0.0' 
 
+  pod 'naveridlogin-sdk-ios' # 네이버 로그인 
+  pod 'Alamofire', '~> 5.1'
+
+  pod 'Cosmos' # 
+  pod 'TinyConstraints'
+
 end

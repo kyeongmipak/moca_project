@@ -56,7 +56,6 @@ class LikeCountJsonModel: NSObject{
         // json은 key와 value값이 필요하므로 Dictionary 타입 사용
         var jsonElement = NSDictionary()
         
-        let locations = NSMutableArray()
         
         print("for전")
         

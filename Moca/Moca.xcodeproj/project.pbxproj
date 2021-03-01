@@ -19,6 +19,14 @@
 		6217549525E7F7C2004FFAE9 /* OftenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549425E7F7C2004FFAE9 /* OftenViewController.swift */; };
 		6217549925E7F7EA004FFAE9 /* LikeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */; };
 		6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549B25E7F833004FFAE9 /* QnaData.swift */; };
+		6219BCC525ED54BE00AD5D5D /* t2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6219BCC025ED54BB00AD5D5D /* t2.png */; };
+		6219BCC625ED54BE00AD5D5D /* t3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6219BCC125ED54BC00AD5D5D /* t3.png */; };
+		6219BCC725ED54BE00AD5D5D /* t5.png in Resources */ = {isa = PBXBuildFile; fileRef = 6219BCC225ED54BD00AD5D5D /* t5.png */; };
+		6219BCC825ED54BE00AD5D5D /* t4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6219BCC325ED54BD00AD5D5D /* t4.png */; };
+		6219BCC925ED54BE00AD5D5D /* t1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6219BCC425ED54BE00AD5D5D /* t1.png */; };
+		6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219BCCC25ED551800AD5D5D /* TipViewController.swift */; };
+		6219BCD125ED554600AD5D5D /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219BCD025ED554600AD5D5D /* OnboardingViewController.swift */; };
+		6219BCD425ED554C00AD5D5D /* TipCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219BCD325ED554C00AD5D5D /* TipCardView.swift */; };
 		62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */; };
 		62F015E625E8B4F2007BB073 /* LikeDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E525E8B4F2007BB073 /* LikeDBModel.swift */; };
 		62F015E925E8B511007BB073 /* LikeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E825E8B511007BB073 /* LikeJsonModel.swift */; };
@@ -105,6 +113,14 @@
 		6217549425E7F7C2004FFAE9 /* OftenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OftenViewController.swift; sourceTree = "<group>"; };
 		6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewController.swift; sourceTree = "<group>"; };
 		6217549B25E7F833004FFAE9 /* QnaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnaData.swift; sourceTree = "<group>"; };
+		6219BCC025ED54BB00AD5D5D /* t2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t2.png; path = "../../../../스위프트_RND/tipimage/t2.png"; sourceTree = "<group>"; };
+		6219BCC125ED54BC00AD5D5D /* t3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t3.png; path = "../../../../스위프트_RND/tipimage/t3.png"; sourceTree = "<group>"; };
+		6219BCC225ED54BD00AD5D5D /* t5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t5.png; path = "../../../../스위프트_RND/tipimage/t5.png"; sourceTree = "<group>"; };
+		6219BCC325ED54BD00AD5D5D /* t4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t4.png; path = "../../../../스위프트_RND/tipimage/t4.png"; sourceTree = "<group>"; };
+		6219BCC425ED54BE00AD5D5D /* t1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = t1.png; path = "../../../../스위프트_RND/tipimage/t1.png"; sourceTree = "<group>"; };
+		6219BCCC25ED551800AD5D5D /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		6219BCD025ED554600AD5D5D /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = "../../../../스위프트_RND/jieun_tip/testPageView/OnboardingViewController.swift"; sourceTree = "<group>"; };
+		6219BCD325ED554C00AD5D5D /* TipCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipCardView.swift; path = "../../../../스위프트_RND/jieun_tip/testPageView/TipCardView.swift"; sourceTree = "<group>"; };
 		62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		62F015E525E8B4F2007BB073 /* LikeDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDBModel.swift; sourceTree = "<group>"; };
@@ -206,6 +222,16 @@
 			path = " Other_Controller";
 			sourceTree = "<group>";
 		};
+		6219BCCB25ED54EE00AD5D5D /* Tip_Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6219BCCC25ED551800AD5D5D /* TipViewController.swift */,
+				6219BCD325ED554C00AD5D5D /* TipCardView.swift */,
+				6219BCD025ED554600AD5D5D /* OnboardingViewController.swift */,
+			);
+			path = Tip_Controller;
+			sourceTree = "<group>";
+		};
 		62F015EC25E8B7C6007BB073 /* Other_Json */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +271,7 @@
 				8148968025E6429000AF92BC /* Review_Controller */,
 				8148963A25E61ACC00AF92BC /* User_Controller */,
 				8148963825E61AB000AF92BC /* Main_Controller */,
+				6219BCCB25ED54EE00AD5D5D /* Tip_Controller */,
 				6217549225E7F751004FFAE9 /*  Other_Controller */,
 				8148963725E61A4600AF92BC /* Main_Json */,
 				62F015EC25E8B7C6007BB073 /* Other_Json */,
@@ -306,6 +333,11 @@
 		8148963925E61ABF00AF92BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6219BCC425ED54BE00AD5D5D /* t1.png */,
+				6219BCC025ED54BB00AD5D5D /* t2.png */,
+				6219BCC125ED54BC00AD5D5D /* t3.png */,
+				6219BCC325ED54BD00AD5D5D /* t4.png */,
+				6219BCC225ED54BD00AD5D5D /* t5.png */,
 				813B43C525ED5342008B6C44 /* ediya.png */,
 				813B43C425ED5342008B6C44 /* hollys.png */,
 				813B43C625ED5342008B6C44 /* starbucks.png */,
@@ -478,21 +510,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6219BCC725ED54BE00AD5D5D /* t5.png in Resources */,
 				6217548A25E7EEA2004FFAE9 /* like_list.png in Resources */,
 				6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */,
 				813B43C825ED5343008B6C44 /* hollys.png in Resources */,
 				8138C36325E5F74D00F5887D /* LaunchScreen.storyboard in Resources */,
+				6219BCC825ED54BE00AD5D5D /* t4.png in Resources */,
 				6217548825E7EEA2004FFAE9 /* on.png in Resources */,
 				8148969725E64A9000AF92BC /* login.png in Resources */,
 				814896AB25E6683800AF92BC /* naver.png in Resources */,
 				813B43C125ED52FA008B6C44 /* tip.png in Resources */,
 				813B43C925ED5343008B6C44 /* ediya.png in Resources */,
 				814896A925E6683800AF92BC /* google.png in Resources */,
+				6219BCC525ED54BE00AD5D5D /* t2.png in Resources */,
 				6217548925E7EEA2004FFAE9 /* off.png in Resources */,
 				813B43CA25ED5343008B6C44 /* starbucks.png in Resources */,
 				8148966725E6316700AF92BC /* GoogleService-Info.plist in Resources */,
 				8148966F25E632D300AF92BC /* kakao_login_medium_wide.png in Resources */,
 				6217548725E7EEA2004FFAE9 /* logout.png in Resources */,
+				6219BCC625ED54BE00AD5D5D /* t3.png in Resources */,
 				6217548625E7EEA2004FFAE9 /* signout.png in Resources */,
 				8138C36025E5F74D00F5887D /* Assets.xcassets in Resources */,
 				6217548425E7EEA2004FFAE9 /* qa.png in Resources */,
@@ -503,6 +539,7 @@
 				8148967025E632D300AF92BC /* kakao_login_medium_narrow.png in Resources */,
 				8148967B25E63D3200AF92BC /* splash.png in Resources */,
 				8148967925E63D3200AF92BC /* no_like.png in Resources */,
+				6219BCC925ED54BE00AD5D5D /* t1.png in Resources */,
 				813B43C225ED52FA008B6C44 /* categoryRank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +625,7 @@
 				813B438A25ED3AF0008B6C44 /* BrandRankJsonModel.swift in Sources */,
 				813B43B725ED49B1008B6C44 /* TeaViewController.swift in Sources */,
 				813B439E25ED446C008B6C44 /* CategoryTabCell.swift in Sources */,
+				6219BCD125ED554600AD5D5D /* OnboardingViewController.swift in Sources */,
 				8148964525E61D1700AF92BC /* Share.swift in Sources */,
 				813B43BC25ED4AAC008B6C44 /* ShakeViewController.swift in Sources */,
 				813B43A225ED4505008B6C44 /* CategoryRankViewController.swift in Sources */,
@@ -606,6 +644,7 @@
 				8148968425E645CE00AF92BC /* SearchJsonModel.swift in Sources */,
 				813B436C25ED2E38008B6C44 /* TipTableViewCell.swift in Sources */,
 				813B436F25ED30FC008B6C44 /* BrandRankTableViewCell.swift in Sources */,
+				6219BCD425ED554C00AD5D5D /* TipCardView.swift in Sources */,
 				813B43B625ED49B1008B6C44 /* TeaTableViewCell.swift in Sources */,
 				8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
@@ -625,6 +664,7 @@
 				6217549925E7F7EA004FFAE9 /* LikeTableViewController.swift in Sources */,
 				813B438B25ED3AF0008B6C44 /* CategoryRankJsonModel.swift in Sources */,
 				813B437825ED37AD008B6C44 /* BrandTabsView.swift in Sources */,
+				6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */,
 				813B437B25ED38BA008B6C44 /* TabsPageViewController.swift in Sources */,
 				813B438F25ED3CB3008B6C44 /* EdiyaTableViewCell.swift in Sources */,
 				813B439425ED3EBB008B6C44 /* TwosomeTableViewCell.swift in Sources */,

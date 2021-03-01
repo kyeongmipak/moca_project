@@ -3,7 +3,6 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -35,7 +34,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jp-Ku-HcN">
                                 <rect key="frame" x="71" y="464" width="250" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.97000068429999997" green="0.69086283449999997" blue="0.6627328992" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.99719530339999995" green="0.67514687780000004" blue="0.65096712109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="로그인"/>
                             </button>
@@ -108,17 +107,18 @@
                                     <action selector="btnGoogleLogin:" destination="lSh-nP-ZsA" eventType="valueChanged" id="3S9-3K-Xmv"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forget MOCA ID or Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNM-fG-JxW">
-                                <rect key="frame" x="82" y="789" width="230" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-7G-f3Y">
                                 <rect key="frame" x="165" y="691" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="naver.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-jc-5q6">
+                                <rect key="frame" x="92" y="780" width="207" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Forget MOCA ID or Password?"/>
+                                <connections>
+                                    <segue destination="mf8-ex-7wj" kind="show" id="h6J-xh-8gE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Y4-ce-RC4"/>
@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twn-HP-rh5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915.38461538461536" y="115.87677725118483"/>
+            <point key="canvasLocation" x="668" y="-23"/>
         </scene>
         <!--게시판-->
         <scene sceneID="AsG-an-7aO">
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhj-v1-MK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3017" y="835"/>
+            <point key="canvasLocation" x="3425" y="807"/>
         </scene>
         <!--홈-->
         <scene sceneID="Yh9-ai-xxh">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIh-9d-Jd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1194" y="835"/>
+            <point key="canvasLocation" x="2012" y="807"/>
         </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="YvL-J8-WtW">
@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="And-1s-cMU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437" y="1611"/>
+            <point key="canvasLocation" x="4314" y="-90"/>
         </scene>
         <!--포토리뷰-->
         <scene sceneID="eYN-fe-GAM">
@@ -200,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTG-oq-qt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2075" y="835"/>
+            <point key="canvasLocation" x="2705" y="807"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="saL-2K-D9L">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbc-un-dDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3968" y="835"/>
+            <point key="canvasLocation" x="4125" y="807"/>
         </scene>
         <!--나의 정보 수정-->
         <scene sceneID="dk8-qg-BfT">
@@ -444,9 +444,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufb-bh-Xph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-182" y="272"/>
+            <point key="canvasLocation" x="-257" y="-23"/>
         </scene>
-        <!--View Controller-->
+        <!--아이디/비밀번호 찾기-->
+        <scene sceneID="a0J-IN-0iD">
+            <objects>
+                <viewController id="mf8-ex-7wj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oKh-YG-Rpj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-5b-UWx">
+                                <rect key="frame" x="106" y="122" width="179" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="아이디 찾기"/>
+                                    <segment title="비밀번호 찾기"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnq-A7-MyS">
+                                <rect key="frame" x="0.0" y="760" width="390" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.99966746569999998" green="0.96073108910000005" blue="0.85899353030000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="아이디 찾기"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y9r-Ji-xvL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="아이디/비밀번호 찾기" id="DUs-z5-rv9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xh6-7o-FOg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="739"/>
+        </scene>
+        <!--회원가입-->
         <scene sceneID="SKQ-hC-U6U">
             <objects>
                 <viewController id="Z38-dz-Ixx" sceneMemberID="viewController">
@@ -466,11 +500,11 @@
                         <viewLayoutGuide key="safeArea" id="Sia-M0-zwO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aCa-fL-0hS"/>
+                    <navigationItem key="navigationItem" title="회원가입" id="aCa-fL-0hS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy5-de-UKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1320" y="-554"/>
+            <point key="canvasLocation" x="183" y="739"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="05B-kS-gEP">
@@ -607,9 +641,6 @@
         <image name="qa.png" width="500" height="500"/>
         <image name="signout.png" width="500" height="500"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

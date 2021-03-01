@@ -63,6 +63,12 @@
 		813B43B725ED49B1008B6C44 /* TeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B43B525ED49B1008B6C44 /* TeaViewController.swift */; };
 		813B43BB25ED4AAC008B6C44 /* ShakeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B43B925ED4AAC008B6C44 /* ShakeTableViewCell.swift */; };
 		813B43BC25ED4AAC008B6C44 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B43BA25ED4AAC008B6C44 /* ShakeViewController.swift */; };
+		813B43C125ED52FA008B6C44 /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43BF25ED52FA008B6C44 /* tip.png */; };
+		813B43C225ED52FA008B6C44 /* categoryRank.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43C025ED52FA008B6C44 /* categoryRank.png */; };
+		813B43C825ED5343008B6C44 /* hollys.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43C425ED5342008B6C44 /* hollys.png */; };
+		813B43C925ED5343008B6C44 /* ediya.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43C525ED5342008B6C44 /* ediya.png */; };
+		813B43CA25ED5343008B6C44 /* starbucks.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43C625ED5342008B6C44 /* starbucks.png */; };
+		813B43CB25ED5343008B6C44 /* twosome.png in Resources */ = {isa = PBXBuildFile; fileRef = 813B43C725ED5342008B6C44 /* twosome.png */; };
 		8148964125E61BBB00AF92BC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148964025E61BBB00AF92BC /* LoginViewController.swift */; };
 		8148964525E61D1700AF92BC /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148964425E61D1700AF92BC /* Share.swift */; };
 		8148966725E6316700AF92BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8148966625E6316700AF92BC /* GoogleService-Info.plist */; };
@@ -147,6 +153,12 @@
 		813B43B525ED49B1008B6C44 /* TeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaViewController.swift; sourceTree = "<group>"; };
 		813B43B925ED4AAC008B6C44 /* ShakeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeTableViewCell.swift; sourceTree = "<group>"; };
 		813B43BA25ED4AAC008B6C44 /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
+		813B43BF25ED52FA008B6C44 /* tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip.png; sourceTree = "<group>"; };
+		813B43C025ED52FA008B6C44 /* categoryRank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categoryRank.png; sourceTree = "<group>"; };
+		813B43C425ED5342008B6C44 /* hollys.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hollys.png; sourceTree = "<group>"; };
+		813B43C525ED5342008B6C44 /* ediya.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ediya.png; sourceTree = "<group>"; };
+		813B43C625ED5342008B6C44 /* starbucks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starbucks.png; sourceTree = "<group>"; };
+		813B43C725ED5342008B6C44 /* twosome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twosome.png; sourceTree = "<group>"; };
 		8148964025E61BBB00AF92BC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8148964425E61D1700AF92BC /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		8148966625E6316700AF92BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -294,6 +306,12 @@
 		8148963925E61ABF00AF92BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				813B43C525ED5342008B6C44 /* ediya.png */,
+				813B43C425ED5342008B6C44 /* hollys.png */,
+				813B43C625ED5342008B6C44 /* starbucks.png */,
+				813B43C725ED5342008B6C44 /* twosome.png */,
+				813B43C025ED52FA008B6C44 /* categoryRank.png */,
+				813B43BF25ED52FA008B6C44 /* tip.png */,
 				6217548325E7EEA2004FFAE9 /* like_list.png */,
 				6217548025E7EEA2004FFAE9 /* logout.png */,
 				6217547E25E7EEA2004FFAE9 /* myUpdate.png */,
@@ -462,12 +480,16 @@
 			files = (
 				6217548A25E7EEA2004FFAE9 /* like_list.png in Resources */,
 				6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */,
+				813B43C825ED5343008B6C44 /* hollys.png in Resources */,
 				8138C36325E5F74D00F5887D /* LaunchScreen.storyboard in Resources */,
 				6217548825E7EEA2004FFAE9 /* on.png in Resources */,
 				8148969725E64A9000AF92BC /* login.png in Resources */,
 				814896AB25E6683800AF92BC /* naver.png in Resources */,
+				813B43C125ED52FA008B6C44 /* tip.png in Resources */,
+				813B43C925ED5343008B6C44 /* ediya.png in Resources */,
 				814896A925E6683800AF92BC /* google.png in Resources */,
 				6217548925E7EEA2004FFAE9 /* off.png in Resources */,
+				813B43CA25ED5343008B6C44 /* starbucks.png in Resources */,
 				8148966725E6316700AF92BC /* GoogleService-Info.plist in Resources */,
 				8148966F25E632D300AF92BC /* kakao_login_medium_wide.png in Resources */,
 				6217548725E7EEA2004FFAE9 /* logout.png in Resources */,
@@ -476,10 +498,12 @@
 				6217548425E7EEA2004FFAE9 /* qa.png in Resources */,
 				8148967A25E63D3200AF92BC /* yes_like.png in Resources */,
 				814896AA25E6683800AF92BC /* kakao.png in Resources */,
+				813B43CB25ED5343008B6C44 /* twosome.png in Resources */,
 				8138C35E25E5F74900F5887D /* Main.storyboard in Resources */,
 				8148967025E632D300AF92BC /* kakao_login_medium_narrow.png in Resources */,
 				8148967B25E63D3200AF92BC /* splash.png in Resources */,
 				8148967925E63D3200AF92BC /* no_like.png in Resources */,
+				813B43C225ED52FA008B6C44 /* categoryRank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

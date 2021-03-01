@@ -271,7 +271,7 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxb-uj-PCz">
                                                             <rect key="frame" x="0.0" y="34" width="390" height="136"/>
-                                                            <state key="normal" title="Button" image="프랜차이즈"/>
+                                                            <state key="normal" title="Button" image="tip.png"/>
                                                             <connections>
                                                                 <action selector="btnAdminTip:" destination="PJr-zs-sca" eventType="touchUpInside" id="NUl-iG-abD"/>
                                                             </connections>
@@ -315,28 +315,28 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hz-kB-qE9">
                                                                     <rect key="frame" x="0.0" y="0.0" width="85" height="86"/>
-                                                                    <state key="normal" title="Button" image="스타벅스"/>
+                                                                    <state key="normal" title="Button" image="starbucks.png"/>
                                                                     <connections>
                                                                         <action selector="btnStarbucksMove:" destination="XWR-sh-1kI" eventType="touchUpInside" id="r0t-1K-ogw"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fpk-Ww-04K">
                                                                     <rect key="frame" x="95" y="0.0" width="85" height="86"/>
-                                                                    <state key="normal" title="Button" image="이디야"/>
+                                                                    <state key="normal" title="Button" image="ediya.png"/>
                                                                     <connections>
                                                                         <action selector="btnEdiyaMove:" destination="XWR-sh-1kI" eventType="touchUpInside" id="UyI-Xe-GND"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAk-XU-bcs">
                                                                     <rect key="frame" x="190" y="0.0" width="85" height="86"/>
-                                                                    <state key="normal" title="Button" image="투썸"/>
+                                                                    <state key="normal" title="Button" image="twosome.png"/>
                                                                     <connections>
                                                                         <action selector="btnTwosomeMove:" destination="XWR-sh-1kI" eventType="touchUpInside" id="Nsu-pe-yuJ"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgL-mj-8IY">
                                                                     <rect key="frame" x="285" y="0.0" width="85" height="86"/>
-                                                                    <state key="normal" title="Button" image="할리스"/>
+                                                                    <state key="normal" title="Button" image="hollys.png"/>
                                                                     <connections>
                                                                         <action selector="btnHollysMove:" destination="XWR-sh-1kI" eventType="touchUpInside" id="P9H-Ly-zLs"/>
                                                                     </connections>
@@ -382,7 +382,7 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4v-qZ-DW9">
                                                             <rect key="frame" x="0.0" y="39" width="380" height="141"/>
-                                                            <state key="normal" title="Button" image="카테고리 랭킹"/>
+                                                            <state key="normal" title="Button" image="categoryRank.png"/>
                                                             <connections>
                                                                 <action selector="btnCategoryRankMove:" destination="EyJ-HG-l0S" eventType="touchUpInside" id="dnK-5P-IEw"/>
                                                             </connections>
@@ -2288,6 +2288,9 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="banner01" width="1080" height="441"/>
+        <image name="categoryRank.png" width="548" height="148"/>
+        <image name="ediya.png" width="500" height="500"/>
+        <image name="hollys.png" width="500" height="500"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="kakao.png" width="500" height="500"/>
         <image name="key" catalog="system" width="86" height="128"/>
@@ -2303,13 +2306,10 @@
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <image name="qa.png" width="500" height="500"/>
         <image name="signout.png" width="500" height="500"/>
+        <image name="starbucks.png" width="500" height="500"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
-        <image name="스타벅스" width="500" height="500"/>
-        <image name="이디야" width="500" height="500"/>
-        <image name="카테고리 랭킹" width="1096" height="296"/>
-        <image name="투썸" width="500" height="500"/>
-        <image name="프랜차이즈" width="1090" height="292"/>
-        <image name="할리스" width="500" height="500"/>
+        <image name="tip.png" width="545" height="146"/>
+        <image name="twosome.png" width="500" height="500"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

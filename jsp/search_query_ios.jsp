@@ -6,7 +6,7 @@
     request.setCharacterEncoding("utf-8");
     String search = request.getParameter("search");
 
-	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
+	String url_mysql = "jdbc:mysql://localhost/MOCA?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
 

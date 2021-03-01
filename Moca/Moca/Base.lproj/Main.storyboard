@@ -274,7 +274,6 @@
                                                             <state key="normal" title="Button" image="tip.png"/>
                                                             <connections>
                                                                 <action selector="btnAdminTip:" destination="PJr-zs-sca" eventType="touchUpInside" id="NUl-iG-abD"/>
-                                                                <segue destination="5FS-1P-hu4" kind="show" identifier="tipPageMove" id="aPF-cz-7wn"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -289,6 +288,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btnTip" destination="rxb-uj-PCz" id="Wsm-FG-KsM"/>
+                                            <segue destination="5FS-1P-hu4" kind="show" identifier="tipPageMove" id="7ib-4H-ebS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BrandRankTableViewCell" rowHeight="180" id="XWR-sh-1kI" customClass="BrandRankTableViewCell" customModule="Moca" customModuleProvider="target">
@@ -2310,7 +2310,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="7ae-kd-euu">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="12" navigationOrientation="horizontal" spineLocation="none" id="uAH-jV-d2W" customClass="OnboardingViewController" customModule="testPageView" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="12" navigationOrientation="horizontal" spineLocation="none" id="uAH-jV-d2W" customClass="OnboardingViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8E2-dd-gRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788" y="2383"/>
@@ -2323,7 +2323,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTb-it-bUO" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTb-it-bUO" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t2.png" translatesAutoresizingMaskIntoConstraints="NO" id="7YA-pw-gRP">
@@ -2380,7 +2380,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0J-bQ-V9N" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0J-bQ-V9N" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t1.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-tC-XNc">
@@ -2441,7 +2441,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I7-1V-ODl" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I7-1V-ODl" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t3.png" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-lA-YzY">
@@ -2503,7 +2503,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Zx-IF5" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Zx-IF5" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t4.png" translatesAutoresizingMaskIntoConstraints="NO" id="ja0-Qx-xnK">
@@ -2565,7 +2565,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TT2-ne-Kgp" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TT2-ne-Kgp" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t5.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYy-2h-hmT">
@@ -2627,7 +2627,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccs-PH-Y5G" customClass="CardView" customModule="testPageView" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccs-PH-Y5G" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-pH-UYG">

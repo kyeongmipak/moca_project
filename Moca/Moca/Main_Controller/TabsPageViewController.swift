@@ -1,16 +1,14 @@
 //
-//  ProductDetailViewController.swift
+//  TabsPageViewController.swift
 //  Moca
 //
-//  Created by 박경미 on 2021/02/24.
+//  Created by 박경미 on 2021/03/01.
 //
 
 import UIKit
 
-class ProductDetailViewController: UIViewController {
-    
-    var reveiveItem: BrandRankDBModel = BrandRankDBModel()
-    
+class TabsPageViewController: UIPageViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

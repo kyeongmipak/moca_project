@@ -2326,7 +2326,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTb-it-bUO" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t2.png" translatesAutoresizingMaskIntoConstraints="NO" id="7YA-pw-gRP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t03.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7YA-pw-gRP">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2383,7 +2383,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0J-bQ-V9N" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t1.png" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-tC-XNc">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t02.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="uJb-tC-XNc">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2444,7 +2444,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I7-1V-ODl" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t3.png" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-lA-YzY">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t04.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-lA-YzY">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2506,7 +2506,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofR-Zx-IF5" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t4.png" translatesAutoresizingMaskIntoConstraints="NO" id="ja0-Qx-xnK">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t05.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ja0-Qx-xnK">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2568,7 +2568,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TT2-ne-Kgp" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t5.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYy-2h-hmT">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t06.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="kYy-2h-hmT">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2630,7 +2630,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccs-PH-Y5G" customClass="CardView" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="8" y="52" width="374" height="750"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login.png" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-pH-UYG">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t01.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="hXN-pH-UYG">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="750"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2706,11 +2706,12 @@
         <image name="signout.png" width="500" height="500"/>
         <image name="starbucks.png" width="500" height="500"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
-        <image name="t1.png" width="1170" height="2532"/>
-        <image name="t2.png" width="1170" height="2532"/>
-        <image name="t3.png" width="1170" height="2532"/>
-        <image name="t4.png" width="1170" height="2532"/>
-        <image name="t5.png" width="1170" height="2532"/>
+        <image name="t01.jpeg" width="1170" height="2153"/>
+        <image name="t02.jpeg" width="1170" height="2213"/>
+        <image name="t03.jpeg" width="1170" height="2187"/>
+        <image name="t04.jpeg" width="1170" height="2191"/>
+        <image name="t05.jpeg" width="1170" height="2223"/>
+        <image name="t06.jpeg" width="1170" height="2261"/>
         <image name="tip.png" width="545" height="146"/>
         <image name="twosome.png" width="500" height="500"/>
         <systemColor name="opaqueSeparatorColor">

@@ -2307,10 +2307,10 @@
             </objects>
             <point key="canvasLocation" x="-1278" y="1836"/>
         </scene>
-        <!--Onboarding View Controller-->
+        <!--Tip Page View Controller-->
         <scene sceneID="7ae-kd-euu">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="12" navigationOrientation="horizontal" spineLocation="none" id="uAH-jV-d2W" customClass="OnboardingViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="12" navigationOrientation="horizontal" spineLocation="none" id="uAH-jV-d2W" customClass="TipPageViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8E2-dd-gRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1278" y="2548"/>

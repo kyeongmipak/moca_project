@@ -10,6 +10,7 @@ import KakaoSDKAuth // 카카오 로그인
 import KakaoSDKUser // 카카오 유저정보
 import GoogleSignIn // 구글 로그인
 
+
 class LoginViewController: UIViewController, GIDSignInDelegate {
     
     @IBOutlet weak var googleLoginButton: GIDSignInButton!
@@ -37,8 +38,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     @IBAction func btnKakaoLogin(_ sender: UIButton) {
-        // 카카오톡 설치 여부 확인
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
+        if (AuthApi.isKakaoTalkLoginAvailable()) {// 카카오톡 설치 여부 확인
+            //설치가 되있으면 어플로 로그인을 실행
             AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {
                     // 예외 처리 (로그인 취소 등)
@@ -53,8 +54,26 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
                     
                     //카카오 로그인을 통해 사용자 토큰을 발급 받은 후 사용자 관리 API 호출
                     self.setUserInfo()
-                    self.performSegue(withIdentifier: "secondVC", sender: self)
+                    self.performSegue(withIdentifier: "sgMain", sender: self)
+                }
+            }
+        }else{ // 카카오 로그인시 어플이 안깔려있으면 카카오 웹으로 로그인을 실행함
+            //AuthApi.shared.loginWithKakaoAccount(prompts:[.Login])으로 지정하면 로그인 상태여도 로그인을 물어봄
+            AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                if let error = error {
+                    print("error",error)
+                }
+                else {
+                    print("loginWithKakaoAccount() success.")
                     
+                    //do something
+                    _ = oauthToken
+                    // 어세스토큰
+                    let accessToken = oauthToken?.accessToken
+                    
+                    //카카오 로그인을 통해 사용자 토큰을 발급 받은 후 사용자 관리 API 호출
+                    self.setUserInfo()
+                    self.performSegue(withIdentifier: "sgMain", sender: self)
                 }
             }
         }

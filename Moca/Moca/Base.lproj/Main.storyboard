@@ -97,7 +97,6 @@
                                 <state key="normal" title="Button" image="kakao.png"/>
                                 <connections>
                                     <action selector="btnKakaoLogin:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="iU8-ov-FQN"/>
-                                    <action selector="btnKakaoLoingApp:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="CIe-XJ-jgb"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-ju-pVt" customClass="GIDSignInButton">

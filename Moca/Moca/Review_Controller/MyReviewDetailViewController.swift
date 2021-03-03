@@ -47,9 +47,8 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
         lbl_notice.attributedText = attributedStr;
         
         // text의 range 중에서 "~"라는 글자는 UIColor를 red로 변경
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: (lbl_notice.text! as NSString).range(of: "수정"))
-        // text의 range 중에서 "Point"라는 글자는 UIColor를 orange로 변경
-        // attributedStr.addAttribute(.foregroundColor, value: UIColor.orange, range: (lbl_notice.text! as NSString).range(of: "Point"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.blue, range: (lbl_notice.text! as NSString).range(of: "수정"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: (lbl_notice.text! as NSString).range(of: "삭제"))
         
         // 설정이 적용된 text를 label의 attributedText에 저장
         lbl_notice.attributedText = attributedStr
@@ -97,7 +96,6 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
     
     
     @IBAction func moreMenu(_ sender: UIBarButtonItem) {
-        
         
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         

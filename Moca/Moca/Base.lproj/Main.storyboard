@@ -3715,12 +3715,13 @@
                     <navigationItem key="navigationItem" id="qdV-qG-APk">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zVe-j0-4gA">
                             <connections>
-                                <action selector="btnWriteReview:" destination="Rqb-Fe-9nQ" id="c7e-br-9qw"/>
+                                <action selector="btnWriteReview:" destination="Rqb-Fe-9nQ" id="im7-7W-1h1"/>
                                 <segue destination="TYj-2H-gkt" kind="show" identifier="sgWriteReview" id="DcI-eb-cOE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="rightBarButton" destination="zVe-j0-4gA" id="68F-UF-MP9"/>
                         <outlet property="tableList" destination="MjK-2P-D5L" id="fxh-lP-BVU"/>
                     </connections>
                 </viewController>
@@ -3941,7 +3942,7 @@
         <!--My 리뷰 리스트-->
         <scene sceneID="Dhx-yv-kyn">
             <objects>
-                <viewController title="My 리뷰 리스트" id="yO7-nj-DsF" customClass="MyReviewListController" customModule="main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="My 리뷰 리스트" id="yO7-nj-DsF" customClass="MyReviewListController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uzf-8C-jg2">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3951,7 +3952,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="91" id="l1W-bP-q7g" customClass="MyReviewTableCell" customModule="main" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="91" id="l1W-bP-q7g" customClass="MyReviewTableCell" customModule="Moca" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="358" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l1W-bP-q7g" id="eq6-NS-dKU">
@@ -4007,7 +4008,7 @@
         <!--My Review Detail View Controller-->
         <scene sceneID="NJ2-xr-3CF">
             <objects>
-                <viewController id="HAh-zm-Q2B" customClass="MyReviewDetailViewController" customModule="main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HAh-zm-Q2B" customClass="MyReviewDetailViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tib-YT-uq0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

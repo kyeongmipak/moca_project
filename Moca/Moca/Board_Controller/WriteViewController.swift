@@ -9,6 +9,8 @@ import UIKit
 
 class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate, CheckBoardNoProtocol, UITextViewDelegate {
     
+    
+    // MARK: - protocol func Setting
     func itemDownloadedBoardNo(items: String) {
         boardNo = ""
         print("items \(items)")
@@ -24,6 +26,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         })
     }
     
+    // MARK: - 변수 Setting
     @IBOutlet var tv_boardContent: UITextView!
     @IBOutlet var txt_boardTitle: UITextField!
     @IBOutlet var iv_boardImgView: UIImageView!
@@ -36,6 +39,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
     var check = 0
     var boardNo = ""
     
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,7 +72,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         lbl_notice.attributedText = attributedStr
     } // end
     
-    
+    // MARK: - func Setting
     @IBAction func btnPhoto(_ sender: UIButton) {
         let photoAlert = UIAlertController(title: "사진 가져오기", message: "Photo Library에서 사진을 가져 옵니다.", preferredStyle: UIAlertController.Style.actionSheet) // Alert가 화면 밑에서 돌출
         
@@ -133,7 +137,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         }
     } // imgupload func end
     
-    
+    // placeholder 관련 func
     func textViewDidBeginEditing(_ textView: UITextView) {
         if tv_boardContent.textColor == UIColor.lightGray {
             tv_boardContent.text = nil

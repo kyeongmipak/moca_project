@@ -185,7 +185,11 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var ITEMS:[ReviewDBModel] = []
     var TextITEM:[ReviewDBModel] = []
     var receiveItem:[ReviewDBModel] = []
+    @IBOutlet var rightBarButton: UIBarButtonItem!
     var menuNO = ReviewDBModel()
+
+    
+    
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -202,12 +206,22 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         
         self.tableList.delegate = self
         self.tableList.dataSource = self
+        
+        // Hide Setting (잘됨... 흠)
+//        if Share.userEmail != "" {
+//            navigationItem.rightBarButtonItem = rightBarButton // show
+//        } else {
+//            navigationItem.rightBarButtonItem = nil // hide
+//        }
+        
     }
     
     // MARK: - func & delegate func Setting
+    
+    
     @IBAction func btnWriteReview(_ sender: UIBarButtonItem) {
         if Share.userEmail != "" {
-            performSegue(withIdentifier: "sgWriteReview", sender: sender)
+//            performSegue(withIdentifier: "sgWriteReview", sender: sender)
         } else {
             let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 리뷰 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
@@ -215,6 +229,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             self.present(resultAlert, animated: true, completion: nil)
         }
     }
+    
     
     func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)

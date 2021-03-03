@@ -81,42 +81,18 @@ class DetailViewController: UIViewController {
             self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
     }
     
-    
-    
-    @IBAction func updateBtn(_ sender: UIButton) {
+    @IBAction func moreMenu(_ sender: UIBarButtonItem) {
         
-    }
+//        if Share.userEmail == receiveItem.userEmail {
+//            self.navigationItem.setHidesBackButton(false, animated:true)
+//            
+//        } else {
+//            self.navigationItem.setHidesBackButton(true, animated:true)
+//        }
+    } // func end
+            
     
-    @IBAction func deleteBtn(_ sender: UIButton) {
-        // Delete 잘됨
-//        let resultAlert = UIAlertController(title: "완료", message: "정말 삭제하시겠습니까? 삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
-//        let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
-            
-//            let txtNo = self.txtNo.text
-            
-//            let deleteModel = DeleteModel() // instance 선언
-//            let result = deleteModel.deleteItems(txtNo: self.txtNo)
-//
-//            if result == true {
-//                let resultAlert = UIAlertController(title: "완료", message: "삭제가 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
-//                let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
-//                    self.navigationController?.popViewController(animated: true) // 현재화면 종료
-//                })
-//                resultAlert.addAction(onAction)
-//                self.present(resultAlert, animated: true, completion: nil)
-//            } else {
-//                // insert 실패
-//                let resultAlert = UIAlertController(title: "실패", message: "문제가 발생했습니다. 같은 에러가 지속적으로 발생하면 관리자에게 문의주세요.", preferredStyle: UIAlertController.Style.alert)
-//                let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-//                resultAlert.addAction(onAction)
-//                self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
-//            }
-//        })
-//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler:nil)
-//        resultAlert.addAction(onAction)
-//        resultAlert.addAction(cancelAction)
-//        present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
-//    }
+    
     
     /*
      // MARK: - Navigation

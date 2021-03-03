@@ -2770,13 +2770,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1j-Td-aYe">
-                                <rect key="frame" x="24" y="169" width="335" height="34"/>
+                                <rect key="frame" x="24" y="153" width="335" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBF-9c-Chc">
-                                <rect key="frame" x="274" y="411" width="97" height="38"/>
+                                <rect key="frame" x="274" y="395" width="97" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="tintColor" systemColor="labelColor"/>
@@ -2789,7 +2789,7 @@
                                 </connections>
                             </button>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-ZM-FBl">
-                                <rect key="frame" x="24" y="235" width="343" height="154"/>
+                                <rect key="frame" x="24" y="219" width="343" height="154"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="내용을 작성해주세요.">
@@ -2803,33 +2803,33 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H56-Pa-a08">
-                                <rect key="frame" x="28" y="218" width="331" height="1"/>
+                                <rect key="frame" x="28" y="202" width="331" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04p-Cc-vHm">
-                                <rect key="frame" x="36" y="448" width="331" height="1"/>
+                                <rect key="frame" x="36" y="432" width="331" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qs6-b9-QBI">
-                                <rect key="frame" x="38" y="459" width="326" height="200"/>
+                                <rect key="frame" x="38" y="443" width="326" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="for-vO-T1x">
-                                <rect key="frame" x="36" y="671" width="331" height="1"/>
+                                <rect key="frame" x="36" y="655" width="331" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="사진 첨부" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79f-q6-Re9">
-                                <rect key="frame" x="38" y="422" width="64" height="21"/>
+                                <rect key="frame" x="38" y="406" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ga-62-Cwt">
-                                <rect key="frame" x="32" y="683" width="322" height="132"/>
+                                <rect key="frame" x="32" y="670" width="322" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -3289,7 +3289,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="zor-5E-3Pf">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="kdj-gS-7Ph"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" id="kdj-gS-7Ph">
+                            <connections>
+                                <action selector="moreMenu:" destination="zvb-4a-QyX" id="cRQ-mD-a27"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="iv_boardImg" destination="NJm-Dq-9go" id="1t4-7e-zTA"/>

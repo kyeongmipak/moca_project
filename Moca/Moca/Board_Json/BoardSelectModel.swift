@@ -66,6 +66,7 @@ class BoardSelectModel: NSObject{
             
             //  scode는 jsonElement의 code값인데, String으로 형변환 시켜.
             if let boardNo = jsonElement["boardNo"] as? String,
+               let userEmail = jsonElement["userEmail"] as? String,
                let userNickname = jsonElement["userNickname"] as? String,
                let boardTitle = jsonElement["boardTitle"] as? String,
                let boardContent = jsonElement["boardContent"] as? String,
@@ -74,31 +75,12 @@ class BoardSelectModel: NSObject{
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
                 //                print(">>>")
                 // print(title, content, txtNo)
-                let query = BoardModel(boardNo: boardNo, userNickname: userNickname, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, boardInsertDate: boardInsertDate)
+                let query = BoardModel(boardNo: boardNo, userEmail: userEmail, userNickname: userNickname, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, boardInsertDate: boardInsertDate)
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
-                //                query.txtNo = txtNo
-                //                query.title = title
-                //                query.content = content
-                //                query.name = name
-                //                query.insertDate = insertDate
-                
-                //이미지 배열 만들어서 배열에 이미지 담아주고, 불러주기
-                //                 let url = URL(string: "http://127.0.0.1:8080/test/\(name)")
-                //                 let data = try! Data(contentsOf: url!)
-                //                 imglocations.add(data)
-                //cell.imgView.image = UIImage(data: data)
             }
-            //locations.add(query) // locations 배열에 한뭉텅이씩 담기
         }
         DispatchQueue.main.async(execute: {() -> Void in
             self.delegate.itemDownloaded(items: locations)
-            // self.delegate.itemDownloaded(items: locations, imgItem: imglocations as! [Data])
         })
     }
-    
-    // 이미지 png/jpg를 바꿔줄 떄 사용 (?) 
-//    func getDocumentDirectory() -> URL {
-//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-//        return paths[0]
-//    }
 } // END

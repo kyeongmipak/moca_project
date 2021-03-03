@@ -11,6 +11,7 @@ class BoardModel: NSObject{
     
     // Properties (Java의 field)
     var boardNo: String?
+    var userEmail: String?
     var userNickname: String?
     var boardTitle: String?
     var boardContent: String?
@@ -23,8 +24,9 @@ class BoardModel: NSObject{
     }
     
     // constructor
-    init(boardNo: String, userNickname: String, boardTitle: String, boardContent: String, boardImg: String, boardInsertDate: String){
+    init(boardNo: String, userEmail: String, userNickname: String, boardTitle: String, boardContent: String, boardImg: String, boardInsertDate: String){
         self.boardNo = boardNo
+        self.userEmail = userEmail
         self.userNickname = userNickname
         self.boardTitle = boardTitle
         self.boardContent = boardContent

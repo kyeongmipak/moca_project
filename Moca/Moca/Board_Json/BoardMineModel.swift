@@ -72,6 +72,7 @@ class BoardMineModel: NSObject{
             
             //  scode는 jsonElement의 code값인데, String으로 형변환 시켜.
             if let boardNo = jsonElement["boardNo"] as? String,
+               let userEmail = jsonElement["userEmail"] as? String,
                let userNickname = jsonElement["userNickname"] as? String,
                let boardTitle = jsonElement["boardTitle"] as? String,
                let boardContent = jsonElement["boardContent"] as? String,
@@ -80,7 +81,7 @@ class BoardMineModel: NSObject{
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
                 //                print(">>>")
                 // print(title, content, txtNo)
-                let query = BoardModel(boardNo: boardNo, userNickname: userNickname, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, boardInsertDate: boardInsertDate)
+                let query = BoardModel(boardNo: boardNo, userEmail: userEmail, userNickname: userNickname, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, boardInsertDate: boardInsertDate)
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
             }
         }

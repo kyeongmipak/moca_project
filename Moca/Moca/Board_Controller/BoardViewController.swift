@@ -2,28 +2,135 @@
 //  BoardViewController.swift
 //  Moca
 //
-//  Created by 박경미 on 2021/02/24.
+//  Created by RiaSong on 2021/03/01.
 //
 
 import UIKit
 
-class BoardViewController: UIViewController {
-
+class BoardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, BoardModelProtocol, BoardMineModelProtocol  {
+    
+    // MARK: - 변수 Setting
+    @IBOutlet var postTypeSegmentControl: UISegmentedControl!
+    @IBOutlet var tableList: UITableView!
+    
+    var feedItem: NSArray = NSArray()
+    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // instance 선언
+        let boardModel = BoardSelectModel()
+        boardModel.delegate = self
+        boardModel.downloadItems()
+        
+    } // viewDidLoad END -----------------
+    
+    // MARK: - TableView Setting
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        let selectedIndex = self.postTypeSegmentControl.selectedSegmentIndex
+        switch selectedIndex{
+        case 0: // 전체 글
+            return feedItem.count
+        case 1: // 내가 쓴 글
+            return feedItem.count
+        default:
+            return 0
+        }
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let selectedIndex = self.postTypeSegmentControl.selectedSegmentIndex
+        switch selectedIndex{
+        case 0: // 전체 게시글
+            print("tv:0")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+            
+            // 현재 배열값으로 들어온 cell 풀어서 정의.
+            let item: BoardModel = feedItem[indexPath.row] as! BoardModel
+            cell.textLabel?.text = "\(item.boardTitle!)"
+            cell.detailTextLabel?.text = "\(item.userNickname!)"
+            
+            return cell
+            
+        case 1: // 내가 쓴 글
+            print("tv:1")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+            
+            // 현재 배열값으로 들어온 cell 풀어서 정의.
+            let item: BoardModel = feedItem[indexPath.row] as! BoardModel
+            
+            cell.textLabel?.text = "\(item.boardTitle!)"
+            cell.detailTextLabel?.text = "\(item.userNickname!)"
+            
+            return cell
+            
+        default:
+            return UITableViewCell()
+        }
+    }
+    
+    // MARK: - Protocol func Setting
+    func itemDownloaded(items: NSArray) {
+        // JsonModel의 locations에 담겨져서 넘어옴.
+        feedItem = items
+        for i in 0..<feedItem.count {
+            print("feedItem[\(i)]:\(feedItem[i])")
+        }
+        self.tableList.reloadData()
+    }
+    
+    func boarditemDownloaded(items: NSArray) {
+        feedItem = items
+        for i in 0..<feedItem.count {
+            print("feedItem[\(i)]:\(feedItem[i])")
+        }
+        self.tableList.reloadData()
+    }
 
-    /*
+    // MARK: Segment Control Setting
+    @IBAction func onChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            // 전체 게시글 보기
+            print("si:0")
+            let boardModel = BoardSelectModel()
+            boardModel.delegate = self // jsonModel에서 일 시키고, 그걸 self(여기서 쓸거임)
+            boardModel.downloadItems() // jsonModel에서 이 메소드 실행해서 일 처리해!
+            self.postTypeSegmentControl.selectedSegmentIndex = 0
+            self.tableList.reloadData()
+        }else if sender.selectedSegmentIndex == 1{
+            // 내가 쓴 글 모아보기
+            print("si:1")
+            let boardModel2 = BoardMineModel()
+            boardModel2.delegate = self
+            boardModel2.downloadItems()
+            self.postTypeSegmentControl.selectedSegmentIndex = 1
+            self.tableList.reloadData()
+        }
+    } // segment control END -----------------------------------
+    
+    @IBAction func btnWriteBoard(_ sender: UIButton) {
+        if Share.userEmail != "" {
+            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
+        } else {
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 글 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            self.present(resultAlert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//    }
+    
 
-}
+} // MARK: - END

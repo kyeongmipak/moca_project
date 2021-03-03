@@ -14,6 +14,9 @@ import KakaoSDKCommon
 import GoogleSignIn
 import Firebase
 
+// naver
+import NaverThirdPartyLogin
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -32,6 +35,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         GIDSignIn.sharedInstance()?.clientID = "408732211320-g2pg9o7h2qmhu3dhulpdba1k3sfm5q6m.apps.googleusercontent.com"
+        
+        
+        // 네이버 로그인 연동 설정
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        
+        // 네이버 앱으로 인증하는 방식을 활성화
+        instance?.isNaverAppOauthEnable = true
+        
+        // SafariViewController에서 인증하는 방식을 활성화
+        instance?.isInAppOauthEnable = true
+        
+        // 인증 화면을 iPhone의 세로 모드에서만 사용하기
+        instance?.isOnlyPortraitSupportedInIphone()
+        
+        // 네이버 아이디로 로그인하기 설정
+        // 애플리케이션을 등록할 때 입력한 URL Scheme
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        // 애플리케이션 등록 후 발급받은 클라이언트 아이디
+        instance?.consumerKey = kConsumerKey
+        // 애플리케이션 등록 후 발급받은 클라이언트 시크릿
+        instance?.consumerSecret = kConsumerSecret
+        // 애플리케이션 이름
+        instance?.appName = kServiceAppName
+        
         
         return true
     }

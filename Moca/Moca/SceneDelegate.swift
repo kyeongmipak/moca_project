@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import KakaoSDKAuth
+import KakaoSDKAuth // kakao
+import NaverThirdPartyLogin // naver
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -20,6 +21,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }
         
+        // naver token 요청,인스턴스를 생성하여 토큰을 요청
+        NaverThirdPartyLoginConnection
+            .getSharedInstance()?
+            .receiveAccessToken(URLContexts.first?.url)
+        
+    }
+    
     //--------------------------------------
     
     
@@ -59,5 +67,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 
-}
+
 }

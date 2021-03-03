@@ -40,6 +40,17 @@
 		626026D125EF5F9600F8AF45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D025EF5F9600F8AF45 /* DetailViewController.swift */; };
 		626026D425EF6ED100F8AF45 /* BoardDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D325EF6ED100F8AF45 /* BoardDeleteModel.swift */; };
 		626026DA25EF70FF00F8AF45 /* BoardUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D925EF70FF00F8AF45 /* BoardUpdateModel.swift */; };
+		626026DD25EF89F600F8AF45 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026DC25EF89F600F8AF45 /* CollectionViewCell.swift */; };
+		626026E025EF8A7200F8AF45 /* ReviewDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026DF25EF8A7200F8AF45 /* ReviewDBModel.swift */; };
+		626026E325EF8AD200F8AF45 /* AllReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026E225EF8AD200F8AF45 /* AllReviewModel.swift */; };
+		626026EB25EF8DC300F8AF45 /* PhotoDetailReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026EA25EF8DC300F8AF45 /* PhotoDetailReviewController.swift */; };
+		626026EE25EF8ED700F8AF45 /* StarAvgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026ED25EF8ED700F8AF45 /* StarAvgModel.swift */; };
+		626026F125EF8EF800F8AF45 /* MenuNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026F025EF8EF800F8AF45 /* MenuNoModel.swift */; };
+		626026F425EF8FE100F8AF45 /* StarAvgTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026F325EF8FE100F8AF45 /* StarAvgTableViewCell.swift */; };
+		626026F725EF908100F8AF45 /* GetCollectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026F625EF908100F8AF45 /* GetCollectionTableCell.swift */; };
+		626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FA25EF90FB00F8AF45 /* CollectionCell.swift */; };
+		626026FF25EF92C700F8AF45 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */; };
+		6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */; };
 		62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */; };
 		62F015E625E8B4F2007BB073 /* LikeDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E525E8B4F2007BB073 /* LikeDBModel.swift */; };
 		62F015E925E8B511007BB073 /* LikeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E825E8B511007BB073 /* LikeJsonModel.swift */; };
@@ -148,6 +159,17 @@
 		626026D025EF5F9600F8AF45 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		626026D325EF6ED100F8AF45 /* BoardDeleteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDeleteModel.swift; sourceTree = "<group>"; };
 		626026D925EF70FF00F8AF45 /* BoardUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardUpdateModel.swift; sourceTree = "<group>"; };
+		626026DC25EF89F600F8AF45 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		626026DF25EF8A7200F8AF45 /* ReviewDBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewDBModel.swift; sourceTree = "<group>"; };
+		626026E225EF8AD200F8AF45 /* AllReviewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllReviewModel.swift; sourceTree = "<group>"; };
+		626026EA25EF8DC300F8AF45 /* PhotoDetailReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailReviewController.swift; sourceTree = "<group>"; };
+		626026ED25EF8ED700F8AF45 /* StarAvgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarAvgModel.swift; sourceTree = "<group>"; };
+		626026F025EF8EF800F8AF45 /* MenuNoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuNoModel.swift; sourceTree = "<group>"; };
+		626026F325EF8FE100F8AF45 /* StarAvgTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarAvgTableViewCell.swift; sourceTree = "<group>"; };
+		626026F625EF908100F8AF45 /* GetCollectionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCollectionTableCell.swift; sourceTree = "<group>"; };
+		626026FA25EF90FB00F8AF45 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyTableViewCell.swift; sourceTree = "<group>"; };
 		62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		62F015E525E8B4F2007BB073 /* LikeDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDBModel.swift; sourceTree = "<group>"; };
 		62F015E825E8B511007BB073 /* LikeJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeJsonModel.swift; sourceTree = "<group>"; };
@@ -270,6 +292,9 @@
 		626026BB25EF46DE00F8AF45 /* Review_Json */ = {
 			isa = PBXGroup;
 			children = (
+				626026E225EF8AD200F8AF45 /* AllReviewModel.swift */,
+				626026ED25EF8ED700F8AF45 /* StarAvgModel.swift */,
+				626026F025EF8EF800F8AF45 /* MenuNoModel.swift */,
 			);
 			path = Review_Json;
 			sourceTree = "<group>";
@@ -348,6 +373,7 @@
 		8148963625E61A3500AF92BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				626026DF25EF8A7200F8AF45 /* ReviewDBModel.swift */,
 				8148968B25E6471B00AF92BC /* MenuDBModel.swift */,
 				626026BD25EF4B6A00F8AF45 /* BoardModel.swift */,
 				8148969925E6545700AF92BC /* SearchDBModel.swift */,
@@ -454,7 +480,14 @@
 		8148968025E6429000AF92BC /* Review_Controller */ = {
 			isa = PBXGroup;
 			children = (
+				626026F325EF8FE100F8AF45 /* StarAvgTableViewCell.swift */,
 				8148969F25E6653100AF92BC /* ReviewViewController.swift */,
+				626026FA25EF90FB00F8AF45 /* CollectionCell.swift */,
+				626026DC25EF89F600F8AF45 /* CollectionViewCell.swift */,
+				626026F625EF908100F8AF45 /* GetCollectionTableCell.swift */,
+				626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */,
+				6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */,
+				626026EA25EF8DC300F8AF45 /* PhotoDetailReviewController.swift */,
 			);
 			path = Review_Controller;
 			sourceTree = "<group>";
@@ -681,6 +714,7 @@
 				626026C725EF561E00F8AF45 /* WriteViewController.swift in Sources */,
 				813B439F25ED446C008B6C44 /* CategoryTabsView.swift in Sources */,
 				626026BE25EF4B6A00F8AF45 /* BoardModel.swift in Sources */,
+				626026FF25EF92C700F8AF45 /* PhotoTableViewCell.swift in Sources */,
 				8148969025E6486200AF92BC /* SearchTableViewCell.swift in Sources */,
 				813B43A725ED45B9008B6C44 /* AllMenuTableViewCell.swift in Sources */,
 				6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */,
@@ -697,15 +731,19 @@
 				8148964525E61D1700AF92BC /* Share.swift in Sources */,
 				813B43BC25ED4AAC008B6C44 /* ShakeViewController.swift in Sources */,
 				813B43A225ED4505008B6C44 /* CategoryRankViewController.swift in Sources */,
+				626026F125EF8EF800F8AF45 /* MenuNoModel.swift in Sources */,
 				8138C35725E5F74900F5887D /* AppDelegate.swift in Sources */,
 				8138C35925E5F74900F5887D /* SceneDelegate.swift in Sources */,
+				626026EE25EF8ED700F8AF45 /* StarAvgModel.swift in Sources */,
 				813B436825ED2B51008B6C44 /* BannerTableViewCell.swift in Sources */,
 				62F015F425E8B962007BB073 /* LikeDeleteModel.swift in Sources */,
 				8148967425E63BB300AF92BC /* MainViewController.swift in Sources */,
 				626026D125EF5F9600F8AF45 /* DetailViewController.swift in Sources */,
 				813B439A25ED4008008B6C44 /* HollysTableViewCell.swift in Sources */,
+				626026E325EF8AD200F8AF45 /* AllReviewModel.swift in Sources */,
 				813B43B125ED48AD008B6C44 /* BeverageTableViewCell.swift in Sources */,
 				813B437E25ED38FC008B6C44 /* BrandRankViewController.swift in Sources */,
+				626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */,
 				62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */,
 				626026CA25EF565100F8AF45 /* CheckBoardNoModel.swift in Sources */,
 				62F015F125E8B955007BB073 /* LikeCountModel.swift in Sources */,
@@ -717,6 +755,8 @@
 				6247CFA425EDDD800020B509 /* TipCardView.swift in Sources */,
 				813B436F25ED30FC008B6C44 /* BrandRankTableViewCell.swift in Sources */,
 				813B43B625ED49B1008B6C44 /* TeaTableViewCell.swift in Sources */,
+				626026E025EF8A7200F8AF45 /* ReviewDBModel.swift in Sources */,
+				626026DD25EF89F600F8AF45 /* CollectionViewCell.swift in Sources */,
 				8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
 				813B438625ED3ADB008B6C44 /* BrandRankDBModel.swift in Sources */,
@@ -727,8 +767,11 @@
 				813B439525ED3EBB008B6C44 /* TwosomeViewController.swift in Sources */,
 				8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */,
 				813B439925ED4008008B6C44 /* HollysViewController.swift in Sources */,
+				626026F425EF8FE100F8AF45 /* StarAvgTableViewCell.swift in Sources */,
 				5FF819C725EF3CB500B56CAF /* ImageSelectModel.swift in Sources */,
 				813B436525ED2A1B008B6C44 /* BannerCollectionViewCell.swift in Sources */,
+				626026EB25EF8DC300F8AF45 /* PhotoDetailReviewController.swift in Sources */,
+				626026F725EF908100F8AF45 /* GetCollectionTableCell.swift in Sources */,
 				813B43A625ED45B9008B6C44 /* AllMenuViewController.swift in Sources */,
 				6247CFA825EDDDCD0020B509 /* TipPageViewController.swift in Sources */,
 				62F015E625E8B4F2007BB073 /* LikeDBModel.swift in Sources */,
@@ -743,6 +786,7 @@
 				6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */,
 				813B437B25ED38BA008B6C44 /* TabsPageViewController.swift in Sources */,
 				813B438F25ED3CB3008B6C44 /* EdiyaTableViewCell.swift in Sources */,
+				6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */,
 				813B439425ED3EBB008B6C44 /* TwosomeTableViewCell.swift in Sources */,
 				6217549525E7F7C2004FFAE9 /* OftenViewController.swift in Sources */,
 				62F015EE25E8B947007BB073 /* LikeInsertModel.swift in Sources */,

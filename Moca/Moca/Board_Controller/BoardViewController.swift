@@ -134,8 +134,8 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("눌렸니?")
         if segue.identifier == "sgDetailBoard"{
+            print("눌렸니?")
             let selectedIndex = self.postTypeSegmentControl.selectedSegmentIndex
             // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.
             let cell = sender as! UITableViewCell

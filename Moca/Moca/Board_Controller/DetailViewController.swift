@@ -81,10 +81,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-
             let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
             let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
-                
                 
                     let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
                     let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
@@ -123,11 +121,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
 //            lbl_NonPhoto.text = ""
             check = 1
         }
-        
         // 켜놓은 앨범 화면 없애기
         dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func moreMenu(_ sender: UIBarButtonItem) {
         

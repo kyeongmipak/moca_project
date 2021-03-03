@@ -2695,7 +2695,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zvb-4a-QyX" kind="show" identifier="sgDetailBoard" trigger="accessoryAction" id="MEZ-EJ-OUy"/>
+                                            <segue destination="zvb-4a-QyX" kind="show" identifier="sgDetailBoard" id="ALL-jw-cnI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2822,8 +2822,8 @@
                                     <fragment content="취미">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2837,8 +2837,8 @@
                                     <fragment content="일상을">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2852,8 +2852,8 @@
                                     <fragment content="자유롭게">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2867,8 +2867,8 @@
                                     <fragment content="공유할">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2882,8 +2882,8 @@
                                     <fragment content="수">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2897,8 +2897,8 @@
                                     <fragment content="있는">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2912,8 +2912,8 @@
                                     <fragment content="게시판입니다">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2929,8 +2929,8 @@
                                     <fragment content="정치">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2944,8 +2944,8 @@
                                     <fragment content="종교">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2959,8 +2959,8 @@
                                     <fragment content="등">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2974,8 +2974,8 @@
                                     <fragment content="타인의">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -2989,8 +2989,8 @@
                                     <fragment content="가치관">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3004,8 +3004,8 @@
                                     <fragment content="차이로">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3019,8 +3019,8 @@
                                     <fragment content="논란을">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3034,8 +3034,8 @@
                                     <fragment content="일으킬">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3049,8 +3049,8 @@
                                     <fragment content="수">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3064,8 +3064,8 @@
                                     <fragment content="있는">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3079,8 +3079,8 @@
                                     <fragment content="게시물은">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3094,8 +3094,8 @@
                                     <fragment content="지양해주시길">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3109,8 +3109,8 @@
                                     <fragment content="바랍니다">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3126,8 +3126,8 @@
                                     <fragment content="성인">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3141,8 +3141,8 @@
                                     <fragment content="광고">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3156,8 +3156,8 @@
                                     <fragment content="부적합한">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3171,8 +3171,8 @@
                                     <fragment content="사진">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3186,8 +3186,8 @@
                                     <fragment content="및">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3201,8 +3201,8 @@
                                     <fragment content="내용이">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3216,8 +3216,8 @@
                                     <fragment content="포함된">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3231,8 +3231,8 @@
                                     <fragment content="게시글은">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3246,8 +3246,8 @@
                                     <fragment content="통보">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3261,8 +3261,8 @@
                                     <fragment content="없이">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3276,8 +3276,8 @@
                                     <fragment content="삭제될">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3291,8 +3291,8 @@
                                     <fragment content="수">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3306,8 +3306,8 @@
                                     <fragment content="있습니다">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                                            <font key="NSOriginalFont" metaFont="system" size="12"/>
+                                            <font key="NSFont" metaFont="system"/>
+                                            <font key="NSOriginalFont" metaFont="cellTitle"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -3472,19 +3472,19 @@
         <!--포토리뷰-->
         <scene sceneID="pyA-gY-kt8">
             <objects>
-                <viewController id="Rqb-Fe-9nQ" customClass="TestViewController" customModule="main" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rqb-Fe-9nQ" customClass="PhotoDetailReviewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgK-Yl-80e">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-Te-UvL">
-                                <rect key="frame" x="16" y="60" width="358" height="734"/>
+                                <rect key="frame" x="16" y="104" width="358" height="690"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MjK-2P-D5L">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="734"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="690"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell3" rowHeight="60" id="QgT-Lp-yZN" customClass="testStarAvgTableViewCell" customModule="main" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell3" rowHeight="60" id="QgT-Lp-yZN" customClass="testStarAvgTableViewCell" customModule="Moca" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="358" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QgT-Lp-yZN" id="AtY-MT-xi7">
@@ -3510,10 +3510,10 @@
                                                     <outlet property="lbl_starAvg" destination="CvH-4Q-jou" id="4id-zQ-Tvy"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="139" id="RN9-tE-W2I" customClass="TestGetCollectionTableCell" customModule="main" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" rowHeight="139" id="RN9-tE-W2I" customClass="TestGetCollectionTableCell" customModule="Moca" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="88" width="358" height="139"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RN9-tE-W2I" id="XaY-Ei-jIG" customClass="PhotoCollectionViewCell" customModule="main" customModuleProvider="target">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RN9-tE-W2I" id="XaY-Ei-jIG" customClass="PhotoCollectionViewCell" customModule="Moca" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="358" height="139"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -3528,7 +3528,7 @@
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dwm-U6-lHc" customClass="testCollectionCell" customModule="main" customModuleProvider="target">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="dwm-U6-lHc" customClass="testCollectionCell" customModule="Moca" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="350" height="128"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CBM-Yv-6HI">
@@ -3553,7 +3553,7 @@
                                                     <outlet property="collectionView" destination="aEf-bN-S5F" id="sNu-eZ-Oca"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell2" rowHeight="408" id="p2G-71-kB9" customClass="TestTableViewCell" customModule="main" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell2" rowHeight="408" id="p2G-71-kB9" customClass="TestTableViewCell" customModule="Moca" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="227" width="358" height="408"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p2G-71-kB9" id="9sZ-2U-TO1">
@@ -3606,7 +3606,7 @@
                                                     <outlet property="tv_content" destination="4aL-Nw-Yq8" id="h6Y-Kg-Q0d"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell4" rowHeight="408" id="9Rh-t1-YXn" customClass="TestTextOnlyTableViewCell" customModule="main" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell4" rowHeight="408" id="9Rh-t1-YXn" customClass="TestTextOnlyTableViewCell" customModule="Moca" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="635" width="358" height="408"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Rh-t1-YXn" id="pWn-fD-ynd">
@@ -3692,7 +3692,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="aiY-ci-w7K" customClass="CollectionViewCell" customModule="main" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="aiY-ci-w7K" customClass="CollectionViewCell" customModule="Moca" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9v0-4H-Qih">
@@ -3708,6 +3708,7 @@
                                         <size key="customSize" width="390" height="127"/>
                                         <connections>
                                             <outlet property="imgView" destination="236-CB-cdX" id="Wbk-X7-xvL"/>
+                                            <segue destination="Rqb-Fe-9nQ" kind="show" id="Z6Q-fT-X89"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -3723,7 +3724,7 @@
                     <tabBarItem key="tabBarItem" title="포토리뷰" image="photo.on.rectangle.angled" catalog="system" id="NgV-RO-InV"/>
                     <navigationItem key="navigationItem" id="p3W-ho-Ucf"/>
                     <connections>
-                        <outlet property="collectionView" destination="cXu-uu-6It" id="i0j-lZ-aqY"/>
+                        <outlet property="collectionView" destination="cXu-uu-6It" id="fxH-Tt-3qH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vb-KT-RGM" sceneMemberID="firstResponder"/>

@@ -49,10 +49,4 @@ class PhotoTableViewCell: UITableViewCell {
 
     }
     
-
-
-    
-    
-    
-    
 }

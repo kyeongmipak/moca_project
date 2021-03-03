@@ -3684,6 +3684,9 @@
                                                             <rect key="frame" x="308" y="28" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" title="신고"/>
+                                                            <connections>
+                                                                <action selector="btn_ReportAction2:" destination="9Rh-t1-YXn" eventType="touchUpInside" id="pK2-IY-zHy"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </tableViewCellContentView>

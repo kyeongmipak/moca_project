@@ -10,14 +10,7 @@ import Cosmos
 import TinyConstraints
 
 
-class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate {
-
-    
-    
-    var ITEMS:[ReviewDBModel] = []
-    var TextITEM:[ReviewDBModel] = []
-    var receiveItem:[ReviewDBModel] = []
-    var menuNO = ReviewDBModel()
+class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate {
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,7 +22,6 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         print("feedItem Count >>>> ", feedItem.count)
         return feedItem.count + 2
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
@@ -51,24 +43,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             tableList.rowHeight = 150
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
             
-            
             return cell!
         } else {
-
+            
             let item: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
-  
+            
             if item.reviewImg! == "null" {
-//                // 이미지 없을 때
+                //                // 이미지 없을 때
                 tableList.rowHeight = 150
-//                //print("이미지 없을때\(item.reviewImg)")
+                //                //print("이미지 없을때\(item.reviewImg)")
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell4", for: indexPath) as? TextOnlyTableViewCell
-
+                
                 let TextITEM: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
-
+                
                 cell?.lbl_userNickname?.text = "\(TextITEM.userNickname!)"
                 cell?.lbl_reviewInsertDate?.text = "\(TextITEM.reviewInsertDate!)"
                 cell?.tv_reviewContent?.text = "\(TextITEM.reviewContent!)"
-
+                
                 // 별점 설정
                 if let rating = Double("\(TextITEM.reviewStar!)") {
                     print("☆☆☆☆☆",item.reviewStar!)
@@ -90,16 +81,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 let receiveItem: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
                 
                 // lable & textView 설정
-                
                 cell!.lbl_name?.text = "\(receiveItem.userNickname!)"
                 cell!.lbl_date?.text = "\(receiveItem.reviewInsertDate!)"
-                
-//                cell!.tv_content.layer.borderColor = UIColor.black.cgColor
-//                cell!.tv_content.layer.cornerRadius = 10
-//                cell!.tv_content.layer.borderWidth = 0.5
-//                cell!.tv_content.layer.masksToBounds = true
                 cell!.tv_content?.text = "\(String(describing: receiveItem.reviewContent!))"
-
+                
                 // 별점 설정
                 if let rating = Double("\(receiveItem.reviewStar!)") {
                     print("☆☆☆☆☆",receiveItem.reviewStar!)
@@ -108,13 +93,14 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell!.ratingStar.settings.updateOnTouch = false
                 }
                 
+                // 이미지뷰
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)")
                 print("url : \(String(describing: url))")
                 let data = try! Data(contentsOf: url!)
-
+                
                 cell!.iv_img!.image = UIImage(data: data)
                 
-//                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.frame.height * 2 - 1
+                //                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.frame.height * 2 - 1
                 cell!.iv_img!.layer.cornerRadius = 10
                 cell!.iv_img!.layer.borderWidth = 1
                 cell!.iv_img!.layer.borderColor = UIColor.clear.cgColor
@@ -122,24 +108,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell!.iv_img!.clipsToBounds = true
                 cell!.iv_img!.layer.masksToBounds = true
                 cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.bounds.width / 6
-
-              
+                
                 
                 print("이미지 있을때 endline")
                 return cell!
             }
-           
+            
             
             //
             
-//            return cell!
-//            tableList.reloadData()
+            //            return cell!
+            //            tableList.reloadData()
         }
-//        tableList.reloadData()
+        //        tableList.reloadData()
     }
     
     
-
+    
     // MARK: Protocol func Setting
     func itemDownloaded(items: NSArray) {
         print("----itemDownload 함수 작동-----")
@@ -148,14 +133,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         feedItem = items
         print("items \(items)")
         
-//        print("feedItem 다운")
-//        receiveItem_collection = feedItem as! [DBModel]
-//        print("receiver")
-        
         ITEMS = feedItem as! [ReviewDBModel]
         print(feedItem[0] as! ReviewDBModel)
         let item = feedItem[0] as! ReviewDBModel
-
+        
         for i in 0..<feedItem.count {
             if ITEMS[i].reviewImg != "null"{
                 receiveItem.append(ITEMS[i])
@@ -163,9 +144,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 TextITEM.append(ITEMS[i])
             }
         }
-        
         check = 1
-        
         tableList.reloadData()
     }
     
@@ -182,6 +161,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         tableList.reloadData()
     }
     
+    // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         let menuModel = MenuModel()
         menuModel.delegate = self
@@ -193,17 +173,19 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     }
     
     
+    // MARK: 변수 Setting
     @IBOutlet var tableList: UITableView!
     
-    
-    // MARK: 변수 Setting
     var feedItem:NSArray = NSArray()
     //    var receiveItem = DBModel() // DBModel 객체 선언
     var starAvg : String = "" // DB모델
     var menuNo : String = "" // DB모델....
     var check = 0
     var rate :Double = Double()
-    
+    var ITEMS:[ReviewDBModel] = []
+    var TextITEM:[ReviewDBModel] = []
+    var receiveItem:[ReviewDBModel] = []
+    var menuNO = ReviewDBModel()
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -216,16 +198,16 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         let starAvgModel = StarAvgModel()
         starAvgModel.delegate = self
         starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
-        print(">>>>>>\(menuNo)")
+        print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuNO.menuNo!)")
         
         self.tableList.delegate = self
         self.tableList.dataSource = self
     }
     
-    
+    // MARK: - func & delegate func Setting
     @IBAction func btnWriteReview(_ sender: UIBarButtonItem) {
         if Share.userEmail != "" {
-            //            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
+            performSegue(withIdentifier: "sgWriteReview", sender: sender)
         } else {
             let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 리뷰 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
@@ -237,57 +219,43 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-            let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-            let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
-                
-                    let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
-                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
-                        self.navigationController?.popViewController(animated: true) // 현재화면 종료
-                    })
-                    resultAlert.addAction(onAction)
-                    self.present(resultAlert, animated: true, completion: nil)
-            })
-            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
+        let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
+            
+            let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
             resultAlert.addAction(onAction)
-            resultAlert.addAction(cancelAction)
-            self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+            self.present(resultAlert, animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
+        resultAlert.addAction(onAction)
+        resultAlert.addAction(cancelAction)
+        self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
     }
     
-//    extension PhotoDetailReviewController: PhotoTableViewCellDelegate {
-//      func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
-//        guard let row = tableList.indexPath(for: customCell)?.row else { return }
+    func customCell(_ customCell: TextOnlyTableViewCell, btn_ReportAction2 button: UIButton) {
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
+            
+            let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+            resultAlert.addAction(onAction)
+            self.present(resultAlert, animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
+        resultAlert.addAction(onAction)
+        resultAlert.addAction(cancelAction)
+        self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+    }
+    
+    // MARK: - Navigation -> 브랜드명, 음료명, 메뉴 넘버 넘겨줘야 함!
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "sgWriteReview"{
 //
-//        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-//
-//            let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
-//            let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
-//
-//                    let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
-//                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
-//                        self.navigationController?.popViewController(animated: true) // 현재화면 종료
-//                    })
-//                    resultAlert.addAction(onAction)
-//                    self.present(resultAlert, animated: true, completion: nil)
-//            })
-//            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
-//            resultAlert.addAction(onAction)
-//            resultAlert.addAction(cancelAction)
-//            self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
-//
-//
-//      }
+//        }
 //    }
     
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 } // MARK: - END

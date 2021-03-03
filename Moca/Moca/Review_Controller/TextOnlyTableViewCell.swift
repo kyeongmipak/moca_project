@@ -9,9 +9,14 @@ import UIKit
 import Cosmos
 import TinyConstraints
 
-class TextOnlyTableViewCell: UITableViewCell {
+protocol TextOnlyTableViewCellDelegate: class {
+  func customCell(_ customCell: TextOnlyTableViewCell, btn_ReportAction2 button: UIButton)
+}
 
+class TextOnlyTableViewCell: UITableViewCell {
     
+    weak var delegate: TextOnlyTableViewCellDelegate?
+
     @IBOutlet var lbl_userNickname: UILabel!
     @IBOutlet var ratingStar: CosmosView!
     @IBOutlet var tv_reviewContent: UITextView!
@@ -28,4 +33,10 @@ class TextOnlyTableViewCell: UITableViewCell {
         ratingStar.settings.fillMode = .half
     }
 
-}
+    @IBAction func btn_ReportAction2(_ sender: UIButton) {
+        delegate?.customCell(self, btn_ReportAction2: sender)
+    }
+    
+    
+    
+} // END

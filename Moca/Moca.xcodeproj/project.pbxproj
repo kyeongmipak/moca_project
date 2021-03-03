@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D3E8377CA58D641DF585023 /* Pods_Moca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */; };
+		5FF819C125EF3A8100B56CAF /* imageUpLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C025EF3A8100B56CAF /* imageUpLoadModel.swift */; };
 		6217548425E7EEA2004FFAE9 /* qa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547D25E7EEA2004FFAE9 /* qa.png */; };
 		6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547E25E7EEA2004FFAE9 /* myUpdate.png */; };
 		6217548625E7EEA2004FFAE9 /* signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547F25E7EEA2004FFAE9 /* signout.png */; };
@@ -103,6 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FF819C025EF3A8100B56CAF /* imageUpLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageUpLoadModel.swift; sourceTree = "<group>"; };
 		6217547D25E7EEA2004FFAE9 /* qa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qa.png; path = ../../../image/myPage_Button/qa.png; sourceTree = "<group>"; };
 		6217547E25E7EEA2004FFAE9 /* myUpdate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myUpdate.png; path = ../../../image/myPage_Button/myUpdate.png; sourceTree = "<group>"; };
 		6217547F25E7EEA2004FFAE9 /* signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signout.png; path = ../../../image/myPage_Button/signout.png; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FF819BF25EF3A4B00B56CAF /* profile_Json */ = {
+			isa = PBXGroup;
+			children = (
+				5FF819C025EF3A8100B56CAF /* imageUpLoadModel.swift */,
+			);
+			path = profile_Json;
+			sourceTree = "<group>";
+		};
 		6217549225E7F751004FFAE9 /*  Other_Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 				6217549225E7F751004FFAE9 /*  Other_Controller */,
 				8148963725E61A4600AF92BC /* Main_Json */,
 				62F015EC25E8B7C6007BB073 /* Other_Json */,
+				5FF819BF25EF3A4B00B56CAF /* profile_Json */,
 				8148963625E61A3500AF92BC /* Model */,
 				8148968E25E647C200AF92BC /* Cell */,
 				8138C35625E5F74900F5887D /* AppDelegate.swift */,
@@ -654,6 +665,7 @@
 				813B438625ED3ADB008B6C44 /* BrandRankDBModel.swift in Sources */,
 				813B437225ED3396008B6C44 /* CategoryRankTableViewCell.swift in Sources */,
 				813B437525ED373D008B6C44 /* BrandTabCell.swift in Sources */,
+				5FF819C125EF3A8100B56CAF /* imageUpLoadModel.swift in Sources */,
 				813B439525ED3EBB008B6C44 /* TwosomeViewController.swift in Sources */,
 				8148969D25E6650400AF92BC /* BoardViewController.swift in Sources */,
 				813B439925ED4008008B6C44 /* HollysViewController.swift in Sources */,

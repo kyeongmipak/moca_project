@@ -26,6 +26,7 @@ class MyPageViewController: UIViewController {
     }
     
     // 알림 설정 기능 구현해서 넣기 -> 사진 바뀌는 것만 추가함
+    // 개같은 박인우..........
     @objc func touchToAlert(sender: UITapGestureRecognizer) {
         
         if (sender.state == .ended) {

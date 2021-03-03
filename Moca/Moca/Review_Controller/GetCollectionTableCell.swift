@@ -65,8 +65,8 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         ITEMS = feedItem as! [ReviewDBModel]
         //        self.collectionView.reloadData()
         
-//        print(feedItem[0] as! DBModel)
-//        let item = feedItem[0] as! DBModel
+        //        print(feedItem[0] as! DBModel)
+        //        let item = feedItem[0] as! DBModel
         
         for i in 0..<feedItem.count {
             if ITEMS[i].reviewImg != "null"{
@@ -84,23 +84,23 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
     
     // 위 아래 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 15
     }
     
     // 옆 간격
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
+        return 15
     }
-//
+    //
     // cell 사이즈( 옆 라인을 고려하여 설정 )
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = collectionView.frame.width / 3 - 1 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
-        //        let width = collectionView.frame.width // 1개씩 배치
-        //        let layout = collectionView.scrollIndicatorInsets = .horizontal(1)
-        //        let flowLayout = UICollectionViewFlowLayout()
-        //        flowLayout.scrollDirection = .horizontal
-        
+        let width = collectionView.frame.width / 3 - 15 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
+//                let width = collectionView.frame.width // 1개씩 배치
+                let layout = collectionView.scrollIndicatorInsets = .horizontal(1)
+                let flowLayout = UICollectionViewFlowLayout()
+                flowLayout.scrollDirection = .horizontal
+
         let size = CGSize(width: width, height: width)
         
         return size
@@ -111,6 +111,7 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
     //MARK: Collection view datasource and Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? CollectionCell
+        
         self.cellDelegate?.collectionView(collectioncell: cell, didTappedInTableview: self)
     }
     
@@ -132,6 +133,19 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem[indexPath.row].reviewImg!)")
         let data = try! Data(contentsOf: url!)
         cell.iv_testImg.image = UIImage(data: data)
+        
+        cell.iv_testImg.layer.cornerRadius = cell.iv_testImg.frame.height/4
+        cell.iv_testImg.layer.cornerRadius = 20
+        cell.iv_testImg.layer.borderWidth = 1
+        cell.iv_testImg.layer.borderColor = UIColor.clear.cgColor
+        // 뷰의 경계에 맞춰준다
+        cell.iv_testImg.clipsToBounds = true
+        
+        //        let lineWidth: CGFloat = 2
+        //        let maskPath = UIBezierPath(roundedRect: cell.iv_testImg.bounds.insetBy(dx: lineWidth/2, dy: lineWidth/2),
+        //                                    byRoundingCorners: [.allCorners],
+        //                                    cornerRadii: CGSize(width: cell.iv_testImg.frame.width/2, height: cell.iv_testImg.frame.height/2)).cgPath
+        
         
         
         return cell

@@ -27,6 +27,19 @@ class CollectionCell: UICollectionViewCell {
     func updateCellWithImage(name:String) {
         self.cellImageName = name
         self.iv_testImg.image = UIImage(named: name)
+        
+//        self.iv_testImg.layer.cornerRadius = self.iv_testImg.frame.height/2
+//        self.iv_testImg.layer.borderWidth = 1
+//        self.iv_testImg.layer.borderColor = UIColor.clear.cgColor
+//        // 뷰의 경계에 맞춰준다
+//        self.iv_testImg.clipsToBounds = true
+        //        iv_testImg.layer.cornerRadius = iv_testImg.frame.width/10
+        //        iv_testImg.clipsToBounds = true
+        //
+        //        iv_testImg.backgroundColor = UIColor.white
+        //        iv_testImg.layer.cornerRadius = 8.0
+        //        iv_testImg.clipsToBounds = true
+        
     }
 }
 

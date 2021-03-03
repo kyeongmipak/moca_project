@@ -1,8 +1,8 @@
 //
 //  ImageUploadModel.swift
-//  FileUpload_01
+//  moca
 //
-//  Created by Kenny Hahn on 2021/01/23.
+//  Created by RiaSong on 2021/02/28.
 //
 
 import Foundation
@@ -56,9 +56,6 @@ class ReviewInsertModel:NSObject{
     func uploadImageFile(email: String, menuNo: String, reviewContent: String, reviewStar: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
-        //let url = URL(string: "\(filepath), ImageUpload.jsp")!
-        
-        //     var url = URL(string: "http://127.0.0.1:8080/jsp/ImageUpload2.jsp")!
         var url = "http://127.0.0.1:8080/moca/jsp/review_image_insert.jsp"
         let urlAdd = "?email=\(Share.userEmail)&menuNo=\(menuNo)&reviewContent=\(reviewContent)&reviewStar=\(reviewStar)"
         url = url + urlAdd

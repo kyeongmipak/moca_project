@@ -27,6 +27,12 @@ class PhotoTableViewCell: UITableViewCell {
         
         ratingStar.settings.fillMode = .half
 
+        iv_img!.layer.cornerRadius = iv_img!.frame.height/4
+        iv_img!.layer.cornerRadius = 20
+        iv_img!.layer.borderWidth = 1
+        iv_img!.layer.borderColor = UIColor.clear.cgColor
+        // 뷰의 경계에 맞춰준다
+        iv_img!.clipsToBounds = true
         // Configure the view for the selected state
     }
 

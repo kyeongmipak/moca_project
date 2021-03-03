@@ -45,8 +45,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             cell?.lbl_starAvg.text = starAvg
             
         } else if indexPath.row == 1 {
-            tableList.rowHeight = 128
+            tableList.rowHeight = 150
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
+            
             
             return cell!
         } else {
@@ -117,7 +118,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 
                 cell?.lbl_userNickname?.text = "\(TextITEM.userNickname!)"
                 cell?.lbl_reviewInsertDate?.text = "\(TextITEM.reviewInsertDate!)"
-                cell?.tv_reviewContent?.text = "\(TextITEM.reviewContent)"
+                cell?.tv_reviewContent?.text = "\(TextITEM.reviewContent!)"
 
                 // 별점 설정
                 if let rating = Double("\(TextITEM.reviewStar!)") {
@@ -146,7 +147,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 //                cell!.tv_content.layer.cornerRadius = 10
 //                cell!.tv_content.layer.borderWidth = 0.5
 //                cell!.tv_content.layer.masksToBounds = true
-                cell!.tv_content?.text = "\(String(describing: receiveItem.reviewContent))"
+                cell!.tv_content?.text = "\(String(describing: receiveItem.reviewContent!))"
 
                 // 별점 설정
                 if let rating = Double("\(receiveItem.reviewStar!)") {
@@ -159,7 +160,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)")
                 print("url : \(String(describing: url))")
                 let data = try! Data(contentsOf: url!)
+
                 cell!.iv_img!.image = UIImage(data: data)
+
+
                 
                 print("이미지 있을때 endline")
                 return cell!

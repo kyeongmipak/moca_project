@@ -51,6 +51,8 @@
 		626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FA25EF90FB00F8AF45 /* CollectionCell.swift */; };
 		626026FF25EF92C700F8AF45 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */; };
 		6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */; };
+		62EC655C25EF99A500C9FED4 /* WriteReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */; };
+		62EC655F25EF9B0200C9FED4 /* ReviewInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC655E25EF9B0200C9FED4 /* ReviewInsertModel.swift */; };
 		62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */; };
 		62F015E625E8B4F2007BB073 /* LikeDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E525E8B4F2007BB073 /* LikeDBModel.swift */; };
 		62F015E925E8B511007BB073 /* LikeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E825E8B511007BB073 /* LikeJsonModel.swift */; };
@@ -170,6 +172,8 @@
 		626026FA25EF90FB00F8AF45 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyTableViewCell.swift; sourceTree = "<group>"; };
+		62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewController.swift; sourceTree = "<group>"; };
+		62EC655E25EF9B0200C9FED4 /* ReviewInsertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewInsertModel.swift; sourceTree = "<group>"; };
 		62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		62F015E525E8B4F2007BB073 /* LikeDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDBModel.swift; sourceTree = "<group>"; };
 		62F015E825E8B511007BB073 /* LikeJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeJsonModel.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			children = (
 				626026E225EF8AD200F8AF45 /* AllReviewModel.swift */,
 				626026ED25EF8ED700F8AF45 /* StarAvgModel.swift */,
+				62EC655E25EF9B0200C9FED4 /* ReviewInsertModel.swift */,
 				626026F025EF8EF800F8AF45 /* MenuNoModel.swift */,
 			);
 			path = Review_Json;
@@ -488,6 +493,7 @@
 				626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */,
 				6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */,
 				626026EA25EF8DC300F8AF45 /* PhotoDetailReviewController.swift */,
+				62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */,
 			);
 			path = Review_Controller;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				813B436825ED2B51008B6C44 /* BannerTableViewCell.swift in Sources */,
 				62F015F425E8B962007BB073 /* LikeDeleteModel.swift in Sources */,
 				8148967425E63BB300AF92BC /* MainViewController.swift in Sources */,
+				62EC655C25EF99A500C9FED4 /* WriteReviewController.swift in Sources */,
 				626026D125EF5F9600F8AF45 /* DetailViewController.swift in Sources */,
 				813B439A25ED4008008B6C44 /* HollysTableViewCell.swift in Sources */,
 				626026E325EF8AD200F8AF45 /* AllReviewModel.swift in Sources */,
@@ -771,6 +778,7 @@
 				5FF819C725EF3CB500B56CAF /* ImageSelectModel.swift in Sources */,
 				813B436525ED2A1B008B6C44 /* BannerCollectionViewCell.swift in Sources */,
 				626026EB25EF8DC300F8AF45 /* PhotoDetailReviewController.swift in Sources */,
+				62EC655F25EF9B0200C9FED4 /* ReviewInsertModel.swift in Sources */,
 				626026F725EF908100F8AF45 /* GetCollectionTableCell.swift in Sources */,
 				813B43A625ED45B9008B6C44 /* AllMenuViewController.swift in Sources */,
 				6247CFA825EDDDCD0020B509 /* TipPageViewController.swift in Sources */,

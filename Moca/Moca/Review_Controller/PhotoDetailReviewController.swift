@@ -116,7 +116,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 let TextITEM: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
 
                 cell?.lbl_userNickname?.text = "\(TextITEM.userNickname!)"
-                cell?.lbl_reviewInsertDate?.text = "\(TextITEM.reviewInsertDate)"
+                cell?.lbl_reviewInsertDate?.text = "\(TextITEM.reviewInsertDate!)"
                 cell?.tv_reviewContent?.text = "\(TextITEM.reviewContent)"
 
                 // 별점 설정

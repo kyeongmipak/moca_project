@@ -13,6 +13,7 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var postTypeSegmentControl: UISegmentedControl!
     @IBOutlet var tableList: UITableView!
     
+    
     var feedItem: NSArray = NSArray()
     
     // MARK: - viewDidLoad
@@ -115,7 +116,7 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBAction func btnWriteBoard(_ sender: UIButton) {
         if Share.userEmail != "" {
-            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
+            //            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
         } else {
             let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 글 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
@@ -124,40 +125,40 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let boardModel = BoardSelectModel()
+        boardModel.delegate = self
+        boardModel.downloadItems()
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sgDetail"{
-            
+        print("눌렸니?")
+        if segue.identifier == "sgDetailBoard"{
             let selectedIndex = self.postTypeSegmentControl.selectedSegmentIndex
             // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.
             let cell = sender as! UITableViewCell
-            
             switch selectedIndex{
             case 0: // 전체 게시글
-                
                 // 그 위치는 이제 indexPath에서 지정.
                 let indexPath = self.tableList.indexPath(for: cell)
+                print("어디눌렀냐!!!!!!!\(indexPath)")
                 // 보낼 컨트롤러 위치
                 let detailView = segue.destination as! DetailViewController
                 // detailview의 receiveItem에 = feedItem~~~를 보낸다.
                 detailView.receiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BoardModel
-                
             case 1:  // 내가 쓴 게시글
                 // 그 위치는 이제 indexPath에서 지정.
                 let indexPath = self.tableList.indexPath(for: cell)
                 // 보낼 컨트롤러 위치
                 let detailView = segue.destination as! DetailViewController
-                
                 // detailview의 receiveItem에 = feedItem~~~를 보낸다.
                 detailView.receiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BoardModel
-                
             default:
                 break
             }
         }
-        
     }
-    
     
 } // MARK: - END

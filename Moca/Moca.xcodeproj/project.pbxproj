@@ -38,6 +38,8 @@
 		626026CA25EF565100F8AF45 /* CheckBoardNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026C925EF565100F8AF45 /* CheckBoardNoModel.swift */; };
 		626026CE25EF56F400F8AF45 /* BoardInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026CD25EF56F400F8AF45 /* BoardInsertModel.swift */; };
 		626026D125EF5F9600F8AF45 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D025EF5F9600F8AF45 /* DetailViewController.swift */; };
+		626026D425EF6ED100F8AF45 /* BoardDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D325EF6ED100F8AF45 /* BoardDeleteModel.swift */; };
+		626026DA25EF70FF00F8AF45 /* BoardUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026D925EF70FF00F8AF45 /* BoardUpdateModel.swift */; };
 		62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */; };
 		62F015E625E8B4F2007BB073 /* LikeDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E525E8B4F2007BB073 /* LikeDBModel.swift */; };
 		62F015E925E8B511007BB073 /* LikeJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E825E8B511007BB073 /* LikeJsonModel.swift */; };
@@ -144,6 +146,8 @@
 		626026C925EF565100F8AF45 /* CheckBoardNoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoardNoModel.swift; sourceTree = "<group>"; };
 		626026CD25EF56F400F8AF45 /* BoardInsertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardInsertModel.swift; sourceTree = "<group>"; };
 		626026D025EF5F9600F8AF45 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		626026D325EF6ED100F8AF45 /* BoardDeleteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDeleteModel.swift; sourceTree = "<group>"; };
+		626026D925EF70FF00F8AF45 /* BoardUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardUpdateModel.swift; sourceTree = "<group>"; };
 		62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
 		62F015E525E8B4F2007BB073 /* LikeDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDBModel.swift; sourceTree = "<group>"; };
 		62F015E825E8B511007BB073 /* LikeJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeJsonModel.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				626026CD25EF56F400F8AF45 /* BoardInsertModel.swift */,
 				626026C925EF565100F8AF45 /* CheckBoardNoModel.swift */,
 				626026C125EF4BE600F8AF45 /* BoardSelectModel.swift */,
+				626026D925EF70FF00F8AF45 /* BoardUpdateModel.swift */,
+				626026D325EF6ED100F8AF45 /* BoardDeleteModel.swift */,
 			);
 			path = Board_Json;
 			sourceTree = "<group>";
@@ -680,6 +686,7 @@
 				6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */,
 				814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */,
 				813B43AB25ED474C008B6C44 /* CoffeeTableViewCell.swift in Sources */,
+				626026D425EF6ED100F8AF45 /* BoardDeleteModel.swift in Sources */,
 				8148968C25E6471B00AF92BC /* MenuDBModel.swift in Sources */,
 				8148964125E61BBB00AF92BC /* LoginViewController.swift in Sources */,
 				626026CE25EF56F400F8AF45 /* BoardInsertModel.swift in Sources */,
@@ -704,6 +711,7 @@
 				62F015F125E8B955007BB073 /* LikeCountModel.swift in Sources */,
 				813B438225ED3A57008B6C44 /* StarbucksViewController.swift in Sources */,
 				814896A325E6656900AF92BC /* MyPageViewController.swift in Sources */,
+				626026DA25EF70FF00F8AF45 /* BoardUpdateModel.swift in Sources */,
 				8148968425E645CE00AF92BC /* SearchJsonModel.swift in Sources */,
 				813B436C25ED2E38008B6C44 /* TipTableViewCell.swift in Sources */,
 				6247CFA425EDDD800020B509 /* TipCardView.swift in Sources */,

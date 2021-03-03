@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate, CheckBoardNoProtocol {
+class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate, CheckBoardNoProtocol, UITextViewDelegate {
     
     func itemDownloadedBoardNo(items: String) {
         boardNo = ""
@@ -26,8 +26,9 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
     
     @IBOutlet var tv_boardContent: UITextView!
     @IBOutlet var txt_boardTitle: UITextField!
-    @IBOutlet var lbl_userNickname: UILabel!
     @IBOutlet var iv_boardImgView: UIImageView!
+    @IBOutlet var lbl_notice: UITextView!
+    @IBOutlet var lbl_nonPhoto: UILabel!
     
     // UIImagePickerController 객체 생성
     let imagePickerController = UIImagePickerController()
@@ -37,7 +38,34 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbl_nonPhoto.text = "사진을 첨부해주세요."
         imagePickerController.delegate = self
+        
+        // tv placeholder 설정
+        tv_boardContent.delegate = self
+        
+        tv_boardContent.text = "내용을 작성해주세요."
+        tv_boardContent.textColor = UIColor.lightGray
+        tv_boardContent.selectedTextRange = tv_boardContent.textRange(from: tv_boardContent.beginningOfDocument, to: tv_boardContent.beginningOfDocument)
+        
+        // tv 테두리 설정
+        tv_boardContent.layer.borderColor = UIColor.darkGray.cgColor
+        tv_boardContent.layer.cornerRadius = 10
+        tv_boardContent.layer.borderWidth = 0.5
+        tv_boardContent.layer.masksToBounds = true
+        
+        // notice 설정
+        let attributedStr = NSMutableAttributedString(string: lbl_notice.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 9
+        attributedStr.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedStr.length))
+        lbl_notice.attributedText = attributedStr
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: (lbl_notice.text! as NSString).range(of: "삭제"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.blue, range: (lbl_notice.text! as NSString).range(of: "지양"))
+        
+        // 설정이 적용된 text를 label의 attributedText에 저장
+        lbl_notice.attributedText = attributedStr
     } // end
     
     
@@ -70,6 +98,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             iv_boardImgView.image = image
             imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
+            lbl_nonPhoto.text = ""
             check = 1
         }
         // 켜놓은 앨범 화면 없애기
@@ -94,17 +123,51 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
                 }
             })
             
-} else {
-    print("non-imageUploadMode")
-    boardInsertModel.nonImage(boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non-image Upload Success!")
-        DispatchQueue.main.async { () -> Void in
-            self.navigationController?.popViewController(animated: true) // 현재화면 종료
+        } else {
+            print("non-imageUploadMode")
+            boardInsertModel.nonImage(boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non-image Upload Success!")
+                DispatchQueue.main.async { () -> Void in
+                    self.navigationController?.popViewController(animated: true) // 현재화면 종료
+                }
+            })
         }
-    })
-}
-} // imgupload func end
-
-
-
+    } // imgupload func end
+    
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if tv_boardContent.textColor == UIColor.lightGray {
+            tv_boardContent.text = nil
+            tv_boardContent.textColor = UIColor.black
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if tv_boardContent.text.isEmpty {
+            tv_boardContent.text = "내용을 입력해주세요."
+            tv_boardContent.textColor = UIColor.lightGray
+        }
+    }
+    
+//    extension WriteViewController: UITextViewDelegate {
+//        // 텍스트뷰 placeHolder 설정
+//        // 편집이 시작될때
+//
+//        func textViewDidBeginEditing(_ textView: UITextView) { if tv_boardContent.textColor == UIColor.lightGray {// 1번
+//            tv_boardContent.text = nil
+//            tv_boardContent.textColor = UIColor.black
+//        }
+//        }
+//        // 편집이 종료될때
+//        func textViewDidEndEditing(_ textView: UITextView) {
+//            if tv_boardContent.text.isEmpty { // 2번
+//                tv_boardContent.text = "내용을 입력해주세요."
+//                tv_boardContent.textColor = UIColor.lightGray
+//            }
+//        }
+//    }
+    
+    
+    
+    
+    
 } // END
 

@@ -7,26 +7,44 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var receiveItem = BoardModel() // DBModel 객체 선언
-    var txtNo = ""
-    @IBOutlet var lbl_boardTitle: UILabel!
+
+    @IBOutlet var txt_boardTitle: UITextField!
     @IBOutlet var lbl_userNickname: UILabel!
     @IBOutlet var tv_boardContent: UITextView!
     @IBOutlet var iv_boardImg: UIImageView!
     @IBOutlet var lbl_boardInsertDate: UILabel!
-    
+    @IBOutlet var rightBarButton: UIBarButtonItem!
+    @IBOutlet var btnPhotoview: UIButton!
+    var check = 0
+    let imagePickerController = UIImagePickerController()
+    var imageURL: URL?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide Setting
+        if Share.userEmail == receiveItem.userEmail {
+            navigationItem.rightBarButtonItem = rightBarButton // show
+            tv_boardContent.isEditable = true
+            txt_boardTitle.isEnabled = true
+            btnPhotoview.isHidden = false
+        } else {
+            navigationItem.rightBarButtonItem = nil // hide
+            tv_boardContent.isEditable = false // read only
+            txt_boardTitle.isEnabled = false
+            btnPhotoview.isHidden = true
+        }
+        
+        // imagePickerController delegate Setting
+        imagePickerController.delegate = self
+        
         let urlString = receiveItem.boardImg!
         
-        //ReviewNo = receiveItem.reviewNo!
-        
-        lbl_boardTitle.text = receiveItem.boardTitle
+        txt_boardTitle.text = receiveItem.boardTitle
         lbl_userNickname.text = receiveItem.userNickname
         tv_boardContent.text = receiveItem.boardContent
         lbl_boardInsertDate.text = receiveItem.boardInsertDate
@@ -81,16 +99,105 @@ class DetailViewController: UIViewController {
             self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
     }
     
+    @IBAction func btnOpenPhoto(_ sender: UIButton) {
+        
+        let photoAlert = UIAlertController(title: "사진 가져오기", message: "앨범에서 사진을 가져 옵니다.", preferredStyle: UIAlertController.Style.actionSheet) // Alert가 화면 밑에서 돌출
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+            self.imagePickerController.sourceType = .photoLibrary
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        photoAlert.addAction(okAction)
+        photoAlert.addAction(cancelAction)
+        
+        present(photoAlert, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            iv_boardImg.image = image
+            imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
+//            lbl_NonPhoto.text = ""
+            check = 1
+        }
+        
+        // 켜놓은 앨범 화면 없애기
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func moreMenu(_ sender: UIBarButtonItem) {
         
-//        if Share.userEmail == receiveItem.userEmail {
-//            self.navigationItem.setHidesBackButton(false, animated:true)
-//            
-//        } else {
-//            self.navigationItem.setHidesBackButton(true, animated:true)
-//        }
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+        actionsheet.addAction(UIAlertAction(title: "수정", style: UIAlertAction.Style.default, handler: { ACTION in
+            
+            let resultAlert = UIAlertController(title: "완료", message: "게시물이 수정되었습니다.", preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                self.imgUpload()
+            })
+            resultAlert.addAction(onAction)
+            self.present(resultAlert, animated: true, completion: nil)
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: { ACTION in
+            let resultAlert = UIAlertController(title: "MOCA 알림", message: "정말 삭제하시겠습니까? \n삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "삭제", style: UIAlertAction.Style.default, handler: {ACTION in
+                
+                let deleteModel = BoardDeleteModel() // instance 선언
+                let result = deleteModel.deleteItems(boardNo: self.receiveItem.boardNo!)
+                
+                if result == true {
+                    let resultAlert = UIAlertController(title: "완료", message: "삭제가 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                        self.navigationController?.popViewController(animated: true) // 현재화면 종료
+                    })
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+                } else {
+                    // insert 실패
+                    let resultAlert = UIAlertController(title: "실패", message: "문제가 발생했습니다. \n같은 에러가 지속적으로 발생하면 관리자에게 문의주세요.", preferredStyle: UIAlertController.Style.alert)
+                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+                }
+            })
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default, handler:nil)
+            resultAlert.addAction(onAction)
+            resultAlert.addAction(cancelAction)
+            self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+        }))
+        actionsheet.addAction(UIAlertAction(title: "취소", style: UIAlertAction.Style.cancel, handler: nil))
+        present(actionsheet, animated: true, completion: nil)
+
     } // func end
             
+    func imgUpload(){
+        let boardTitle = txt_boardTitle.text!
+        let boardContent = tv_boardContent.text!
+        let boardUpdateModel = BoardUpdateModel()
+        
+        if check == 1 {
+            print("image Update 시작 ----")
+            boardUpdateModel.uploadImageFile(boardNo: receiveItem.boardNo!, boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Update Success")
+                DispatchQueue.main.async { () -> Void in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                print("image Update 완료 ----")
+            })
+        } else {
+            print("non-image Update 시작 ----\(boardContent)")
+            boardUpdateModel.nonImage(boardNo: receiveItem.boardNo!, boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non_image Update Success")
+                DispatchQueue.main.async { () -> Void in
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+            print("non-image Update 완료 ----")
+        }
+    }
     
     
     

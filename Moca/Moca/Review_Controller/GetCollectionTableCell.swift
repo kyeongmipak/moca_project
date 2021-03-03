@@ -12,15 +12,16 @@ protocol CustomCollectionCellDelegate:class {
     //other delegate methods that you can define to perform action in viewcontroller
 }
 
-class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AllReviewProtocol {
+class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AllReviewProtocol, MenuModelProtocol {
     
     weak var cellDelegate:CustomCollectionCellDelegate? //define delegate
     
     var feedItem:NSArray = NSArray()
     var receiveItem:[ReviewDBModel] = [] // DBModel 객체 선언
     var ITEMS:[ReviewDBModel] = []
+//    var menuNO = ReviewDBModel()
     
-    let cellReuseId = "CollectionViewCell"
+    let cellReuseId = "GetCollectionTableCell"
     
     class var customCell : GetCollectionTableCell {
         let cell = Bundle.main.loadNibNamed("GetCollectionTableCell", owner: self, options: nil)?.last
@@ -48,10 +49,14 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         
-        let cellNib = UINib(nibName: "TestGetCollectionTableCell", bundle: nil)
+        let cellNib = UINib(nibName: "GetCollectionTableCell", bundle: nil)
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId)
         
         // instance 선언
+//        let menuModel = MenuModel()
+//        menuModel.delegate = self
+//        menuModel.downloadItems(menuNo: menuNO.menuNo!)
+        
         let allReviewModel = AllReviewModel()
         allReviewModel.delegate = self // jsonModel에서 일 시키고, 그걸 self(여기서 쓸거임)
         allReviewModel.downloadItems() // jsonModel에서 이 메소드 실행해서 일 처리해!
@@ -63,10 +68,6 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         
         feedItem = items
         ITEMS = feedItem as! [ReviewDBModel]
-        //        self.collectionView.reloadData()
-        
-        //        print(feedItem[0] as! DBModel)
-        //        let item = feedItem[0] as! DBModel
         
         for i in 0..<feedItem.count {
             if ITEMS[i].reviewImg != "null"{
@@ -141,56 +142,11 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         // 뷰의 경계에 맞춰준다
         cell.iv_testImg.clipsToBounds = true
         
-        //        let lineWidth: CGFloat = 2
-        //        let maskPath = UIBezierPath(roundedRect: cell.iv_testImg.bounds.insetBy(dx: lineWidth/2, dy: lineWidth/2),
-        //                                    byRoundingCorners: [.allCorners],
-        //                                    cornerRadii: CGSize(width: cell.iv_testImg.frame.width/2, height: cell.iv_testImg.frame.height/2)).cgPath
-        
-        
-        
         return cell
-        
     }
-    
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    //        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-    //    }
 }
 
 
-
-
-
-
-
-//class CustomTableViewCell:UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-//    weak var cellDelegate:CustomCollectionCellDelegate? //define delegate
-//    @IBOutlet weak var myCollectionView: UICollectionView!
-//    var aCategory:ImageCategory?
-//    let cellReuseId = "CollectionViewCell"
-//    class var customCell : CustomTableViewCell {
-//        let cell = Bundle.main.loadNibNamed("CustomTableViewCell", owner: self, options: nil)?.last
-//        return cell as! CustomTableViewCell
-//    }
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        //TODO: need to setup collection view flow layout
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.scrollDirection = .horizontal
-//        flowLayout.itemSize = CGSize(width: 100, height: 140)
-//        flowLayout.minimumLineSpacing = 2.0
-//        flowLayout.minimumInteritemSpacing = 5.0
-//        self.myCollectionView.collectionViewLayout = flowLayout
-//
-//        //Comment if you set Datasource and delegate in .xib
-//        self.myCollectionView.dataSource = self
-//        self.myCollectionView.delegate = self
-//
-//        //register the xib for collection view cell
-//        let cellNib = UINib(nibName: "CustomCollectionViewCell", bundle: nil)
-//        self.myCollectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId)
-//    }
 
 //    //MARK: Instance Methods
 //    func updateCellWith(category:ImageCategory) {

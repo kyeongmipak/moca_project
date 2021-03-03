@@ -10,11 +10,14 @@ import Cosmos
 import TinyConstraints
 
 
-class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol {
+class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate {
+
+    
     
     var ITEMS:[ReviewDBModel] = []
     var TextITEM:[ReviewDBModel] = []
     var receiveItem:[ReviewDBModel] = []
+    var menuNO = ReviewDBModel()
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -26,6 +29,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         print("feedItem Count >>>> ", feedItem.count)
         return feedItem.count + 2
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
@@ -42,7 +46,6 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell!.lbl_starAvg.text = String(rating)
             }
             return cell!
-            cell?.lbl_starAvg.text = starAvg
             
         } else if indexPath.row == 1 {
             tableList.rowHeight = 150
@@ -51,61 +54,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             
             return cell!
         } else {
-//            tableList.rowHeight = 409
-            //tableList.estimatedRowHeight = 409
-//            tableList.rowHeight = UITableView.automaticDimension
-//            tableList.rowHeight = UITableView.automaticDimension + 400
-//
-//            if ((tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? TestTableViewCell) != nil) {
-////                 이미지 있을 때
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? TestTableViewCell
-//
-//            let item: DBModel = feedItem[indexPath.row - 2] as! DBModel
-//                cell!.lbl_name?.text = "\(item.userNickname!)"
-//                cell!.lbl_date?.text = "\(item.reviewInsertDate!)"
-//                cell!.tv_content?.text = "\(item.reviewContent!)"
-//
-//                // 별점 설정
-//                if let rating = Double("\(item.reviewStar!)") {
-//                    print("☆☆☆☆☆",item.reviewStar!)
-//                    print(rating)
-//                    cell!.ratingStar.rating = rating
-//                    cell!.ratingStar.settings.updateOnTouch = false
-//
-//            } else if ((tableView.dequeueReusableCell(withIdentifier: "myCell4", for: indexPath) as? TestTextOnlyTableViewCell) != nil) {
-//                // 이미지 없을 때
-//
-//            }
-//            
-//            if mycell2
-//            
-//            else if my~
-            
-            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? TestTableViewCell
-            
-//            tableList.estimatedRowHeight = 409
-//            tableList.rowHeight = UITableView.automaticDimension
 
-            
-//            let item: DBModel = feedItem[indexPath.row - 2] as! DBModel
-            
-            
-//            print("이거 찍어볼거야 이거이거이거이거이거이거이거 ", item.userNickname)
-            
-            // lable & textView 설정
-//            cell!.lbl_name?.text = "\(item.userNickname!)"
-//            cell!.lbl_date?.text = "\(item.reviewInsertDate!)"
-//            cell!.tv_content?.text = "\(item.reviewContent!)"
-//
-//
-//            // 별점 설정
-//            if let rating = Double("\(item.reviewStar!)") {
-//                print("☆☆☆☆☆",item.reviewStar!)
-//                print(rating)
-//                cell!.ratingStar.rating = rating
-//                cell!.ratingStar.settings.updateOnTouch = false
-//            }
             let item: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
   
             if item.reviewImg! == "null" {
@@ -136,6 +85,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 tableList.rowHeight = UITableView.automaticDimension + 400
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? PhotoTableViewCell
                 
+                cell!.delegate = self
+                
                 let receiveItem: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
                 
                 // lable & textView 설정
@@ -162,8 +113,17 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 let data = try! Data(contentsOf: url!)
 
                 cell!.iv_img!.image = UIImage(data: data)
+                
+//                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.frame.height * 2 - 1
+                cell!.iv_img!.layer.cornerRadius = 10
+                cell!.iv_img!.layer.borderWidth = 1
+                cell!.iv_img!.layer.borderColor = UIColor.clear.cgColor
+                // 뷰의 경계에 맞춰준다
+                cell!.iv_img!.clipsToBounds = true
+                cell!.iv_img!.layer.masksToBounds = true
+                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.bounds.width / 6
 
-
+              
                 
                 print("이미지 있을때 endline")
                 return cell!
@@ -222,6 +182,16 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         tableList.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let menuModel = MenuModel()
+        menuModel.delegate = self
+        menuModel.downloadItems(menuNo: menuNO.menuNo!)
+        
+        let starAvgModel = StarAvgModel()
+        starAvgModel.delegate = self
+        starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
+    }
+    
     
     @IBOutlet var tableList: UITableView!
     
@@ -239,21 +209,74 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("메뉴 넘버 : \(menuNo)")
-        
         let menuModel = MenuModel()
         menuModel.delegate = self
-        menuModel.downloadItems(menuNo: "3")
+        menuModel.downloadItems(menuNo: menuNO.menuNo!)
         
         let starAvgModel = StarAvgModel()
         starAvgModel.delegate = self
-        starAvgModel.downloadItemsStar(menuNo: "3")
+        starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
+        print(">>>>>>\(menuNo)")
         
         self.tableList.delegate = self
         self.tableList.dataSource = self
-        
     }
     
+    
+    @IBAction func btnWriteReview(_ sender: UIBarButtonItem) {
+        if Share.userEmail != "" {
+            //            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
+        } else {
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 리뷰 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            self.present(resultAlert, animated: true, completion: nil)
+        }
+    }
+    
+    func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        
+            let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+            let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
+                
+                    let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
+                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                        self.navigationController?.popViewController(animated: true) // 현재화면 종료
+                    })
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+            })
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
+            resultAlert.addAction(onAction)
+            resultAlert.addAction(cancelAction)
+            self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+    }
+    
+//    extension PhotoDetailReviewController: PhotoTableViewCellDelegate {
+//      func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
+//        guard let row = tableList.indexPath(for: customCell)?.row else { return }
+//
+//        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+//
+//            let resultAlert = UIAlertController(title: "게시글 신고", message: "해당 게시글을 부적절한 게시글로 신고하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+//            let onAction = UIAlertAction(title: "신고", style: UIAlertAction.Style.default, handler: {ACTION in
+//
+//                    let resultAlert = UIAlertController(title: "", message: "신고되었습니다.\n관리자 확인 후 조치하겠습니다.", preferredStyle: UIAlertController.Style.alert)
+//                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+//                        self.navigationController?.popViewController(animated: true) // 현재화면 종료
+//                    })
+//                    resultAlert.addAction(onAction)
+//                    self.present(resultAlert, animated: true, completion: nil)
+//            })
+//            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.destructive, handler:nil)
+//            resultAlert.addAction(onAction)
+//            resultAlert.addAction(cancelAction)
+//            self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
+//
+//
+//      }
+//    }
     
     
     

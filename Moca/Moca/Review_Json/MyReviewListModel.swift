@@ -1,33 +1,33 @@
 //
-//  MenuNoModel.swift
+//  MyReviewList.swift
 //  main
 //
-//  Created by Ria Song on 2021/02/25.
+//  Created by Ria Song on 2021/03/01.
 //
 
 import Foundation
 
 // protocol은 DB의 table과 연결되어있기 때문에 필요한 것.
 // insertModel에선 필요없다 (?)
-protocol MenuModelProtocol: class{
+protocol MyReviewListProtocol: class{
     func itemDownloaded(items: NSArray) // <- 여기에 담은 아이템을 아래 delegate에서 사용하고, tableView에서 궁극적으로 사용.
 }
 
 
-class MenuModel: NSObject{
-    var delegate: MenuModelProtocol!
-    
-    func downloadItems(menuNo : String){
+class MyReviewListModel: NSObject{
+    var delegate: MyReviewListProtocol!
+
+    func downloadItems(){
         
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        var urlPath = "http://127.0.0.1:8080/moca/jsp/review_all_whereMenu.jsp" // 리뷰 전체, but 특정 MenuNo에 대해서 불러오기
-        let urlAdd = "?menuNo=\(menuNo)"
+        var urlPath = "http://127.0.0.1:8080/jsp/my_review_list.jsp" // 리뷰 전체 불러오기
+        let urlAdd = "?email=\(Share.userEmail)"
         urlPath = urlPath + urlAdd
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlURL = URL(string: urlPath)
+        let url = URL(string: urlPath)!
         
-        let task = defaultSession.dataTask(with: urlURL!){(data, response, error) in
+        let task = defaultSession.dataTask(with: url){(data, response, error) in
             if error != nil{
                 print("Failed to download data")
             } else {
@@ -84,6 +84,13 @@ class MenuModel: NSObject{
         }
         DispatchQueue.main.async(execute: {() -> Void in
             self.delegate.itemDownloaded(items: locations)
+
         })
     }
+    
+    // 이미지 png/jpg를 바꿔줄 떄 사용 (?)
+//    func getDocumentDirectory() -> URL {
+//        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+//        return paths[0]
+//    }
 } // END

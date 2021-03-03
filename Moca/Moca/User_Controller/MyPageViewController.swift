@@ -10,7 +10,9 @@ import GoogleSignIn // Google Login import
 import KakaoSDKUser // Kakao Login import
 import NaverThirdPartyLogin // Naver Login import
 import UserNotifications // pushNotifications import
-class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol {
+
+    
 
     @IBOutlet weak var alertImg: UIImageView!
     
@@ -23,20 +25,26 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     let imagePickerController = UIImagePickerController()
     var imageURL: URL?
     // ImageSelectModelProtocol itemdownload 변수
+    var feedItem: NSArray = NSArray()
+    var receiveItem = UserInfoModel()
     var userEmail = ""
     
     private var observer: NSObjectProtocol?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+   
         // 이미지뷰를 터치했을때 이벤트 주기 +++++++++++++++++
         let tapAlert = UITapGestureRecognizer(target: self, action: #selector(touchToAlert))
         alertImg.addGestureRecognizer(tapAlert)
         alertImg.isUserInteractionEnabled = true
         // ++++++++++++++++++++++++++++++++++++++++
         
-        
+        // id
+        myNickName.text = Share.userName
+        userEmail = Share.userEmail
         // 이미지 둥글게 만들기
         myImg.layer.cornerRadius = (myImg.frame.size.width) / 2
         myImg.layer.masksToBounds = true
@@ -51,22 +59,63 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         myImg.addGestureRecognizer(event)
         
         print("userEmail",Share.userEmail)
+        if userEmail == ""{
     
+        }else{
+        //DB image load
+        let imgSelectModel = ImageSelectModel()
+        imgSelectModel.delegate = self
+        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+        }
+        
+
+    
+        
+        observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
+                                                          object: nil,
+                                                          queue: .main) {
+            [unowned self] notification in
+            // background에서 foreground로 돌아오는 경우 실행 될 코드
+            UNUserNotificationCenter.current().requestAuthorization(options: [ .sound, .badge]) { [self](result, Error)in // 사용자 권한 요청
+                print("result1",result)// 알림 권한 요청 결과값
+                
+                DispatchQueue.main.async { // 뒤늦게 리로드 되는 문제를 해결, 메인스레드에서 사용가능하게 해주는듯?
+                if result == true{
+                    alertImg.image = UIImage(named: "on.png")
+                }else{
+                    alertImg.image = UIImage(named: "off.png")
+                }
+                }
+            }
+        }
+        
     }
     
+    
+    
     // 알림 설정 기능 구현해서 넣기 -> 사진 바뀌는 것만 추가함
-    // 개같은 박인우..........
     @objc func touchToAlert(sender: UITapGestureRecognizer) {
-        
+ 
+   
         if (sender.state == .ended) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [ .sound, .badge]) { [self](result, Error)in // 사용자 권한 요청
+                print("result1",result)// 알림 권한 요청 결과값
+            
             // 켜져있을 때
-            if alertImg.image == UIImage(named: "on.png") {
+            if result == true {
                 print("끄기")
-                alertImg.image = UIImage(named: "off.png")
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.openURL(url)
+                }
+                
             }else{
                 // 꺼져있을 때
                 print("켜기")
-                alertImg.image = UIImage(named: "on.png")
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.openURL(url)
+                }
+               
+            }
             }
         }
     }
@@ -109,6 +158,26 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // Pass the selected object to the new view controller.
     }
     */
+   
+    func itemDownload(items: NSArray) {
+        print("----itemDownload 함수 작동-----")
+        print(items)
+        feedItem = items
+        receiveItem = feedItem[0] as! UserInfoModel
+        print("결과출력")
+        if receiveItem.userImg == nil{
+            print("image nil")
+        }else{
+            print("image load")
+//                  let url = URL(string: "http://127.0.0.1:8080/ios/\(receiveItem.image!)")
+          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
+        let data = try! Data(contentsOf: url!)
+        myImg.image = UIImage(data: data)
+      }
+        
+    }
+   
+    
     // profile image click 메소드
     @objc func clickMethod() {
         print("tapped")
@@ -130,7 +199,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         present(photoAlert, animated: true, completion: nil)
         
     }
-    
     
     // Photo Library에서 사진 가져오기(함수 이름만 입력하면 준비된 함수임). Print해보면 위치를 알 수 있음.
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -156,4 +224,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // 켜놓은 앨범 화면 없애기
         dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    
 }

@@ -99,14 +99,6 @@
                                     <action selector="btnKakaoLogin:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="iU8-ov-FQN"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBY-ju-pVt" customClass="GIDSignInButton">
-                                <rect key="frame" x="267" y="701" width="63" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                                <connections>
-                                    <action selector="btnGoogleLogin:" destination="lSh-nP-ZsA" eventType="valueChanged" id="3S9-3K-Xmv"/>
-                                </connections>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks7-7G-f3Y">
                                 <rect key="frame" x="165" y="691" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -120,13 +112,20 @@
                                     <segue destination="mf8-ex-7wj" kind="show" id="h6J-xh-8gE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWx-L0-EB1">
+                                <rect key="frame" x="279" y="690" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="google.png"/>
+                                <connections>
+                                    <action selector="btnGoogleLogin:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="uzW-I2-KhO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Y4-ce-RC4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uuh-4H-qRv"/>
                     <connections>
-                        <outlet property="googleLoginButton" destination="vBY-ju-pVt" id="LEa-fx-DAC"/>
                         <segue destination="RPK-0X-SXy" kind="show" identifier="sgMain" id="Un3-lx-DC5"/>
                     </connections>
                 </viewController>
@@ -2687,6 +2686,7 @@
         <image name="banner01" width="1080" height="441"/>
         <image name="categoryRank.png" width="548" height="148"/>
         <image name="ediya.png" width="500" height="500"/>
+        <image name="google.png" width="18" height="18"/>
         <image name="hollys.png" width="500" height="500"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="kakao.png" width="500" height="500"/>
@@ -2713,9 +2713,6 @@
         <image name="t06.jpeg" width="1170" height="2261"/>
         <image name="tip.png" width="545" height="146"/>
         <image name="twosome.png" width="500" height="500"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

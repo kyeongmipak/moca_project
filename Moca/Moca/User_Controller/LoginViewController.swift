@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGoogleSignInButton()
+     
         // Do any additional setup after loading the view.
     }
     
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     
-    func setUserInfo() {
+    func setUserInfo() {  // 카카오 유저정보 불러오는 Method
         UserApi.shared.me() {(user, error) in
             if let error = error {
                 print(error)
@@ -110,14 +110,13 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     }
     
     
-    
-    func setGoogleSignInButton(){
+    @IBAction func btnGoogleLogin(_ sender: UIButton) {
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().delegate = self
-        googleLoginButton.style = .standard // .wide .iconOnly
+        GIDSignIn.sharedInstance().delegate=self
+        GIDSignIn.sharedInstance().signIn()
     }
     
-    
+
     
     
     
@@ -151,7 +150,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             print("Error : User Data Not Found")
         }
         
-        //        self.performSegue(withIdentifier: "secondVC", sender: self)
+        self.performSegue(withIdentifier: "sgMain", sender: self)
     }
     
 }

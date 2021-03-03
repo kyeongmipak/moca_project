@@ -103,6 +103,9 @@
                                 <rect key="frame" x="165" y="691" width="65" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="naver.png"/>
+                                <connections>
+                                    <action selector="btnNaverLogin:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="Vgr-Ns-9Mk"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTr-jc-5q6">
                                 <rect key="frame" x="92" y="780" width="207" height="30"/>

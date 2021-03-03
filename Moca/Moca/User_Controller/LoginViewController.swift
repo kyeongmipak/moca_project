@@ -9,16 +9,18 @@ import UIKit
 import KakaoSDKAuth // 카카오 로그인
 import KakaoSDKUser // 카카오 유저정보
 import GoogleSignIn // 구글 로그인
-
-
-class LoginViewController: UIViewController, GIDSignInDelegate {
+import NaverThirdPartyLogin // 네이버 로그인
+import Alamofire // http 통신
+class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyLoginConnectionDelegate {
     
-    @IBOutlet weak var googleLoginButton: GIDSignInButton!
-    
+    // NaverLogin 연결 변수
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+
     override func viewDidLoad() {
         super.viewDidLoad()
      
         // Do any additional setup after loading the view.
+        loginInstance?.delegate = self // naver login delegate 할당
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,5 +154,84 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         
         self.performSegue(withIdentifier: "sgMain", sender: self)
     }
+    
+    
+    
+    @IBAction func btnNaverLogin(_ sender: UIButton) {
+        loginInstance?.requestThirdPartyLogin()
+    }
+    
+    
+    // 로그인에 성공한 경우 호출
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("Success login")
+        getInfo()
+    }
+    
+    // 접근 토큰 갱신
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        loginInstance?.accessToken
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        loginInstance?.requestDeleteToken()
+    }
+    
+    // 모든 error
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        print("error = \(error.localizedDescription)")
+    }
+    
+    
+    // RESTful API, 유저정보 가져오기 (Alamofire로 가져옴,기본 네트워크 통신 사용 상관 X)
+    func getInfo() {
+        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else { // isValidAccessTokenExpireTimeNow 현재 토큰이 유요한지 , 유효시간 1시간
+            print("로그인중")
+            return
+            
+        }
+        
+        if !isValidAccessToken {
+          
+            return
+        }
+        
+          guard let tokenType = loginInstance?.tokenType else { return }
+          guard let accessToken = loginInstance?.accessToken else { return }
+            
+          let urlStr = "https://openapi.naver.com/v1/nid/me"
+          let url = URL(string: urlStr)!
+
+          let authorization = "\(tokenType) \(accessToken)"
+
+          let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+
+          req.responseJSON { response in
+            guard let result = response.value as? [String: Any] else { return }
+            guard let object = result["response"] as? [String: Any] else { return }
+            guard let name = object["name"] as? String else { return }
+            guard let email = object["email"] as? String else { return }
+            guard let id = object["id"] as? String else {return}
+            
+            
+            print(name)
+            print(id)
+            print(email)
+            Share.userName = name
+            Share.userEmail = email
+            self.performSegue(withIdentifier: "sgMain", sender: self)
+//            self.nameLabel.text = "\(name)"
+//            self.emailLabel.text = "\(email)"
+//            self.id.text = "\(id)"
+            
+          }
+        }
+    
+    
+    
+    
+    
+    
+    
     
 }

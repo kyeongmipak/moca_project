@@ -15,8 +15,8 @@ import SQLite3
 
 class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyLoginConnectionDelegate, UITextFieldDelegate, LogInModelProtocol {
     
-    @IBOutlet var idTextField: BindingTextField!
-    @IBOutlet var passwordTextField: BindingTextField!
+    @IBOutlet var idTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var switchLogin: UISwitch!
     
     var db: OpaquePointer?
@@ -47,13 +47,13 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
                 // 자동로그인이 되어있으면 쉐어벨류에 아이디 저장
                 Share.userEmail = email[i]
                 // 로그인 화면에서 바로 메인 화면으로 넘기기
-                self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                self.performSegue(withIdentifier: "sgMain", sender: self)
             }
         }
         
         idTextField.delegate = self
         
-        setupTextField()
+//        setupTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -263,32 +263,38 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
     
     // 2021.3.4 대환
     
-    private func setupTextField(){
-        idTextField.bind { (text) in
-            let isValid = self.isValidEmail(text)
-        }
+//    private func setupTextField(){
 //        idTextField.bind { (text) in
 //            let isValid = self.isValidEmail(text)
-//            self.idErrorLabel.textColor = isValid ? .red : .blue
+//            if isValid == false {
+//
+//            }
 //        }
-        passwordTextField.bind{ (text) in
-            let isValid = self.isValidPassword(text)
-        }
-    }
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    
-    func isValidPassword(_ password: String) -> Bool {
-        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$"
-                
-        let predicate = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-        return predicate.evaluate(with: self)
-    }
+////        idTextField.bind { (text) in
+////            let isValid = self.isValidEmail(text)
+////            self.idErrorLabel.textColor = isValid ? .red : .blue
+////        }
+//        passwordTextField.bind{ (text) in
+//            let isValid = self.isValidPassword(text)
+//            if isValid == false {
+//
+//            }
+//        }
+//    }
+//
+//    func isValidEmail(_ email: String) -> Bool {
+//        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//
+//        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+//        return emailPred.evaluate(with: email)
+//    }
+//
+//    func isValidPassword(_ password: String) -> Bool {
+//        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$"
+//
+//        let predicate = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+//        return predicate.evaluate(with: self)
+//    }
     
     @IBAction func passwordButton(_ sender: UIButton) {
         if(iconClick == true) {
@@ -383,7 +389,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
                         let resultAlert = UIAlertController(title: "결과", message: "로그인이 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
                         let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: {ACTION in
                             Share.userEmail = self.email[i]
-                            self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                            self.performSegue(withIdentifier: "sgMain", sender: self)
                         })
                         resultAlert.addAction(okAction)
                         present(resultAlert, animated: true, completion: nil)
@@ -425,14 +431,14 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
                     print("Student saved successfully")
                     
                     Share.userEmail = idTextField.text!
-                    self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                    self.performSegue(withIdentifier: "sgMain", sender: self)
                 default:
                     break
                 }
             } else{
                 // 자동로그인 스위치를 키지 않은 경우는 그냥 쉐어벨류에 입력한 값을 저장해주고 메인화면으로 넘겨줌
                 Share.userEmail = idTextField.text!
-                self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                self.performSegue(withIdentifier: "sgMain", sender: self)
             }
         case 0:
             let userAlert = UIAlertController(title: "경고", message: "ID나 암호가 틀렸습니다.", preferredStyle: UIAlertController.Style.actionSheet)
@@ -445,18 +451,18 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
     }
 }
 
-class BindingTextField: UITextField {
-    
-    var textEdited : ((String) -> Void)? = nil
-    func bind(completion : @escaping (String) -> Void){
-        textEdited = completion
-        addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-    }
-    
-    @objc func textFieldEditingChanged(_ textField : UITextField){
-        guard let text = textField.text else {
-            return
-        }
-        textEdited?(text)
-    }
-}
+//class BindingTextField: UITextField {
+//    
+//    var textEdited : ((String) -> Void)? = nil
+//    func bind(completion : @escaping (String) -> Void){
+//        textEdited = completion
+//        addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+//    }
+//    
+//    @objc func textFieldEditingChanged(_ textField : UITextField){
+//        guard let text = textField.text else {
+//            return
+//        }
+//        textEdited?(text)
+//    }
+//}

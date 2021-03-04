@@ -13,7 +13,7 @@ protocol LogInModelProtocol: class {
 
 class LogInModel: NSObject {
     var delegate : LogInModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/AddressBook_IOS/jsp/LogInCheck.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/LogInCheck.jsp"
     var result = 0
     
     

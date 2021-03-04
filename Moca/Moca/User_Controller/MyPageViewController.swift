@@ -158,7 +158,17 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // Pass the selected object to the new view controller.
     }
     */
-   
+    @IBAction func btnMyReviewList(_ sender: UIButton) {
+        if Share.userEmail != "" {
+            //            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
+        } else {
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 리뷰목록 확인이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            self.present(resultAlert, animated: true, completion: nil)
+        }
+    }
+
     func itemDownload(items: NSArray) {
         print("----itemDownload 함수 작동-----")
         print(items)

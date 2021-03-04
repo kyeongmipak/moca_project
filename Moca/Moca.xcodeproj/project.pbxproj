@@ -51,6 +51,7 @@
 		626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FA25EF90FB00F8AF45 /* CollectionCell.swift */; };
 		626026FF25EF92C700F8AF45 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */; };
 		6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */; };
+		627808B725F0787E009120CB /* TestMenuno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627808B625F0787E009120CB /* TestMenuno.swift */; };
 		629B502925EFECE300A236F1 /* MyReviewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502825EFECE300A236F1 /* MyReviewListController.swift */; };
 		629B502C25EFECE800A236F1 /* MyReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */; };
 		629B502F25EFECF000A236F1 /* MyReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */; };
@@ -180,6 +181,7 @@
 		626026FA25EF90FB00F8AF45 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		626026FE25EF92C700F8AF45 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyTableViewCell.swift; sourceTree = "<group>"; };
+		627808B625F0787E009120CB /* TestMenuno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuno.swift; sourceTree = "<group>"; };
 		629B502825EFECE300A236F1 /* MyReviewListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListController.swift; sourceTree = "<group>"; };
 		629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewTableCell.swift; sourceTree = "<group>"; };
 		629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewDetailViewController.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				626026EA25EF8DC300F8AF45 /* PhotoDetailReviewController.swift */,
 				629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */,
 				62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */,
+				627808B625F0787E009120CB /* TestMenuno.swift */,
 			);
 			path = Review_Controller;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				813B439A25ED4008008B6C44 /* HollysTableViewCell.swift in Sources */,
 				626026E325EF8AD200F8AF45 /* AllReviewModel.swift in Sources */,
 				813B43B125ED48AD008B6C44 /* BeverageTableViewCell.swift in Sources */,
+				627808B725F0787E009120CB /* TestMenuno.swift in Sources */,
 				629B503B25EFED7800A236F1 /* CheckMenuNoModel.swift in Sources */,
 				813B437E25ED38FC008B6C44 /* BrandRankViewController.swift in Sources */,
 				626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */,

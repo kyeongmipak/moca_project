@@ -40,8 +40,7 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         }
     }
     
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -53,17 +52,18 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: cellReuseId)
         
         // instance 선언
-//        let menuModel = MenuModel()
-//        menuModel.delegate = self
-//        menuModel.downloadItems(menuNo: menuNO.menuNo!)
+        let menuModel = MenuModel()
+        menuModel.delegate = self
+        menuModel.downloadItems(menuNo: TestMenuno.menuno)
+        print(">>>>>get collection view menuno >>>>> \(TestMenuno.menuno)")
         
-        let allReviewModel = AllReviewModel()
-        allReviewModel.delegate = self // jsonModel에서 일 시키고, 그걸 self(여기서 쓸거임)
-        allReviewModel.downloadItems() // jsonModel에서 이 메소드 실행해서 일 처리해!
+//        let allReviewModel = AllReviewModel()
+//        allReviewModel.delegate = self // jsonModel에서 일 시키고, 그걸 self(여기서 쓸거임)
+//        allReviewModel.downloadItems() // jsonModel에서 이 메소드 실행해서 일 처리해!
     }
     
     func itemDownloaded(items: NSArray) {
-        print("----itemDownload 함수 작동-----")
+        print("----Get collectionview itemDownload 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
         
         feedItem = items

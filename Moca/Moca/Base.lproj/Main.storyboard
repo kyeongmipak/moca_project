@@ -495,6 +495,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="on.png" translatesAutoresizingMaskIntoConstraints="NO" id="ylY-Cf-bY4">
                                 <rect key="frame" x="213" y="412" width="141" height="141"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAz-T6-kYW">
+                                <rect key="frame" x="260" y="731" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnMyReviewList:" destination="7QE-gn-NnF" eventType="touchUpInside" id="YwK-Zz-Zgq"/>
+                                    <segue destination="yO7-nj-DsF" kind="show" id="Cdb-Wy-RV8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mAj-oy-oq7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4010,7 +4019,7 @@
             <objects>
                 <viewController id="HAh-zm-Q2B" customClass="MyReviewDetailViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tib-YT-uq0">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-KE-zzD">

@@ -12,6 +12,9 @@ import TinyConstraints
 
 class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate {
     
+    
+
+    
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -41,7 +44,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             
         } else if indexPath.row == 1 {
             tableList.rowHeight = 150
+            TestMenuno.menuno = menuNO.menuNo!
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
+            
+            
             
             return cell!
         } else {
@@ -185,9 +191,12 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var ITEMS:[ReviewDBModel] = []
     var TextITEM:[ReviewDBModel] = []
     var receiveItem:[ReviewDBModel] = []
+    
+    
     @IBOutlet var rightBarButton: UIBarButtonItem!
     var menuNO = ReviewDBModel()
-
+    
+    
     
     
     
@@ -206,6 +215,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         
         self.tableList.delegate = self
         self.tableList.dataSource = self
+        TestMenuno.menuno = menuNO.menuNo!
         
         // Hide Setting (잘됨... 흠)
 //        if Share.userEmail != "" {
@@ -264,6 +274,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         resultAlert.addAction(cancelAction)
         self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
     }
+
     
     // MARK: - Navigation -> 브랜드명, 음료명, 메뉴 넘버 넘겨줘야 함!
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

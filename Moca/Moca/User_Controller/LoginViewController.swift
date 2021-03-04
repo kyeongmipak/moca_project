@@ -263,39 +263,6 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
     
     // 2021.3.4 대환
     
-//    private func setupTextField(){
-//        idTextField.bind { (text) in
-//            let isValid = self.isValidEmail(text)
-//            if isValid == false {
-//
-//            }
-//        }
-////        idTextField.bind { (text) in
-////            let isValid = self.isValidEmail(text)
-////            self.idErrorLabel.textColor = isValid ? .red : .blue
-////        }
-//        passwordTextField.bind{ (text) in
-//            let isValid = self.isValidPassword(text)
-//            if isValid == false {
-//
-//            }
-//        }
-//    }
-//
-//    func isValidEmail(_ email: String) -> Bool {
-//        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-//
-//        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-//        return emailPred.evaluate(with: email)
-//    }
-//
-//    func isValidPassword(_ password: String) -> Bool {
-//        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$"
-//
-//        let predicate = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-//        return predicate.evaluate(with: self)
-//    }
-    
     @IBAction func passwordButton(_ sender: UIButton) {
         if(iconClick == true) {
                     passwordTextField.isSecureTextEntry=false
@@ -450,19 +417,3 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
         }
     }
 }
-
-//class BindingTextField: UITextField {
-//    
-//    var textEdited : ((String) -> Void)? = nil
-//    func bind(completion : @escaping (String) -> Void){
-//        textEdited = completion
-//        addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-//    }
-//    
-//    @objc func textFieldEditingChanged(_ textField : UITextField){
-//        guard let text = textField.text else {
-//            return
-//        }
-//        textEdited?(text)
-//    }
-//}

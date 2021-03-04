@@ -57,6 +57,7 @@
 		6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */; };
 		62603A3425F12903001312A5 /* EmailCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3325F12903001312A5 /* EmailCheckModel.swift */; };
 		62603A3725F133F9001312A5 /* EmailPwSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */; };
+		62603A3A25F13875001312A5 /* SearchEmailPwModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3925F13875001312A5 /* SearchEmailPwModel.swift */; };
 		627808B725F0787E009120CB /* TestMenuno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627808B625F0787E009120CB /* TestMenuno.swift */; };
 		629B502925EFECE300A236F1 /* MyReviewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502825EFECE300A236F1 /* MyReviewListController.swift */; };
 		629B502C25EFECE800A236F1 /* MyReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */; };
@@ -193,6 +194,7 @@
 		6260270225EF93E500F8AF45 /* TextOnlyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextOnlyTableViewCell.swift; sourceTree = "<group>"; };
 		62603A3325F12903001312A5 /* EmailCheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckModel.swift; sourceTree = "<group>"; };
 		62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPwSearchViewController.swift; sourceTree = "<group>"; };
+		62603A3925F13875001312A5 /* SearchEmailPwModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmailPwModel.swift; sourceTree = "<group>"; };
 		627808B625F0787E009120CB /* TestMenuno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuno.swift; sourceTree = "<group>"; };
 		629B502825EFECE300A236F1 /* MyReviewListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListController.swift; sourceTree = "<group>"; };
 		629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewTableCell.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				620AF86025F0ABD900AE026B /* LogInModel.swift */,
 				6203AC4325F0BD670026A56D /* RegisterModel.swift */,
 				62603A3325F12903001312A5 /* EmailCheckModel.swift */,
+				62603A3925F13875001312A5 /* SearchEmailPwModel.swift */,
 			);
 			path = User_Json;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				8148964125E61BBB00AF92BC /* LoginViewController.swift in Sources */,
 				626026CE25EF56F400F8AF45 /* BoardInsertModel.swift in Sources */,
 				813B43AC25ED474C008B6C44 /* CoffeeViewController.swift in Sources */,
+				62603A3A25F13875001312A5 /* SearchEmailPwModel.swift in Sources */,
 				813B438A25ED3AF0008B6C44 /* BrandRankJsonModel.swift in Sources */,
 				813B43B725ED49B1008B6C44 /* TeaViewController.swift in Sources */,
 				813B439E25ED446C008B6C44 /* CategoryTabCell.swift in Sources */,

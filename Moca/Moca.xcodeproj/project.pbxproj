@@ -11,6 +11,8 @@
 		5FF819C125EF3A8100B56CAF /* ImageUpLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */; };
 		5FF819C425EF3C8B00B56CAF /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */; };
 		5FF819C725EF3CB500B56CAF /* ImageSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */; };
+		620AF85C25F0878100AE026B /* eye.png in Resources */ = {isa = PBXBuildFile; fileRef = 620AF85B25F0878000AE026B /* eye.png */; };
+		620AF86125F0ABD900AE026B /* LogInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620AF86025F0ABD900AE026B /* LogInModel.swift */; };
 		6217548425E7EEA2004FFAE9 /* qa.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547D25E7EEA2004FFAE9 /* qa.png */; };
 		6217548525E7EEA2004FFAE9 /* myUpdate.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547E25E7EEA2004FFAE9 /* myUpdate.png */; };
 		6217548625E7EEA2004FFAE9 /* signout.png in Resources */ = {isa = PBXBuildFile; fileRef = 6217547F25E7EEA2004FFAE9 /* signout.png */; };
@@ -140,6 +142,8 @@
 		5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpLoadModel.swift; sourceTree = "<group>"; };
 		5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectModel.swift; sourceTree = "<group>"; };
+		620AF85B25F0878000AE026B /* eye.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eye.png; path = ../../../image/eye.png; sourceTree = "<group>"; };
+		620AF86025F0ABD900AE026B /* LogInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInModel.swift; sourceTree = "<group>"; };
 		6217547D25E7EEA2004FFAE9 /* qa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = qa.png; path = ../../../image/myPage_Button/qa.png; sourceTree = "<group>"; };
 		6217547E25E7EEA2004FFAE9 /* myUpdate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myUpdate.png; path = ../../../image/myPage_Button/myUpdate.png; sourceTree = "<group>"; };
 		6217547F25E7EEA2004FFAE9 /* signout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signout.png; path = ../../../image/myPage_Button/signout.png; sourceTree = "<group>"; };
@@ -291,6 +295,14 @@
 			path = profile_Json;
 			sourceTree = "<group>";
 		};
+		620AF85F25F0ABA800AE026B /* User_Json */ = {
+			isa = PBXGroup;
+			children = (
+				620AF86025F0ABD900AE026B /* LogInModel.swift */,
+			);
+			path = User_Json;
+			sourceTree = "<group>";
+		};
 		6217549225E7F751004FFAE9 /*  Other_Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +398,7 @@
 				626026C025EF4BC100F8AF45 /* Board_Json */,
 				62F015EC25E8B7C6007BB073 /* Other_Json */,
 				5FF819BF25EF3A4B00B56CAF /* profile_Json */,
+				620AF85F25F0ABA800AE026B /* User_Json */,
 				8148963625E61A3500AF92BC /* Model */,
 				8148968E25E647C200AF92BC /* Cell */,
 				8138C35625E5F74900F5887D /* AppDelegate.swift */,
@@ -458,6 +471,7 @@
 				813B43C625ED5342008B6C44 /* starbucks.png */,
 				813B43C725ED5342008B6C44 /* twosome.png */,
 				813B43C025ED52FA008B6C44 /* categoryRank.png */,
+				620AF85B25F0878000AE026B /* eye.png */,
 				813B43BF25ED52FA008B6C44 /* tip.png */,
 				6217548325E7EEA2004FFAE9 /* like_list.png */,
 				6217548025E7EEA2004FFAE9 /* logout.png */,
@@ -657,6 +671,7 @@
 				8148966F25E632D300AF92BC /* kakao_login_medium_wide.png in Resources */,
 				6247CFB425EDE0F50020B509 /* t05.jpeg in Resources */,
 				6217548725E7EEA2004FFAE9 /* logout.png in Resources */,
+				620AF85C25F0878100AE026B /* eye.png in Resources */,
 				6217548625E7EEA2004FFAE9 /* signout.png in Resources */,
 				8138C36025E5F74D00F5887D /* Assets.xcassets in Resources */,
 				6247CFB225EDE0F50020B509 /* t01.jpeg in Resources */,
@@ -781,6 +796,7 @@
 				813B43B125ED48AD008B6C44 /* BeverageTableViewCell.swift in Sources */,
 				627808B725F0787E009120CB /* TestMenuno.swift in Sources */,
 				629B503B25EFED7800A236F1 /* CheckMenuNoModel.swift in Sources */,
+				620AF86125F0ABD900AE026B /* LogInModel.swift in Sources */,
 				813B437E25ED38FC008B6C44 /* BrandRankViewController.swift in Sources */,
 				626026FB25EF90FB00F8AF45 /* CollectionCell.swift in Sources */,
 				62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */,

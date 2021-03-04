@@ -11,7 +11,20 @@ import KakaoSDKUser // 카카오 유저정보
 import GoogleSignIn // 구글 로그인
 import NaverThirdPartyLogin // 네이버 로그인
 import Alamofire // http 통신
-class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyLoginConnectionDelegate {
+import SQLite3
+
+class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyLoginConnectionDelegate, UITextFieldDelegate, LogInModelProtocol {
+    
+    @IBOutlet var idTextField: BindingTextField!
+    @IBOutlet var passwordTextField: BindingTextField!
+    @IBOutlet var switchLogin: UISwitch!
+    
+    var db: OpaquePointer?
+    var email = [String]()
+    var cheking = [Int]()
+    var result = 0
+    var overlapCheck = 0
+    var iconClick = true
     
     // NaverLogin 연결 변수
     let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
@@ -21,6 +34,26 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
      
         // Do any additional setup after loading the view.
         loginInstance?.delegate = self // naver login delegate 할당
+        
+        // SQLite 생성
+        creatSQLite()
+        
+        // SQLite에 있는 데이터를 모두 불러옴
+        readValues()
+        
+        // 불러온 데이터 중 자동로그인이 되어있는지 확인
+        for i in 0..<cheking.count {
+            if cheking[i] == 1 {
+                // 자동로그인이 되어있으면 쉐어벨류에 아이디 저장
+                Share.userEmail = email[i]
+                // 로그인 화면에서 바로 메인 화면으로 넘기기
+                self.performSegue(withIdentifier: "sgLogIn", sender: self)
+            }
+        }
+        
+        idTextField.delegate = self
+        
+        setupTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -228,10 +261,202 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
         }
     
     
+    // 2021.3.4 대환
     
+    private func setupTextField(){
+        idTextField.bind { (text) in
+            let isValid = self.isValidEmail(text)
+        }
+//        idTextField.bind { (text) in
+//            let isValid = self.isValidEmail(text)
+//            self.idErrorLabel.textColor = isValid ? .red : .blue
+//        }
+        passwordTextField.bind{ (text) in
+            let isValid = self.isValidPassword(text)
+        }
+    }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
     
+    func isValidPassword(_ password: String) -> Bool {
+        let passwordRegEx = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8}$"
+                
+        let predicate = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
+        return predicate.evaluate(with: self)
+    }
     
+    @IBAction func passwordButton(_ sender: UIButton) {
+        if(iconClick == true) {
+                    passwordTextField.isSecureTextEntry=false
+                } else {
+                    passwordTextField.isSecureTextEntry = true
+                }
+
+        iconClick = !iconClick
+    }
     
+    @IBAction func logInButton(_ sender: UIButton) {
+        getLoginData()
+    }
     
+    func creatSQLite() {
+        // SQLite 생성하기
+        let fileURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("MOCASQLite.sqlite")
+        
+        if sqlite3_open(fileURL.path, &db) != SQLITE_OK{
+            print("error opening database")
+        }
+        
+        if sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS MOCASQLite (sid INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT, cheking INTEGER)", nil, nil, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error creating table : \(errmsg)")
+        }
+    }
+    
+    func readValues() {
+        
+        let queryString = "SELECT * FROM MOCASQLite"
+        var stmt : OpaquePointer?
+        
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select : \(errmsg)")
+            return
+        }
+        
+        while sqlite3_step(stmt) == SQLITE_ROW {        // 읽어올 데이터가 있는지
+            let _ = sqlite3_column_int(stmt, 0)
+            email.append(String(cString: sqlite3_column_text(stmt, 1)))
+            cheking.append(Int(sqlite3_column_int(stmt, 2)))
+        }
+    }
+    
+    func getLoginData() {
+        let logInModel = LogInModel()
+        logInModel.delegate = self
+        logInModel.downloadItems(userInformationEmail: idTextField.text!, userInformationPassword: passwordTextField.text!)
+    }
+    
+    func itemDownloaded(items: Int) {
+        result = items
+        LoginCheck()
+    }
+    
+    func LoginCheck() {
+        switch result {                         // MySQL에서 입력한 값의 데이터가 있는지 확인
+        case 1:
+            if switchLogin.isOn == true {       // 자동로그인 스위치를 켰는지 확인
+                // SQLite에 입력한 값이 있는지 확인
+                for i in 0..<cheking.count {
+                    // 만약 있다면 SQLite에 입력한 값의 아이디의 자동로그인 상태를 바꿔줌
+                    if email[i] == idTextField.text! {
+                        overlapCheck = 1
+                        var stmt: OpaquePointer?
+                        let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)      // <--- 한글 들어가기 위해 꼭 필요
+                        let queryString = "UPDATE MOCASQLite SET cheking = ? where email = ?"
+                        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+                            let errmsg = String(cString: sqlite3_errmsg(db)!)
+                            print("error preparing insert : \(errmsg)")
+                            return
+                        }
+                        if sqlite3_bind_text(stmt, 1, "1", -1, SQLITE_TRANSIENT) != SQLITE_OK {
+                            let errmsg = String(cString: sqlite3_errmsg(db)!)
+                            print("error binding name : \(errmsg)")
+                            return
+                        }
+                        if sqlite3_bind_text(stmt, 2, idTextField.text, -1, SQLITE_TRANSIENT) != SQLITE_OK {
+                            let errmsg = String(cString: sqlite3_errmsg(db)!)
+                            print("error binding dept : \(errmsg)")
+                            return
+                        }
+                        // sqlite 실행
+                        if sqlite3_step(stmt) != SQLITE_DONE {
+                            let errmsg = String(cString: sqlite3_errmsg(db)!)
+                            print("failure inserting : \(errmsg)")
+                            return
+                        }
+                        let resultAlert = UIAlertController(title: "결과", message: "로그인이 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                        let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: {ACTION in
+                            Share.userEmail = self.email[i]
+                            self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                        })
+                        resultAlert.addAction(okAction)
+                        present(resultAlert, animated: true, completion: nil)
+                        print("Student saved successfully")
+                    }
+                }
+                // SQLite에 입력한 값의 자료가 없다면 새로 입력함.
+                switch overlapCheck {
+                case 0:
+                    var stmt: OpaquePointer?
+                    let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)      // <--- 한글 들어가기 위해 꼭 필요
+                    
+                    let queryString = "INSERT INTO MOCASQLite (email, cheking) VALUES (?,?)"
+                    
+                    if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+                        let errmsg = String(cString: sqlite3_errmsg(db)!)
+                        print("error preparing insert : \(errmsg)")
+                        return
+                    }
+                    // 자동로그인 상태를 입력해줌
+                    if sqlite3_bind_text(stmt, 1, idTextField.text, -1, SQLITE_TRANSIENT) != SQLITE_OK {
+                        let errmsg = String(cString: sqlite3_errmsg(db)!)
+                        print("error binding name : \(errmsg)")
+                        return
+                    }
+                    if sqlite3_bind_text(stmt, 2, "1", -1, SQLITE_TRANSIENT) != SQLITE_OK {
+                        let errmsg = String(cString: sqlite3_errmsg(db)!)
+                        print("error binding dept : \(errmsg)")
+                        return
+                    }
+                    
+                    // sqlite 실행
+                    if sqlite3_step(stmt) != SQLITE_DONE {
+                        let errmsg = String(cString: sqlite3_errmsg(db)!)
+                        print("failure inserting : \(errmsg)")
+                        return
+                    }
+                    
+                    print("Student saved successfully")
+                    
+                    Share.userEmail = idTextField.text!
+                    self.performSegue(withIdentifier: "sgLogIn", sender: self)
+                default:
+                    break
+                }
+            } else{
+                // 자동로그인 스위치를 키지 않은 경우는 그냥 쉐어벨류에 입력한 값을 저장해주고 메인화면으로 넘겨줌
+                Share.userEmail = idTextField.text!
+                self.performSegue(withIdentifier: "sgLogIn", sender: self)
+            }
+        case 0:
+            let userAlert = UIAlertController(title: "경고", message: "ID나 암호가 틀렸습니다.", preferredStyle: UIAlertController.Style.actionSheet)
+            let onAction = UIAlertAction(title: "네, 알겠습니다.", style: UIAlertAction.Style.default, handler: nil)
+            userAlert.addAction(onAction)
+            present(userAlert, animated: true, completion: nil)
+        default:
+            break
+        }
+    }
+}
+
+class BindingTextField: UITextField {
+    
+    var textEdited : ((String) -> Void)? = nil
+    func bind(completion : @escaping (String) -> Void){
+        textEdited = completion
+        addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldEditingChanged(_ textField : UITextField){
+        guard let text = textField.text else {
+            return
+        }
+        textEdited?(text)
+    }
 }

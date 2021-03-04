@@ -39,14 +39,17 @@
                                 <color key="backgroundColor" red="0.99719530339999995" green="0.67514687780000004" blue="0.65096712109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="logInButton:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="hrj-4V-1zg"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3x-pO-EJK">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3x-pO-EJK" customClass="BindingTextField" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="96" y="297.66666666666663" width="232" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-v0-iEm">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호를 입력해주세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-v0-iEm" customClass="BindingTextField" customModule="Moca" customModuleProvider="target">
                                 <rect key="frame" x="96" y="360.66666666666663" width="232" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -124,18 +127,29 @@
                                     <action selector="btnGoogleLogin:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="uzW-I2-KhO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IUe-o7-umX">
+                                <rect key="frame" x="286" y="363" width="32" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="eye.png"/>
+                                <connections>
+                                    <action selector="passwordButton:" destination="lSh-nP-ZsA" eventType="touchUpInside" id="vEm-Nm-FZo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Y4-ce-RC4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Uuh-4H-qRv"/>
                     <connections>
+                        <outlet property="idTextField" destination="O3x-pO-EJK" id="Y0T-2a-eoB"/>
+                        <outlet property="passwordTextField" destination="Rhq-v0-iEm" id="yVV-YH-kLW"/>
+                        <outlet property="switchLogin" destination="xer-cY-uxi" id="SJ4-QE-jlX"/>
                         <segue destination="RPK-0X-SXy" kind="show" identifier="sgMain" id="Un3-lx-DC5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twn-HP-rh5" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="285" y="-23"/>
+            <point key="canvasLocation" x="284.61538461538458" y="-23.459715639810426"/>
         </scene>
         <!--홈-->
         <scene sceneID="Yh9-ai-xxh">
@@ -4179,6 +4193,7 @@
         <image name="categoryRank.png" width="548" height="148"/>
         <image name="ediya.png" width="500" height="500"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="eye.png" width="392.17022705078125" height="392.17022705078125"/>
         <image name="google.png" width="18" height="18"/>
         <image name="hollys.png" width="500" height="500"/>
         <image name="house" catalog="system" width="128" height="106"/>

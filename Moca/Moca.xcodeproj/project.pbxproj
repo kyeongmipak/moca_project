@@ -30,6 +30,7 @@
 		6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219BCCC25ED551800AD5D5D /* TipViewController.swift */; };
 		621C095225F3C2DD00F5FBD0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C095125F3C2DD00F5FBD0 /* MapViewController.swift */; };
 		621C095525F3C45A00F5FBD0 /* MapLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */; };
+		621C095825F3D1DE00F5FBD0 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C095725F3D1DE00F5FBD0 /* LocationModel.swift */; };
 		6247CFA425EDDD800020B509 /* TipCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6247CFA325EDDD800020B509 /* TipCardView.swift */; };
 		6247CFA825EDDDCD0020B509 /* TipPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6247CFA725EDDDCD0020B509 /* TipPageViewController.swift */; };
 		6247CFB225EDE0F50020B509 /* t01.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6247CFAC25EDE0F30020B509 /* t01.jpeg */; };
@@ -170,6 +171,7 @@
 		6219BCCC25ED551800AD5D5D /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
 		621C095125F3C2DD00F5FBD0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationModel.swift; sourceTree = "<group>"; };
+		621C095725F3D1DE00F5FBD0 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6247CFA325EDDD800020B509 /* TipCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCardView.swift; sourceTree = "<group>"; };
 		6247CFA725EDDDCD0020B509 /* TipPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPageViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				62F015E525E8B4F2007BB073 /* LikeDBModel.swift */,
 				813B438525ED3ADB008B6C44 /* BrandRankDBModel.swift */,
 				5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */,
+				621C095725F3D1DE00F5FBD0 /* LocationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -885,6 +888,7 @@
 				6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */,
 				813B439425ED3EBB008B6C44 /* TwosomeTableViewCell.swift in Sources */,
 				6217549525E7F7C2004FFAE9 /* OftenViewController.swift in Sources */,
+				621C095825F3D1DE00F5FBD0 /* LocationModel.swift in Sources */,
 				62F015EE25E8B947007BB073 /* LikeInsertModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4289,7 +4289,6 @@
         <!--Map View Controller-->
         <scene sceneID="Roz-af-5Ip">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E0H-4L-IOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="cH2-UN-n5Z" customClass="MapViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IAx-97-kAH">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
@@ -4298,7 +4297,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gL8-cR-kuI">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                                 <connections>
-                                    <outlet property="delegate" destination="cH2-UN-n5Z" id="zPM-1g-Vgx"/>
+                                    <outlet property="delegate" destination="cH2-UN-n5Z" id="Gnf-jb-jW1"/>
                                 </connections>
                             </mapView>
                         </subviews>
@@ -4316,8 +4315,9 @@
                         <outlet property="myMapView" destination="gL8-cR-kuI" id="05Z-Ln-fCF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0H-4L-IOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3922" y="2320"/>
+            <point key="canvasLocation" x="4175" y="2401"/>
         </scene>
         <!--My 리뷰 리스트-->
         <scene sceneID="Dhx-yv-kyn">
@@ -4520,6 +4520,26 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="CH0-do-Mhc">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Qfb-j6-zgY">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="TiI-Aa-96G">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="dJG-G6-P2X">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="sZu-VG-oBg">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tSr-91-KdT">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="cjC-2X-tUq"/>
     </inferredMetricsTieBreakers>

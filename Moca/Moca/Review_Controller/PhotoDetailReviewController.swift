@@ -494,12 +494,13 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 
     
     
-    
     // MARK: - Navigation -> 브랜드명, 음료명, 메뉴 넘버 넘겨줘야 함!
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 2021.03.07 맵으로 넘어가는 작업 - 대환
         if segue.identifier == "sgMap"{
-//            let mapView = segue.destination as! ViewController
-//             brandView.reveiveItem = brandName
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.brandName = "스타벅스"
         }
     }
     

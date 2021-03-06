@@ -13,9 +13,12 @@ protocol MapLocationModelProtocol: class {
 
 class MapLocationModel: NSObject {
     var delegate : MapLocationModelProtocol!
-    let urlPath = "http://127.0.0.1:8080/test/AddressSelect.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/AddressSelect.jsp"
     
-    func downloadItems() {
+    func downloadItems(brandName : String) {
+        let urlAdd = "?brandName=\(brandName)"
+        urlPath = urlPath + urlAdd
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let url = URL(string: urlPath)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
@@ -44,11 +47,12 @@ class MapLocationModel: NSObject {
         for i in 0..<jsonResult.count{
             jsonElement = jsonResult[i] as! NSDictionary
             // let query = DBModel()
-            print(jsonElement)
             
-            if let addressName = jsonElement["addressName"] as? String,
-               let addressReal = jsonElement["addressReal"] as? String,
-               let addressPhone = jsonElement["addressPhone"] as? String{
+            print("jsonElement\(jsonElement)")
+            
+            if let addressName = jsonElement["cafeName"] as? String,
+               let addressReal = jsonElement["cafeAddress"] as? String,
+               let addressPhone = jsonElement["cafePhone"] as? String{
                 let query = Locations(cafeNames: addressName, cafeAddress: addressReal, cafePhone: addressPhone)
                 
                 locations.add(query)

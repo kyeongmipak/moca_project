@@ -14,6 +14,10 @@ class MapViewController: UIViewController, MapLocationModelProtocol, CLLocationM
     
     var feedItems: NSArray = NSArray()
     var locatinos: [Locations] = []
+    var brandName = ""
+    
+    var mylatitude : CLLocationDegrees = 0.0
+    var mylongitude : CLLocationDegrees = 0.0
     
     var locationManager:CLLocationManager!
     
@@ -23,7 +27,7 @@ class MapViewController: UIViewController, MapLocationModelProtocol, CLLocationM
         // Do any additional setup after loading the view.
         let jsonModel = MapLocationModel()
         jsonModel.delegate = self
-        jsonModel.downloadItems()
+        jsonModel.downloadItems(brandName: brandName)
         
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -53,8 +57,7 @@ class MapViewController: UIViewController, MapLocationModelProtocol, CLLocationM
         locatinos = feedItems as! [Locations]
         
         let coor = locationManager.location?.coordinate
-        let mylatitude = (coor?.latitude)!
-        let mylongitude = (coor?.longitude)!
+        
         let mycoordinate = CLLocation(latitude: mylatitude, longitude: mylongitude)
         
         let cordinate:CLLocationCoordinate2D = CLLocationCoordinate2DMake(mylatitude, mylongitude)
@@ -101,7 +104,7 @@ class MapViewController: UIViewController, MapLocationModelProtocol, CLLocationM
                     
                     let distance = self.distanceCalculate(mycoordinate: mycoordinate, coordinate: coordinate)
                     
-                    print("distance : \(distance)")
+                    
                     
                     if distance < 500 {
                         let annotation = MKPointAnnotation()
@@ -122,6 +125,12 @@ class MapViewController: UIViewController, MapLocationModelProtocol, CLLocationM
     func distanceCalculate(mycoordinate : CLLocation, coordinate : CLLocation) -> Double{
         let distanceInmeters = mycoordinate.distance(from: coordinate)
         return distanceInmeters
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let pLocation = locations.last
+        mylatitude = (pLocation?.coordinate.latitude)!
+        mylongitude = (pLocation?.coordinate.longitude)!
     }
 }
 

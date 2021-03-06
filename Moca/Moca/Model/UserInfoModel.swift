@@ -14,6 +14,7 @@ class UserInfoModel: NSObject{
     var userEmail: String?
     var userPw: String?
     var userName: String?
+    var userNickname: String?
     var userPhone: String?
     var userBirth: String?
     var userImg: String?
@@ -33,10 +34,11 @@ class UserInfoModel: NSObject{
 //        self.sphone = sphone
 //    }
     
-    init(userEmail: String, userPw: String, userName: String, userPhone: String, userBirth: String, userImg: String,userInsertDate: String){
+    init(userEmail: String, userPw: String, userName: String,userNickname: String, userPhone: String, userBirth: String, userImg: String,userInsertDate: String){
          self.userEmail = userEmail
          self.userPw = userPw
          self.userName = userName
+         self.userNickname = userNickname
          self.userPhone = userPhone
          self.userBirth = userBirth
         self.userImg = userImg

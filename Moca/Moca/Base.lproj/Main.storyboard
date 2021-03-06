@@ -472,6 +472,7 @@
                                 </constraints>
                                 <state key="normal" image="myUpdate.png"/>
                                 <connections>
+                                    <action selector="btnMyProfile:" destination="7QE-gn-NnF" eventType="touchUpInside" id="Axr-bN-z0e"/>
                                     <segue destination="vz1-HG-8Sn" kind="show" identifier="myUpdate" id="dU9-IV-eSg"/>
                                 </connections>
                             </button>
@@ -569,14 +570,73 @@
                     <view key="view" contentMode="scaleToFill" id="3ee-hn-fqV">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCY-ay-JXe">
+                                <rect key="frame" x="145" y="159" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHv-N1-Ep8">
+                                <rect key="frame" x="159" y="690" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="내 정보 수정"/>
+                                <connections>
+                                    <action selector="btnProfileUpdate:" destination="vz1-HG-8Sn" eventType="touchUpInside" id="Mby-sx-WzH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDv-qH-dOQ">
+                                <rect key="frame" x="31" y="344" width="129.33333333333337" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="비밀번호 : " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bis-I9-hrH">
+                                <rect key="frame" x="47" y="428" width="129.33333333333337" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="연락처 : " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jf-UK-Hbz">
+                                <rect key="frame" x="31" y="507" width="129.33333333333337" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOJ-ei-LFv">
+                                <rect key="frame" x="196" y="365" width="164" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YZP-TV-9Pb">
+                                <rect key="frame" x="196" y="449" width="164" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bR-nA-sFD">
+                                <rect key="frame" x="196" y="528" width="164" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="oyq-ba-19X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="나의 정보 수정" id="Irl-Ek-fhb"/>
+                    <connections>
+                        <outlet property="ivProfileImage" destination="oCY-ay-JXe" id="cMq-YX-cwV"/>
+                        <outlet property="tfNickName" destination="cOJ-ei-LFv" id="jKO-fo-N4e"/>
+                        <outlet property="tfPW" destination="YZP-TV-9Pb" id="XSr-Hu-p7H"/>
+                        <outlet property="tfTel" destination="7bR-nA-sFD" id="MaL-oR-5Wa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7J-3m-zow" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6180" y="1561"/>
+            <point key="canvasLocation" x="6180" y="1560.42654028436"/>
         </scene>
         <!--찜 목록-->
         <scene sceneID="pFZ-Kt-SM3">
@@ -4324,6 +4384,9 @@
     </scenes>
     <designables>
         <designable name="CH0-do-Mhc">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Qfb-j6-zgY">
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
         <designable name="TiI-Aa-96G">

@@ -64,11 +64,12 @@ class ImageSelectModel: NSObject {
             if let userEmail = jsonElement["userEmail"] as? String,
                let userPw = jsonElement["userPw"] as? String,
                let userName = jsonElement["userName"] as? String,
+               let userNickname = jsonElement["userNickname"] as? String,
                let userPhone = jsonElement["userPhone"] as? String,
                let userBirth = jsonElement["userBirth"] as? String,
                let userImg = jsonElement["userImg"] as? String,
                let userInsertDate = jsonElement["userInsertDate"] as? String{
-                let query = UserInfoModel(userEmail: userEmail, userPw: userPw, userName: userName, userPhone: userPhone, userBirth: userBirth, userImg: userImg, userInsertDate: userInsertDate)
+                let query = UserInfoModel(userEmail: userEmail, userPw: userPw, userName: userName,userNickname: userNickname, userPhone: userPhone, userBirth: userBirth, userImg: userImg, userInsertDate: userInsertDate)
                 //                query.scode = scode
                 //                query.sname = sname
                 //                query.sdept = sdept

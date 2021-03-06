@@ -10,10 +10,9 @@ import GoogleSignIn // Google Login import
 import KakaoSDKUser // Kakao Login import
 import NaverThirdPartyLogin // Naver Login import
 import UserNotifications // pushNotifications import
-class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol {
 
+class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol, UpdateDelegate {
     
-
     @IBOutlet weak var alertImg: UIImageView!
     
     // 상단에 띄울 나의 프로필 이미지와 닉네임 **********
@@ -24,10 +23,12 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     // 프로필: url, imagePickerController 변수
     let imagePickerController = UIImagePickerController()
     var imageURL: URL?
+    
     // ImageSelectModelProtocol itemdownload 변수
     var feedItem: NSArray = NSArray()
     var receiveItem = UserInfoModel()
     var userEmail = ""
+    // property 생성
     
     private var observer: NSObjectProtocol?
     
@@ -52,12 +53,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // imagePickerController
         imagePickerController.delegate = self
         
-        // 이미지뷰 클릭 제스처 설정
-        myImg.isUserInteractionEnabled = true
-        let event = UITapGestureRecognizer(target: self,
-                                           action: #selector(clickMethod))
-        myImg.addGestureRecognizer(event)
-        
         print("userEmail",Share.userEmail)
         if userEmail == ""{
     
@@ -68,9 +63,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
         }
         
-
-    
-        
+        // 알림센터에 옵저버를 적용
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
                                                           object: nil,
                                                           queue: .main) {
@@ -89,8 +82,29 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             }
         }
         
+       
+        
     }
     
+    @IBAction func btnMyProfile(_ sender: UIButton) {
+        print("내 정보 수정 막기")
+        if userEmail == "" {
+            print("Alert창으로 알림 띄우기")
+            
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 '내 정보 수정' 이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            
+           
+        
+            
+//            self.present(resultAlert, animatedle true, completion: nil)
+            
+            
+        }else{
+            print("그냥 들어가게")
+        }
+    }
     
     
     // 알림 설정 기능 구현해서 넣기 -> 사진 바뀌는 것만 추가함
@@ -148,16 +162,20 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     // 회원탈퇴 기능 구현
     @IBAction func btnSignout(_ sender: UIButton) {
+        
+        
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+//    // MARK: - Navigation
+//
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//
+//
+//    }
+//
     @IBAction func btnMyReviewList(_ sender: UIButton) {
         if Share.userEmail != "" {
             //            performSegue(withIdentifier: "sgWriteBoard", sender: sender)
@@ -167,6 +185,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             resultAlert.addAction(cancelAction)
             self.present(resultAlert, animated: true, completion: nil)
         }
+        
     }
 
     func itemDownload(items: NSArray) {
@@ -175,7 +194,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         feedItem = items
         receiveItem = feedItem[0] as! UserInfoModel
         print("결과출력")
-        if receiveItem.userImg == nil{
+        print("receiveItem.userImg",receiveItem.userImg)
+        if receiveItem.userImg == nil, receiveItem.userImg == ""{
             print("image nil")
         }else{
             print("image load")
@@ -186,56 +206,14 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
       }
         
     }
-   
     
-    // profile image click 메소드
-    @objc func clickMethod() {
-        print("tapped")
-        let photoAlert = UIAlertController(title: "사진 가져오기", message: "Photo Library에서 사진을 가져 옵니다.", preferredStyle: UIAlertController.Style.actionSheet) // Alert가 화면 밑에서 돌출
-        
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { [self]ACTION in
-            self.imagePickerController.sourceType = .photoLibrary
-            self.present(self.imagePickerController, animated: false, completion: nil) // animated: true로 해서 차이점을 확인해 보세요!
-            print("imagePickerController \(String(describing: present))")
-            
-            
-        })
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        photoAlert.addAction(okAction)
-        photoAlert.addAction(cancelAction)
-        
-        present(photoAlert, animated: true, completion: nil)
-        
+    func reloadImage() {
+        print("MyPageViewController")
+        let imgSelectModel = ImageSelectModel()
+        imgSelectModel.delegate = self
+        imgSelectModel.downloadItems(userEmail: Share.userEmail) // JsonModel.swift에 downloadItems 구동
     }
-    
-    // Photo Library에서 사진 가져오기(함수 이름만 입력하면 준비된 함수임). Print해보면 위치를 알 수 있음.
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage { // 원본 이미지가 있을 경우
-            
-            myImg.image = image
-            print("check : \(image)")
-            imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
-            print("imageURL : \(imageURL!)")
-            
-        }
-    
-        print("nil value check : \(String(describing: imageURL))")
-        
-        let imageUploadModel = ImageUploadModel()
-        if imageURL == nil { //예외 처리
-            
-        }else{
-            imageUploadModel.uploadImageFile(userEmail: userEmail, at: imageURL!, completionHandler: {_,_ in print("Upload Success")})
-        }
-        
-        
-        // 켜놓은 앨범 화면 없애기
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    
     
 }
+
+

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D3E8377CA58D641DF585023 /* Pods_Moca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */; };
+		5F1F175E25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */; };
 		5FF819C125EF3A8100B56CAF /* ImageUpLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */; };
 		5FF819C425EF3C8B00B56CAF /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */; };
 		5FF819C725EF3CB500B56CAF /* ImageSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */; };
@@ -144,6 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileUpdateModel.swift; sourceTree = "<group>"; };
 		5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpLoadModel.swift; sourceTree = "<group>"; };
 		5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectModel.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 			children = (
 				5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */,
 				5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */,
+				5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */,
 			);
 			path = profile_Json;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				813B43A225ED4505008B6C44 /* CategoryRankViewController.swift in Sources */,
 				626026F125EF8EF800F8AF45 /* MenuNoModel.swift in Sources */,
 				620AF86625F0B65100AE026B /* RegisterViewController.swift in Sources */,
+				5F1F175E25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift in Sources */,
 				8138C35725E5F74900F5887D /* AppDelegate.swift in Sources */,
 				8138C35925E5F74900F5887D /* SceneDelegate.swift in Sources */,
 				626026EE25EF8ED700F8AF45 /* StarAvgModel.swift in Sources */,

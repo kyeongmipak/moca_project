@@ -129,7 +129,6 @@
 		8148967925E63D3200AF92BC /* no_like.png in Resources */ = {isa = PBXBuildFile; fileRef = 8148967625E63D3200AF92BC /* no_like.png */; };
 		8148967A25E63D3200AF92BC /* yes_like.png in Resources */ = {isa = PBXBuildFile; fileRef = 8148967725E63D3200AF92BC /* yes_like.png */; };
 		8148967B25E63D3200AF92BC /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8148967825E63D3200AF92BC /* splash.png */; };
-		8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148967D25E6423400AF92BC /* ProductDetailViewController.swift */; };
 		8148968425E645CE00AF92BC /* SearchJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148968325E645CE00AF92BC /* SearchJsonModel.swift */; };
 		8148968C25E6471B00AF92BC /* MenuDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148968B25E6471B00AF92BC /* MenuDBModel.swift */; };
 		8148969025E6486200AF92BC /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8148968F25E6486200AF92BC /* SearchTableViewCell.swift */; };
@@ -142,6 +141,8 @@
 		814896A925E6683800AF92BC /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A625E6683800AF92BC /* google.png */; };
 		814896AA25E6683800AF92BC /* kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A725E6683800AF92BC /* kakao.png */; };
 		814896AB25E6683800AF92BC /* naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 814896A825E6683800AF92BC /* naver.png */; };
+		81E51D3825F34AFC00F39D98 /* MenuDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E51D3725F34AFC00F39D98 /* MenuDetailTableViewCell.swift */; };
+		81E51D3C25F390FE00F39D98 /* DetailButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E51D3B25F390FE00F39D98 /* DetailButtonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -270,7 +271,6 @@
 		8148967625E63D3200AF92BC /* no_like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_like.png; sourceTree = "<group>"; };
 		8148967725E63D3200AF92BC /* yes_like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_like.png; sourceTree = "<group>"; };
 		8148967825E63D3200AF92BC /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
-		8148967D25E6423400AF92BC /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		8148968325E645CE00AF92BC /* SearchJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJsonModel.swift; sourceTree = "<group>"; };
 		8148968B25E6471B00AF92BC /* MenuDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDBModel.swift; sourceTree = "<group>"; };
 		8148968F25E6486200AF92BC /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -283,6 +283,8 @@
 		814896A625E6683800AF92BC /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		814896A725E6683800AF92BC /* kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kakao.png; sourceTree = "<group>"; };
 		814896A825E6683800AF92BC /* naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = naver.png; sourceTree = "<group>"; };
+		81E51D3725F34AFC00F39D98 /* MenuDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailTableViewCell.swift; sourceTree = "<group>"; };
+		81E51D3B25F390FE00F39D98 /* DetailButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonTableViewCell.swift; sourceTree = "<group>"; };
 		8AB789062D98B83880DCC915 /* Pods-Moca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moca.release.xcconfig"; path = "Target Support Files/Pods-Moca/Pods-Moca.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -455,7 +457,6 @@
 			isa = PBXGroup;
 			children = (
 				8148967325E63BB300AF92BC /* MainViewController.swift */,
-				8148967D25E6423400AF92BC /* ProductDetailViewController.swift */,
 				8148969325E6491900AF92BC /* SearchViewController.swift */,
 				813B437A25ED38BA008B6C44 /* TabsPageViewController.swift */,
 				813B437D25ED38FC008B6C44 /* BrandRankViewController.swift */,
@@ -590,6 +591,8 @@
 				813B43AF25ED48AD008B6C44 /* BeverageTableViewCell.swift */,
 				813B43B425ED49B1008B6C44 /* TeaTableViewCell.swift */,
 				813B43B925ED4AAC008B6C44 /* ShakeTableViewCell.swift */,
+				81E51D3725F34AFC00F39D98 /* MenuDetailTableViewCell.swift */,
+				81E51D3B25F390FE00F39D98 /* DetailButtonTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -831,11 +834,11 @@
 				8148968425E645CE00AF92BC /* SearchJsonModel.swift in Sources */,
 				813B436C25ED2E38008B6C44 /* TipTableViewCell.swift in Sources */,
 				6247CFA425EDDD800020B509 /* TipCardView.swift in Sources */,
+				81E51D3C25F390FE00F39D98 /* DetailButtonTableViewCell.swift in Sources */,
 				813B436F25ED30FC008B6C44 /* BrandRankTableViewCell.swift in Sources */,
 				813B43B625ED49B1008B6C44 /* TeaTableViewCell.swift in Sources */,
 				626026E025EF8A7200F8AF45 /* ReviewDBModel.swift in Sources */,
 				626026DD25EF89F600F8AF45 /* CollectionViewCell.swift in Sources */,
-				8148967E25E6423400AF92BC /* ProductDetailViewController.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
 				813B438625ED3ADB008B6C44 /* BrandRankDBModel.swift in Sources */,
 				813B437225ED3396008B6C44 /* CategoryRankTableViewCell.swift in Sources */,
@@ -868,6 +871,7 @@
 				629B502925EFECE300A236F1 /* MyReviewListController.swift in Sources */,
 				813B437825ED37AD008B6C44 /* BrandTabsView.swift in Sources */,
 				6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */,
+				81E51D3825F34AFC00F39D98 /* MenuDetailTableViewCell.swift in Sources */,
 				813B437B25ED38BA008B6C44 /* TabsPageViewController.swift in Sources */,
 				813B438F25ED3CB3008B6C44 /* EdiyaTableViewCell.swift in Sources */,
 				6260270325EF93E500F8AF45 /* TextOnlyTableViewCell.swift in Sources */,

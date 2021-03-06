@@ -13,7 +13,7 @@ protocol BrandRankJsonModelProtocol: class {
 
 class BrandRankJsonModel: NSObject {
     var delegate: BrandRankJsonModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/ios/rank_brand_query_ios.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/rank_brand_query_ios.jsp"
     
     func downloadItems(brandName: String){
         urlPath = urlPath + "?brandName=\(brandName)"

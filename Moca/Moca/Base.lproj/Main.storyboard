@@ -422,7 +422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIh-9d-Jd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="880" y="978"/>
+            <point key="canvasLocation" x="858" y="1072"/>
         </scene>
         <!--마이페이지-->
         <scene sceneID="saL-2K-D9L">
@@ -3999,35 +3999,34 @@
                                                     <outlet property="menuPriceCal" destination="Obq-gf-UnC" id="VVd-O8-VVz"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="DetailButtonTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailButtonTableViewCell" rowHeight="100" id="exe-cL-u3m" customClass="DetailButtonTableViewCell" customModule="Moca" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1343" width="358" height="100"/>
+                                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" restorationIdentifier="DetailButtonTableViewCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DetailButtonTableViewCell" rowHeight="50" id="exe-cL-u3m" customClass="DetailButtonTableViewCell" customModule="Moca" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1343" width="358" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="exe-cL-u3m" id="ICR-Je-Adx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-CL-aSp">
-                                                            <rect key="frame" x="16" y="15" width="326" height="70"/>
+                                                            <rect key="frame" x="16" y="15" width="326" height="20"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNH-hq-vdY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="70"/>
-                                                                    <state key="normal" title="좋아요"/>
-                                                                    <connections>
-                                                                        <action selector="likeBtnAction:" destination="exe-cL-u3m" eventType="touchUpInside" id="TP8-0R-Y70"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmW-Pv-zf1">
-                                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="108.66666666666666" height="70"/>
-                                                                    <state key="normal" title="공유"/>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_like.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Mi-cf-uBx">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="20"/>
+                                                                </imageView>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmW-Pv-zf1">
+                                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="108.66666666666666" height="20"/>
+                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="shareBtnAction:" destination="exe-cL-u3m" eventType="touchUpInside" id="R4p-a9-ele"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-Fj-agD">
-                                                                    <rect key="frame" x="217.33333333333334" y="0.0" width="108.66666666666666" height="70"/>
-                                                                    <state key="normal" title="지도"/>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-Fj-agD">
+                                                                    <rect key="frame" x="217.33333333333334" y="0.0" width="108.66666666666666" height="20"/>
+                                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                                    <state key="normal" image="map.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="mapBtnAction:" destination="exe-cL-u3m" eventType="touchUpInside" id="YIK-ZS-CRE"/>
+                                                                        <segue destination="cH2-UN-n5Z" kind="show" identifier="sgMap" id="BOf-Wz-jmv"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -4041,7 +4040,6 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="likeBtn" destination="iNH-hq-vdY" id="Faw-Jj-plK"/>
                                                     <outlet property="mapBtn" destination="t4J-Fj-agD" id="geI-vd-YQr"/>
                                                     <outlet property="shareBtn" destination="WmW-Pv-zf1" id="Mrb-d3-QUI"/>
                                                 </connections>
@@ -4288,6 +4286,39 @@
             </objects>
             <point key="canvasLocation" x="3003.0769230769229" y="2282.7014218009476"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="Roz-af-5Ip">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E0H-4L-IOt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="cH2-UN-n5Z" customClass="MapViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IAx-97-kAH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gL8-cR-kuI">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cH2-UN-n5Z" id="zPM-1g-Vgx"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QOX-lV-0VN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QOX-lV-0VN" firstAttribute="trailing" secondItem="gL8-cR-kuI" secondAttribute="trailing" id="0BE-cd-G9r"/>
+                            <constraint firstItem="gL8-cR-kuI" firstAttribute="top" secondItem="QOX-lV-0VN" secondAttribute="top" id="Bqd-Ml-lg6"/>
+                            <constraint firstItem="QOX-lV-0VN" firstAttribute="bottom" secondItem="gL8-cR-kuI" secondAttribute="bottom" id="MDQ-1B-Dfe"/>
+                            <constraint firstItem="gL8-cR-kuI" firstAttribute="leading" secondItem="QOX-lV-0VN" secondAttribute="leading" id="uvj-IQ-axl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7cl-HJ-JiS"/>
+                    <connections>
+                        <outlet property="myMapView" destination="gL8-cR-kuI" id="05Z-Ln-fCF"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3922" y="2320"/>
+        </scene>
         <!--My 리뷰 리스트-->
         <scene sceneID="Dhx-yv-kyn">
             <objects>
@@ -4509,8 +4540,10 @@
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="login.png" width="1080" height="2280"/>
         <image name="logout.png" width="500" height="500"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <image name="myUpdate.png" width="500" height="500"/>
         <image name="naver.png" width="500" height="500"/>
+        <image name="no_like.png" width="409.60000610351562" height="409.60000610351562"/>
         <image name="on.png" width="500" height="500"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.crop.square" catalog="system" width="128" height="114"/>

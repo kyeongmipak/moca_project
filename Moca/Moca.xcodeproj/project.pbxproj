@@ -28,6 +28,8 @@
 		6217549925E7F7EA004FFAE9 /* LikeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */; };
 		6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217549B25E7F833004FFAE9 /* QnaData.swift */; };
 		6219BCCD25ED551800AD5D5D /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219BCCC25ED551800AD5D5D /* TipViewController.swift */; };
+		621C095225F3C2DD00F5FBD0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C095125F3C2DD00F5FBD0 /* MapViewController.swift */; };
+		621C095525F3C45A00F5FBD0 /* MapLocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */; };
 		6247CFA425EDDD800020B509 /* TipCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6247CFA325EDDD800020B509 /* TipCardView.swift */; };
 		6247CFA825EDDDCD0020B509 /* TipPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6247CFA725EDDDCD0020B509 /* TipPageViewController.swift */; };
 		6247CFB225EDE0F50020B509 /* t01.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6247CFAC25EDE0F30020B509 /* t01.jpeg */; };
@@ -166,6 +168,8 @@
 		6217549825E7F7EA004FFAE9 /* LikeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewController.swift; sourceTree = "<group>"; };
 		6217549B25E7F833004FFAE9 /* QnaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QnaData.swift; sourceTree = "<group>"; };
 		6219BCCC25ED551800AD5D5D /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		621C095125F3C2DD00F5FBD0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLocationModel.swift; sourceTree = "<group>"; };
 		62442CCD336CDB1B39D2DCDF /* Pods_Moca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6247CFA325EDDD800020B509 /* TipCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipCardView.swift; sourceTree = "<group>"; };
 		6247CFA725EDDDCD0020B509 /* TipPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPageViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +355,7 @@
 				629B503125EFED2F00A236F1 /* ReviewDeleteModel.swift */,
 				626026F025EF8EF800F8AF45 /* MenuNoModel.swift */,
 				629B503D25EFEDC400A236F1 /* MyReviewListModel.swift */,
+				621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */,
 			);
 			path = Review_Json;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */,
 				62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */,
 				627808B625F0787E009120CB /* TestMenuno.swift */,
+				621C095125F3C2DD00F5FBD0 /* MapViewController.swift */,
 			);
 			path = Review_Controller;
 			sourceTree = "<group>";
@@ -838,6 +844,7 @@
 				813B436F25ED30FC008B6C44 /* BrandRankTableViewCell.swift in Sources */,
 				813B43B625ED49B1008B6C44 /* TeaTableViewCell.swift in Sources */,
 				626026E025EF8A7200F8AF45 /* ReviewDBModel.swift in Sources */,
+				621C095225F3C2DD00F5FBD0 /* MapViewController.swift in Sources */,
 				626026DD25EF89F600F8AF45 /* CollectionViewCell.swift in Sources */,
 				8148969A25E6545700AF92BC /* SearchDBModel.swift in Sources */,
 				813B438625ED3ADB008B6C44 /* BrandRankDBModel.swift in Sources */,
@@ -856,6 +863,7 @@
 				626026EB25EF8DC300F8AF45 /* PhotoDetailReviewController.swift in Sources */,
 				62EC655F25EF9B0200C9FED4 /* ReviewInsertModel.swift in Sources */,
 				629B502F25EFECF000A236F1 /* MyReviewDetailViewController.swift in Sources */,
+				621C095525F3C45A00F5FBD0 /* MapLocationModel.swift in Sources */,
 				626026F725EF908100F8AF45 /* GetCollectionTableCell.swift in Sources */,
 				813B43A625ED45B9008B6C44 /* AllMenuViewController.swift in Sources */,
 				6247CFA825EDDDCD0020B509 /* TipPageViewController.swift in Sources */,

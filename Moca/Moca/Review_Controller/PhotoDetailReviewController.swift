@@ -84,7 +84,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             
             // 찜, 공유, 지도 버튼 셀
             case 1:
-                tableList.rowHeight = 100
+                tableList.rowHeight = 50
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailButtonTableViewCell", for: indexPath) as! DetailButtonTableViewCell
                 
                 cell.delegate = self
@@ -486,7 +486,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         // 지도 버튼
         if btnName == "map"{
             // MAP controller 연결 segue
-            self.performSegue(withIdentifier: "sgMap", sender: self)
+            
             
         }
     }

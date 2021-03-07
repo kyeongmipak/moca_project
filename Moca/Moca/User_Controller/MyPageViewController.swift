@@ -12,7 +12,9 @@ import NaverThirdPartyLogin // Naver Login import
 import UserNotifications // pushNotifications import
 import SQLite3
 
-class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol{
+class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol,UserInfoProfileIdCheckProtocol{
+
+    
     
     @IBOutlet weak var alertImg: UIImageView!
     
@@ -28,6 +30,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     // ImageSelectModelProtocol itemdownload 변수
     var feedItem: NSArray = NSArray()
     var receiveItem = UserInfoModel()
+    var userInfoProfileId = UserInfoModel()
     var userEmail = ""
     // property 생성
     
@@ -82,16 +85,20 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // imagePickerController
         imagePickerController.delegate = self
         
-        print("userEmail",Share.userEmail)
-        if userEmail == ""{
-    
-        }else{
-        //DB image load
-        let imgSelectModel = ImageSelectModel()
-        imgSelectModel.delegate = self
-        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
-        }
-        
+//        print("userEmail",Share.userEmail)
+//        if userEmail == ""{
+//
+//        }else{
+//        //DB image load
+//        let imgSelectModel = ImageSelectModel()
+//        imgSelectModel.delegate = self
+//        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+//        }
+        // 로그인한 id가 db에 있는지 확인
+        let UserInfoProfileCheckModel = UserInfoProfileIdCheckModel()
+        UserInfoProfileCheckModel.delegate = self
+        UserInfoProfileCheckModel.downloadItems()
+        print("id목록",userInfoProfileId)
         // 알림센터에 옵저버를 적용
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
                                                           object: nil,
@@ -278,6 +285,26 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         myImg.image = UIImage(data: data)
       }
         
+    }
+    
+    func userInfofindId(items: NSArray) {
+        feedItem = items
+        print(items.count)
+        for i in 0...items.count - 1{
+            userInfoProfileId = feedItem[i] as! UserInfoModel
+            print("userInfoProfileId",userInfoProfileId.userEmail)
+            if userEmail != userInfoProfileId.userEmail{
+                
+            }else{
+                //DB image load
+                
+                // id검색 후 없으면 ImageSelectModel 동작 X
+                let imgSelectModel = ImageSelectModel()
+                imgSelectModel.delegate = self
+                imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+            }
+        
+        }
     }
     
     func reloadImage() {

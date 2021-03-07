@@ -13,7 +13,7 @@ class UserInfoProfileUpdateModel: NSObject{
    
     
     // return값을 true,false로 줘서 체크
-    func insertItems(userPw: String, userNickname: String, userPhone: String, userImg: String, userEmail: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
+    func updateItems(userPw: String, userNickname: String, userPhone: String, userImg: String, userEmail: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         let urlAdd = "?userPw=\(userPw)&userNickname=\(userNickname)&userPhone=\(userPhone)&userImg=\(userImg)&userEmail=\(userEmail)"
         urlPath = urlPath + urlAdd

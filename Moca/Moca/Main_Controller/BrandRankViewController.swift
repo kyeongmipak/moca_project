@@ -23,9 +23,9 @@ class BrandRankViewController: UIViewController, BrandTabsDelegate, UIPageViewCo
         switch reveiveItem {
             case "스타벅스":
                 selectedIndex = 0
-            case "이디야":
-                selectedIndex = 1
             case "투썸플레이스":
+                selectedIndex = 1
+            case "이디야":
                 selectedIndex = 2
             case "할리스":
                 selectedIndex = 3
@@ -42,8 +42,8 @@ class BrandRankViewController: UIViewController, BrandTabsDelegate, UIPageViewCo
         // Add Tabs (Set 'icon'to nil if you don't want to have icons)
         tabsView.tabs = [
             BrandTab(title: "스타벅스"),
-            BrandTab(title: "이디야"),
             BrandTab(title: "투썸플레이스"),
+            BrandTab(title: "이디야"),
             BrandTab(title: "할리스커피")
 //            Tab(icon: UIImage(named: "music"), title: "스타벅스"),
 //            Tab(icon: UIImage(named: "movies"), title: "이디야"),
@@ -112,12 +112,12 @@ class BrandRankViewController: UIViewController, BrandTabsDelegate, UIPageViewCo
             contentVC.pageIndex = index
             return contentVC
         } else if index == 1 {
-            let contentVC = storyboard?.instantiateViewController(withIdentifier: "EdiyaViewController") as! EdiyaViewController
+            let contentVC = storyboard?.instantiateViewController(withIdentifier: "TwosomeViewController") as! TwosomeViewController
             contentVC.brandName = tabsView.tabs[index].title
             contentVC.pageIndex = index
             return contentVC
         } else if index == 2 {
-            let contentVC = storyboard?.instantiateViewController(withIdentifier: "TwosomeViewController") as! TwosomeViewController
+            let contentVC = storyboard?.instantiateViewController(withIdentifier: "EdiyaViewController") as! EdiyaViewController
             contentVC.brandName = tabsView.tabs[index].title
             contentVC.pageIndex = index
             return contentVC
@@ -170,11 +170,11 @@ class BrandRankViewController: UIViewController, BrandTabsDelegate, UIPageViewCo
         case is StarbucksViewController:
             let vc = viewController as! StarbucksViewController
             return vc.pageIndex
-        case is EdiyaViewController:
-            let vc = viewController as! EdiyaViewController
-            return vc.pageIndex
         case is TwosomeViewController:
             let vc = viewController as! TwosomeViewController
+            return vc.pageIndex
+        case is EdiyaViewController:
+            let vc = viewController as! EdiyaViewController
             return vc.pageIndex
         case is HollysViewController:
             let vc = viewController as! HollysViewController

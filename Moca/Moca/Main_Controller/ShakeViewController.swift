@@ -38,9 +38,17 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
     }
     
     func itemDownloaded(items: NSArray) {
-        feedItem = items
-        menuArray = items as! [BrandRankDBModel]
-        searchBar.placeholder = "브랜드 또는 메뉴를 검색하세요."
+        
+        if items.count == 0 {
+            menuTotalNum.text = "0 개의 제품"
+            searchBar.isHidden = true
+            
+        } else {
+            feedItem = items
+            menuArray = items as! [BrandRankDBModel]
+            searchBar.placeholder = "브랜드 또는 메뉴를 검색하세요."
+        }
+        
         tableViewList.reloadData()
     }
     
@@ -99,6 +107,9 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         tableViewList.reloadData()
@@ -108,8 +119,8 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
         if segue.identifier == "sgShakeDetail" {
             let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
                 let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
-                let detailView = segue.destination as! ProductDetailViewController  // detail controller 연결
-            detailView.reveiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+                let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
+            detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
         }
     }
     

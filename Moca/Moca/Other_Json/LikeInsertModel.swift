@@ -9,13 +9,13 @@ import Foundation
 
 class LikeInsertModel: NSObject{
     
-    var urlPath = "http://127.0.0.1:8080/swift_address/starInsert_ios.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/starInsert_ios.jsp"
     
     
     // insertItems의 () 매개변수들은 AddViewController에서 값을 넣어줘서 함께 실행할거고 → Bool로 실행 여부 확인할거야.
-    func likeInsertItems(user_userEmail: String, address_addressNo: Int) -> Bool {
+    func likeInsertItems(userInfo_userEmail: String, menu_menuNo: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?user_userEmail=\(user_userEmail)&address_addressNo=\(address_addressNo)"
+        let urlAdd = "?userInfo_userEmail=\(Share.userEmail)&menu_menuNo=\(menu_menuNo)"
         urlPath = urlPath + urlAdd
         
         // 한글 url encoding → 한글 글씨가 %로 바뀌어서 날아감.

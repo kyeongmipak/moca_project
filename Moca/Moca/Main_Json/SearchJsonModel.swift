@@ -13,7 +13,7 @@ protocol SearchJsonModelProtocol: class {
 
 class SearchJsonModel: NSObject {
     var delegate: SearchJsonModelProtocol!
-    let urlPath = "http://127.0.0.1:8080/ios/search_query_ios.jsp"
+    let urlPath = "http://127.0.0.1:8080/moca/jsp/search_query_ios.jsp"
     
     func downloadItems(){
         let url = URL(string: urlPath)!

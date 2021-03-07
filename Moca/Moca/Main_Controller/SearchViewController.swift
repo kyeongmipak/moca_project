@@ -92,14 +92,14 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDat
             cell.menuNameLbl.text = item1.menuName
             cell.brandNameLbl.text = item1.brandName
             
-            let url1 = URL(string: "http://127.0.0.1:8080/png/\(item1.menuImg!)")
+            let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
             let data1 = try! Data(contentsOf: url1!)
             cell.searchImgView.image = UIImage(data: data1)
         
             
         } else {  // 아닐때
             let item: SearchDBModel = feedItem[indexPath.row] as! SearchDBModel
-            let url = URL(string: "http://127.0.0.1:8080/png/\(item.menuImg!)")
+            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
             let data = try! Data(contentsOf: url!)
             
             cell.menuNameLbl.text = item.menuName
@@ -109,6 +109,15 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDat
         }
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sgProductDetail" {
+            let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
+                let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
+                let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
+                detailView.menuItem = feedItem[(indexPath! as NSIndexPath).row] as! SearchDBModel
+        }
     }
     
     // 검색바 셋팅

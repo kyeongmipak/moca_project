@@ -83,7 +83,7 @@ class HollysViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.lblMenuPrice.text = "\(result!) 원"
             cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
             
-            let url1 = URL(string: "http://127.0.0.1:8080/png/\(item1.menuImg!)")
+            let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
             menuTotalNum.text = "\(searchedMenu.count) 개의 제품"
@@ -92,7 +92,7 @@ class HollysViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
             
-            let url = URL(string: "http://127.0.0.1:8080/png/\(item.menuImg!)")
+            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
             let data = try! Data(contentsOf: url!)
             
             cell.imgMenuImage.image = UIImage(data: data)
@@ -111,6 +111,9 @@ class HollysViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         tableViewList.reloadData()
@@ -120,8 +123,8 @@ class HollysViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if segue.identifier == "sgHollysDetail" {
             let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
                 let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
-                let detailView = segue.destination as! ProductDetailViewController  // detail controller 연결
-            detailView.reveiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+                let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
+            detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
         }
     }
     

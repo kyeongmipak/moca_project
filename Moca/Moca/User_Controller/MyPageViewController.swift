@@ -204,21 +204,21 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     }
 
     func itemDownload(items: NSArray) {
-        print("----itemDownload 함수 작동-----")
-        print(items)
-        feedItem = items
-        receiveItem = feedItem[0] as! UserInfoModel
-        print("결과출력")
-        print("receiveItem.userImg",receiveItem.userImg)
-        if receiveItem.userImg == nil, receiveItem.userImg == ""{
-            print("image nil")
-        }else{
-            print("image load")
-//                  let url = URL(string: "http://127.0.0.1:8080/ios/\(receiveItem.image!)")
-          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
-        let data = try! Data(contentsOf: url!)
-        myImg.image = UIImage(data: data)
-      }
+//        print("----itemDownload 함수 작동-----")
+//        print(items)
+//        feedItem = items
+//        receiveItem = feedItem[0] as! UserInfoModel
+//        print("결과출력")
+//        print("receiveItem.userImg",receiveItem.userImg)
+//        if receiveItem.userImg == nil, receiveItem.userImg == ""{
+//            print("image nil")
+//        }else{
+//            print("image load")
+////                  let url = URL(string: "http://127.0.0.1:8080/ios/\(receiveItem.image!)")
+//          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
+//        let data = try! Data(contentsOf: url!)
+//        myImg.image = UIImage(data: data)
+//      }
         
     }
     

@@ -697,7 +697,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nqg-qC-CN1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7023" y="1561"/>
+            <point key="canvasLocation" x="7021.538461538461" y="1560.42654028436"/>
         </scene>
         <!--자주 묻는 질문-->
         <scene sceneID="QhM-sj-3w8">
@@ -4017,7 +4017,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-CL-aSp">
                                                             <rect key="frame" x="16" y="15" width="326" height="20"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_like.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Mi-cf-uBx">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_like.png" translatesAutoresizingMaskIntoConstraints="NO" id="48w-uN-lO7">
                                                                     <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="20"/>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmW-Pv-zf1">
@@ -4048,6 +4048,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="LikeImg" destination="48w-uN-lO7" id="Ymd-dm-0ab"/>
                                                     <outlet property="mapBtn" destination="t4J-Fj-agD" id="geI-vd-YQr"/>
                                                     <outlet property="shareBtn" destination="WmW-Pv-zf1" id="Mrb-d3-QUI"/>
                                                 </connections>
@@ -4082,7 +4083,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32f-yK-xzQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3004.6153846153843" y="1594.5497630331752"/>
+            <point key="canvasLocation" x="2985" y="1546"/>
         </scene>
         <!--포토리뷰-->
         <scene sceneID="Ahk-HG-ide">
@@ -4549,7 +4550,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="cjC-2X-tUq"/>
+        <segue reference="wRI-tJ-Thi"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

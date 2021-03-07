@@ -9,8 +9,8 @@ import UIKit
 import Cosmos
 import TinyConstraints
 
-
-class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate {
+// LikeCountJsonModelProtocol
+class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate, LikeCountJsonModelProtocol {
     
     var brandName = ""
     
@@ -90,6 +90,18 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailButtonTableViewCell", for: indexPath) as! DetailButtonTableViewCell
                 
                 cell.delegate = self
+                print("menuNoReveive \(menuNoReveive)")
+                
+                cell.menuNo = Int(menuNoReveive)!
+                
+                //
+                if result == 0{
+                    // 즐겨찾기 등록이 되어있지 않을 때
+                    cell.LikeImg.image = UIImage(named: "no_like.png")
+                }else if result == 1{
+                    // 즐겨찾기 등록이 되어있을 때
+                    cell.LikeImg.image = UIImage(named: "yes_like.png")
+                }
                 
                 return cell
             
@@ -363,6 +375,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     // MARK: 변수 Setting
     @IBOutlet var tableList: UITableView!
     
+  
+    
     var feedItem:NSArray = NSArray()
     //    var receiveItem = DBModel() // DBModel 객체 선언
     var starAvg : String = "" // DB모델
@@ -381,6 +395,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var menuItem: SearchDBModel = SearchDBModel()
     var rankItem: BrandRankDBModel = BrandRankDBModel()
     var btnName = ""
+    
+    //
+    var result = 3
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -428,9 +445,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 //            navigationItem.rightBarButtonItem = nil // hide
 //        }
         
+        
+        
+        //menuNoReveive
+        let likejsonModel = LikeCountJsonModel()
+        likejsonModel.delegate = self
+        likejsonModel.downloadItems(userInfo_userEmail: Share.userEmail, menu_menuNO: Int(menuNoReveive)!)
+    }// view didload 끝
+    
+    func likeItemDownloaded(items: Int) {
+        result = items
+        print(result)
     }
     
+    
+    
     // MARK: - func & delegate func Setting
+    
     
     
     @IBAction func btnWriteReview(_ sender: UIBarButtonItem) {

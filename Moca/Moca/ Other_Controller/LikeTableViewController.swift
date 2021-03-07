@@ -82,55 +82,25 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // ↓ custom한 TableViewCell 사용할거니까
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LikeCell", for: indexPath) as! LikeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "likeCell", for: indexPath) as! LikeTableViewCell
         
-        cell.delegate = self as? MyCellDelegate
+        cell.delegate = self as? LikeCellDelegate
         // cell 정의
         // 현재 배열값으로 들어온 cell 풀어서 정의.
         let item: LikeDBModel = LikeItem[indexPath.row] as! LikeDBModel
+        
+        let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
+        let data = try! Data(contentsOf: url!)
+        cell.likeImg.image = UIImage(data: data)
+        
+        
         cell.likeBrand?.text = "\(item.menuName!)"
-        cell.likeName?.text = "\(item.menuName!)"
+        cell.likeName?.text = "\(item.menuPrice!)"
         cell.menuNO?.text = "\(item.menu_menuNo!)"
         
         cell.menuNO.isHidden = true
         return cell
     }
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
     
      // MARK: - Navigation
      
@@ -141,13 +111,13 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
            // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.
            let cell = sender as! UITableViewCell
            // 그 위치는 이제 indexPath에서 지정.
-           let indexPath = self.starListTableView.indexPath(for: cell)
+           let indexPath = self.likeListTableView.indexPath(for: cell)
            // 보낼 컨트롤러 위치
-           let detailAdrViewController = segue.destination as! DetailAdrViewController
-        var addressNo = StarItem[(indexPath! as NSIndexPath).row] as! AddressModel
+           let detailAdrViewController = segue.destination as! PhotoDetailReviewController
+        var menuNo = LikeItem[(indexPath! as NSIndexPath).row] as! LikeDBModel
         
            // detailview의 receiveItem에 =~~~~를 보낸다.
-        detailAdrViewController.addressReceiveNo = addressNo.addressNo!
+//        detailAdrViewController.likeReceiveNo = menuNo.menuNo!
        }
         
      }

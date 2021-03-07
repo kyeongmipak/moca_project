@@ -14,7 +14,7 @@ class LikeDeleteModel: NSObject{
     // insertItems의 () 매개변수들은 AddViewController에서 값을 넣어줘서 함께 실행할거고 → Bool로 실행 여부 확인할거야.
     func likeDeleteItems(menuNO: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?menu_menuNO=\(menuNO)"
+        let urlAdd = "?menu_menuNo=\(menuNO)"
         urlPath = urlPath + urlAdd
         
         // 한글 url encoding → 한글 글씨가 %로 바뀌어서 날아감.

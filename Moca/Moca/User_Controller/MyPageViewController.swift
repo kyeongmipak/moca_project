@@ -36,9 +36,34 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     // 2021.03.07 sqlite - 대환
     var db: OpaquePointer?
     
+    // 지은 추가 -> 둘러보기 일때 버튼을 숨기기 위함
+    
+    @IBOutlet weak var hiddenPro: UIButton!
+    @IBOutlet weak var hiddenLike: UIButton!
+    @IBOutlet weak var hiddenLog: UIButton!
+    @IBOutlet weak var hiddenSign: UIButton!
+    @IBOutlet weak var hiddenReview: UIButton!
+    
+    @IBOutlet weak var hiddenLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Share.userEmail == "" {
+            hiddenPro.isHidden = true
+            hiddenLike.isHidden = true
+            hiddenLog.isHidden = true
+            hiddenSign.isHidden = true
+            hiddenReview.isHidden = true
+            hiddenLogin.isHidden = false
+        }else{
+            hiddenPro.isHidden = false
+            hiddenLike.isHidden = false
+            hiddenLog.isHidden = false
+            hiddenSign.isHidden = false
+            hiddenReview.isHidden = false
+            hiddenLogin.isHidden = true
+        }
         
    
         // 이미지뷰를 터치했을때 이벤트 주기 +++++++++++++++++
@@ -180,6 +205,24 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         
     }
+    
+    
+    
+    // 전화 문의 기능 구현
+    @IBAction func btnCall(_ sender: UIButton) {
+        if let phoneCallURL = URL(string: "tel://01011111111") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+   
+    // 로그인 하러가기 기능 구현
+    @IBAction func btnLogin(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     
 //    // MARK: - Navigation
 //

@@ -64,6 +64,9 @@
 		62603A3725F133F9001312A5 /* EmailPwSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */; };
 		62603A3A25F13875001312A5 /* SearchEmailPwModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3925F13875001312A5 /* SearchEmailPwModel.swift */; };
 		627808B725F0787E009120CB /* TestMenuno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627808B625F0787E009120CB /* TestMenuno.swift */; };
+		628AACDC25F4DDC90043B6A2 /* myReviewList.png in Resources */ = {isa = PBXBuildFile; fileRef = 628AACD925F4DDC70043B6A2 /* myReviewList.png */; };
+		628AACDD25F4DDC90043B6A2 /* myLikeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 628AACDA25F4DDC80043B6A2 /* myLikeList.png */; };
+		628AACDE25F4DDC90043B6A2 /* call.png in Resources */ = {isa = PBXBuildFile; fileRef = 628AACDB25F4DDC80043B6A2 /* call.png */; };
 		629B502925EFECE300A236F1 /* MyReviewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502825EFECE300A236F1 /* MyReviewListController.swift */; };
 		629B502C25EFECE800A236F1 /* MyReviewTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */; };
 		629B502F25EFECF000A236F1 /* MyReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */; };
@@ -206,6 +209,9 @@
 		62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPwSearchViewController.swift; sourceTree = "<group>"; };
 		62603A3925F13875001312A5 /* SearchEmailPwModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmailPwModel.swift; sourceTree = "<group>"; };
 		627808B625F0787E009120CB /* TestMenuno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuno.swift; sourceTree = "<group>"; };
+		628AACD925F4DDC70043B6A2 /* myReviewList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myReviewList.png; path = ../../../image/myPage_Button/myReviewList.png; sourceTree = "<group>"; };
+		628AACDA25F4DDC80043B6A2 /* myLikeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myLikeList.png; path = ../../../image/myPage_Button/myLikeList.png; sourceTree = "<group>"; };
+		628AACDB25F4DDC80043B6A2 /* call.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = call.png; path = ../../../image/myPage_Button/call.png; sourceTree = "<group>"; };
 		629B502825EFECE300A236F1 /* MyReviewListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListController.swift; sourceTree = "<group>"; };
 		629B502B25EFECE800A236F1 /* MyReviewTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewTableCell.swift; sourceTree = "<group>"; };
 		629B502E25EFECF000A236F1 /* MyReviewDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewDetailViewController.swift; sourceTree = "<group>"; };
@@ -485,6 +491,9 @@
 		8148963925E61ABF00AF92BC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				628AACDB25F4DDC80043B6A2 /* call.png */,
+				628AACDA25F4DDC80043B6A2 /* myLikeList.png */,
+				628AACD925F4DDC70043B6A2 /* myReviewList.png */,
 				6247CFAC25EDE0F30020B509 /* t01.jpeg */,
 				6247CFAD25EDE0F30020B509 /* t02.jpeg */,
 				6247CFB025EDE0F40020B509 /* t03.jpeg */,
@@ -690,9 +699,11 @@
 				6217548825E7EEA2004FFAE9 /* on.png in Resources */,
 				6247CFB625EDE0F50020B509 /* t03.jpeg in Resources */,
 				8148969725E64A9000AF92BC /* login.png in Resources */,
+				628AACDC25F4DDC90043B6A2 /* myReviewList.png in Resources */,
 				814896AB25E6683800AF92BC /* naver.png in Resources */,
 				813B43C125ED52FA008B6C44 /* tip.png in Resources */,
 				813B43C925ED5343008B6C44 /* ediya.png in Resources */,
+				628AACDE25F4DDC90043B6A2 /* call.png in Resources */,
 				814896A925E6683800AF92BC /* google.png in Resources */,
 				6247CFB325EDE0F50020B509 /* t02.jpeg in Resources */,
 				6217548925E7EEA2004FFAE9 /* off.png in Resources */,
@@ -710,6 +721,7 @@
 				6217548425E7EEA2004FFAE9 /* qa.png in Resources */,
 				8148967A25E63D3200AF92BC /* yes_like.png in Resources */,
 				814896AA25E6683800AF92BC /* kakao.png in Resources */,
+				628AACDD25F4DDC90043B6A2 /* myLikeList.png in Resources */,
 				813B43CB25ED5343008B6C44 /* twosome.png in Resources */,
 				8138C35E25E5F74900F5887D /* Main.storyboard in Resources */,
 				8148967025E632D300AF92BC /* kakao_login_medium_narrow.png in Resources */,

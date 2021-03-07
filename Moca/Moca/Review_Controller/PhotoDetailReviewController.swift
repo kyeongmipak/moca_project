@@ -12,6 +12,8 @@ import TinyConstraints
 
 class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate {
     
+    var brandName = ""
+    
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -58,7 +60,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 numberFormatter.numberStyle = .decimal
                 if menuItem.menuNo != nil {
                     let result = numberFormatter.string(from: NSNumber(value: Int(menuItem.menuPrice!)!))
-                
+                    brandName = menuItem.brandName!
                     cell.menuBrandName.text = "\(menuItem.brandName!)"
                     cell.menuContent.text = "\(menuItem.menuInformation!)"
                     let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)")
@@ -500,7 +502,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         // 2021.03.07 맵으로 넘어가는 작업 - 대환
         if segue.identifier == "sgMap"{
             let mapViewController = segue.destination as! MapViewController
-            mapViewController.brandName = "스타벅스"
+            mapViewController.brandName = brandName
         }
     }
     

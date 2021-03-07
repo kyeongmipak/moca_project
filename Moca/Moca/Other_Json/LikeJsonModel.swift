@@ -78,10 +78,11 @@ class LikeJsonModel: NSObject{
                let menuImg = jsonElement["menuImg"] as? String,
                let menuCalorie = jsonElement["menuCalorie"] as? String,
                let menuInformation = jsonElement["menuInformation"] as? String,
-               let menuCategory = jsonElement["menuCategory"] as? String{
+               let menuCategory = jsonElement["menuCategory"] as? String,
+               let brandName = jsonElement["brandName"] as? String{
                 print("menuNo:\(menu_menuNo)")
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
-                let query = LikeDBModel(userInfo_userEmail: userInfo_userEmail, menu_menuNo: menu_menuNo, menuName: menuName, menuPrice: menuPrice, menuImg: menuImg, menuCalorie: menuCalorie, menuInformation: menuInformation, menuCategory: menuCategory)
+                let query = LikeDBModel(userInfo_userEmail: userInfo_userEmail, menu_menuNo: menu_menuNo, menuName: menuName, menuPrice: menuPrice, menuImg: menuImg, menuCalorie: menuCalorie, menuInformation: menuInformation, menuCategory: menuCategory, brandName: brandName)
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
                 print("query = \(query)")
             }

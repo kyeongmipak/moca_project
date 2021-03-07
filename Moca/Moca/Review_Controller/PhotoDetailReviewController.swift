@@ -70,7 +70,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuName.text = "\(menuItem.menuName!)"
                     cell.menuPriceCal.text = "\(result!) 원 / \(menuItem.menuCalorie!) kcal"
                     
-                } else {
+                } else if rankItem.menuNo != nil{
                     let result = numberFormatter.string(from: NSNumber(value: Int(rankItem.menuPrice!)!))
                 
                     cell.menuBrandName.text = "\(rankItem.brandName!)"
@@ -81,6 +81,18 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuImage.image = UIImage(data: data)
                     cell.menuName.text = "\(rankItem.menuName!)"
                     cell.menuPriceCal.text = "\(result!) 원 / \(rankItem.menuCalorie!) kcal"
+                }else {
+                    // 지은
+                    let result = numberFormatter.string(from: NSNumber(value: Int(LikeItem.menuPrice!)!))
+                
+                    cell.menuBrandName.text = "\(LikeItem.brandName!)"
+                    cell.menuContent.text = "\(LikeItem.menuInformation!)"
+                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
+
+                    let data = try! Data(contentsOf: url!)
+                    cell.menuImage.image = UIImage(data: data)
+                    cell.menuName.text = "\(LikeItem.menuName!)"
+                    cell.menuPriceCal.text = "\(result!) 원 / \(LikeItem.menuCalorie!) kcal"
                 }
                 return cell
             
@@ -396,8 +408,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var rankItem: BrandRankDBModel = BrandRankDBModel()
     var btnName = ""
     
-    //
+    // 지은 추가
     var result = 3
+    var LikeItem: LikeDBModel = LikeDBModel()
     
     // MARK: viewDidLoad()
     override func viewDidLoad() {
@@ -408,7 +421,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             menuNoReveive = menuNO.menuNo!
         } else if rankItem.menuNo != nil {
             menuNoReveive = rankItem.menuNo!
-        } else {
+        } else if LikeItem.menu_menuNo != nil{
+            menuNoReveive = String(LikeItem.menu_menuNo!)
+        }
+        else {
             menuNoReveive = menuItem.menuNo!
         }
         

@@ -16,6 +16,7 @@ class LikeDBModel: NSObject{
     var menuCalorie: String?
     var menuInformation: String?
     var menuCategory: String?
+    var brandName: String?
     
     // Empty constructor
     override init() {
@@ -28,7 +29,7 @@ class LikeDBModel: NSObject{
         self.menu_menuNo = menu_menuNo
     }
     
-    init(userInfo_userEmail: String, menu_menuNo: Int, menuName: String, menuPrice: String, menuImg: String, menuCalorie: String, menuInformation: String, menuCategory: String) {
+    init(userInfo_userEmail: String, menu_menuNo: Int, menuName: String, menuPrice: String, menuImg: String, menuCalorie: String, menuInformation: String, menuCategory: String, brandName: String) {
         self.userInfo_userEmail = userInfo_userEmail
         self.menu_menuNo = menu_menuNo
         self.menuName = menuName
@@ -37,6 +38,7 @@ class LikeDBModel: NSObject{
         self.menuCalorie = menuCalorie
         self.menuInformation = menuInformation
         self.menuCategory = menuCategory
+        self.brandName = brandName
     }
    
 }

@@ -94,8 +94,8 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
         cell.likeImg.image = UIImage(data: data)
         
         
-        cell.likeBrand?.text = "\(item.menuName!)"
-        cell.likeName?.text = "\(item.menuPrice!)"
+        cell.likeBrand?.text = "\(item.brandName!)"
+        cell.likeName?.text = "\(item.menuName!)"
         cell.menuNO?.text = "\(item.menu_menuNo!)"
         
         cell.menuNO.isHidden = true
@@ -107,7 +107,7 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-       if segue.identifier == "starDetail"{
+       if segue.identifier == "LikeDetail"{
            // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.
            let cell = sender as! UITableViewCell
            // 그 위치는 이제 indexPath에서 지정.
@@ -117,7 +117,7 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
         var menuNo = LikeItem[(indexPath! as NSIndexPath).row] as! LikeDBModel
         
            // detailview의 receiveItem에 =~~~~를 보낸다.
-//        detailAdrViewController.likeReceiveNo = menuNo.menuNo!
+        detailAdrViewController.LikeItem = menuNo
        }
         
      }

@@ -9,8 +9,10 @@ request.setCharacterEncoding("utf-8");
 	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=UTC&characterEncoding=utf8&useSSL=FALSE";
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
-    String WhereDefault = "select l.userInfo_userEmail, l.menu_menuNo, m.menuName, m.menuPrice, m.menuImg, m.menuCalorie, m.menuInformation, m.menuCategory from menu m, moca.like l";
-		String B = " where m.menuNo = l.menu_menuNo And l.userInfo_userEmail = '" + userInfo_userEmail + "'";
+    String WhereDefault = "select l.userInfo_userEmail, l.menu_menuNo, m.menuName, m.menuPrice, m.menuImg, m.menuCalorie, m.menuInformation, m.menuCategory, b.brandName ";
+		String B = "from menu m left outer join  moca.like l on m.menuNo = l.menu_menuNo left outer join have h on h.menu_menuNo = m.menuNo left outer join brand b ";
+
+		String C = " on b.brandNo = h.brand_brandNo where userInfo_userEmail = '" + userInfo_userEmail + "'";
     int count = 0;
     
     try {
@@ -18,7 +20,7 @@ request.setCharacterEncoding("utf-8");
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        ResultSet rs = stmt_mysql.executeQuery(WhereDefault + B); // &quot;
+        ResultSet rs = stmt_mysql.executeQuery(WhereDefault + B + C); // &quot;
 %>
   	[ 
 <%
@@ -40,7 +42,8 @@ request.setCharacterEncoding("utf-8");
 			"menuImg" : "<%=rs.getString(5) %>",
 			"menuCalorie" : "<%=rs.getString(6) %>",
 			"menuInformation" : "<%=rs.getString(7) %>",
-			"menuCategory" : "<%=rs.getString(8) %>"
+			"menuCategory" : "<%=rs.getString(8) %>",
+			"brandName" : "<%=rs.getString(9) %>"
 			}
 <%		
         }

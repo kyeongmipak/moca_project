@@ -11,6 +11,7 @@
 		5F1F175E25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */; };
 		5F9C2FC825F5245200462866 /* UserInfoProfileIdCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C2FC725F5245200462866 /* UserInfoProfileIdCheckModel.swift */; };
 		5F9C2FCB25F529B600462866 /* UserInfoProfileInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C2FCA25F529B600462866 /* UserInfoProfileInsertModel.swift */; };
+		5F9C2FCE25F5335500462866 /* UserInfoProfileDeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9C2FCD25F5335500462866 /* UserInfoProfileDeleteModel.swift */; };
 		5FF819C125EF3A8100B56CAF /* ImageUpLoadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */; };
 		5FF819C425EF3C8B00B56CAF /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */; };
 		5FF819C725EF3CB500B56CAF /* ImageSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */; };
@@ -157,6 +158,7 @@
 		5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileUpdateModel.swift; sourceTree = "<group>"; };
 		5F9C2FC725F5245200462866 /* UserInfoProfileIdCheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileIdCheckModel.swift; sourceTree = "<group>"; };
 		5F9C2FCA25F529B600462866 /* UserInfoProfileInsertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileInsertModel.swift; sourceTree = "<group>"; };
+		5F9C2FCD25F5335500462866 /* UserInfoProfileDeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProfileDeleteModel.swift; sourceTree = "<group>"; };
 		5FF819C025EF3A8100B56CAF /* ImageUpLoadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpLoadModel.swift; sourceTree = "<group>"; };
 		5FF819C325EF3C8B00B56CAF /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		5FF819C625EF3CB500B56CAF /* ImageSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectModel.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				5F1F175D25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift */,
 				5F9C2FC725F5245200462866 /* UserInfoProfileIdCheckModel.swift */,
 				5F9C2FCA25F529B600462866 /* UserInfoProfileInsertModel.swift */,
+				5F9C2FCD25F5335500462866 /* UserInfoProfileDeleteModel.swift */,
 			);
 			path = profile_Json;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				813B43BC25ED4AAC008B6C44 /* ShakeViewController.swift in Sources */,
 				629B503E25EFEDC400A236F1 /* MyReviewListModel.swift in Sources */,
 				813B43A225ED4505008B6C44 /* CategoryRankViewController.swift in Sources */,
+				5F9C2FCE25F5335500462866 /* UserInfoProfileDeleteModel.swift in Sources */,
 				626026F125EF8EF800F8AF45 /* MenuNoModel.swift in Sources */,
 				620AF86625F0B65100AE026B /* RegisterViewController.swift in Sources */,
 				5F1F175E25F1F7B600C91C5B /* UserInfoProfileUpdateModel.swift in Sources */,

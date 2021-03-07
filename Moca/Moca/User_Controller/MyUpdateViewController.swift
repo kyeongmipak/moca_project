@@ -89,7 +89,7 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         print("receiveItem",receiveItem.userPhone!)
         print("receiveItem",receiveItem.userNickname!)
 
-        if receiveItem.userImg == "null"{
+        if receiveItem.userImg == "null" || receiveItem.userImg == ""{
             print("image nil")
         }else{
             print("image load")

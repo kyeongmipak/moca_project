@@ -31,7 +31,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     var feedItem: NSArray = NSArray()
     var receiveItem = UserInfoModel()
     var userInfoProfileId = UserInfoModel()
-    var userEmail = ""
+    var userEmail = Share.userEmail
     // property 생성
     
     private var observer: NSObjectProtocol?
@@ -149,7 +149,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             
         
             
-//            self.present(resultAlert, animatedle true, completion: nil)
+            self.present(resultAlert, animated: true, completion: nil)
             
             
         }else{
@@ -224,8 +224,40 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     // 회원탈퇴 기능 구현
     @IBAction func btnSignout(_ sender: UIButton) {
+        let resultAlert = UIAlertController(title: "회원 탈퇴", message: "정말 회원탈퇴를 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "회원탈퇴", style: UIAlertAction.Style.default, handler: { [self]ACTION in
+            
+            let deleteModel = UserInfoProfileDeleteModel()
+            let userEmail = Share.userEmail
+            print("userEmail",userEmail)
+            deleteModel.deleteItems(userEmail: userEmail, completionHandler: {_,_ in
+                DispatchQueue.main.async {
+                    let resultAlert = UIAlertController(title: "완료", message: "회원 탈퇴가 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
+                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                        
+                        
+                        self.navigationController?.popViewController(animated: true) //현재화면 지우기
+                        
+                    }
+                    
+                    )
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+                }
+                
+            })
+            
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default, handler: nil)
+        resultAlert.addAction(okAction)
+        resultAlert.addAction(cancelAction)
         
-        
+        present(resultAlert, animated: true, completion: nil)
+
+    
+      
     }
     
     
@@ -275,7 +307,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         receiveItem = feedItem[0] as! UserInfoModel
         print("결과출력")
         print("receiveItem.userImg",receiveItem.userImg!)
-        if receiveItem.userImg == "null"{
+        if receiveItem.userImg == "null" || receiveItem.userImg == ""{
             print("image nil")
         }else{
             print("image load")

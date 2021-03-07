@@ -54,6 +54,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         imagePickerController.delegate = self
         
         print("userEmail",Share.userEmail)
+     
+        
         if userEmail == ""{
     
         }else{

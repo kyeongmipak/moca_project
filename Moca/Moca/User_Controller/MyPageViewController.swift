@@ -224,6 +224,9 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     // 회원탈퇴 기능 구현
     @IBAction func btnSignout(_ sender: UIButton) {
+        
+        print("userEmail",userEmail,"userInfoProfileId.userEmail",userInfoProfileId.userEmail)
+        if userEmail == userInfoProfileId.userEmail{
         let resultAlert = UIAlertController(title: "회원 탈퇴", message: "정말 회원탈퇴를 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "회원탈퇴", style: UIAlertAction.Style.default, handler: { [self]ACTION in
             
@@ -235,7 +238,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
                     let resultAlert = UIAlertController(title: "완료", message: "회원 탈퇴가 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
                     let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
                         
-                        
+                        self.deleteForSqlite()
                         self.navigationController?.popViewController(animated: true) //현재화면 지우기
                         
                     }
@@ -255,7 +258,13 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         resultAlert.addAction(cancelAction)
         
         present(resultAlert, animated: true, completion: nil)
-
+        }else{
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "소셜로그인은 내정보에 등록 후 탈퇴 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            
+            self.present(resultAlert, animated: true, completion: nil)
+        }
     
       
     }
@@ -363,6 +372,31 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             return
         }
         if sqlite3_bind_text(stmt, 2, Share.userEmail, -1, SQLITE_TRANSIENT) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error binding dept : \(errmsg)")
+            return
+        }
+        
+        // sqlite 실행
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure inserting : \(errmsg)")
+            return
+        }
+        
+    }
+    
+    func deleteForSqlite()  {
+        var stmt: OpaquePointer?
+        let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)      // <--- 한글 들어가기 위해 꼭 필요
+        
+        let queryString = "DELETE FROM MOCASQLite WHERE email = ?"
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert : \(errmsg)")
+            return
+        }
+        if sqlite3_bind_text(stmt, 1, Share.userEmail, -1, SQLITE_TRANSIENT) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
             print("error binding dept : \(errmsg)")
             return

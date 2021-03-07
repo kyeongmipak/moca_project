@@ -667,6 +667,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MenuNo_Hidden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-gj-Jgm">
+                                            <rect key="frame" x="182" y="29" width="129" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -674,6 +681,7 @@
                                     <outlet property="likeBrand" destination="adX-65-OGy" id="gfj-x8-4pu"/>
                                     <outlet property="likeImg" destination="sAc-Yl-yDv" id="gFp-oc-7Qt"/>
                                     <outlet property="likeName" destination="r52-AM-VSI" id="d39-a1-UfU"/>
+                                    <outlet property="menuNO" destination="LT9-gj-Jgm" id="WTw-ig-nka"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

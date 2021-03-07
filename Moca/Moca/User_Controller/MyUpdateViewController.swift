@@ -98,7 +98,7 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         print("receiveItem",receiveItem.userPhone!)
         print("receiveItem",receiveItem.userNickname!)
 
-        if receiveItem.userImg == nil{
+        if receiveItem.userImg == "null"{
             print("image nil")
         }else{
             print("image load")
@@ -185,9 +185,8 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
             let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
              
                 
-                DispatchQueue.main.async(execute: {() -> Void in
-                self.firstController.reloadImage()
-                })
+                //옵저버 추가
+                NotificationCenter.default.post(name: NSNotification.Name("Notification"), object: nil)
                 
                 
                 self.navigationController?.popViewController(animated: true) //현재화면 지우기

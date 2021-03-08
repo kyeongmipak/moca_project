@@ -29,9 +29,21 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
     // NaverLogin 연결 변수
     let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
+    // 지은 추가
+    
+    @IBOutlet weak var roundLogin: UIButton!
+    @IBOutlet weak var roundSign: UIButton!
+    @IBOutlet weak var roundPass: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        // 지은 버튼 둥글게
+        roundLogin.layer.cornerRadius = 15
+        roundSign.layer.cornerRadius = 15
+        roundPass.layer.cornerRadius = 15
+        
         // Do any additional setup after loading the view.
         loginInstance?.delegate = self // naver login delegate 할당
         

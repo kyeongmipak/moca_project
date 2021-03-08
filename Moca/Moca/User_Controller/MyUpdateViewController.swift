@@ -11,11 +11,9 @@ import UIKit
 //protocol UpdateDelegate: MyPageViewController {
 //    func reloadImage()
 //}
-protocol UpdateDelegate{
-    func reloadImage()
-}
 
-class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol {
+class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol, UserInfoProfileIdCheckProtocol {
+  
  
    
     
@@ -33,16 +31,14 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
     // ImageSelectModelProtocol itemdownload 변수
     var feedItem: NSArray = NSArray()
     var receiveItem = UserInfoModel()
+    var userInfoProfileId = UserInfoModel()
     var userEmail = Share.userEmail
     var userNickname = ""
     var userTel = ""
     var userPw = ""
     var imgName = ""
     
-    
-    
-    // property 생성
-    var delegate: UpdateDelegate?
+
     
     
     let firstController = MyPageViewController()
@@ -65,16 +61,11 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
                                            action: #selector(clickMethod))
         ivProfileImage.addGestureRecognizer(event)
         
-        print("userEmail",Share.userEmail)
-        if userEmail == ""{
-    
-        }else{
-        //DB image load
-        let imgSelectModel = ImageSelectModel()
-        imgSelectModel.delegate = self
-        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
-        }
-        
+        // 로그인한 id가 db에 있는지 확인
+        let UserInfoProfileCheckModel = UserInfoProfileIdCheckModel()
+        UserInfoProfileCheckModel.delegate = self
+        UserInfoProfileCheckModel.downloadItems()
+        print("id목록",userInfoProfileId)
     }
     
 
@@ -98,7 +89,7 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         print("receiveItem",receiveItem.userPhone!)
         print("receiveItem",receiveItem.userNickname!)
 
-        if receiveItem.userImg == nil{
+        if receiveItem.userImg == "null" || receiveItem.userImg == ""{
             print("image nil")
         }else{
             print("image load")
@@ -114,6 +105,31 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         tfPW.text =  receiveItem.userPw!
         tfTel.text = receiveItem.userPhone!
     }
+    
+    func userInfofindId(items: NSArray) {
+        feedItem = items
+        print(items.count)
+        for i in 0...items.count - 1{
+            userInfoProfileId = feedItem[i] as! UserInfoModel
+            print("userInfoProfileId",userInfoProfileId.userEmail!)
+            print("userEmail",userEmail)
+            if userEmail != userInfoProfileId.userEmail{
+                print("userEmail 아이디와 검색한 아이디가 다르면")
+            }else{
+                //DB image load
+                print("imgSelectModel")
+                // id검색 후 없으면 ImageSelectModel 동작 X
+                let imgSelectModel = ImageSelectModel()
+                imgSelectModel.delegate = self
+                imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+            }
+            
+        }
+        }
+    
+    
+    
+    
     
     // profile image click 메소드
     @objc func clickMethod() {
@@ -163,9 +179,9 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         let userEmail = Share.userEmail
 //
 //
+        if userEmail == userInfoProfileId.userEmail{
         let imageUploadModel = ImageUploadModel()
         if imageURL == nil { //예외 처리
-            
         }else{
             imageUploadModel.uploadImageFile(userEmail: userEmail, at: imageURL!, completionHandler: {_,_ in
                 print("Upload Success")
@@ -174,27 +190,19 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
             })
             
         }
+        let updateModel = UserInfoProfileUpdateModel()
         
-     
-        
-        let insertModel = UserInfoProfileUpdateModel()
-        
-        insertModel.insertItems(userPw: userPw!, userNickname: userNickname!, userPhone: userPhone!, userImg: userImg, userEmail: userEmail, completionHandler: {_,_ in
+        updateModel.updateItems(userPw: userPw!, userNickname: userNickname!, userPhone: userPhone!, userImg: userImg, userEmail: userEmail, completionHandler: {_,_ in
             DispatchQueue.main.async {
-            let resultAlert = UIAlertController(title: "완료", message: "수정이 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
+            let resultAlert = UIAlertController(title: "완료", message: "프로필 수정이 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
             let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
-             
                 
-                DispatchQueue.main.async(execute: {() -> Void in
-                self.firstController.reloadImage()
-                })
-                
+                //옵저버 추가
+                NotificationCenter.default.post(name: NSNotification.Name("Notification"), object: nil)
                 
                 self.navigationController?.popViewController(animated: true) //현재화면 지우기
               
-                
                 }
-                
                 
             )
             resultAlert.addAction(onAction)
@@ -202,7 +210,40 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
     }
         
     })
-    
+        }else{
+            print("db에 없는 아이디로 내정보 수정할시에")
+            let imageUploadModel = ImageUploadModel()
+            if imageURL == nil { //예외 처리
+            }else{
+                imageUploadModel.uploadImageFile(userEmail: userEmail, at: imageURL!, completionHandler: {_,_ in
+                    print("Upload Success")
+                    print("delegate")
+                   
+                })
+                
+            }
+            let insertModel = UserInfoProfileInsertModel()
+            
+            insertModel.insertItems(userPw: userPw!, userNickname: userNickname!, userPhone: userPhone!, userImg: userImg, userEmail: userEmail, completionHandler: {_,_ in
+                DispatchQueue.main.async {
+                let resultAlert = UIAlertController(title: "완료", message: "프로필 입력이 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
+                let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                    
+                    //옵저버 추가
+                    NotificationCenter.default.post(name: NSNotification.Name("Notification"), object: nil)
+                    
+                    self.navigationController?.popViewController(animated: true) //현재화면 지우기
+                  
+                    }
+                    
+                )
+                resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+        }
+            
+        })
+            
+        }
     
     
     }

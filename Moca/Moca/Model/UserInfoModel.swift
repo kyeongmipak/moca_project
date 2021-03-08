@@ -46,4 +46,8 @@ class UserInfoModel: NSObject{
 
     }
     
+    init(userEmail: String? = nil) {
+        self.userEmail = userEmail
+    }
+    
 }

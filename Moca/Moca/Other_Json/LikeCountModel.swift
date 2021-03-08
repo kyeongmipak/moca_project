@@ -15,12 +15,12 @@ protocol LikeCountJsonModelProtocol: class{
 
 class LikeCountJsonModel: NSObject{
     var delegate: LikeCountJsonModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/swift_address/star_count_ios.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/star_count_ios.jsp"
     var resultNo = 3
     
-    func downloadItems(user_userEmail: String, address_addressNo: Int){
+    func downloadItems(userInfo_userEmail: String, menu_menuNO: Int){
         
-        let urlAdd = "?user_userEmail=\(user_userEmail)&address_addressNo=\(address_addressNo)"
+        let urlAdd = "?userInfo_userEmail=\(userInfo_userEmail)&menu_menuNo=\(menu_menuNO)"
         urlPath = urlPath + urlAdd
         
         
@@ -57,7 +57,7 @@ class LikeCountJsonModel: NSObject{
         var jsonElement = NSDictionary()
         
         
-        print("for전")
+        print("LikeCount전")
         
         for i in 0..<jsonResult.count{
             // jsonResult[i]번째를 NSDictionary 타입으로 변환

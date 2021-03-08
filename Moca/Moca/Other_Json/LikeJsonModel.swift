@@ -15,10 +15,17 @@ protocol LikeJsonModelProtocol: class{
 
 class LikeJsonModel: NSObject{
     var delegate: LikeJsonModelProtocol!
-    let urlPath = "http://127.0.0.1:8080/swift_address/star_query_ios.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/star_query_ios.jsp"
     
-    func downloadItems(){
-        let url = URL(string: urlPath)!
+    func downloadItems(userEmail: String){
+        let urlAdd = "?userEmail=\(Share.userEmail)"
+        urlPath = urlPath + urlAdd
+        
+        // 한글 url encoding → 한글 글씨가 %로 바뀌어서 날아감.
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
+        // 실제 url
+        let url: URL = URL(string: urlPath)! // 텍스트 글자를 url모드로 바꿔줌
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         let task = defaultSession.dataTask(with: url){(data, response, error) in
@@ -51,24 +58,31 @@ class LikeJsonModel: NSObject{
         
         let locations = NSMutableArray()
         
-        print("for전")
+        print("LikeList for전")
         
         for i in 0..<jsonResult.count{
             // jsonResult[i]번째를 NSDictionary 타입으로 변환
             jsonElement = jsonResult[i] as! NSDictionary
-            print("for후 \(jsonElement)")
-            print("for후 \(jsonResult[i])")
+            print("LikeList for후 \(jsonElement)")
+            print("LikeList for후 \(jsonResult[i])")
             
             // DBModel instance 선언
             // let query = DBModel() // 배열이 비어있으므로 밑에 query.~~~ 다 연결해준것
             
             
             //  scode는 jsonElement의 code값인데, String으로 형변환 시켜.
-            if let user_userEmail = jsonElement["user_userEmail"] as? String,
-               let address_addressNo = jsonElement["address_addressNo"] as? Int{
-                print("addressNO:\(address_addressNo)")
+            if let userInfo_userEmail = jsonElement["userInfo_userEmail"] as? String,
+               let menu_menuNo = jsonElement["menu_menuNo"] as? Int,
+               let menuName = jsonElement["menuName"] as? String,
+               let menuPrice = jsonElement["menuPrice"] as? String,
+               let menuImg = jsonElement["menuImg"] as? String,
+               let menuCalorie = jsonElement["menuCalorie"] as? String,
+               let menuInformation = jsonElement["menuInformation"] as? String,
+               let menuCategory = jsonElement["menuCategory"] as? String,
+               let brandName = jsonElement["brandName"] as? String{
+                print("menuNo:\(menu_menuNo)")
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
-                let query = LikeModel(user_userEmail: user_userEmail, address_addressNo: address_addressNo)
+                let query = LikeDBModel(userInfo_userEmail: userInfo_userEmail, menu_menuNo: menu_menuNo, menuName: menuName, menuPrice: menuPrice, menuImg: menuImg, menuCalorie: menuCalorie, menuInformation: menuInformation, menuCategory: menuCategory, brandName: brandName)
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
                 print("query = \(query)")
             }

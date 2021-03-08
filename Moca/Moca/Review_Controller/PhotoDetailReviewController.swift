@@ -9,8 +9,10 @@ import UIKit
 import Cosmos
 import TinyConstraints
 
-
-class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate {
+// LikeCountJsonModelProtocol
+class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate, LikeCountJsonModelProtocol {
+    
+    var brandName = ""
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,7 +60,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 numberFormatter.numberStyle = .decimal
                 if menuItem.menuNo != nil {
                     let result = numberFormatter.string(from: NSNumber(value: Int(menuItem.menuPrice!)!))
-                
+                    brandName = menuItem.brandName!
                     cell.menuBrandName.text = "\(menuItem.brandName!)"
                     cell.menuContent.text = "\(menuItem.menuInformation!)"
                     let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)")
@@ -68,7 +70,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuName.text = "\(menuItem.menuName!)"
                     cell.menuPriceCal.text = "\(result!) 원 / \(menuItem.menuCalorie!) kcal"
                     
-                } else {
+                } else if rankItem.menuNo != nil{
                     let result = numberFormatter.string(from: NSNumber(value: Int(rankItem.menuPrice!)!))
                 
                     cell.menuBrandName.text = "\(rankItem.brandName!)"
@@ -79,15 +81,39 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuImage.image = UIImage(data: data)
                     cell.menuName.text = "\(rankItem.menuName!)"
                     cell.menuPriceCal.text = "\(result!) 원 / \(rankItem.menuCalorie!) kcal"
+                }else {
+                    // 지은
+                    let result = numberFormatter.string(from: NSNumber(value: Int(LikeItem.menuPrice!)!))
+                
+                    cell.menuBrandName.text = "\(LikeItem.brandName!)"
+                    cell.menuContent.text = "\(LikeItem.menuInformation!)"
+                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
+
+                    let data = try! Data(contentsOf: url!)
+                    cell.menuImage.image = UIImage(data: data)
+                    cell.menuName.text = "\(LikeItem.menuName!)"
+                    cell.menuPriceCal.text = "\(result!) 원 / \(LikeItem.menuCalorie!) kcal"
                 }
                 return cell
             
             // 찜, 공유, 지도 버튼 셀
             case 1:
-                tableList.rowHeight = 100
+                tableList.rowHeight = 50
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DetailButtonTableViewCell", for: indexPath) as! DetailButtonTableViewCell
                 
                 cell.delegate = self
+                print("menuNoReveive \(menuNoReveive)")
+                
+                cell.menuNo = Int(menuNoReveive)!
+                
+                //
+                if result == 0{
+                    // 즐겨찾기 등록이 되어있지 않을 때
+                    cell.LikeImg.image = UIImage(named: "no_like.png")
+                }else if result == 1{
+                    // 즐겨찾기 등록이 되어있을 때
+                    cell.LikeImg.image = UIImage(named: "yes_like.png")
+                }
                 
                 return cell
             
@@ -361,6 +387,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     // MARK: 변수 Setting
     @IBOutlet var tableList: UITableView!
     
+  
+    
     var feedItem:NSArray = NSArray()
     //    var receiveItem = DBModel() // DBModel 객체 선언
     var starAvg : String = "" // DB모델
@@ -380,6 +408,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var rankItem: BrandRankDBModel = BrandRankDBModel()
     var btnName = ""
     
+    // 지은 추가
+    var result = 3
+    var LikeItem: LikeDBModel = LikeDBModel()
+    
     // MARK: viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -389,7 +421,10 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             menuNoReveive = menuNO.menuNo!
         } else if rankItem.menuNo != nil {
             menuNoReveive = rankItem.menuNo!
-        } else {
+        } else if LikeItem.menu_menuNo != nil{
+            menuNoReveive = String(LikeItem.menu_menuNo!)
+        }
+        else {
             menuNoReveive = menuItem.menuNo!
         }
         
@@ -426,9 +461,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 //            navigationItem.rightBarButtonItem = nil // hide
 //        }
         
+        
+        
+        //menuNoReveive
+        let likejsonModel = LikeCountJsonModel()
+        likejsonModel.delegate = self
+        likejsonModel.downloadItems(userInfo_userEmail: Share.userEmail, menu_menuNO: Int(menuNoReveive)!)
+    }// view didload 끝
+    
+    func likeItemDownloaded(items: Int) {
+        result = items
+        print(result)
     }
     
+    
+    
     // MARK: - func & delegate func Setting
+    
     
     
     @IBAction func btnWriteReview(_ sender: UIBarButtonItem) {
@@ -486,7 +535,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         // 지도 버튼
         if btnName == "map"{
             // MAP controller 연결 segue
-            self.performSegue(withIdentifier: "sgMap", sender: self)
+            
             
         }
     }
@@ -494,12 +543,13 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
 
     
     
-    
     // MARK: - Navigation -> 브랜드명, 음료명, 메뉴 넘버 넘겨줘야 함!
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 2021.03.07 맵으로 넘어가는 작업 - 대환
         if segue.identifier == "sgMap"{
-//            let mapView = segue.destination as! ViewController
-//             brandView.reveiveItem = brandName
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.brandName = brandName
         }
     }
     

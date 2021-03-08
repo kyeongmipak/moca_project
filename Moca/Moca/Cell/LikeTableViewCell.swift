@@ -19,6 +19,9 @@ class LikeTableViewCell: UITableViewCell {
     @IBOutlet weak var likeName: UILabel!
     @IBOutlet weak var likeImg: UIImageView!
     
+    // 숨길것
+    @IBOutlet weak var menuNO: UILabel!
+    
     @IBOutlet weak var btnLike: UIButton!
     
     var delegate: LikeCellDelegate?

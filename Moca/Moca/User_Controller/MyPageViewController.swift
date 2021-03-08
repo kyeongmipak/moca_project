@@ -10,8 +10,11 @@ import GoogleSignIn // Google Login import
 import KakaoSDKUser // Kakao Login import
 import NaverThirdPartyLogin // Naver Login import
 import UserNotifications // pushNotifications import
+import SQLite3
 
-class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol, UpdateDelegate {
+class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate,ImageSelectModelProtocol,UserInfoProfileIdCheckProtocol{
+
+    
     
     @IBOutlet weak var alertImg: UIImageView!
     
@@ -27,14 +30,43 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     // ImageSelectModelProtocol itemdownload 변수
     var feedItem: NSArray = NSArray()
     var receiveItem = UserInfoModel()
-    var userEmail = ""
+    var userInfoProfileId = UserInfoModel()
+    var userEmail = Share.userEmail
     // property 생성
     
     private var observer: NSObjectProtocol?
     
+    // 2021.03.07 sqlite - 대환
+    var db: OpaquePointer?
+    
+    // 지은 추가 -> 둘러보기 일때 버튼을 숨기기 위함
+    
+    @IBOutlet weak var hiddenPro: UIButton!
+    @IBOutlet weak var hiddenLike: UIButton!
+    @IBOutlet weak var hiddenLog: UIButton!
+    @IBOutlet weak var hiddenSign: UIButton!
+    @IBOutlet weak var hiddenReview: UIButton!
+    
+    @IBOutlet weak var hiddenLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Share.userEmail == "" {
+            hiddenPro.isHidden = true
+            hiddenLike.isHidden = true
+            hiddenLog.isHidden = true
+            hiddenSign.isHidden = true
+            hiddenReview.isHidden = true
+            hiddenLogin.isHidden = false
+        }else{
+            hiddenPro.isHidden = false
+            hiddenLike.isHidden = false
+            hiddenLog.isHidden = false
+            hiddenSign.isHidden = false
+            hiddenReview.isHidden = false
+            hiddenLogin.isHidden = true
+        }
         
    
         // 이미지뷰를 터치했을때 이벤트 주기 +++++++++++++++++
@@ -53,16 +85,20 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // imagePickerController
         imagePickerController.delegate = self
         
-        print("userEmail",Share.userEmail)
-        if userEmail == ""{
-    
-        }else{
-        //DB image load
-        let imgSelectModel = ImageSelectModel()
-        imgSelectModel.delegate = self
-        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
-        }
-        
+//        print("userEmail",Share.userEmail)
+//        if userEmail == ""{
+//
+//        }else{
+//        //DB image load
+//        let imgSelectModel = ImageSelectModel()
+//        imgSelectModel.delegate = self
+//        imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+//        }
+        // 로그인한 id가 db에 있는지 확인
+        let UserInfoProfileCheckModel = UserInfoProfileIdCheckModel()
+        UserInfoProfileCheckModel.delegate = self
+        UserInfoProfileCheckModel.downloadItems()
+        print("id목록",userInfoProfileId)
         // 알림센터에 옵저버를 적용
         observer = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
                                                           object: nil,
@@ -86,6 +122,22 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(MyPageViewController.imageReload(_:)), name: NSNotification.Name("Notification"), object: nil)
+    }
+    
+    @objc func imageReload(_ notification:Notification) {
+           print("실행")
+           //실행시킬 코드
+        let imgSelectModel = ImageSelectModel()
+        imgSelectModel.delegate = self
+        imgSelectModel.downloadItems(userEmail: Share.userEmail) // JsonModel.swift에 downloadItems 구동
+
+    }
+    
+    
+    
     @IBAction func btnMyProfile(_ sender: UIButton) {
         print("내 정보 수정 막기")
         if userEmail == "" {
@@ -95,10 +147,9 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
             resultAlert.addAction(cancelAction)
             
-           
         
             
-//            self.present(resultAlert, animatedle true, completion: nil)
+            self.present(resultAlert, animated: true, completion: nil)
             
             
         }else{
@@ -137,34 +188,104 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     // 로그아웃 기능 구현
     @IBAction func btnLogout(_ sender: UIButton) {
-        let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
         
-        UserApi.shared.logout {(error) in
-            if let error = error {
-                print(error)
+        // 2021.03.07 sqlite - 대환
+        let resultAlert = UIAlertController(title: "로그 아웃", message: "로그아웃을 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "로그아웃", style: UIAlertAction.Style.default, handler: {ACTION in
+            let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+            
+            UserApi.shared.logout {(error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("logout() success.")
+                    
+                }
             }
-            else {
-                print("logout() success.")
-                
-            }
-        }
+            
+            GIDSignIn.sharedInstance()?.signOut()
+            
+            loginInstance?.requestDeleteToken()
+            self.logOutForSqlite()
+            // Share 초기화
+            Share.userEmail = ""
+            Share.userName = ""
+            self.navigationController?.popViewController(animated: true)
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default, handler: nil)
+        resultAlert.addAction(okAction)
+        resultAlert.addAction(cancelAction)
         
-        GIDSignIn.sharedInstance()?.signOut()
+        present(resultAlert, animated: true, completion: nil)
         
-        loginInstance?.requestDeleteToken()
-        // Share 초기화
-        Share.userEmail = ""
-        Share.userName = ""
-        
-        
-        navigationController?.popToRootViewController(animated: true)
+        print("Student saved successfully")
     }
     
     // 회원탈퇴 기능 구현
     @IBAction func btnSignout(_ sender: UIButton) {
         
+        print("userEmail",userEmail,"userInfoProfileId.userEmail",userInfoProfileId.userEmail)
+        if userEmail == userInfoProfileId.userEmail{
+        let resultAlert = UIAlertController(title: "회원 탈퇴", message: "정말 회원탈퇴를 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "회원탈퇴", style: UIAlertAction.Style.default, handler: { [self]ACTION in
+            
+            let deleteModel = UserInfoProfileDeleteModel()
+            let userEmail = Share.userEmail
+            print("userEmail",userEmail)
+            deleteModel.deleteItems(userEmail: userEmail, completionHandler: {_,_ in
+                DispatchQueue.main.async {
+                    let resultAlert = UIAlertController(title: "완료", message: "회원 탈퇴가 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
+                    let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
+                        
+                        self.deleteForSqlite()
+                        self.navigationController?.popViewController(animated: true) //현재화면 지우기
+                        
+                    }
+                    
+                    )
+                    resultAlert.addAction(onAction)
+                    self.present(resultAlert, animated: true, completion: nil)
+                }
+                
+            })
+            
+            
+            self.navigationController?.popViewController(animated: true)
+        })
+        let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default, handler: nil)
+        resultAlert.addAction(okAction)
+        resultAlert.addAction(cancelAction)
         
+        present(resultAlert, animated: true, completion: nil)
+        }else{
+            let resultAlert = UIAlertController(title: "Moca 알림", message: "소셜로그인은 내정보에 등록 후 탈퇴 가능합니다.", preferredStyle: UIAlertController.Style.alert)
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
+            resultAlert.addAction(cancelAction)
+            
+            self.present(resultAlert, animated: true, completion: nil)
+        }
+    
+      
     }
+    
+    
+    
+    // 전화 문의 기능 구현
+    @IBAction func btnCall(_ sender: UIButton) {
+        if let phoneCallURL = URL(string: "tel://01011111111") {
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+                application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+   
+    // 로그인 하러가기 기능 구현
+    @IBAction func btnLogin(_ sender: UIButton) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     
 //    // MARK: - Navigation
 //
@@ -194,8 +315,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         feedItem = items
         receiveItem = feedItem[0] as! UserInfoModel
         print("결과출력")
-        print("receiveItem.userImg",receiveItem.userImg)
-        if receiveItem.userImg == nil, receiveItem.userImg == ""{
+        print("receiveItem.userImg",receiveItem.userImg!)
+        if receiveItem.userImg == "null" || receiveItem.userImg == ""{
             print("image nil")
         }else{
             print("image load")
@@ -207,11 +328,87 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         
     }
     
+    func userInfofindId(items: NSArray) {
+        feedItem = items
+        print(items.count)
+        for i in 0...items.count - 1{
+            userInfoProfileId = feedItem[i] as! UserInfoModel
+            print("userInfoProfileId",userInfoProfileId.userEmail)
+            if userEmail != userInfoProfileId.userEmail{
+                
+            }else{
+                //DB image load
+                
+                // id검색 후 없으면 ImageSelectModel 동작 X
+                let imgSelectModel = ImageSelectModel()
+                imgSelectModel.delegate = self
+                imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+            }
+        
+        }
+    }
+    
     func reloadImage() {
         print("MyPageViewController")
         let imgSelectModel = ImageSelectModel()
         imgSelectModel.delegate = self
         imgSelectModel.downloadItems(userEmail: Share.userEmail) // JsonModel.swift에 downloadItems 구동
+    }
+    
+    // 2021.03.07 로그아웃 할 때 자동로그인 풀기 위한 펑션 추가
+    func logOutForSqlite()  {
+        var stmt: OpaquePointer?
+        let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)      // <--- 한글 들어가기 위해 꼭 필요
+        
+        let queryString = "UPDATE MOCASQLite SET cheking = ? where email = ?"
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert : \(errmsg)")
+            return
+        }
+        if sqlite3_bind_text(stmt, 1, "0", -1, SQLITE_TRANSIENT) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error binding name : \(errmsg)")
+            return
+        }
+        if sqlite3_bind_text(stmt, 2, Share.userEmail, -1, SQLITE_TRANSIENT) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error binding dept : \(errmsg)")
+            return
+        }
+        
+        // sqlite 실행
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure inserting : \(errmsg)")
+            return
+        }
+        
+    }
+    
+    func deleteForSqlite()  {
+        var stmt: OpaquePointer?
+        let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)      // <--- 한글 들어가기 위해 꼭 필요
+        
+        let queryString = "DELETE FROM MOCASQLite WHERE email = ?"
+        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing insert : \(errmsg)")
+            return
+        }
+        if sqlite3_bind_text(stmt, 1, Share.userEmail, -1, SQLITE_TRANSIENT) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error binding dept : \(errmsg)")
+            return
+        }
+        
+        // sqlite 실행
+        if sqlite3_step(stmt) != SQLITE_DONE {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("failure inserting : \(errmsg)")
+            return
+        }
+        
     }
     
 }

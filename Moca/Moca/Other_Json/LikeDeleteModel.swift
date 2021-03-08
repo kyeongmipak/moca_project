@@ -9,12 +9,12 @@ import Foundation
 
 class LikeDeleteModel: NSObject{
     
-    var urlPath = "http://127.0.0.1:8080/swift_address/starDelete_ios.jsp"
+    var urlPath = "http://127.0.0.1:8080/moca/jsp/starDelete_ios.jsp"
     
     // insertItems의 () 매개변수들은 AddViewController에서 값을 넣어줘서 함께 실행할거고 → Bool로 실행 여부 확인할거야.
-    func likeDeleteItems(addressNo: Int) -> Bool {
+    func likeDeleteItems(menuNO: Int) -> Bool {
         var result: Bool = true
-        let urlAdd = "?address_addressNo=\(addressNo)"
+        let urlAdd = "?menu_menuNo=\(menuNO)"
         urlPath = urlPath + urlAdd
         
         // 한글 url encoding → 한글 글씨가 %로 바뀌어서 날아감.

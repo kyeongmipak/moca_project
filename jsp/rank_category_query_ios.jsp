@@ -7,7 +7,7 @@
     	String menuCategory = request.getParameter("menuCategory");
 	
 
-	String url_mysql = "jdbc:mysql://localhost/MOCA?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
+	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=Asia/Seoul&characterEncoding=utf8&useSSL=false";
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
    	
@@ -20,7 +20,7 @@
         Statement stmt_mysql = conn_mysql.createStatement();
 
         String query = "select m.menuNo menuNo, m.menuName menuName, h.brand_brandNo brandNo, b.brandName brandName, m.menuPrice menuPrice, round(avg(r.reviewStar),1) reviewAvg, m.menuInformation menuInformation, m.menuCalorie menuCalorie, m.menuImg menuImg";
-        String query2 = " from brand b, have h, menu m, review r where h.brand_brandNo = b.brandNo and h.menu_menuNo = m.menuNo and r.menu_menuNo = m.menuNo and m.menuCategory like '%" + menuCategory + "%' group by m.menuNo, h.brand_brandNo order by reviewAvg desc";
+        String query2 = " from brand b, have h, menu m LEFT OUTER JOIN review r on r.menu_menuNo = m.menuNo where h.brand_brandNo = b.brandNo and h.menu_menuNo = m.menuNo and  m.menuCategory like '%" + menuCategory + "%' group by m.menuNo, h.brand_brandNo order by reviewAvg desc";
 	
         ResultSet rs = stmt_mysql.executeQuery(query + query2); // &quot;
 %>

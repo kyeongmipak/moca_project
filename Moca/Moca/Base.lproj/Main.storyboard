@@ -4018,10 +4018,10 @@
                                                             <rect key="frame" x="16" y="15" width="326" height="20"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_like.png" translatesAutoresizingMaskIntoConstraints="NO" id="48w-uN-lO7">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.66666666666667" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="20"/>
                                                                 </imageView>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmW-Pv-zf1">
-                                                                    <rect key="frame" x="108.66666666666666" y="0.0" width="108.66666666666666" height="20"/>
+                                                                    <rect key="frame" x="81.666666666666686" y="0.0" width="81.333333333333314" height="20"/>
                                                                     <color key="tintColor" systemColor="labelColor"/>
                                                                     <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
                                                                     <connections>
@@ -4029,12 +4029,22 @@
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-Fj-agD">
-                                                                    <rect key="frame" x="217.33333333333334" y="0.0" width="108.66666666666666" height="20"/>
+                                                                    <rect key="frame" x="163" y="0.0" width="81.666666666666686" height="20"/>
                                                                     <color key="tintColor" systemColor="labelColor"/>
                                                                     <state key="normal" image="map.fill" catalog="system"/>
                                                                     <connections>
                                                                         <action selector="mapBtnAction:" destination="exe-cL-u3m" eventType="touchUpInside" id="YIK-ZS-CRE"/>
                                                                         <segue destination="cH2-UN-n5Z" kind="show" identifier="sgMap" id="BOf-Wz-jmv"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsa-AT-5MP">
+                                                                    <rect key="frame" x="244.66666666666671" y="0.0" width="81.333333333333343" height="20"/>
+                                                                    <color key="tintColor" systemColor="systemBlueColor"/>
+                                                                    <state key="normal" image="square.and.pencil" catalog="system">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="writeReviewBtnAction:" destination="exe-cL-u3m" eventType="touchUpInside" id="Wuc-27-3u8"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -4051,6 +4061,7 @@
                                                     <outlet property="LikeImg" destination="48w-uN-lO7" id="Ymd-dm-0ab"/>
                                                     <outlet property="mapBtn" destination="t4J-Fj-agD" id="geI-vd-YQr"/>
                                                     <outlet property="shareBtn" destination="WmW-Pv-zf1" id="Mrb-d3-QUI"/>
+                                                    <outlet property="writeReviewBtn" destination="Dsa-AT-5MP" id="AUn-Ab-Jih"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -4068,17 +4079,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="포토리뷰" image="photo.on.rectangle.angled" catalog="system" id="6ml-Cb-gNS"/>
-                    <navigationItem key="navigationItem" id="qdV-qG-APk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zVe-j0-4gA">
-                            <connections>
-                                <action selector="btnWriteReview:" destination="Rqb-Fe-9nQ" id="im7-7W-1h1"/>
-                                <segue destination="TYj-2H-gkt" kind="show" identifier="sgWriteReview" id="DcI-eb-cOE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="qdV-qG-APk"/>
                     <connections>
-                        <outlet property="rightBarButton" destination="zVe-j0-4gA" id="68F-UF-MP9"/>
                         <outlet property="tableList" destination="MjK-2P-D5L" id="fxh-lP-BVU"/>
+                        <segue destination="TYj-2H-gkt" kind="show" identifier="sgWriteReview" id="mK4-qv-Pgr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32f-yK-xzQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4600,6 +4604,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -16,7 +16,7 @@ class DetailButtonTableViewCell: UITableViewCell, LikeCountJsonModelProtocol {
     @IBOutlet weak var LikeImg: UIImageView!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var mapBtn: UIButton!
-    
+    @IBOutlet var writeReviewBtn: UIButton!
     
     var delegate: DetailButtonTableViewCellDelegate?
     
@@ -90,4 +90,9 @@ class DetailButtonTableViewCell: UITableViewCell, LikeCountJsonModelProtocol {
     @IBAction func mapBtnAction(_ sender: UIButton) {
         self.delegate?.selectedInfoBtn(action: "map")
     }
+    
+    @IBAction func writeReviewBtnAction(_ sender: UIButton) {
+        self.delegate?.selectedInfoBtn(action: "writeReview")
+    }
+    
 }

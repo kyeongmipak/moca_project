@@ -109,7 +109,7 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
 //            photoDetailView.menuNO = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
 //            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuNO)")
             photoDetailView.menuInfoItem = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
-            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuInfoItem.menuNo)")
+            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuInfoItem.menuNo!)")
         }
     } // prepare END
     

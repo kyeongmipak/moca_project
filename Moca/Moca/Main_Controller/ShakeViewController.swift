@@ -77,8 +77,12 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
             numberFormatter.numberStyle = .decimal
             let result = numberFormatter.string(from: NSNumber(value: Int(item1.menuPrice!)!))
             cell.lblMenuPrice.text = "\(result!) 원"
-            cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
-
+            if item1.reviewAvg == "null"{
+                cell.lblReviewAvg.text = "⭐️ 0.0"
+            } else {
+                cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
+            }
+            item1.menuImg! = item1.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url1 = URL(string: "http://127.0.0.1:8080/png/\(item1.menuImg!)")
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
@@ -87,7 +91,7 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
 
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-
+            item.menuImg! = item.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: "http://127.0.0.1:8080/png/\(item.menuImg!)")
             let data = try! Data(contentsOf: url!)
 
@@ -100,7 +104,11 @@ class ShakeViewController: UIViewController, UITableViewDelegate, CategoryRankJs
             numberFormatter.numberStyle = .decimal
             let result = numberFormatter.string(from: NSNumber(value: Int(item.menuPrice!)!))
             cell.lblMenuPrice.text = "\(result!) 원"
-            cell.lblReviewAvg.text = "⭐️ \(item.reviewAvg!)"
+            if item.reviewAvg == "null"{
+                cell.lblReviewAvg.text = "⭐️ 0.0"
+            } else {
+                cell.lblReviewAvg.text = "⭐️ \(item.reviewAvg!)"
+            }
             menuTotalNum.text = "\(feedItem.count) 개의 제품"
             
         }

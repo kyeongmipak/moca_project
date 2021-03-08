@@ -4489,6 +4489,26 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="CH0-do-Mhc">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Qfb-j6-zgY">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="TiI-Aa-96G">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="dJG-G6-P2X">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="sZu-VG-oBg">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tSr-91-KdT">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="cjC-2X-tUq"/>
     </inferredMetricsTieBreakers>

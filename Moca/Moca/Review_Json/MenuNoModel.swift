@@ -66,7 +66,6 @@ class MenuModel: NSObject{
             // DBModel instance 선언
             // let query = DBModel() // 배열이 비어있으므로 밑에 query.~~~ 다 연결해준것
             
-            
             //  scode는 jsonElement의 code값인데, String으로 형변환 시켜.
             if let reviewNo = jsonElement["reviewNo"] as? String,
                let menuNo = jsonElement["menuNo"] as? String,

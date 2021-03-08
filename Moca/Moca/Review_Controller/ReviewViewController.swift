@@ -60,11 +60,6 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = collectionView.frame.width / 3 - 1 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
-        //        let width = collectionView.frame.width. // 1개씩 배치
-        //        print("collectionView width=\(collectionView.frame.width)")
-        //        print("cell하나당 width=\(width)")
-        //        print("root view width = \(self.view.frame.width)")
-        
         let size = CGSize(width: width, height: width)
         return size
     }
@@ -110,14 +105,11 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
             let indexPath = self.collectionView.indexPath(for: cell)
             // 보낼 컨트롤러 위치
             let photoDetailView = segue.destination as! PhotoDetailReviewController
-            //            let getcollectionCell = segue.destination as! GetCollectionTableCell
             // detailview의 receiveItem에 = feedItem~~~를 보낸다.
-            photoDetailView.menuNO = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
-            //            getcollectionCell.menuNO = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
-            // detailview의 receiveItem에 = feedItem~~~를 보낸다.
-            //            let menuNO = receiveItem[indexPath!.row]
-            //            photoDetailView.menuNo = menuNO.menuNo!
-            //            print("메뉴 넘버 : \(menuNO.menuNo!)")
+//            photoDetailView.menuNO = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
+//            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuNO)")
+            photoDetailView.menuInfoItem = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
+            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuInfoItem.menuNo)")
         }
     } // prepare END
     

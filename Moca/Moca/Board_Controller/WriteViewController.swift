@@ -18,7 +18,6 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         print("메뉴넘버는??? : \(boardNo)")
         
         let boardInsertModel = BoardInsertModel()
-        
         boardInsertModel.InsertRegister(userInfo_userEmail: Share.userEmail, board_boardNo: boardNo, completionHandler: {_,_ in print("Register Upload Success")
             DispatchQueue.main.async { () -> Void in
                 self.navigationController?.popViewController(animated: true) // 현재화면 종료

@@ -18,6 +18,13 @@ class ReviewDBModel: NSObject{
     var reviewStarAvg: String?
     var reviewImg: String?
     var reviewInsertDate: String?
+    var menuName: String?
+    var brandNo: String?
+    var brandName: String?
+    var menuPrice: String?
+    var menuInformation: String?
+    var menuCalorie: String?
+    var menuImg: String?
     
     // Empty constructor
     override init() {
@@ -52,5 +59,23 @@ class ReviewDBModel: NSObject{
         self.reviewImg = reviewImg
         self.reviewInsertDate = reviewInsertDate
     }
+    init(reviewNo: String, menuNo: String, userNickname: String, reviewContent: String, reviewStar: String, reviewImg: String, reviewInsertDate: String, menuName:String, brandNo:String, brandName:String, menuPrice:String, menuInformation:String, menuCalorie: String, menuImg:String){
+        self.reviewNo = reviewNo
+        self.menuNo = menuNo
+        self.userNickname = userNickname
+        self.reviewContent = reviewContent
+        self.reviewStar = reviewStar
+        self.reviewImg = reviewImg
+        self.reviewInsertDate = reviewInsertDate
+        self.menuName = menuName
+        self.brandNo = brandNo
+        self.brandName = brandName
+        self.menuPrice = menuPrice
+        self.menuInformation = menuInformation
+        self.menuCalorie = menuCalorie
+        self.menuImg = menuImg
+    }
+  
+    
     
 }

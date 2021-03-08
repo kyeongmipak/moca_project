@@ -10,7 +10,7 @@ import Cosmos
 import TinyConstraints
 
 // LikeCountJsonModelProtocol
-class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate, LikeCountJsonModelProtocol {
+class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate, LikeCountJsonModelProtocol, SearchMenuInfoProtocol {
     
     var brandName = ""
     
@@ -81,18 +81,37 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuImage.image = UIImage(data: data)
                     cell.menuName.text = "\(rankItem.menuName!)"
                     cell.menuPriceCal.text = "\(result!) 원 / \(rankItem.menuCalorie!) kcal"
-                }else {
-                    // 지은
-                    let result = numberFormatter.string(from: NSNumber(value: Int(LikeItem.menuPrice!)!))
-                
-                    cell.menuBrandName.text = "\(LikeItem.brandName!)"
-                    cell.menuContent.text = "\(LikeItem.menuInformation!)"
-                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
+                    
+                } else if menuInfoItem.menuNo != nil {
+                    
+                    let result = numberFormatter.string(from: NSNumber(value: Int(menuInfoItem.menuPrice!)!))
+                    print("brandName 가져와써?? >>> \(menuInfoItem.brandName!)")
+                    brandName = menuInfoItem.brandName!
+                    cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
+                    cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
+                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
 
                     let data = try! Data(contentsOf: url!)
                     cell.menuImage.image = UIImage(data: data)
-                    cell.menuName.text = "\(LikeItem.menuName!)"
-                    cell.menuPriceCal.text = "\(result!) 원 / \(LikeItem.menuCalorie!) kcal"
+                    cell.menuName.text = "\(menuInfoItem.menuName!)"
+                    cell.menuPriceCal.text = "\(result!) 원 / \(menuInfoItem.menuCalorie!) kcal"
+                    
+                } else {
+                    // 지은
+                    if Share.userEmail == "" {
+                        
+                    } else {
+                        let result = numberFormatter.string(from: NSNumber(value: Int(LikeItem.menuPrice!)!))
+                    
+                        cell.menuBrandName.text = "\(LikeItem.brandName!)"
+                        cell.menuContent.text = "\(LikeItem.menuInformation!)"
+                        let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
+
+                        let data = try! Data(contentsOf: url!)
+                        cell.menuImage.image = UIImage(data: data)
+                        cell.menuName.text = "\(LikeItem.menuName!)"
+                        cell.menuPriceCal.text = "\(result!) 원 / \(LikeItem.menuCalorie!) kcal"
+                    }
                 }
                 return cell
             
@@ -333,6 +352,21 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     
     
     // MARK: Protocol func Setting
+    
+    func MenuInfoitemDownloaded(items: NSArray) {
+        print("----MenuInfo item Download 함수 작동-----")
+        feedItem = NSArray()
+        feedItem = items
+        
+        menuInfo = feedItem as! [ReviewDBModel]
+        
+//        for i in 0..<feedItem.count {
+//            menuInfo.append(menuInfo[i])
+//            print("menuInfo >> \(menuInfo[i])")
+//        }
+        tableList.reloadData()
+    }
+    
     func itemDownloaded(items: NSArray) {
         print("----itemDownload 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
@@ -342,7 +376,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         
         ITEMS = feedItem as! [ReviewDBModel]
         print(feedItem[0] as! ReviewDBModel)
-        let item = feedItem[0] as! ReviewDBModel
+//        let item = feedItem[0] as! ReviewDBModel
         
         for i in 0..<feedItem.count {
             if ITEMS[i].reviewImg != "null"{
@@ -374,20 +408,21 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         menuModel.delegate = self
 //        menuModel.downloadItems(menuNo: menuNO.menuNo!)
         menuModel.downloadItems(menuNo: menuNoReveive)
-
         
         let starAvgModel = StarAvgModel()
         starAvgModel.delegate = self
 //        starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
         starAvgModel.downloadItemsStar(menuNo: menuNoReveive)
+        
+        let menuInfoModel = SearchMenuInfo()
+        menuInfoModel.delegate = self
+        menuInfoModel.downloadItems(menuNo: menuNoReveive)
 
     }
     
     
     // MARK: 변수 Setting
     @IBOutlet var tableList: UITableView!
-    
-  
     
     var feedItem:NSArray = NSArray()
     //    var receiveItem = DBModel() // DBModel 객체 선언
@@ -399,6 +434,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var TextITEM:[ReviewDBModel] = []
     var receiveItem:[ReviewDBModel] = []
     var menuNoReveive = ""
+    var menuInfo:[ReviewDBModel] = []
+    var menuInfoItem = ReviewDBModel()
     
     @IBOutlet var rightBarButton: UIBarButtonItem!
     var menuNO = ReviewDBModel()
@@ -416,16 +453,17 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuItem.menuNo)")
+       
         if menuItem.menuNo != nil {
-            menuNoReveive = menuNO.menuNo!
+            menuNoReveive = menuItem.menuNo!
         } else if rankItem.menuNo != nil {
             menuNoReveive = rankItem.menuNo!
         } else if LikeItem.menu_menuNo != nil{
             menuNoReveive = String(LikeItem.menu_menuNo!)
         }
         else {
-            menuNoReveive = menuItem.menuNo!
+            menuNoReveive = menuInfoItem.menuNo!
+            print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuInfoItem.menuNo!)")
         }
         
         let menuModel = MenuModel()

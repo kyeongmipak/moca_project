@@ -66,6 +66,7 @@
 		62603A3425F12903001312A5 /* EmailCheckModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3325F12903001312A5 /* EmailCheckModel.swift */; };
 		62603A3725F133F9001312A5 /* EmailPwSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */; };
 		62603A3A25F13875001312A5 /* SearchEmailPwModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62603A3925F13875001312A5 /* SearchEmailPwModel.swift */; };
+		627271AA25F5D52300757219 /* SearchMenuInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627271A925F5D52300757219 /* SearchMenuInfo.swift */; };
 		627808B725F0787E009120CB /* TestMenuno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627808B625F0787E009120CB /* TestMenuno.swift */; };
 		628AACDC25F4DDC90043B6A2 /* myReviewList.png in Resources */ = {isa = PBXBuildFile; fileRef = 628AACD925F4DDC70043B6A2 /* myReviewList.png */; };
 		628AACDD25F4DDC90043B6A2 /* myLikeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 628AACDA25F4DDC80043B6A2 /* myLikeList.png */; };
@@ -214,6 +215,7 @@
 		62603A3325F12903001312A5 /* EmailCheckModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCheckModel.swift; sourceTree = "<group>"; };
 		62603A3625F133F9001312A5 /* EmailPwSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPwSearchViewController.swift; sourceTree = "<group>"; };
 		62603A3925F13875001312A5 /* SearchEmailPwModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEmailPwModel.swift; sourceTree = "<group>"; };
+		627271A925F5D52300757219 /* SearchMenuInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMenuInfo.swift; sourceTree = "<group>"; };
 		627808B625F0787E009120CB /* TestMenuno.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuno.swift; sourceTree = "<group>"; };
 		628AACD925F4DDC70043B6A2 /* myReviewList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myReviewList.png; path = ../../../image/myPage_Button/myReviewList.png; sourceTree = "<group>"; };
 		628AACDA25F4DDC80043B6A2 /* myLikeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myLikeList.png; path = ../../../image/myPage_Button/myLikeList.png; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 				626026F025EF8EF800F8AF45 /* MenuNoModel.swift */,
 				629B503D25EFEDC400A236F1 /* MyReviewListModel.swift */,
 				621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */,
+				627271A925F5D52300757219 /* SearchMenuInfo.swift */,
 			);
 			path = Review_Json;
 			sourceTree = "<group>";
@@ -821,6 +824,7 @@
 				6217549C25E7F833004FFAE9 /* QnaData.swift in Sources */,
 				5F9C2FCB25F529B600462866 /* UserInfoProfileInsertModel.swift in Sources */,
 				814896A025E6653100AF92BC /* ReviewViewController.swift in Sources */,
+				627271AA25F5D52300757219 /* SearchMenuInfo.swift in Sources */,
 				813B43AB25ED474C008B6C44 /* CoffeeTableViewCell.swift in Sources */,
 				626026D425EF6ED100F8AF45 /* BoardDeleteModel.swift in Sources */,
 				62603A3425F12903001312A5 /* EmailCheckModel.swift in Sources */,

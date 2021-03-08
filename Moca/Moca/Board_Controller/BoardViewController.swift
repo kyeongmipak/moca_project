@@ -13,7 +13,6 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var postTypeSegmentControl: UISegmentedControl!
     @IBOutlet var tableList: UITableView!
     
-    
     var feedItem: NSArray = NSArray()
     
     // MARK: - viewDidLoad
@@ -26,6 +25,29 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         boardModel.downloadItems()
         
     } // viewDidLoad END -----------------
+    
+    // MARK: - Protocol func Setting
+    func itemDownloaded(items: NSArray) {
+        // JsonModel의 locations에 담겨져서 넘어옴.
+        feedItem = items
+        print("items>>> \(items)")
+        print("boarditemDownload ALL LIST 시작 >>>>>>")
+        print("feedItem.count >>>> \(feedItem.count)")
+        for i in 0..<feedItem.count {
+            print("feedItem[\(i)]:\(feedItem[i])")
+        }
+        self.tableList.reloadData()
+    }
+    
+    func boarditemDownloaded(items: NSArray) {
+        feedItem = items
+        print("boarditemDownload MY LIST 시작 >>>>>>")
+        print("feedItem.count >>>> \(feedItem.count)")
+        for i in 0..<feedItem.count {
+            print("feedItem[\(i)]:\(feedItem[i])")
+        }
+        self.tableList.reloadData()
+    }
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,7 +86,6 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             // 현재 배열값으로 들어온 cell 풀어서 정의.
             let item: BoardModel = feedItem[indexPath.row] as! BoardModel
-            
             cell.textLabel?.text = "\(item.boardTitle!)"
             cell.detailTextLabel?.text = "\(item.userNickname!)"
             
@@ -75,23 +96,7 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    // MARK: - Protocol func Setting
-    func itemDownloaded(items: NSArray) {
-        // JsonModel의 locations에 담겨져서 넘어옴.
-        feedItem = items
-        for i in 0..<feedItem.count {
-            print("feedItem[\(i)]:\(feedItem[i])")
-        }
-        self.tableList.reloadData()
-    }
-    
-    func boarditemDownloaded(items: NSArray) {
-        feedItem = items
-        for i in 0..<feedItem.count {
-            print("feedItem[\(i)]:\(feedItem[i])")
-        }
-        self.tableList.reloadData()
-    }
+ 
     
     // MARK: Segment Control Setting
     @IBAction func onChangeSegment(_ sender: UISegmentedControl) {

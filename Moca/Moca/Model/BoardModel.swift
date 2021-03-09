@@ -33,6 +33,4 @@ class BoardModel: NSObject{
         self.boardImg = boardImg
         self.boardInsertDate = boardInsertDate
     }
-    
-   
 }

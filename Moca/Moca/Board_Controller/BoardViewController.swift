@@ -3,7 +3,6 @@
 //  Moca
 //
 //  Created by RiaSong on 2021/03/01.
-//
 
 import UIKit
 
@@ -72,7 +71,7 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         case 0: // 전체 게시글
             print("tv:0")
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-            
+
             // 현재 배열값으로 들어온 cell 풀어서 정의.
             let item: BoardModel = feedItem[indexPath.row] as! BoardModel
             cell.textLabel?.text = "\(item.boardTitle!)"
@@ -95,8 +94,6 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
     }
-    
- 
     
     // MARK: Segment Control Setting
     @IBAction func onChangeSegment(_ sender: UISegmentedControl) {

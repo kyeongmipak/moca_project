@@ -81,7 +81,6 @@ class CoffeeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             } else {
                 cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
             }
-            item1.menuImg! = item1.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
@@ -90,7 +89,6 @@ class CoffeeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-            item.menuImg! = item.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
             let data = try! Data(contentsOf: url!)
 

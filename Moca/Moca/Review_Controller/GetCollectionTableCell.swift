@@ -13,6 +13,41 @@ protocol CustomCollectionCellDelegate:class {
 }
 
 class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AllReviewProtocol, MenuModelProtocol {
+    func itemDownloaded(items: NSArray) {
+        print("----ReviewView itemDownload 함수 작동-----")
+        feedItem = NSArray() // feedItem 초기화
+        print("feedItem 지남")
+        
+        ITEMS = feedItem as! [ReviewDBModel]
+        print("feedItem.count \(feedItem.count)")
+        
+        for i in 0..<feedItem.count {
+            if ITEMS[i].reviewImg != "null"{
+                receiveItem.append(ITEMS[i])
+                print("for문지나따")
+            }
+        }
+        collectionView.reloadData()
+    }
+    
+    func ReviewitemDownloaded(items: NSArray) {
+        print("----ReviewView itemDownload 함수 작동-----")
+        feedItem = NSArray() // feedItem 초기화
+        print("feedItem 지남")
+        
+        ITEMS = feedItem as! [ReviewDBModel]
+        print("feedItem.count \(feedItem.count)")
+        
+        for i in 0..<feedItem.count {
+            if ITEMS[i].reviewImg != "null"{
+                receiveItem.append(ITEMS[i])
+                print("for문지나따")
+            }
+        }
+        collectionView.reloadData()
+    }
+
+    
     
     weak var cellDelegate:CustomCollectionCellDelegate? //define delegate
     
@@ -60,18 +95,6 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
 
     }
     
-    func itemDownloaded(items: NSArray) {
-        print("----Get collectionview itemDownload 함수 작동-----")
-        feedItem = NSArray() // feedItem 초기화
-        ITEMS = feedItem as! [ReviewDBModel]
-        
-        for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
-                receiveItem.append(ITEMS[i])
-            }
-        }
-        collectionView.reloadData()
-    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

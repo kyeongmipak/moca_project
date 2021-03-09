@@ -29,7 +29,7 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
     } // MARK: - viewDidLoad END
     
     // MARK: - Protocol func Setting
-    func itemDownloaded(items: NSArray) {
+    func ReviewitemDownloaded(items: NSArray) {
         print("----ReviewView itemDownload 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
         print("feedItem 지남")
@@ -101,16 +101,8 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
   
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoDetail"{
             // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.

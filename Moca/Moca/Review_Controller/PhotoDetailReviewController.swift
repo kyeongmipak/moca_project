@@ -12,7 +12,72 @@ import TinyConstraints
 // LikeCountJsonModelProtocol
 class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MenuModelProtocol, StarAvgProtocol, PhotoTableViewCellDelegate, TextOnlyTableViewCellDelegate, DetailButtonTableViewCellDelegate, LikeCountJsonModelProtocol {
     
+    // Minimap 목차
+    // 변수 → didLoad → tableView setting → protocol func → func & delegate → navigation
+
+
+    // MARK: 변수 Setting
+    // 예진 변수
+    @IBOutlet var tableList: UITableView!
     var brandName = ""
+    var feedItem:NSArray = NSArray()
+    //    var receiveItem = DBModel() // DBModel 객체 선언
+    var starAvg : String = "" // DB모델
+    var menuNo : String = "" // DB모델
+    var check = 0
+    var rate :Double = Double()
+    var ITEMS:[ReviewDBModel] = []
+    var TextITEM:[ReviewDBModel] = []
+    var receiveItem:[ReviewDBModel] = []
+    var menuNoReveive = ""
+    var menuInfo:[ReviewDBModel] = []
+    var menuInfoItem = ReviewDBModel()
+    
+    @IBOutlet var rightBarButton: UIBarButtonItem!
+    var menuNO = ReviewDBModel()
+    
+    // 3.6 kyeongmi 추가
+    var menuItem: SearchDBModel = SearchDBModel()
+    var rankItem: BrandRankDBModel = BrandRankDBModel()
+    var btnName = ""
+    
+    // 지은 추가
+    var result = 3
+    var LikeItem: LikeDBModel = LikeDBModel()
+    
+    // MARK: viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if menuItem.menuNo != nil {
+            menuNoReveive = menuItem.menuNo!
+        } else if rankItem.menuNo != nil {
+            menuNoReveive = rankItem.menuNo!
+        } else if LikeItem.menu_menuNo != nil{
+            menuNoReveive = String(LikeItem.menu_menuNo!)
+        }
+        else {
+            menuNoReveive = menuInfoItem.menuNo!
+            print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuInfoItem.menuNo!)")
+        }
+        
+        let menuModel = MenuModel()
+        menuModel.delegate = self
+        menuModel.downloadItems(menuNo: menuNoReveive)
+        
+        let starAvgModel = StarAvgModel()
+        starAvgModel.delegate = self
+        starAvgModel.downloadItemsStar(menuNo: menuNoReveive)
+        
+        self.tableList.delegate = self
+        self.tableList.dataSource = self
+        TestMenuno.menuno = menuNoReveive
+        
+        //menuNoReveive
+        let likejsonModel = LikeCountJsonModel()
+        likejsonModel.delegate = self
+        likejsonModel.downloadItems(userInfo_userEmail: Share.userEmail, menu_menuNO: Int(menuNoReveive)!)
+    }// view didload 끝
     
     // MARK: - TableView Setting
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -142,8 +207,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             
             return cell
             
-        case 2:
-            if indexPath.row == 0{
+        case 2: // 예진 파트
+            if indexPath.row == 0{ // 해당 메뉴 전체 리뷰의 평균 별점
                 tableList.rowHeight = 60
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell3", for: indexPath) as? StarAvgTableViewCell
@@ -158,25 +223,21 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 }
                 return cell!
                 
-            } else if indexPath.row == 1 {
+            } else if indexPath.row == 1 { // 컬렉션뷰로 포토리뷰의 이미지만 띄우기
                 tableList.rowHeight = 150
-                //                    TestMenuno.menuno = menuNO.menuNo!
                 // kyeongmi
                 TestMenuno.menuno = menuNoReveive
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
                 
-                
-                
                 return cell!
-            } else {
+            } else {  // 리뷰 세팅
                 
+                // 텍스트 리뷰
                 let item: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
                 
                 if item.reviewImg! == "null" {
-                    //                // 이미지 없을 때
                     tableList.rowHeight = 150
-                    //                //print("이미지 없을때\(item.reviewImg)")
                     let cell = tableView.dequeueReusableCell(withIdentifier: "myCell4", for: indexPath) as? TextOnlyTableViewCell
                     
                     let TextITEM: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
@@ -196,8 +257,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     return cell!
                     
                 } else {
-                    // 이미지 있을 때
-                    //print("이미지 있을때\(item.reviewImg)")
+                    // 포토리뷰
                     tableList.rowHeight = UITableView.automaticDimension + 400
                     let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? PhotoTableViewCell
                     
@@ -234,141 +294,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell!.iv_img!.layer.masksToBounds = true
                     cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.bounds.width / 6
                     
-                    
                     print("이미지 있을때 endline")
                     return cell!
                 }
-                
-                
-                //
-                
-                //            return cell!
-                //            tableList.reloadData()
             }
-        //        tableList.reloadData()
         
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath) as!MenuDetailTableViewCell
             
             return cell
         }
-        
-        //        if indexPath.row == 0{
-        //            tableList.rowHeight = 60
-        //
-        //            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell3", for: indexPath) as? StarAvgTableViewCell
-        //
-        //            // 별점 설정
-        //            if let rating = Double(starAvg) {
-        //                print("☆☆☆☆☆\(starAvg)")
-        //                print(rating)
-        //                cell!.cosmos_ratingStarAvg.rating = rating
-        //                cell!.cosmos_ratingStarAvg.settings.updateOnTouch = false
-        //                cell!.lbl_starAvg.text = String(rating)
-        //            }
-        //            return cell!
-        //
-        //        } else if indexPath.row == 1 {
-        //            tableList.rowHeight = 150
-        //            TestMenuno.menuno = menuNO.menuNo!
-        //            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
-        //
-        //
-        //
-        //            return cell!
-        //        } else {
-        //
-        //            let item: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
-        //
-        //            if item.reviewImg! == "null" {
-        //                //                // 이미지 없을 때
-        //                tableList.rowHeight = 150
-        //                //                //print("이미지 없을때\(item.reviewImg)")
-        //                let cell = tableView.dequeueReusableCell(withIdentifier: "myCell4", for: indexPath) as? TextOnlyTableViewCell
-        //
-        //                let TextITEM: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
-        //
-        //                cell?.lbl_userNickname?.text = "\(TextITEM.userNickname!)"
-        //                cell?.lbl_reviewInsertDate?.text = "\(TextITEM.reviewInsertDate!)"
-        //                cell?.tv_reviewContent?.text = "\(TextITEM.reviewContent!)"
-        //
-        //                // 별점 설정
-        //                if let rating = Double("\(TextITEM.reviewStar!)") {
-        //                    print("☆☆☆☆☆",item.reviewStar!)
-        //                    print(rating)
-        //                    cell!.ratingStar.rating = rating
-        //                    cell!.ratingStar.settings.updateOnTouch = false
-        //                }
-        //                print("이미지 없을때 endline")
-        //                return cell!
-        //
-        //            } else {
-        //                // 이미지 있을 때
-        //                //print("이미지 있을때\(item.reviewImg)")
-        //                tableList.rowHeight = UITableView.automaticDimension + 400
-        //                let cell = tableView.dequeueReusableCell(withIdentifier: "myCell2", for: indexPath) as? PhotoTableViewCell
-        //
-        //                cell!.delegate = self
-        //
-        //                let receiveItem: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
-        //
-        //                // lable & textView 설정
-        //                cell!.lbl_name?.text = "\(receiveItem.userNickname!)"
-        //                cell!.lbl_date?.text = "\(receiveItem.reviewInsertDate!)"
-        //                cell!.tv_content?.text = "\(String(describing: receiveItem.reviewContent!))"
-        //
-        //                // 별점 설정
-        //                if let rating = Double("\(receiveItem.reviewStar!)") {
-        //                    print("☆☆☆☆☆",receiveItem.reviewStar!)
-        //                    print(rating)
-        //                    cell!.ratingStar.rating = rating
-        //                    cell!.ratingStar.settings.updateOnTouch = false
-        //                }
-        //
-        //                // 이미지뷰
-        //                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)")
-        //                print("url : \(String(describing: url))")
-        //                let data = try! Data(contentsOf: url!)
-        //
-        //                cell!.iv_img!.image = UIImage(data: data)
-        //
-        //                //                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.frame.height * 2 - 1
-        //                cell!.iv_img!.layer.cornerRadius = 10
-        //                cell!.iv_img!.layer.borderWidth = 1
-        //                cell!.iv_img!.layer.borderColor = UIColor.clear.cgColor
-        //                // 뷰의 경계에 맞춰준다
-        //                cell!.iv_img!.clipsToBounds = true
-        //                cell!.iv_img!.layer.masksToBounds = true
-        //                cell!.iv_img!.layer.cornerRadius = cell!.iv_img!.bounds.width / 6
-        //
-        //
-        //                print("이미지 있을때 endline")
-        //                return cell!
-        //            }
-        //
-        //
-        //            //
-        //
-        //            //            return cell!
-        //            //            tableList.reloadData()
-        //        }
-        //        //        tableList.reloadData()
     }
     
     
-    
     // MARK: Protocol func Setting
-    
-    //    func MenuInfoitemDownloaded(items: NSArray) {
-    //        print("----MenuInfo item Download 함수 작동-----")
-    //        feedItem = NSArray()
-    //        feedItem = items
-    //        menuInfo = feedItem as! [ReviewDBModel]
-    //        tableList.reloadData()
-    //    }
-    
     func itemDownloaded(items: NSArray) {
-        print("----itemDownload 함수 작동-----")
+        // 텍스트 리뷰 & 포토 리뷰 protocol func
+        print("----리뷰 불러오기 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
         print("feedItem 지남")
         feedItem = items
@@ -406,118 +348,20 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     override func viewWillAppear(_ animated: Bool) {
         let menuModel = MenuModel()
         menuModel.delegate = self
-        //        menuModel.downloadItems(menuNo: menuNO.menuNo!)
         menuModel.downloadItems(menuNo: menuNoReveive)
         
         let starAvgModel = StarAvgModel()
         starAvgModel.delegate = self
-        //        starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
         starAvgModel.downloadItemsStar(menuNo: menuNoReveive)
-        
-        //        let menuInfoModel = SearchMenuInfo()
-        //        menuInfoModel.delegate = self
-        //        menuInfoModel.downloadItems(menuNo: menuNoReveive)
-        
     }
-    
-    
-    // MARK: 변수 Setting
-    @IBOutlet var tableList: UITableView!
-    
-    var feedItem:NSArray = NSArray()
-    //    var receiveItem = DBModel() // DBModel 객체 선언
-    var starAvg : String = "" // DB모델
-    var menuNo : String = "" // DB모델....
-    var check = 0
-    var rate :Double = Double()
-    var ITEMS:[ReviewDBModel] = []
-    var TextITEM:[ReviewDBModel] = []
-    var receiveItem:[ReviewDBModel] = []
-    var menuNoReveive = ""
-    var menuInfo:[ReviewDBModel] = []
-    var menuInfoItem = ReviewDBModel()
-    
-    @IBOutlet var rightBarButton: UIBarButtonItem!
-    var menuNO = ReviewDBModel()
-    
-    // 3.6 kyeongmi 추가
-    var menuItem: SearchDBModel = SearchDBModel()
-    var rankItem: BrandRankDBModel = BrandRankDBModel()
-    var btnName = ""
-    
-    // 지은 추가
-    var result = 3
-    var LikeItem: LikeDBModel = LikeDBModel()
-    
-    // MARK: viewDidLoad()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        if menuItem.menuNo != nil {
-            menuNoReveive = menuItem.menuNo!
-        } else if rankItem.menuNo != nil {
-            menuNoReveive = rankItem.menuNo!
-        } else if LikeItem.menu_menuNo != nil{
-            menuNoReveive = String(LikeItem.menu_menuNo!)
-        }
-        else {
-            menuNoReveive = menuInfoItem.menuNo!
-            print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuInfoItem.menuNo!)")
-        }
-        
-        let menuModel = MenuModel()
-        menuModel.delegate = self
-        menuModel.downloadItems(menuNo: menuNoReveive)
-        
-        let starAvgModel = StarAvgModel()
-        starAvgModel.delegate = self
-        starAvgModel.downloadItemsStar(menuNo: menuNoReveive)
-        //        print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuNoReveive)")
-        
-        self.tableList.delegate = self
-        self.tableList.dataSource = self
-        TestMenuno.menuno = menuNoReveive
-        //- -------- 주석 풀어야한다.
-        //        let menuModel = MenuModel()
-        //        menuModel.delegate = self
-        //        menuModel.downloadItems(menuNo: menuNO.menuNo!)
-        //
-        //        let starAvgModel = StarAvgModel()
-        //        starAvgModel.delegate = self
-        //        starAvgModel.downloadItemsStar(menuNo: menuNO.menuNo!)
-        //        print("메 뉴 넘 버 모 야 !!!!!!>>>>>>\(menuNO.menuNo!)")
-        //
-        //        self.tableList.delegate = self
-        //        self.tableList.dataSource = self
-        //        TestMenuno.menuno = menuNO.menuNo!
-        //-------------
-        // Hide Setting (잘됨... 흠)
-        //        if Share.userEmail != "" {
-        //            navigationItem.rightBarButtonItem = rightBarButton // show
-        //        } else {
-        //            navigationItem.rightBarButtonItem = nil // hide
-        //        }
-        
-        
-        
-        //menuNoReveive
-        let likejsonModel = LikeCountJsonModel()
-        likejsonModel.delegate = self
-        likejsonModel.downloadItems(userInfo_userEmail: Share.userEmail, menu_menuNO: Int(menuNoReveive)!)
-    }// view didload 끝
     
     func likeItemDownloaded(items: Int) {
         result = items
         print(result)
     }
     
-    
-    
     // MARK: - func & delegate func Setting
-    
-    
-    
+    // 포토리뷰 & 텍스트리뷰 신고
     func customCell(_ customCell: PhotoTableViewCell, btn_ReportAction button: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
@@ -552,8 +396,6 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         self.present(resultAlert, animated: true, completion: nil) // 열심히 만든 알럿창 보여주는 함수
     }
     
-    
-    
     // btn 클릭 시 이벤트
     func selectedInfoBtn(action: String) {
         btnName = action
@@ -563,28 +405,22 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         if btnName == "map"{
             // MAP controller 연결 segue
             
-            
+        // 리뷰 작성 버튼 (예진 추가)
         } else if btnName == "writeReview"{
             if Share.userEmail != "" {
                 performSegue(withIdentifier: "sgWriteReview", sender: nil)
-            } else {
+            } else { // 회원 아닐 시 막음
                 let resultAlert = UIAlertController(title: "Moca 알림", message: "회원만 리뷰 작성이 가능합니다.", preferredStyle: UIAlertController.Style.alert)
                 let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
                 resultAlert.addAction(cancelAction)
                 self.present(resultAlert, animated: true, completion: nil)
             }
-            
         } else {
-            
             
         }
     }
     
-    
-    
-    
-    // MARK: - Navigation -> 브랜드명, 음료명, 메뉴 넘버 넘겨줘야 함!
-    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 2021.03.07 맵으로 넘어가는 작업 - 대환
         if segue.identifier == "sgMap"{

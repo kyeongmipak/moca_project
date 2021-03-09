@@ -17,11 +17,14 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet var lbl_nonPhoto: UILabel!
     @IBOutlet var lbl_notice: UITextView!
     @IBOutlet var reviewRatingStar: CosmosView!
- 
+    @IBOutlet var lbl_brandName: UILabel!
+    @IBOutlet var lbl_MenuName: UILabel!
+    
     @IBOutlet weak var imgView: UIImageView!
     
     // UIImagePickerController 객체 생성
     let imagePickerController = UIImagePickerController()
+    var InfoItem = [String]()
     var imageURL: URL?
     var check = 0
     var rate :Double = Double()
@@ -30,6 +33,9 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbl_brandName.text = InfoItem[0]
+        lbl_MenuName.text = InfoItem[1]
         
         lbl_nonPhoto.text = "사진을 첨부해주세요."
         imagePickerController.delegate = self
@@ -89,7 +95,6 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
         photoAlert.addAction(cancelAction)
         
         present(photoAlert, animated: true, completion: nil)
-        
     }
     
     

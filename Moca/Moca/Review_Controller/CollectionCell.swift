@@ -10,6 +10,7 @@ import UIKit
 class CollectionCell: UICollectionViewCell {
     
     @IBOutlet var iv_testImg: UIImageView!
+    @IBOutlet var lbl_NonReviewCollection: UILabel!
     
     var cellImageName:String?
     class var CustomCell : CollectionCell {

@@ -14,14 +14,14 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     
     // Minimap 목차
     // 변수 → didLoad → tableView setting → protocol func → func & delegate → navigation
-
-
+    
+    
     // MARK: 변수 Setting
     // 예진 변수
     @IBOutlet var tableList: UITableView!
+
     var brandName = ""
     var feedItem:NSArray = NSArray()
-    //    var receiveItem = DBModel() // DBModel 객체 선언
     var starAvg : String = "" // DB모델
     var menuNo : String = "" // DB모델
     var check = 0
@@ -32,8 +32,6 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     var menuNoReveive = ""
     var menuInfo:[ReviewDBModel] = []
     var menuInfoItem = ReviewDBModel()
-    
-    @IBOutlet var rightBarButton: UIBarButtonItem!
     var menuNO = ReviewDBModel()
     
     // 3.6 kyeongmi 추가
@@ -128,7 +126,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 brandName = menuItem.brandName!
                 cell.menuBrandName.text = "\(menuItem.brandName!)"
                 cell.menuContent.text = "\(menuItem.menuInformation!)"
-//                menuItem.menuImg! = menuItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                //                menuItem.menuImg! = menuItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -141,7 +139,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 
                 cell.menuBrandName.text = "\(rankItem.brandName!)"
                 cell.menuContent.text = "\(rankItem.menuInformation!)"
-//                rankItem.menuImg! = rankItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                //                rankItem.menuImg! = rankItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(rankItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -156,8 +154,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 brandName = menuInfoItem.brandName!
                 cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
                 cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
-//                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-
+                //                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -174,8 +172,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     
                     cell.menuBrandName.text = "\(LikeItem.brandName!)"
                     cell.menuContent.text = "\(LikeItem.menuInformation!)"
-//                    LikeItem.menuImg! = LikeItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-
+                    //                    LikeItem.menuImg! = LikeItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                    
                     let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
                     
                     let data = try! Data(contentsOf: url!)
@@ -207,32 +205,37 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
             
             return cell
             
-        case 2: // 예진 파트
+        case 2: // MARK: - 예진 파트
             if indexPath.row == 0{ // 해당 메뉴 전체 리뷰의 평균 별점
                 tableList.rowHeight = 60
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell3", for: indexPath) as? StarAvgTableViewCell
-                
-                // 별점 설정
-                if let rating = Double(starAvg) {
-                    print("☆☆☆☆☆\(starAvg)")
-                    print(rating)
-                    cell!.cosmos_ratingStarAvg.rating = rating
+                if String(starAvg) != "" {
+                    // 별점 설정
+                    if let rating = Double(starAvg) {
+                        print("☆☆☆☆☆\(starAvg)")
+                        print(rating)
+                        cell!.cosmos_ratingStarAvg.rating = rating
+                        cell!.cosmos_ratingStarAvg.settings.updateOnTouch = false
+                        cell!.lbl_starAvg.text = String(rating)
+                    }
+                    return cell!
+                } else {
+                    cell!.cosmos_ratingStarAvg.rating = 0
+                    cell?.lbl_starAvg.text = "0.0"
                     cell!.cosmos_ratingStarAvg.settings.updateOnTouch = false
-                    cell!.lbl_starAvg.text = String(rating)
+                    return cell!
                 }
-                return cell!
                 
             } else if indexPath.row == 1 { // 컬렉션뷰로 포토리뷰의 이미지만 띄우기
                 tableList.rowHeight = 150
-                // kyeongmi
-                TestMenuno.menuno = menuNoReveive
                 
+                TestMenuno.menuno = menuNoReveive
+    
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? GetCollectionTableCell
                 
                 return cell!
             } else {  // 리뷰 세팅
-                
                 // 텍스트 리뷰
                 let item: ReviewDBModel = feedItem[indexPath.row - 2] as! ReviewDBModel
                 
@@ -298,7 +301,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     return cell!
                 }
             }
-        
+            
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MenuDetailTableViewCell", for: indexPath) as!MenuDetailTableViewCell
             
@@ -313,18 +316,23 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         print("----리뷰 불러오기 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
         print("feedItem 지남")
-        feedItem = items
-        print("items \(items)")
-        
-        ITEMS = feedItem as! [ReviewDBModel]
-        print(feedItem[0] as! ReviewDBModel)
-        //        let item = feedItem[0] as! ReviewDBModel
-        
-        for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
-                receiveItem.append(ITEMS[i])
-            } else {
-                TextITEM.append(ITEMS[i])
+        if feedItem.count == 0 {
+            // 리뷰가 아예 없을때
+                print("여기 잘 지나갔음")
+            
+        } else {
+//            feedItem = items
+//            print("items \(items)")
+            
+            ITEMS = feedItem as! [ReviewDBModel]
+            print(feedItem[0] as! ReviewDBModel)
+            
+            for i in 0..<feedItem.count {
+                if ITEMS[i].reviewImg != "null"{
+                    receiveItem.append(ITEMS[i])
+                } else if ITEMS[i].reviewImg == "null"{
+                    TextITEM.append(ITEMS[i])
+                }
             }
         }
         check = 1
@@ -405,7 +413,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         if btnName == "map"{
             // MAP controller 연결 segue
             
-        // 리뷰 작성 버튼 (예진 추가)
+            // 리뷰 작성 버튼 (예진 추가)
         } else if btnName == "writeReview"{
             if Share.userEmail != "" {
                 performSegue(withIdentifier: "sgWriteReview", sender: nil)
@@ -426,6 +434,38 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         if segue.identifier == "sgMap"{
             let mapViewController = segue.destination as! MapViewController
             mapViewController.brandName = brandName
+        }
+        // review 작성 버튼 - 예진
+        if segue.identifier == "sgWriteReview" {
+            let writeReview = segue.destination as! WriteReviewController
+            
+            var InfoItem : [String] = []
+            
+            if menuItem.menuNo != nil {
+                print("Brand prepare")
+                InfoItem.append(menuItem.brandName!)
+                InfoItem.append(menuItem.menuName!)
+    
+                writeReview.InfoItem = InfoItem
+            } else if rankItem.menuNo != nil {
+                print("Ranking prepare")
+                InfoItem.append(rankItem.brandName!)
+                InfoItem.append(rankItem.menuName!)
+                
+                writeReview.InfoItem = InfoItem
+            }  else if LikeItem.menuName != nil {
+                print("Ranking prepare")
+                InfoItem.append(LikeItem.brandName!)
+                InfoItem.append(LikeItem.menuName!)
+                
+                writeReview.InfoItem = InfoItem
+            } else {
+                print("else prepare")
+                InfoItem.append(menuInfoItem.brandName!)
+                InfoItem.append(menuInfoItem.menuName!)
+    
+                writeReview.InfoItem = InfoItem
+            }
         }
     }
     

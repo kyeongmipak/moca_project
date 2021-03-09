@@ -3783,6 +3783,13 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </imageView>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxK-0i-Pks">
+                                                                                <rect key="frame" x="154" y="56" width="0.0" height="4"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -3798,6 +3805,7 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
                                                                         <outlet property="iv_testImg" destination="zEa-LZ-6fu" id="sy4-Fl-nr7"/>
+                                                                        <outlet property="lbl_NonReviewCollection" destination="lxK-0i-Pks" id="ce6-rf-Bcw"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
@@ -4082,7 +4090,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32f-yK-xzQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="1560"/>
+            <point key="canvasLocation" x="2461.5384615384614" y="1559.7156398104264"/>
         </scene>
         <!--포토리뷰-->
         <scene sceneID="Ahk-HG-ide">
@@ -4283,6 +4291,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imgView" destination="K0H-mI-vGt" id="OR6-8G-0up"/>
+                        <outlet property="lbl_MenuName" destination="lMa-ci-JDz" id="HQ4-os-ehX"/>
+                        <outlet property="lbl_brandName" destination="pMU-Ew-uey" id="HWk-zj-lml"/>
                         <outlet property="lbl_nonPhoto" destination="eKm-FH-Kx0" id="gct-Lh-S2P"/>
                         <outlet property="lbl_notice" destination="v1u-oM-edZ" id="uPa-ae-0AE"/>
                         <outlet property="lbl_userNickname" destination="eqn-6J-gFE" id="wTz-pa-rzo"/>
@@ -4528,8 +4538,28 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="CH0-do-Mhc">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Qfb-j6-zgY">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="TiI-Aa-96G">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="dJG-G6-P2X">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="sZu-VG-oBg">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tSr-91-KdT">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="jhj-Kb-47F"/>
+        <segue reference="Z6Q-fT-X89"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

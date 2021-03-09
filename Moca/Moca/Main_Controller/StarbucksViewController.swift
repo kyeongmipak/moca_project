@@ -91,7 +91,6 @@ class StarbucksViewController: UIViewController, UITableViewDelegate, UITableVie
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
             menuTotalNum.text = "\(searchedMenu.count) 개의 제품"
-        
             
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
@@ -149,7 +148,6 @@ class StarbucksViewController: UIViewController, UITableViewDelegate, UITableVie
                 if menu.menuName!.contains(searchText) {
                     print("검색된 메뉴 : ", menu.menuName!)
                     searchedMenu.append(menu)
-
                 }
             }
 

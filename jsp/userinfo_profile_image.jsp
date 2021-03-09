@@ -21,7 +21,7 @@
         Connection conn_mysql = DriverManager.getConnection(url_mysql, id_mysql, pw_mysql);
         Statement stmt_mysql = conn_mysql.createStatement();
 
-        String WhereDefault = "select userEmail, userPw, userName, userPhone, userBirth, userImg, userInsertDate from userInfo where userEmail = ?";
+        String WhereDefault = "select userEmail, userPw, userName, userNickname, userPhone, userBirth, userImg, userInsertDate from userInfo where userEmail = ?";
 
         ps = conn_mysql.prepareStatement(WhereDefault); // 
 
@@ -44,10 +44,11 @@
 			"userEmail" : "<%=rs.getString(1) %>",
 			"userPw" : "<%=rs.getString(2) %>",
 			"userName" : "<%=rs.getString(3) %>", 
-			"userPhone" : "<%=rs.getString(4) %>",
-            "userBirth" : "<%=rs.getString(5) %>",		
-            "userImg" : "<%=rs.getString(6) %>",
-            "userInsertDate" : "<%=rs.getString(7) %>"
+            "userNickname" : "<%=rs.getString(4) %>", 
+			"userPhone" : "<%=rs.getString(5) %>",
+            "userBirth" : "<%=rs.getString(6) %>",		
+            "userImg" : "<%=rs.getString(7) %>",
+            "userInsertDate" : "<%=rs.getString(8) %>"
 			}
 <%		
         }

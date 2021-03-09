@@ -2477,7 +2477,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MkB-uY-6A4">
                                 <rect key="frame" x="0.0" y="88" width="390" height="722"/>
-                                <color key="backgroundColor" red="0.9996674656867981" green="0.96073108911514282" blue="0.8589935302734375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.84093880649999997" green="0.72789448499999998" blue="0.57644200329999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ijp-bU-bGu">
                                 <rect key="frame" x="16" y="104" width="358" height="690"/>
@@ -2506,7 +2506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKd-XZ-8Rj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1278" y="1836"/>
+            <point key="canvasLocation" x="-1055" y="1836"/>
         </scene>
         <!--Tip Page View Controller-->
         <scene sceneID="7ae-kd-euu">
@@ -2514,7 +2514,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="12" navigationOrientation="horizontal" spineLocation="none" id="uAH-jV-d2W" customClass="TipPageViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8E2-dd-gRA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1278" y="2548"/>
+            <point key="canvasLocation" x="-1055" y="2548"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1Tq-om-WSY">
@@ -4533,28 +4533,8 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="CH0-do-Mhc">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="Qfb-j6-zgY">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="TiI-Aa-96G">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="dJG-G6-P2X">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="sZu-VG-oBg">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="tSr-91-KdT">
-            <size key="intrinsicContentSize" width="170" height="30"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Z6Q-fT-X89"/>
+        <segue reference="jhj-Kb-47F"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

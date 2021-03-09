@@ -82,8 +82,13 @@ class TwosomeViewController: UIViewController, UITableViewDelegate, UITableViewD
             numberFormatter.numberStyle = .decimal
             let result = numberFormatter.string(from: NSNumber(value: Int(item1.menuPrice!)!))
             cell.lblMenuPrice.text = "\(result!) 원"
-            cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
+            if item1.reviewAvg == "null"{
+                cell.lblReviewAvg.text = "⭐️ 0.0"
+            } else {
+                cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
+            }
             
+            item1.menuImg! = item1.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
@@ -92,7 +97,7 @@ class TwosomeViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-            
+            item.menuImg! = item.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
             let data = try! Data(contentsOf: url!)
             
@@ -105,7 +110,11 @@ class TwosomeViewController: UIViewController, UITableViewDelegate, UITableViewD
             numberFormatter.numberStyle = .decimal
             let result = numberFormatter.string(from: NSNumber(value: Int(item.menuPrice!)!))
             cell.lblMenuPrice.text = "\(result!) 원"
-            cell.lblReviewAvg.text = "⭐️ \(item.reviewAvg!)"
+            if item.reviewAvg == "null"{
+                cell.lblReviewAvg.text = "⭐️ 0.0"
+            } else {
+                cell.lblReviewAvg.text = "⭐️ \(item.reviewAvg!)"
+            }
             menuTotalNum.text = "\(feedItem.count) 개의 제품"
         }
         return cell

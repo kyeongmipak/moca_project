@@ -63,6 +63,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 brandName = menuItem.brandName!
                 cell.menuBrandName.text = "\(menuItem.brandName!)"
                 cell.menuContent.text = "\(menuItem.menuInformation!)"
+//                menuItem.menuImg! = menuItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -75,6 +76,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 
                 cell.menuBrandName.text = "\(rankItem.brandName!)"
                 cell.menuContent.text = "\(rankItem.menuInformation!)"
+//                rankItem.menuImg! = rankItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(rankItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -89,6 +91,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 brandName = menuInfoItem.brandName!
                 cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
                 cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
+//                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
                 let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
@@ -105,6 +109,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     
                     cell.menuBrandName.text = "\(LikeItem.brandName!)"
                     cell.menuContent.text = "\(LikeItem.menuInformation!)"
+//                    LikeItem.menuImg! = LikeItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+
                     let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
                     
                     let data = try! Data(contentsOf: url!)

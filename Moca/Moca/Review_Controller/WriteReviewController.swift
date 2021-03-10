@@ -125,17 +125,18 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
         let reviewContent = tv_reviewContent.text!
         let reviewStar = tempStar
         let imageUploadModel = ReviewInsertModel()
+        let tempMenuNo = InfoItem[2]
         print("imageUpload")
         if check == 1 {
             //            print("imageURL : \(imageURL)")
-            imageUploadModel.uploadImageFile(email: Share.userEmail, menuNo: "3", reviewContent: reviewContent, reviewStar: reviewStar, at: imageURL!, completionHandler: {_,_ in print("Upload Success")
+            imageUploadModel.uploadImageFile(email: Share.userEmail, menuNo: tempMenuNo, reviewContent: reviewContent, reviewStar: reviewStar, at: imageURL!, completionHandler: {_,_ in print("Upload Success")
                 DispatchQueue.main.async { () -> Void in
                     self.navigationController?.popViewController(animated: true) // 현재화면 종료
                 }
             })
         } else {
             print("imageUploadMode")
-            imageUploadModel.nonImage(email: Share.userEmail, menuNo: "3", reviewContent: reviewContent, reviewStar: reviewStar, completionHandler: {_,_ in print("NonImage Success")
+            imageUploadModel.nonImage(email: Share.userEmail, menuNo: tempMenuNo, reviewContent: reviewContent, reviewStar: reviewStar, completionHandler: {_,_ in print("NonImage Success")
                 DispatchQueue.main.async { () -> Void in
                     self.navigationController?.popViewController(animated: true)// 현재화면 종료
                 }

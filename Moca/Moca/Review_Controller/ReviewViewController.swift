@@ -8,12 +8,28 @@
 import UIKit
 
 class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AllReviewProtocol {
+    func reviewitemDownloaded(items: NSArray) {
+        print("----itemDownload 함수 작동-----")
+        feedItem = NSArray() // feedItem 초기화
+        feedItem = items
+        print("feedItem.count >>>> \(feedItem.count)")
+        ITEMS = feedItem as! [ReviewDBModel]
+        receiveItem = []
+        
+        for i in 0..<feedItem.count {
+            if ITEMS[i].reviewImg != "null"{
+                receiveItem.append(ITEMS[i])
+            }
+        }
+        collectionView.reloadData()
+    }
     
     // MARK: - 변수 Setting
     var feedItem:NSArray = NSArray()
     var receiveItem:[ReviewDBModel] = [] // DBModel 객체 선언
     var ITEMS:[ReviewDBModel] = []
     @IBOutlet var collectionView: UICollectionView!
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -22,46 +38,17 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+    }
+    
+    
+    // MARK: - Protocol func Setting
+    override func viewWillAppear(_ animated: Bool) {
         // instance 선언
         let allReviewModel = AllReviewModel()
         allReviewModel.delegate = self
         allReviewModel.downloadItems()
-    } // MARK: - viewDidLoad END
-    
-    // MARK: - Protocol func Setting
-    func ReviewitemDownloaded(items: NSArray) {
-        print("----ReviewView itemDownload 함수 작동-----")
-        feedItem = NSArray() // feedItem 초기화
-        print("feedItem 지남")
-        
-        ITEMS = feedItem as! [ReviewDBModel]
-        print("feedItem.count \(feedItem.count)")
-        
-        for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
-                receiveItem.append(ITEMS[i])
-                print("for문지나따")
-            }
-        }
-        collectionView.reloadData()
-
-        
-//        if feedItem.count == 0 {
-//            // 리뷰가 아예 없을때
-//            print("여기 잘 지나갔음")
-//
-//        } else {
-//            ITEMS = feedItem as! [ReviewDBModel]
-//            print(feedItem[0] as! ReviewDBModel)
-//
-//            for i in 0..<feedItem.count {
-//                if ITEMS[i].reviewImg != "null"{
-//                    receiveItem.append(ITEMS[i])
-//                }
-//            }
-//            collectionView.reloadData()
-//        }
     }
+    
     
     // MARK: - CollectionView Setting
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,15 +81,16 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = collectionView.frame.width / 3 - 1 ///  3등분하여 배치, 옆 간격이 1이므로 1을 빼줌
+
         let size = CGSize(width: width, height: width)
         return size
     }
     
-  
-    
-    
-    
+   
+
      // MARK: - Navigation
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photoDetail"{
             // 사용자가 클릭한 위치는 sender가 알고있는데, 그 위치인 TableView Cell을 담을 변수 cell.
@@ -111,6 +99,9 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
             let indexPath = self.collectionView.indexPath(for: cell)
             // 보낼 컨트롤러 위치
             let photoDetailView = segue.destination as! PhotoDetailReviewController
+            // detailview의 receiveItem에 = feedItem~~~를 보낸다.
+//            photoDetailView.menuNO = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
+//            print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuNO)")
             photoDetailView.menuInfoItem = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
             print("메뉴 넘버 잘 보내지?? \(photoDetailView.menuInfoItem.menuNo!)")
         }

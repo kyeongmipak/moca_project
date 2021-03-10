@@ -190,8 +190,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
                 DispatchQueue.main.async { () -> Void in
                     self.navigationController?.popViewController(animated: true)
                 }
+                print("non-image Update 완료 ----")
             })
-            print("non-image Update 완료 ----")
         }
     }
     

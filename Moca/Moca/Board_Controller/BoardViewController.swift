@@ -3,6 +3,7 @@
 //  Moca
 //
 //  Created by RiaSong on 2021/03/01.
+//
 
 import UIKit
 
@@ -12,38 +13,35 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet var postTypeSegmentControl: UISegmentedControl!
     @IBOutlet var tableList: UITableView!
     
-    var feedItem: NSArray = NSArray()
+    var boardItem: NSArray = NSArray()
+    var boardMineItem: NSArray = NSArray()
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // instance 선언
-        let boardModel = BoardSelectModel()
-        boardModel.delegate = self
-        boardModel.downloadItems()
-        
     } // viewDidLoad END -----------------
     
     // MARK: - Protocol func Setting
     func itemDownloaded(items: NSArray) {
-        // JsonModel의 locations에 담겨져서 넘어옴.
-        feedItem = items
-        print("items>>> \(items)")
         print("boarditemDownload ALL LIST 시작 >>>>>>")
-        print("feedItem.count >>>> \(feedItem.count)")
-        for i in 0..<feedItem.count {
-            print("feedItem[\(i)]:\(feedItem[i])")
+        boardItem = NSArray()
+        boardItem = items
+        print("feedItem.count >>>> \(boardItem.count)")
+        for i in 0..<boardItem.count {
+            print("boardItem[\(i)]:\(boardItem[i])")
         }
         self.tableList.reloadData()
     }
     
     func boarditemDownloaded(items: NSArray) {
-        feedItem = items
         print("boarditemDownload MY LIST 시작 >>>>>>")
-        print("feedItem.count >>>> \(feedItem.count)")
-        for i in 0..<feedItem.count {
-            print("feedItem[\(i)]:\(feedItem[i])")
+        boardMineItem = NSArray()
+        boardMineItem = items
+
+        print("feedItem.count >>>> \(boardMineItem.count)")
+        for i in 0..<boardMineItem.count {
+            print("boardMineItem[\(i)]:\(boardMineItem[i])")
         }
         self.tableList.reloadData()
     }
@@ -57,9 +55,9 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         let selectedIndex = self.postTypeSegmentControl.selectedSegmentIndex
         switch selectedIndex{
         case 0: // 전체 글
-            return feedItem.count
+            return boardItem.count
         case 1: // 내가 쓴 글
-            return feedItem.count
+            return boardMineItem.count
         default:
             return 0
         }
@@ -70,10 +68,11 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         switch selectedIndex{
         case 0: // 전체 게시글
             print("tv:0")
+            tableList.rowHeight = 80
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-
+            
             // 현재 배열값으로 들어온 cell 풀어서 정의.
-            let item: BoardModel = feedItem[indexPath.row] as! BoardModel
+            let item: BoardModel = boardItem[indexPath.row] as! BoardModel
             cell.textLabel?.text = "\(item.boardTitle!)"
             cell.detailTextLabel?.text = "\(item.userNickname!)"
             
@@ -81,10 +80,11 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
             
         case 1: // 내가 쓴 글
             print("tv:1")
+            tableList.rowHeight = 80
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
             
             // 현재 배열값으로 들어온 cell 풀어서 정의.
-            let item: BoardModel = feedItem[indexPath.row] as! BoardModel
+            let item: BoardModel = boardMineItem[indexPath.row] as! BoardModel
             cell.textLabel?.text = "\(item.boardTitle!)"
             cell.detailTextLabel?.text = "\(item.userNickname!)"
             
@@ -94,6 +94,8 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
             return UITableViewCell()
         }
     }
+    
+ 
     
     // MARK: Segment Control Setting
     @IBAction func onChangeSegment(_ sender: UISegmentedControl) {
@@ -131,6 +133,7 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
         let boardModel = BoardSelectModel()
         boardModel.delegate = self
         boardModel.downloadItems()
+        tableList.reloadData()
     }
     
     // MARK: - Navigation
@@ -149,14 +152,14 @@ class BoardViewController: UIViewController, UITableViewDataSource, UITableViewD
                 // 보낼 컨트롤러 위치
                 let detailView = segue.destination as! DetailViewController
                 // detailview의 receiveItem에 = feedItem~~~를 보낸다.
-                detailView.receiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BoardModel
+                detailView.receiveItem = boardItem[(indexPath! as NSIndexPath).row] as! BoardModel
             case 1:  // 내가 쓴 게시글
                 // 그 위치는 이제 indexPath에서 지정.
                 let indexPath = self.tableList.indexPath(for: cell)
                 // 보낼 컨트롤러 위치
                 let detailView = segue.destination as! DetailViewController
                 // detailview의 receiveItem에 = feedItem~~~를 보낸다.
-                detailView.receiveItem = feedItem[(indexPath! as NSIndexPath).row] as! BoardModel
+                detailView.receiveItem = boardMineItem[(indexPath! as NSIndexPath).row] as! BoardModel
             default:
                 break
             }

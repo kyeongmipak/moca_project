@@ -14,6 +14,8 @@ class MyReviewTableCell: UITableViewCell {
 
     @IBOutlet var lbl_reviewDate: UILabel!
     @IBOutlet var ratingStar: CosmosView!
+    @IBOutlet var lbl_menuName: UILabel!
+    @IBOutlet var lbl_brandName: UILabel!
     
     
     override func awakeFromNib() {

@@ -59,7 +59,7 @@ class ReviewDBModel: NSObject{
         self.reviewImg = reviewImg
         self.reviewInsertDate = reviewInsertDate
     }
-    init(reviewNo: String, menuNo: String, userNickname: String, reviewContent: String, reviewStar: String, reviewImg: String, reviewInsertDate: String, menuName:String, brandNo:String, brandName:String, menuPrice:String, menuInformation:String, menuCalorie: String, menuImg:String){
+    init(reviewNo: String, menuNo: String, userNickname: String, reviewContent: String, reviewStar: String, reviewImg: String, reviewInsertDate: String, menuName:String, brandNo:String, brandName:String, menuPrice:String, menuImg:String, menuInformation:String, menuCalorie: String){
         self.reviewNo = reviewNo
         self.menuNo = menuNo
         self.userNickname = userNickname
@@ -71,9 +71,9 @@ class ReviewDBModel: NSObject{
         self.brandNo = brandNo
         self.brandName = brandName
         self.menuPrice = menuPrice
+        self.menuImg = menuImg
         self.menuInformation = menuInformation
         self.menuCalorie = menuCalorie
-        self.menuImg = menuImg
     }
   
     

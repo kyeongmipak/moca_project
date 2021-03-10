@@ -1,5 +1,5 @@
 //
-//  TestViewController.swift
+//  PhotoDetailReviewController.swift
 //  main
 //
 //  Created by Ria Song on 2021/02/27.
@@ -14,7 +14,6 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
     
     // Minimap 목차
     // 변수 → didLoad → tableView setting → protocol func → func & delegate → navigation
-    
     
     // MARK: 변수 Setting
     // 예진 변수
@@ -315,6 +314,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         // 텍스트 리뷰 & 포토 리뷰 protocol func
         print("----리뷰 불러오기 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
+        feedItem = items
         print("feedItem 지남")
         if feedItem.count == 0 {
             // 리뷰가 아예 없을때
@@ -361,6 +361,8 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
         let starAvgModel = StarAvgModel()
         starAvgModel.delegate = self
         starAvgModel.downloadItemsStar(menuNo: menuNoReveive)
+        
+        tableList.reloadData()
     }
     
     func likeItemDownloaded(items: Int) {
@@ -423,6 +425,21 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 resultAlert.addAction(cancelAction)
                 self.present(resultAlert, animated: true, completion: nil)
             }
+            // share 버튼 (예진 추가)
+        } else if btnName == "share" {
+            
+            var objectsToShare = [String]()
+            if let text = menuInfoItem.reviewImg {
+                        objectsToShare.append(text)
+                        print("[INFO] textField's Text : ", text)
+                    }
+                    
+                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                    activityVC.popoverPresentationController?.sourceView = self.view
+                    
+                    // 공유하기 기능 중 제외할 기능이 있을 때 사용
+            //        activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+                    self.present(activityVC, animated: true, completion: nil)
         } else {
             
         }
@@ -445,24 +462,28 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 print("Brand prepare")
                 InfoItem.append(menuItem.brandName!)
                 InfoItem.append(menuItem.menuName!)
+                InfoItem.append(menuItem.menuNo!)
     
                 writeReview.InfoItem = InfoItem
             } else if rankItem.menuNo != nil {
                 print("Ranking prepare")
                 InfoItem.append(rankItem.brandName!)
                 InfoItem.append(rankItem.menuName!)
+                InfoItem.append(rankItem.menuNo!)
                 
                 writeReview.InfoItem = InfoItem
             }  else if LikeItem.menuName != nil {
                 print("Ranking prepare")
                 InfoItem.append(LikeItem.brandName!)
                 InfoItem.append(LikeItem.menuName!)
+//                InfoItem.append(LikeItem.menuNo!)
                 
                 writeReview.InfoItem = InfoItem
             } else {
                 print("else prepare")
                 InfoItem.append(menuInfoItem.brandName!)
                 InfoItem.append(menuInfoItem.menuName!)
+                InfoItem.append(menuInfoItem.menuNo!)
     
                 writeReview.InfoItem = InfoItem
             }

@@ -9,22 +9,6 @@ import UIKit
 
 class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UINavigationControllerDelegate, CheckBoardNoProtocol, UITextViewDelegate {
     
-    
-    // MARK: - protocol func Setting
-    func itemDownloadedBoardNo(items: String) {
-        boardNo = ""
-        print("items \(items)")
-        boardNo = items
-        print("메뉴넘버는??? : \(boardNo)")
-        
-        let boardInsertModel = BoardInsertModel()
-        boardInsertModel.InsertRegister(userInfo_userEmail: Share.userEmail, board_boardNo: boardNo, completionHandler: {_,_ in print("Register Upload Success")
-            DispatchQueue.main.async { () -> Void in
-                self.navigationController?.popViewController(animated: true) // 현재화면 종료
-            }
-        })
-    }
-    
     // MARK: - 변수 Setting
     @IBOutlet var tv_boardContent: UITextView!
     @IBOutlet var txt_boardTitle: UITextField!
@@ -135,6 +119,21 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
             })
         }
     } // imgupload func end
+    
+    // MARK: - protocol func Setting
+    func itemDownloadedBoardNo(items: String) {
+        boardNo = ""
+        print("items \(items)")
+        boardNo = items
+        print("보드넘버는??? : \(boardNo)")
+        
+        let boardInsertModel = BoardInsertModel()
+        boardInsertModel.InsertRegister(userInfo_userEmail: Share.userEmail, board_boardNo: boardNo, completionHandler: {_,_ in print("Register Upload Success")
+            DispatchQueue.main.async { () -> Void in
+                self.navigationController?.popViewController(animated: true) // 현재화면 종료
+            }
+        })
+    }
     
     // placeholder 관련 func
     func textViewDidBeginEditing(_ textView: UITextView) {

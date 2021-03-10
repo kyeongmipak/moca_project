@@ -11,10 +11,8 @@ import Foundation
 // insertModel에선 필요없다 (?)
 protocol BoardModelProtocol: class{
     func itemDownloaded(items: NSArray) // <- 여기에 담은 아이템을 아래 delegate에서 사용하고, tableView에서 궁극적으로 사용.
-//    func itemDownloaded2(items: NSArray, imageData : Data)
 }
-//    func itemDownloaded(items: NSArray, imgItem: NSMutableArray) // <- 여기에 담은 아이템을 아래 delegate에서 사용하고, tableView에서 궁극적으로 사용.
-//}
+
 
 class BoardSelectModel: NSObject{
     var delegate: BoardModelProtocol!
@@ -74,7 +72,7 @@ class BoardSelectModel: NSObject{
                let boardInsertDate = jsonElement["boardInsertDate"] as? String {
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
                 //                print(">>>")
-                // print(title, content, txtNo)
+                 print(boardNo, boardTitle, boardContent)
                 let query = BoardModel(boardNo: boardNo, userEmail: userEmail, userNickname: userNickname, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, boardInsertDate: boardInsertDate)
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
             }

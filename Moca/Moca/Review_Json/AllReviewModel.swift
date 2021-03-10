@@ -10,7 +10,7 @@ import Foundation
 // protocol은 DB의 table과 연결되어있기 때문에 필요한 것.
 // insertModel에선 필요없다 (?)
 protocol AllReviewProtocol: class{
-    func ReviewitemDownloaded(items: NSArray) // <- 여기에 담은 아이템을 아래 delegate에서 사용하고, tableView에서 궁극적으로 사용.
+    func reviewitemDownloaded(items: NSArray) // <- 여기에 담은 아이템을 아래 delegate에서 사용하고, tableView에서 궁극적으로 사용.
 }
 
 class AllReviewModel: NSObject{
@@ -42,8 +42,9 @@ class AllReviewModel: NSObject{
             // JSON 파일 불러오는 함수 → JSONSerialization
             // options ???
             jsonResult = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSArray
+            print("json parsing 시작")
             
-        }catch let error as NSError{
+        } catch let error as NSError{
             print(error)
         }
         
@@ -60,6 +61,7 @@ class AllReviewModel: NSObject{
             // DBModel instance 선언
             // let query = DBModel() // 배열이 비어있으므로 밑에 query.~~~ 다 연결해준것
             
+            
             //  scode는 jsonElement의 code값인데, String으로 형변환 시켜.
             if let reviewNo = jsonElement["reviewNo"] as? String,
                let menuNo = jsonElement["menuNo"] as? String,
@@ -72,19 +74,18 @@ class AllReviewModel: NSObject{
                let brandNo = jsonElement["brandNo"] as? String,
                let brandName = jsonElement["brandName"] as? String,
                let menuPrice = jsonElement["menuPrice"] as? String,
+               let menuImg = jsonElement["menuImg"] as? String,
                let menuInformation = jsonElement["menuInformation"] as? String,
-               let menuCalorie = jsonElement["menuCalorie"] as? String,
-               let menuImg = jsonElement["menuImg"] as? String {
+               let menuCalorie = jsonElement["menuCalorie"] as? String {
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
-                //                print(">>>")
-                // print(title, content, txtNo)
-                let query = ReviewDBModel(reviewNo: reviewNo, menuNo: menuNo, userNickname: userNickname, reviewContent: reviewContent, reviewStar: reviewStar, reviewImg: reviewImg, reviewInsertDate: reviewInsertDate, menuName: menuName, brandNo: brandName, brandName: brandName, menuPrice: menuPrice, menuInformation: menuInformation, menuCalorie: menuCalorie, menuImg: menuImg)
-//                let query = ReviewDBModel(reviewNo: reviewNo, menuNo: menuNo, reviewContent: reviewContent, reviewStar: reviewStar, reviewImg: reviewImg, reviewInsertDate: reviewInsertDate)
+                print("json parsing 결과 \(menuName)\(brandName)")
+                let query = ReviewDBModel(reviewNo: reviewNo, menuNo: menuNo, userNickname: userNickname, reviewContent: reviewContent, reviewStar: reviewStar, reviewImg: reviewImg, reviewInsertDate: reviewInsertDate, menuName: menuName, brandNo: brandNo, brandName: brandName, menuPrice: menuPrice, menuImg: menuImg, menuInformation: menuInformation, menuCalorie: menuCalorie)
+
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
             }
         }
         DispatchQueue.main.async(execute: {() -> Void in
-            self.delegate.ReviewitemDownloaded(items: locations)
+            self.delegate.reviewitemDownloaded(items: locations)
         })
     }
 } // END

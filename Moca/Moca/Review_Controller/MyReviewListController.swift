@@ -33,6 +33,8 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
         let item: ReviewDBModel = feedItem[indexPath.row] as! ReviewDBModel
         
         cell!.lbl_reviewDate!.text = "\(item.reviewInsertDate!)"
+        cell!.lbl_menuName!.text = "\(item.menuName!)"
+        cell!.lbl_brandName!.text = "\(item.brandName!)"
         
         
         // 별점 설정
@@ -47,6 +49,7 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: Protocol Setting
     func itemDownloaded(items: NSArray) {
         print("itemDownload 실행")
+        feedItem = NSArray()
         feedItem = items
         for i in 0..<feedItem.count {
             print("feedItem[\(i)]:\(feedItem[i])")
@@ -59,14 +62,10 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myReviewList.rowHeight = 91
+        myReviewList.rowHeight = 92
         
         self.myReviewList.delegate = self
         self.myReviewList.dataSource = self
-        
-        let myreviewModel = MyReviewListModel()
-        myreviewModel.delegate = self
-        myreviewModel.downloadItems()
         
         print("viewDidLoad")
         
@@ -82,12 +81,13 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
 
 
     
-    /*
+  
      // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "sgReviewDetail"{
+        if segue.identifier == "sgMyReviewDetail"{
             
+            print("sender가 눌리긴해?????")
             let cell = sender as! UITableViewCell
             
             // 그 위치는 이제 indexPath에서 지정.
@@ -97,8 +97,9 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
             
             // detailview의 receiveItem에 = feedItem~~~를 보낸다.
             detailView.receiveItem = feedItem[(indexPath! as NSIndexPath).row] as! ReviewDBModel
+            print("보내긴해 ??? \(detailView.receiveItem.reviewImg)")
         }
     }
- */
+ 
     
 } // END

@@ -20,7 +20,7 @@ class MyReviewListModel: NSObject{
     func downloadItems(){
         
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        var urlPath = "http://127.0.0.1:8080/jsp/my_review_list.jsp" // 리뷰 전체 불러오기
+        var urlPath = "http://127.0.0.1:8080/moca/jsp/my_review_list.jsp" // 리뷰 전체 불러오기
         let urlAdd = "?email=\(Share.userEmail)"
         urlPath = urlPath + urlAdd
         
@@ -74,11 +74,18 @@ class MyReviewListModel: NSObject{
                let reviewContent = jsonElement["reviewContent"] as? String,
                let reviewStar = jsonElement["reviewStar"] as? String,
                let reviewImg = jsonElement["reviewImg"] as? String,
-               let reviewInsertDate = jsonElement["reviewInsertDate"] as? String {
+               let reviewInsertDate = jsonElement["reviewInsertDate"] as? String,
+               let menuName = jsonElement["menuName"] as? String,
+               let brandNo = jsonElement["brandNo"] as? String,
+               let brandName = jsonElement["brandName"] as? String,
+               let menuPrice = jsonElement["menuPrice"] as? String,
+               let menuImg = jsonElement["menuImg"] as? String,
+               let menuInformation = jsonElement["menuInformation"] as? String,
+               let menuCalorie = jsonElement["menuCalorie"] as? String {
                 // 아래처럼 미리 생성해놓은 constructor 사용해도 됨.
-                //                print(">>>")
-                // print(title, content, txtNo)
-                let query = ReviewDBModel(reviewNo: reviewNo, menuNo: menuNo, userNickname: userNickname, reviewContent: reviewContent, reviewStar: reviewStar, reviewImg: reviewImg, reviewInsertDate: reviewInsertDate)
+                print("json parsing 결과 \(menuName)\(brandName)")
+                let query = ReviewDBModel(reviewNo: reviewNo, menuNo: menuNo, userNickname: userNickname, reviewContent: reviewContent, reviewStar: reviewStar, reviewImg: reviewImg, reviewInsertDate: reviewInsertDate, menuName: menuName, brandNo: brandNo, brandName: brandName, menuPrice: menuPrice, menuImg: menuImg, menuInformation: menuInformation, menuCalorie: menuCalorie)
+                
                 locations.add(query) // locations 배열에 한뭉텅이씩 담기
             }
         }

@@ -12,41 +12,9 @@ protocol CustomCollectionCellDelegate:class {
     //other delegate methods that you can define to perform action in viewcontroller
 }
 
-class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AllReviewProtocol, MenuModelProtocol {
-    func itemDownloaded(items: NSArray) {
-        print("----ReviewView itemDownload 함수 작동-----")
-        feedItem = NSArray() // feedItem 초기화
-        print("feedItem 지남")
-        
-        ITEMS = feedItem as! [ReviewDBModel]
-        print("feedItem.count \(feedItem.count)")
-        
-        for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
-                receiveItem.append(ITEMS[i])
-                print("for문지나따")
-            }
-        }
-        collectionView.reloadData()
-    }
-    
-    func ReviewitemDownloaded(items: NSArray) {
-        print("----ReviewView itemDownload 함수 작동-----")
-        feedItem = NSArray() // feedItem 초기화
-        print("feedItem 지남")
-        
-        ITEMS = feedItem as! [ReviewDBModel]
-        print("feedItem.count \(feedItem.count)")
-        
-        for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
-                receiveItem.append(ITEMS[i])
-                print("for문지나따")
-            }
-        }
-        collectionView.reloadData()
-    }
+class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MenuModelProtocol {
 
+    
     
     
     weak var cellDelegate:CustomCollectionCellDelegate? //define delegate
@@ -57,11 +25,27 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
 //    var menuNO = ReviewDBModel()
     
     let cellReuseId = "GetCollectionTableCell"
-    
+
+    func itemDownloaded(items: NSArray) {
+        print("----ReviewView itemDownload 함수 작동-----")
+        feedItem = NSArray() // feedItem 초기화
+        print("feedItem 지남")
+        feedItem = items
+        ITEMS = feedItem as! [ReviewDBModel]
+        print("feedItem.count \(feedItem.count)")
+        
+        for i in 0..<feedItem.count {
+            if ITEMS[i].reviewImg != "null"{
+                receiveItem.append(ITEMS[i])
+                print("for문지나따")
+            }
+        }
+        collectionView.reloadData()
+    }
+  
     class var customCell : GetCollectionTableCell {
         let cell = Bundle.main.loadNibNamed("GetCollectionTableCell", owner: self, options: nil)?.last
         return cell as! GetCollectionTableCell
-        
     }
     
     @IBOutlet var collectionView: UICollectionView!{
@@ -91,7 +75,6 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         menuModel.delegate = self
         menuModel.downloadItems(menuNo: TestMenuno.menuno)
         print(">>>>>get collection view menuno >>>>> \(TestMenuno.menuno)")
-        
 
     }
     
@@ -172,6 +155,3 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
 //        self.aCategory = category
 //        self.myCollectionView.reloadData()
 //    }
-
-
-

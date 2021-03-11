@@ -1,8 +1,8 @@
 //
 //  WriteViewController.swift
-//  RyaDiary
+//  Moca
 //
-//  Created by Ria Song on 2021/02/17.
+//  Created by Ria Song on 2021/02/28.
 //
 
 import UIKit
@@ -96,21 +96,19 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         let boardTitle = txt_boardTitle.text!
         let boardContent = tv_boardContent.text!
         let boardInsertModel = BoardInsertModel()
-        print("imageUpload")
-        if check == 1 {
-            
+        if check == 1 { // 이미지 업로드 시작
+            print("imageUploadMode")
             boardInsertModel.uploadImageFile(boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Upload Success")
                 DispatchQueue.main.async { () -> Void in
                     print("upload image File")
-                    
+                
                     // instance
                     let checkBoardNo = CheckBoardNoModel()
                     checkBoardNo.delegate = self
                     checkBoardNo.downloadItemsBoardNo()
                 }
             })
-            
-        } else {
+        } else { // 텍스트온리 업로드 시작
             print("non-imageUploadMode")
             boardInsertModel.nonImage(boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non-image Upload Success!")
                 DispatchQueue.main.async { () -> Void in
@@ -123,10 +121,8 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
     // MARK: - protocol func Setting
     func itemDownloadedBoardNo(items: String) {
         boardNo = ""
-        print("items \(items)")
         boardNo = items
         print("보드넘버는??? : \(boardNo)")
-        
         let boardInsertModel = BoardInsertModel()
         boardInsertModel.InsertRegister(userInfo_userEmail: Share.userEmail, board_boardNo: boardNo, completionHandler: {_,_ in print("Register Upload Success")
             DispatchQueue.main.async { () -> Void in

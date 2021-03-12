@@ -30,6 +30,11 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
     var rate :Double = Double()
     var tempStar = ""
 
+    
+    // 아무곳이나 눌러 softkeyboard 지우기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()

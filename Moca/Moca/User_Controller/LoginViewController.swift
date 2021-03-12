@@ -448,4 +448,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
             break
         }
     }
+    
+    // 아무곳이나 눌러 softkeyboard 지우기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

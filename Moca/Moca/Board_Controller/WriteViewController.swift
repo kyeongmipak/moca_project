@@ -149,6 +149,11 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         }
     }
     
+    // 아무곳이나 눌러 softkeyboard 지우기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 //    extension WriteViewController: UITextViewDelegate {
 //        // 텍스트뷰 placeHolder 설정
 //        // 편집이 시작될때

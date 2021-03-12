@@ -25,12 +25,13 @@ class RegisterViewController: UIViewController, RegisterModelProtocol, EmailChec
     var isPasswordValid  = false
     var isPasswordCheckValid = false
     
-    
+    // 아무곳이나 눌러 softkeyboard 지우기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         setupTextField()
     }
     
@@ -226,4 +227,6 @@ class BindingTextField: UITextField {
         }
         textEdited?(text)
     }
+    
+    
 }

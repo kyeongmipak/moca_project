@@ -14,5 +14,5 @@ struct Share{
     static var userBirth: String = ""
 //    static var userImage: String = ""
     
-    static var macIP: String = "222.106.89.206:8080"
+    static var macIP: String = "192.168.1.102:8080"
 }

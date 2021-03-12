@@ -87,8 +87,9 @@ class TwosomeViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
             }
-            
-            let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
+            var urlPath = "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)"
+            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+            let url1 = URL(string: urlPath)
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
             menuTotalNum.text = "\(searchedMenu.count) 개의 제품"
@@ -96,7 +97,9 @@ class TwosomeViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
+            var urlPath = "http://127.0.0.1:8080/moca/image/\(item.menuImg!)"
+            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+            let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)
             
             cell.imgMenuImage.image = UIImage(data: data)

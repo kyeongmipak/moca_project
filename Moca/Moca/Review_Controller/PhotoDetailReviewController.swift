@@ -126,7 +126,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuBrandName.text = "\(menuItem.brandName!)"
                 cell.menuContent.text = "\(menuItem.menuInformation!)"
                 //                menuItem.menuImg! = menuItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)")
+                var urlPath = "http://127.0.0.1:8080/moca/image/\(menuItem.menuImg!)"
+                urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                let url = URL(string: urlPath)
                 
                 let data = try! Data(contentsOf: url!)
                 cell.menuImage.image = UIImage(data: data)
@@ -139,7 +141,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuBrandName.text = "\(rankItem.brandName!)"
                 cell.menuContent.text = "\(rankItem.menuInformation!)"
                 //                rankItem.menuImg! = rankItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(rankItem.menuImg!)")
+                var urlPath = "http://127.0.0.1:8080/moca/image/\(rankItem.menuImg!)"
+                urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                let url = URL(string: urlPath)
                 
                 let data = try! Data(contentsOf: url!)
                 cell.menuImage.image = UIImage(data: data)
@@ -154,8 +158,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
                 cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
                 //                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                
-                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
+                var urlPath = "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)"
+                urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                let url = URL(string: urlPath)
                 
                 let data = try! Data(contentsOf: url!)
                 cell.menuImage.image = UIImage(data: data)
@@ -172,8 +177,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     cell.menuBrandName.text = "\(LikeItem.brandName!)"
                     cell.menuContent.text = "\(LikeItem.menuInformation!)"
                     //                    LikeItem.menuImg! = LikeItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                    
-                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)")
+                    var urlPath = "http://127.0.0.1:8080/moca/image/\(LikeItem.menuImg!)"
+                    urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                    let url = URL(string: urlPath)
                     
                     let data = try! Data(contentsOf: url!)
                     cell.menuImage.image = UIImage(data: data)
@@ -281,7 +287,9 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                     }
                     
                     // 이미지뷰
-                    let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)")
+                    var urlPath = "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)"
+                    urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                    let url = URL(string: urlPath)
                     print("url : \(String(describing: url))")
                     let data = try! Data(contentsOf: url!)
                     

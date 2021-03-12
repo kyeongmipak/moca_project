@@ -61,7 +61,7 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.backgroundColor = .white
         
         // 이미지 있을때
-        var urlPath = "http://127.0.0.1:8080/moca/image/\(receiveItem[indexPath.row].reviewImg!)"
+        var urlPath = "http://" + Share.macIP + "/moca/image/\(receiveItem[indexPath.row].reviewImg!)"
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let url = URL(string: urlPath)
         let data = try! Data(contentsOf: url!)

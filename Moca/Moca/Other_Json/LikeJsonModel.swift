@@ -15,7 +15,7 @@ protocol LikeJsonModelProtocol: class{
 
 class LikeJsonModel: NSObject{
     var delegate: LikeJsonModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/star_query_ios.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/star_query_ios.jsp"
     
     func downloadItems(userEmail: String){
         let urlAdd = "?userEmail=\(Share.userEmail)"

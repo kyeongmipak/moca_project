@@ -78,7 +78,7 @@ class AllMenuViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
 //            let data1 = try! Data(contentsOf: url1!)
             
-            var urlPath = "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)"
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item1.menuImg!)"
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: urlPath)
             let data1 = try! Data(contentsOf: url!)
@@ -95,7 +95,7 @@ class AllMenuViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
 //            let data = try! Data(contentsOf: url!)
             
-            var urlPath = "http://127.0.0.1:8080/moca/image/\(item.menuImg!)"
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item.menuImg!)"
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)

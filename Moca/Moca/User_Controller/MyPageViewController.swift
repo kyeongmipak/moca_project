@@ -328,7 +328,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
 //          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
 //        let data = try! Data(contentsOf: url!)
             
-            var urlPath = "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)"
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(receiveItem.userImg!)"
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)

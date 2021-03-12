@@ -97,7 +97,7 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         }else{
             print("image load")
             //                  let url = URL(string: "http://127.0.0.1:8080/ios/\(receiveItem.image!)")
-            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
+            let url = URL(string: "http://" + Share.macIP + "/moca/image/\(receiveItem.userImg!)")
             let data = try! Data(contentsOf: url!)
             print("data",data)
             ivProfileImage.image = UIImage(data: data)

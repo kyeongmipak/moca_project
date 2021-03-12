@@ -17,6 +17,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tabBarController?.navigationItem.setHidesBackButton(true, animated: true)
+        
         tableViewList.delegate = self
         tableViewList.dataSource = self
     }

@@ -321,8 +321,14 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         }else{
             print("image load")
 //                  let url = URL(string: "http://127.0.0.1:8080/ios/\(receiveItem.image!)")
-          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
-        let data = try! Data(contentsOf: url!)
+//          let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)")
+//        let data = try! Data(contentsOf: url!)
+            
+            var urlPath = "http://127.0.0.1:8080/moca/image/\(receiveItem.userImg!)"
+            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+            let url = URL(string: urlPath)
+            let data = try! Data(contentsOf: url!)
+            
         myImg.image = UIImage(data: data)
       }
         

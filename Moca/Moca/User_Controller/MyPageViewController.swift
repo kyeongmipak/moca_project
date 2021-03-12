@@ -32,6 +32,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     var receiveItem = UserInfoModel()
     var userInfoProfileId = UserInfoModel()
     var userEmail = Share.userEmail
+    var checkUserEmail = ""
     // property 생성
     
     private var observer: NSObjectProtocol?
@@ -81,6 +82,9 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         // 이미지 둥글게 만들기
         myImg.layer.cornerRadius = (myImg.frame.size.width) / 2
         myImg.layer.masksToBounds = true
+        // profile border color
+        myImg.layer.borderWidth = 1.0
+        myImg.layer.borderColor = UIColor.lightGray.cgColor
         
         // imagePickerController
         imagePickerController.delegate = self
@@ -224,17 +228,19 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     // 회원탈퇴 기능 구현
     @IBAction func btnSignout(_ sender: UIButton) {
-        
+   
         print("userEmail",userEmail,"userInfoProfileId.userEmail",userInfoProfileId.userEmail)
-        if userEmail == userInfoProfileId.userEmail{
+        
+        if userEmail == checkUserEmail{
         let resultAlert = UIAlertController(title: "회원 탈퇴", message: "정말 회원탈퇴를 하시겠습니까?", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "회원탈퇴", style: UIAlertAction.Style.default, handler: { [self]ACTION in
             
             let deleteModel = UserInfoProfileDeleteModel()
             let userEmail = Share.userEmail
+         
             print("userEmail",userEmail)
-            deleteModel.deleteItems(userEmail: userEmail, completionHandler: {_,_ in
-                DispatchQueue.main.async {
+            let result = deleteModel.deleteItem(userEmail: userEmail)
+            if result == true{
                     let resultAlert = UIAlertController(title: "완료", message: "회원 탈퇴가 완료 되었습니다", preferredStyle: UIAlertController.Style.alert)
                     let onAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {ACTION in
                         
@@ -246,12 +252,10 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
                     )
                     resultAlert.addAction(onAction)
                     self.present(resultAlert, animated: true, completion: nil)
-                }
                 
-            })
-            
-            
+                
             self.navigationController?.popViewController(animated: true)
+            }
         })
         let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default, handler: nil)
         resultAlert.addAction(okAction)
@@ -262,7 +266,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             let resultAlert = UIAlertController(title: "Moca 알림", message: "소셜로그인은 내정보에 등록 후 탈퇴 가능합니다.", preferredStyle: UIAlertController.Style.alert)
             let cancelAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler:nil)
             resultAlert.addAction(cancelAction)
-            
+
             self.present(resultAlert, animated: true, completion: nil)
         }
     
@@ -328,18 +332,21 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)
-            
-        myImg.image = UIImage(data: data)
+            myImg.image = UIImage(data: data)
       }
-        
+        print("receiveItem",receiveItem.userNickname!)
+   
+        myNickName.text = receiveItem.userName!
     }
     
     func userInfofindId(items: NSArray) {
         feedItem = items
         print(items.count)
         for i in 0...items.count - 1{
+            
             userInfoProfileId = feedItem[i] as! UserInfoModel
-            print("userInfoProfileId",userInfoProfileId.userEmail)
+            print("userInfoProfileId",userInfoProfileId.userEmail!)
+            
             if userEmail != userInfoProfileId.userEmail{
                 
             }else{
@@ -349,6 +356,9 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
                 let imgSelectModel = ImageSelectModel()
                 imgSelectModel.delegate = self
                 imgSelectModel.downloadItems(userEmail: userEmail) // JsonModel.swift에 downloadItems 구동
+                checkUserEmail = userEmail
+                print("checkUserEmail",  checkUserEmail)
+                print("userEmail",  userEmail)
             }
         
         }

@@ -49,7 +49,8 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         // 이미지 둥글게 만들기
         ivProfileImage.layer.cornerRadius = (ivProfileImage.frame.size.width) / 2
         ivProfileImage.layer.masksToBounds = true
-        
+        ivProfileImage.layer.borderWidth = 1.0
+        ivProfileImage.layer.borderColor = UIColor.lightGray.cgColor
         // imagePickerController
         imagePickerController.delegate = self
         
@@ -60,6 +61,8 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         let event = UITapGestureRecognizer(target: self,
                                            action: #selector(clickMethod))
         ivProfileImage.addGestureRecognizer(event)
+        
+        
         
         // 로그인한 id가 db에 있는지 확인
         let UserInfoProfileCheckModel = UserInfoProfileIdCheckModel()
@@ -101,7 +104,12 @@ class MyUpdateViewController: UIViewController,UIImagePickerControllerDelegate &
         }
         
         print("userNickname",receiveItem.userNickname!)
+        if receiveItem.userNickname!.isEmpty{
+            tfNickName.text = ""
+            print("들어와")
+        }else{
         tfNickName.text = receiveItem.userNickname!
+        }
         tfPW.text =  receiveItem.userPw!
         tfTel.text = receiveItem.userPhone!
     }

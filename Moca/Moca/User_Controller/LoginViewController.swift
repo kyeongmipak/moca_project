@@ -287,6 +287,9 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
     
     @IBAction func logInButton(_ sender: UIButton) {
         getLoginData()
+        Share.userEmail = idTextField.text!
+        print("Login")
+        print("Share.userEmail",Share.userEmail)
     }
     
     func creatSQLite() {

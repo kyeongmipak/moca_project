@@ -89,7 +89,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
         if (AuthApi.isKakaoTalkLoginAvailable()){// 카카오톡 설치 여부 확인
             //설치가 되있으면 어플로 로그인을 실행
             print("설치가 되있으면 어플로 로그인을 실행")
-            AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {
                     // 예외 처리 (로그인 취소 등)
                     print("로그인 취소")
@@ -111,7 +111,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
         }else{ // 카카오 로그인시 어플이 안깔려있으면 카카오 웹으로 로그인을 실행함
             print("카카오 웹으로 로그인")
             //AuthApi.shared.loginWithKakaoAccount(prompts:[.Login])으로 지정하면 로그인 상태여도 로그인을 물어봄
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+            AuthApi.shared.loginWithKakaoAccount {(oauthToken, error) in
                 if let error = error {
                     print("error",error)
                 }

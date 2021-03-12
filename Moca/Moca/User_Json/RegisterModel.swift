@@ -13,7 +13,7 @@ protocol RegisterModelProtocol: class {
 
 class RegisterModel: NSObject {
     
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/MOCARegister.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/MOCARegister.jsp"
     var delegate : RegisterModelProtocol!
     var result = 0
     

@@ -86,7 +86,7 @@ class StarbucksViewController: UIViewController, UITableViewDelegate, UITableVie
             } else {
                 cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
             }
-            var urlPath = "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)"
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item1.menuImg!)"
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url1 = URL(string: urlPath)
             let data1 = try! Data(contentsOf: url1!)
@@ -95,7 +95,7 @@ class StarbucksViewController: UIViewController, UITableViewDelegate, UITableVie
             
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-            var urlPath = "http://127.0.0.1:8080/moca/image/\(item.menuImg!)"
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item.menuImg!)"
             urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
             let url = URL(string: urlPath)
             print("url 확인 :",url)

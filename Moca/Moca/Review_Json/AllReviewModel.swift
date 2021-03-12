@@ -15,7 +15,7 @@ protocol AllReviewProtocol: class{
 
 class AllReviewModel: NSObject{
     var delegate: AllReviewProtocol!
-    let urlPath = "http://127.0.0.1:8080/moca/jsp/review_all_list.jsp" // 리뷰 전체 불러오기
+    let urlPath = "http://" + Share.macIP + "/moca/jsp/review_all_list.jsp" // 리뷰 전체 불러오기
     
     func downloadItems(){
         let url = URL(string: urlPath)!

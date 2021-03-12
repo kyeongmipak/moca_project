@@ -14,7 +14,7 @@ protocol EmailCheckModelProtocol: class {
 
 class EmailCheckModel: NSObject {
     var delegate : EmailCheckModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/EmailCheck.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/EmailCheck.jsp"
     var result = 0
     
     

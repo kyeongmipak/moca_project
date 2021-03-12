@@ -93,7 +93,7 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
 //        let data = try! Data(contentsOf: url!)
         
         
-        var urlPath = "http://127.0.0.1:8080/moca/image/\(item.menuImg!)"
+        var urlPath = "http://" + Share.macIP + "/moca/image/\(item.menuImg!)"
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let url = URL(string: urlPath)
         let data = try! Data(contentsOf: url!)

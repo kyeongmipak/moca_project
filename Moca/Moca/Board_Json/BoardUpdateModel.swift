@@ -56,7 +56,7 @@ class BoardUpdateModel:NSObject{
     func uploadImageFile(boardNo: String, boardTitle: String, boardContent: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
-        var url = "http://127.0.0.1:8080/jsp/board_image_update.jsp"
+        var url = "http://" + Share.macIP + "/jsp/board_image_update.jsp"
         let urlAdd = "?boarNo\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

@@ -15,7 +15,7 @@ protocol LikeCountJsonModelProtocol: class{
 
 class LikeCountJsonModel: NSObject{
     var delegate: LikeCountJsonModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/star_count_ios.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/star_count_ios.jsp"
     var resultNo = 3
     
     func downloadItems(userInfo_userEmail: String, menu_menuNO: Int){

@@ -13,4 +13,6 @@ struct Share{
     static var userName: String = ""
     static var userBirth: String = ""
 //    static var userImage: String = ""
+    
+    static var macIP: String = "172.30.1.10:8080"
 }

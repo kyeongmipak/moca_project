@@ -17,7 +17,7 @@ protocol ImageSelectModelProtocol: class {
 class ImageSelectModel: NSObject {
     var delegate: ImageSelectModelProtocol!
 //    let urlPath = "http://127.0.0.1:8080/ios/student_query_ios.jsp"
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/userinfo_profile_image.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/userinfo_profile_image.jsp"
    
     func downloadItems(userEmail: String){
         urlPath = urlPath + "?userEmail=\(userEmail)"

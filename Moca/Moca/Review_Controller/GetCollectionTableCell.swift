@@ -133,7 +133,7 @@ class GetCollectionTableCell: UITableViewCell, UICollectionViewDataSource, UICol
         cell.backgroundColor = .white
         
         // 이미지 있을때
-        let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem[indexPath.row].reviewImg!)")
+        let url = URL(string: "http://" + Share.macIP + "/moca/image/\(receiveItem[indexPath.row].reviewImg!)")
         let data = try! Data(contentsOf: url!)
         cell.iv_testImg.image = UIImage(data: data)
         

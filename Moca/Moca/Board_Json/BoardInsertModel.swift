@@ -62,7 +62,7 @@ class BoardInsertModel:NSObject{
         
         //     var url = URL(string: "http://127.0.0.1:8080/jsp/ImageUpload2.jsp")!
         print("image insert >>>> ")
-        var url = "http://127.0.0.1:8080/moca/jsp/board_image_insert.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/board_image_insert.jsp"
         let urlAdd = "?boardTitle=\(boardTitle)&boardContent=\(boardContent)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

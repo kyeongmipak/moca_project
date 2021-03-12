@@ -17,7 +17,7 @@ class SearchEmailPwModel: NSObject {
     
     
     func searchEmailItems(userInformationName : String, userInformationPhone : String) {
-        var urlPath = "http://127.0.0.1:8080/moca/jsp/SearchEmail.jsp"
+        var urlPath = "http://" + Share.macIP + "/moca/jsp/SearchEmail.jsp"
         let urlAdd = "?userInformationName=\(userInformationName)&userInformationPhone=\(userInformationPhone)"
         urlPath = urlPath+urlAdd
         let url = URL(string: urlPath)!
@@ -34,7 +34,7 @@ class SearchEmailPwModel: NSObject {
         task.resume()
     }
     func searchPasswordItems(userInformationEmail : String, userInformationName : String, userInformationPhone : String) {
-        var urlPath = "http://127.0.0.1:8080/moca/jsp/SearchPassword.jsp"
+        var urlPath = "http://" + Share.macIP + "/moca/jsp/SearchPassword.jsp"
         let urlAdd = "?userInformationEmail=\(userInformationEmail)&userInformationName=\(userInformationName)&userInformationPhone=\(userInformationPhone)"
         urlPath = urlPath+urlAdd
         let url = URL(string: urlPath)!

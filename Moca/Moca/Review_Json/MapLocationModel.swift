@@ -13,7 +13,7 @@ protocol MapLocationModelProtocol: class {
 
 class MapLocationModel: NSObject {
     var delegate : MapLocationModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/AddressSelect.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/AddressSelect.jsp"
     
     func downloadItems(brandName : String) {
         let urlAdd = "?brandName=\(brandName)"

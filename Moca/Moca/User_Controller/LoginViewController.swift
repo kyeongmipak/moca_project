@@ -406,18 +406,30 @@ class LoginViewController: UIViewController, GIDSignInDelegate, NaverThirdPartyL
                         print("failure inserting : \(errmsg)")
                         return
                     }
-                    
+                    let resultAlert = UIAlertController(title: "결과", message: "로그인이 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: {ACTION in
+                        Share.userEmail = self.idTextField.text!
+                        self.performSegue(withIdentifier: "sgMain", sender: self)
+                    })
+                    resultAlert.addAction(okAction)
+                    present(resultAlert, animated: true, completion: nil)
                     print("Student saved successfully")
                     
-                    Share.userEmail = idTextField.text!
-                    self.performSegue(withIdentifier: "sgMain", sender: self)
+                    
+                    
                 default:
                     break
                 }
             } else{
                 // 자동로그인 스위치를 키지 않은 경우는 그냥 쉐어벨류에 입력한 값을 저장해주고 메인화면으로 넘겨줌
-                Share.userEmail = idTextField.text!
-                self.performSegue(withIdentifier: "sgMain", sender: self)
+                let resultAlert = UIAlertController(title: "결과", message: "로그인이 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
+                let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: {ACTION in
+                    Share.userEmail = self.idTextField.text!
+                    self.performSegue(withIdentifier: "sgMain", sender: self)
+                })
+                resultAlert.addAction(okAction)
+                present(resultAlert, animated: true, completion: nil)
+                print("Student saved successfully")
             }
         case 0:
             let userAlert = UIAlertController(title: "경고", message: "ID나 암호가 틀렸습니다.", preferredStyle: UIAlertController.Style.actionSheet)

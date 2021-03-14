@@ -48,14 +48,21 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: Protocol Setting
     func itemDownloaded(items: NSArray) {
-        print("itemDownload 실행")
-        feedItem = NSArray()
-        feedItem = items
-        for i in 0..<feedItem.count {
-            print("feedItem[\(i)]:\(feedItem[i])")
+            print("itemDownload 실행")
+            feedItem = NSArray()
+            feedItem = items
+            
+            if feedItem.count == 0 {
+                // 리뷰가 아예 없을때
+                print("여기 잘 지나갔음")
+                
+            } else {
+                for i in 0..<feedItem.count {
+                    print("feedItem[\(i)]:\(feedItem[i])")
+                }
+            }
+            self.myReviewList.reloadData()
         }
-        self.myReviewList.reloadData()
-    }
     
     
     // MARK: ViewDidLoad()

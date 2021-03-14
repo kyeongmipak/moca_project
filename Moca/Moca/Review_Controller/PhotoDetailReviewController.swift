@@ -132,7 +132,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuImage.image = UIImage(data: data)
                 cell.menuName.text = "\(menuItem.menuName!)"
                 cell.menuPriceCal.text = "\(result!) 원 / \(menuItem.menuCalorie!) kcal"
-                
+                print("메ㅔㅔㅔ뉴네임ㅁㅁㅁㅁㅁㅁ",menuItem.menuName!)
             } else if rankItem.menuNo != nil{
                 let result = numberFormatter.string(from: NSNumber(value: Int(rankItem.menuPrice!)!))
                 

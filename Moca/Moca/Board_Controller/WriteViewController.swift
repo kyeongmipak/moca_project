@@ -112,7 +112,12 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
             print("non-imageUploadMode")
             boardInsertModel.nonImage(boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non-image Upload Success!")
                 DispatchQueue.main.async { () -> Void in
-                    self.navigationController?.popViewController(animated: true) // 현재화면 종료
+                    print("upload image File")
+                    
+                    // instance
+                    let checkBoardNo = CheckBoardNoModel()
+                    checkBoardNo.delegate = self
+                    checkBoardNo.downloadItemsBoardNo()
                 }
             })
         }

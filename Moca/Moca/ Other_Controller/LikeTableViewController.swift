@@ -89,8 +89,17 @@ class LikeTableViewController: UITableViewController, LikeJsonModelProtocol, Lik
         // 현재 배열값으로 들어온 cell 풀어서 정의.
         let item: LikeDBModel = LikeItem[indexPath.row] as! LikeDBModel
         
-        let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
+//        let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
+//        let data = try! Data(contentsOf: url!)
+        
+        
+        var urlPath = "http://" + Share.macIP + "/moca/image/\(item.menuImg!)"
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let url = URL(string: urlPath)
         let data = try! Data(contentsOf: url!)
+        
+        
+        
         cell.likeImg.image = UIImage(data: data)
         
         

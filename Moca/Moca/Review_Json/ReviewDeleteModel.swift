@@ -9,7 +9,7 @@ import Foundation
 
 class ReviewDeleteModel: NSObject{
     
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/review_delete.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/review_delete.jsp"
     
     // insertItems의 () 매개변수들은 AddViewController에서 값을 넣어줘서 함께 실행할거고 → Bool로 실행 여부 확인할거야.
     func deleteItems(reviewNo: String) -> Bool {

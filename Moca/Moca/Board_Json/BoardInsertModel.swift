@@ -62,7 +62,7 @@ class BoardInsertModel:NSObject{
         
         //     var url = URL(string: "http://127.0.0.1:8080/jsp/ImageUpload2.jsp")!
         print("image insert >>>> ")
-        var url = "http://127.0.0.1:8080/moca/jsp/board_image_insert.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/board_image_insert.jsp"
         let urlAdd = "?boardTitle=\(boardTitle)&boardContent=\(boardContent)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -96,7 +96,7 @@ class BoardInsertModel:NSObject{
     func nonImage(boardTitle: String, boardContent: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         print("nonimage insert >>>> ")
-        var url = "http://127.0.0.1:8080/moca/jsp/board_nonImage_insert.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/board_nonImage_insert.jsp"
         let urlAdd = "?boardTitle=\(boardTitle)&boardContent=\(boardContent)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -113,7 +113,7 @@ class BoardInsertModel:NSObject{
     func InsertRegister(userInfo_userEmail: String, board_boardNo: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
             
         print("register insert >>>> ")
-            var url = "http://127.0.0.1:8080/moca/jsp/register_insert.jsp"
+            var url = "http://" + Share.macIP + "/moca/jsp/register_insert.jsp"
         let urlAdd = "?userEmail=\(Share.userEmail)&board_boardNo=\(board_boardNo)"
             url = url + urlAdd
             url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

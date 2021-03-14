@@ -25,7 +25,7 @@
         ps = conn_mysql.prepareStatement(WhereDefault);
         ps.setString(1, userInformationEmail);
 		ps.setString(2, userInformationName);
-        ps.setString(2, userInformationPhone);
+        ps.setString(3, userInformationPhone);
         rs = ps.executeQuery();
         %>
         [ 

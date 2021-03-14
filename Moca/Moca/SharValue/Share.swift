@@ -9,8 +9,10 @@ import Foundation
 
 // 공통변수인 userId를 저장후 다른Class에서 참조
 struct Share{
-    static var userEmail: String = "test5"
+    static var userEmail: String = ""
     static var userName: String = ""
     static var userBirth: String = ""
 //    static var userImage: String = ""
+    
+    static var macIP: String = "192.168.219.139:8080"
 }

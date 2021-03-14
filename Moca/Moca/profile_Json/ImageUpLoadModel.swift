@@ -58,7 +58,7 @@ class ImageUploadModel:NSObject{
             //let url = URL(string: "\(filepath), ImageUpload.jsp")!
 
             //var url = URL(string: "http://localhost:8080/ios/ImageUpload.jsp")!
-            var url = "http://localhost:8080/moca/jsp/ImageUpload.jsp"
+            var url = "http://" + Share.macIP + "/moca/jsp/ImageUpload.jsp"
             let urlAdd = "?userEmail=\(userEmail)"
             url = url + urlAdd
             url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

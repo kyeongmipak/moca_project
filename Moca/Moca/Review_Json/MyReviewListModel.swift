@@ -20,7 +20,7 @@ class MyReviewListModel: NSObject{
     func downloadItems(){
         
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        var urlPath = "http://127.0.0.1:8080/moca/jsp/my_review_list.jsp" // 리뷰 전체 불러오기
+        var urlPath = "http://" + Share.macIP + "/moca/jsp/my_review_list.jsp" // 리뷰 전체 불러오기
         let urlAdd = "?email=\(Share.userEmail)"
         urlPath = urlPath + urlAdd
         

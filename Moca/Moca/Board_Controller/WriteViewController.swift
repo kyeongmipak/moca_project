@@ -150,27 +150,26 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         }
     }
     
-//    extension WriteViewController: UITextViewDelegate {
-//        // 텍스트뷰 placeHolder 설정
-//        // 편집이 시작될때
-//
-//        func textViewDidBeginEditing(_ textView: UITextView) { if tv_boardContent.textColor == UIColor.lightGray {// 1번
-//            tv_boardContent.text = nil
-//            tv_boardContent.textColor = UIColor.black
-//        }
-//        }
-//        // 편집이 종료될때
-//        func textViewDidEndEditing(_ textView: UITextView) {
-//            if tv_boardContent.text.isEmpty { // 2번
-//                tv_boardContent.text = "내용을 입력해주세요."
-//                tv_boardContent.textColor = UIColor.lightGray
-//            }
-//        }
-//    }
+    //    extension WriteViewController: UITextViewDelegate {
+    //        // 텍스트뷰 placeHolder 설정
+    //        // 편집이 시작될때
+    //
+    //        func textViewDidBeginEditing(_ textView: UITextView) { if tv_boardContent.textColor == UIColor.lightGray {// 1번
+    //            tv_boardContent.text = nil
+    //            tv_boardContent.textColor = UIColor.black
+    //        }
+    //        }
+    //        // 편집이 종료될때
+    //        func textViewDidEndEditing(_ textView: UITextView) {
+    //            if tv_boardContent.text.isEmpty { // 2번
+    //                tv_boardContent.text = "내용을 입력해주세요."
+    //                tv_boardContent.textColor = UIColor.lightGray
+    //            }
+    //        }
+    //    }
     
     
     
     
     
 } // END
-

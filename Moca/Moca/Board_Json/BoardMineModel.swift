@@ -18,7 +18,7 @@ protocol BoardMineModelProtocol: class{
 
 class BoardMineModel: NSObject{
     var delegate: BoardMineModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/board_myPost_list.jsp" // 리뷰 전체 불러오기
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/board_myPost_list.jsp" // 리뷰 전체 불러오기
     
     
     

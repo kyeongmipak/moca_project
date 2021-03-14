@@ -27,6 +27,16 @@ class DetailButtonTableViewCell: UITableViewCell, LikeCountJsonModelProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if Share.userEmail == "" {
+            LikeImg.isHidden = true
+            writeReviewBtn.isHidden = true
+        }else {
+            LikeImg.isHidden = false
+            writeReviewBtn.isHidden = false
+        }
+        
+        
+        
         
         let likejsonModel = LikeCountJsonModel()
         likejsonModel.delegate = self

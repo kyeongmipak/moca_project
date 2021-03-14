@@ -20,7 +20,7 @@ class CheckMenuNoModel: NSObject{
     func downloadItemsMenuNo(){
         
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        var urlPath = "http://127.0.0.1:8080/jsp/return_last_ai.jsp" // 리뷰 전체, but 특정 MenuNo에 대해서 불러오기
+        var urlPath = "http://" + Share.macIP + "/jsp/return_last_ai.jsp" // 리뷰 전체, but 특정 MenuNo에 대해서 불러오기
         
         urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlURL = URL(string: urlPath)

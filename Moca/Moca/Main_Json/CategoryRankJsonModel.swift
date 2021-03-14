@@ -13,7 +13,7 @@ protocol CategoryRankJsonModelProtocol: class {
 
 class CategoryRankJsonModel: NSObject {
     var delegate: CategoryRankJsonModelProtocol!
-    var urlPath = "http://127.0.0.1:8080/moca/jsp/rank_category_query_ios.jsp"
+    var urlPath = "http://" + Share.macIP + "/moca/jsp/rank_category_query_ios.jsp"
     
     func downloadItems(categoryName: String){
         urlPath = urlPath + "?menuCategory=\(categoryName)"

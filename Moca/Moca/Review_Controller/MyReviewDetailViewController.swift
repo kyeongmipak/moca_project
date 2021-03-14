@@ -70,7 +70,7 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
             lbl_NonPhoto.text = "등록한 사진이 없습니다."
         } else {
             lbl_NonPhoto.text = ""
-            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(receiveItem.reviewImg!)")
+            let url = URL(string: "http://" + Share.macIP + "/moca/image/\(receiveItem.reviewImg!)")
             print("url : \(url)")
             let data = try! Data(contentsOf: url!)
             iv_imgView.image = UIImage(data: data)

@@ -3703,14 +3703,14 @@
             <objects>
                 <viewController id="Rqb-Fe-9nQ" customClass="PhotoDetailReviewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JgK-Yl-80e">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-Te-UvL">
-                                <rect key="frame" x="16" y="104" width="358" height="690"/>
+                                <rect key="frame" x="16" y="16" width="358" height="724"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MjK-2P-D5L">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="690"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="724"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell3" rowHeight="60" id="QgT-Lp-yZN" customClass="StarAvgTableViewCell" customModule="Moca" customModuleProvider="target">
@@ -4155,7 +4155,7 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="TYj-2H-gkt" customClass="WriteReviewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gsK-0o-tfJ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="만족도" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xt-ya-1vp">
@@ -4188,7 +4188,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" systemColor="labelColor"/>
-                                <state key="normal" title="첨부하기" image="camera" catalog="system">
+                                <state key="normal" title="첨부하기">
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                 </state>
@@ -4309,11 +4309,11 @@
             <objects>
                 <viewController id="cH2-UN-n5Z" customClass="MapViewController" customModule="Moca" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IAx-97-kAH">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gL8-cR-kuI">
-                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                                 <connections>
                                     <outlet property="delegate" destination="cH2-UN-n5Z" id="Gnf-jb-jW1"/>
                                 </connections>
@@ -4554,28 +4554,8 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="CH0-do-Mhc">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="Qfb-j6-zgY">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="TiI-Aa-96G">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="dJG-G6-P2X">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="sZu-VG-oBg">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-        <designable name="tSr-91-KdT">
-            <size key="intrinsicContentSize" width="170" height="30"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Z6Q-fT-X89"/>
+        <segue reference="Tkf-os-rOK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

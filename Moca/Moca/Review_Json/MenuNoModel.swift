@@ -20,7 +20,7 @@ class MenuModel: NSObject{
     func downloadItems(menuNo : String){
         
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
-        var urlPath = "http://127.0.0.1:8080/moca/jsp/review_all_whereMenu.jsp" // 리뷰 전체, but 특정 MenuNo에 대해서 불러오기
+        var urlPath = "http://" + Share.macIP + "/moca/jsp/review_all_whereMenu.jsp" // 리뷰 전체, but 특정 MenuNo에 대해서 불러오기
         let urlAdd = "?menuNo=\(menuNo)"
         urlPath = urlPath + urlAdd
         

@@ -12,7 +12,7 @@
 ![Moca_img 004](https://user-images.githubusercontent.com/75213680/110663136-83a6df00-8209-11eb-855e-98d5b16e5fec.jpeg)
 ![Moca_img 005](https://user-images.githubusercontent.com/75213680/110663133-830e4880-8209-11eb-8707-7496320f45f2.jpeg)
 ![Moca_img 006](https://user-images.githubusercontent.com/75213680/110663130-8275b200-8209-11eb-9a11-2b088a92cbf6.jpeg)
-![Moca_img 007](https://user-images.githubusercontent.com/75213680/110663128-8275b200-8209-11eb-953f-6ffd7174ac54.jpeg)
+![Moca_img 007](https://user-images.githubusercontent.com/75213680/110828953-f338cf00-82da-11eb-83df-930473c00bbd.jpeg)
 ![Moca_img 008](https://user-images.githubusercontent.com/75213680/110663126-81dd1b80-8209-11eb-889f-f55c1d3b24a1.jpeg)
 ![Moca_img 009](https://user-images.githubusercontent.com/75213680/110663122-81448500-8209-11eb-9b50-a78ed28cd4ea.jpeg)
 ![Moca_img 010](https://user-images.githubusercontent.com/75213680/110663120-81448500-8209-11eb-9170-ef70d739f7ba.jpeg)

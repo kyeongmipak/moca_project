@@ -56,7 +56,7 @@ class ReviewInsertModel:NSObject{
     func uploadImageFile(email: String, menuNo: String, reviewContent: String, reviewStar: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
-        var url = "http://127.0.0.1:8080/moca/jsp/review_image_insert.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/review_image_insert.jsp"
         let urlAdd = "?email=\(Share.userEmail)&menuNo=\(menuNo)&reviewContent=\(reviewContent)&reviewStar=\(reviewStar)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
@@ -89,7 +89,7 @@ class ReviewInsertModel:NSObject{
     
     func nonImage(email: String, menuNo: String, reviewContent: String, reviewStar: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
-        var url = "http://127.0.0.1:8080/moca/jsp/review_nonImage_insert.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/review_nonImage_insert.jsp"
         let urlAdd = "?email=\(Share.userEmail)&menuNo=\(menuNo)&reviewContent=\(reviewContent)&reviewStar=\(reviewStar)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

@@ -86,7 +86,9 @@ class EdiyaViewController: UIViewController, UITableViewDelegate, BrandRankJsonM
             } else {
                 cell.lblReviewAvg.text = "⭐️ \(item1.reviewAvg!)"
             }
-            let url1 = URL(string: "http://127.0.0.1:8080/moca/image/\(item1.menuImg!)")
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item1.menuImg!)"
+            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+            let url1 = URL(string: urlPath)
             let data1 = try! Data(contentsOf: url1!)
             cell.imgMenuImage.image = UIImage(data: data1)
             menuTotalNum.text = "\(searchedMenu.count) 개의 제품"
@@ -94,7 +96,9 @@ class EdiyaViewController: UIViewController, UITableViewDelegate, BrandRankJsonM
             
         } else {  // 아닐때
             let item: BrandRankDBModel = feedItem[indexPath.row] as! BrandRankDBModel
-            let url = URL(string: "http://127.0.0.1:8080/moca/image/\(item.menuImg!)")
+            var urlPath = "http://" + Share.macIP + "/moca/image/\(item.menuImg!)"
+            urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+            let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)
             
             cell.imgMenuImage.image = UIImage(data: data)
@@ -129,7 +133,13 @@ class EdiyaViewController: UIViewController, UITableViewDelegate, BrandRankJsonM
             let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
                 let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
                 let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
-            detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+               
+                // search에 따른 검색 결과
+                if searchedMenu.count == 0 {
+                    detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+                } else {
+                    detailView.rankItem = searchedMenu[(indexPath! as NSIndexPath).row]
+                }
         }
     }
     

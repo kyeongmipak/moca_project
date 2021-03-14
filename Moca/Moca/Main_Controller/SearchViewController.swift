@@ -21,13 +21,13 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let searchJsonModel = SearchJsonModel()
-        searchJsonModel.delegate = self
-        searchJsonModel.downloadItems()
         
         tableViewList.dataSource = self
         tableViewList.delegate = self
+        
+        let searchJsonModel = SearchJsonModel()
+        searchJsonModel.delegate = self
+        searchJsonModel.downloadItems()
         
         // 검색창 셋팅
         configureSearchController()
@@ -42,6 +42,7 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDat
     
     // 검색 시 업데이트
     func updateSearchResults(for searchController: UISearchController) {
+        searchedMenu.removeAll()
         let searchText = searchController.searchBar.text!
         if !searchText.isEmpty {
             searching = true
@@ -119,7 +120,13 @@ class SearchViewController: UIViewController,UISearchBarDelegate, UITableViewDat
             let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
                 let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
                 let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
+            
+            // search에 따른 검색 결과
+            if searchedMenu.count == 0 {
                 detailView.menuItem = feedItem[(indexPath! as NSIndexPath).row] as! SearchDBModel
+            } else {
+                detailView.menuItem = searchedMenu[(indexPath! as NSIndexPath).row]
+            }
         }
     }
     

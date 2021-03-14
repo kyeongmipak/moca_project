@@ -139,7 +139,12 @@ class BeverageViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = sender as! UITableViewCell  // 선택된 cell 통째로 가져온다.
                 let indexPath = self.tableViewList.indexPath(for: cell) // 선택된 cell 번호 가져온다.
                 let detailView = segue.destination as! PhotoDetailReviewController  // detail controller 연결
-            detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+            // search에 따른 검색 결과
+            if searchedMenu.count == 0 {
+                detailView.rankItem = feedItem[(indexPath! as NSIndexPath).row] as! BrandRankDBModel
+            } else {
+                detailView.rankItem = searchedMenu[(indexPath! as NSIndexPath).row]
+            }
         }
     }
     

@@ -19,8 +19,13 @@ class SearchEmailPwModel: NSObject {
     func searchEmailItems(userInformationName : String, userInformationPhone : String) {
         var urlPath = "http://" + Share.macIP + "/moca/jsp/SearchEmail.jsp"
         let urlAdd = "?userInformationName=\(userInformationName)&userInformationPhone=\(userInformationPhone)"
-        urlPath = urlPath+urlAdd
+        urlPath = urlPath + urlAdd
+        
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
         let url = URL(string: urlPath)!
+        
+        
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         let task = defaultSession.dataTask(with: url){(data, response, error)in
@@ -36,8 +41,13 @@ class SearchEmailPwModel: NSObject {
     func searchPasswordItems(userInformationEmail : String, userInformationName : String, userInformationPhone : String) {
         var urlPath = "http://" + Share.macIP + "/moca/jsp/SearchPassword.jsp"
         let urlAdd = "?userInformationEmail=\(userInformationEmail)&userInformationName=\(userInformationName)&userInformationPhone=\(userInformationPhone)"
-        urlPath = urlPath+urlAdd
+        urlPath = urlPath + urlAdd
+        urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        
+        
         let url = URL(string: urlPath)!
+        
+        
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         let task = defaultSession.dataTask(with: url){(data, response, error)in

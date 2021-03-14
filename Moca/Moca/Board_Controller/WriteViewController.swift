@@ -1,8 +1,8 @@
 //
 //  WriteViewController.swift
-//  RyaDiary
+//  Moca
 //
-//  Created by Ria Song on 2021/02/17.
+//  Created by Ria Song on 2021/02/28.
 //
 
 import UIKit
@@ -96,9 +96,8 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         let boardTitle = txt_boardTitle.text!
         let boardContent = tv_boardContent.text!
         let boardInsertModel = BoardInsertModel()
-        print("imageUpload")
-        if check == 1 {
-            
+        if check == 1 { // 이미지 업로드 시작
+            print("imageUploadMode")
             boardInsertModel.uploadImageFile(boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Upload Success")
                 DispatchQueue.main.async { () -> Void in
                     print("upload image File")
@@ -109,12 +108,16 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
                     checkBoardNo.downloadItemsBoardNo()
                 }
             })
-            
-        } else {
+        } else { // 텍스트온리 업로드 시작
             print("non-imageUploadMode")
             boardInsertModel.nonImage(boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non-image Upload Success!")
                 DispatchQueue.main.async { () -> Void in
-                    self.navigationController?.popViewController(animated: true) // 현재화면 종료
+                    print("upload image File")
+                    
+                    // instance
+                    let checkBoardNo = CheckBoardNoModel()
+                    checkBoardNo.delegate = self
+                    checkBoardNo.downloadItemsBoardNo()
                 }
             })
         }
@@ -123,10 +126,8 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
     // MARK: - protocol func Setting
     func itemDownloadedBoardNo(items: String) {
         boardNo = ""
-        print("items \(items)")
         boardNo = items
         print("보드넘버는??? : \(boardNo)")
-        
         let boardInsertModel = BoardInsertModel()
         boardInsertModel.InsertRegister(userInfo_userEmail: Share.userEmail, board_boardNo: boardNo, completionHandler: {_,_ in print("Register Upload Success")
             DispatchQueue.main.async { () -> Void in
@@ -149,32 +150,26 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
         }
     }
     
-    // 아무곳이나 눌러 softkeyboard 지우기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-//    extension WriteViewController: UITextViewDelegate {
-//        // 텍스트뷰 placeHolder 설정
-//        // 편집이 시작될때
-//
-//        func textViewDidBeginEditing(_ textView: UITextView) { if tv_boardContent.textColor == UIColor.lightGray {// 1번
-//            tv_boardContent.text = nil
-//            tv_boardContent.textColor = UIColor.black
-//        }
-//        }
-//        // 편집이 종료될때
-//        func textViewDidEndEditing(_ textView: UITextView) {
-//            if tv_boardContent.text.isEmpty { // 2번
-//                tv_boardContent.text = "내용을 입력해주세요."
-//                tv_boardContent.textColor = UIColor.lightGray
-//            }
-//        }
-//    }
+    //    extension WriteViewController: UITextViewDelegate {
+    //        // 텍스트뷰 placeHolder 설정
+    //        // 편집이 시작될때
+    //
+    //        func textViewDidBeginEditing(_ textView: UITextView) { if tv_boardContent.textColor == UIColor.lightGray {// 1번
+    //            tv_boardContent.text = nil
+    //            tv_boardContent.textColor = UIColor.black
+    //        }
+    //        }
+    //        // 편집이 종료될때
+    //        func textViewDidEndEditing(_ textView: UITextView) {
+    //            if tv_boardContent.text.isEmpty { // 2번
+    //                tv_boardContent.text = "내용을 입력해주세요."
+    //                tv_boardContent.textColor = UIColor.lightGray
+    //            }
+    //        }
+    //    }
     
     
     
     
     
 } // END
-

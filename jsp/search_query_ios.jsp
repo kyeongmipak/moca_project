@@ -10,7 +10,7 @@
  	String id_mysql = "root";
  	String pw_mysql = "qwer1234";
 
-     String WhereDefault = "select m.menuNo menuNo, m.menuName menuName, h.brand_brandNo brandNo, b.brandName brandName, m.menuPrice menuPrice, m.menuImg menuImg,  m.menuInformation menuInformation, m.menuCalorie menuCalorie from menu m LEFT OUTER JOIN review r on r.menu_menuNo = m.menuNo, brand b, have h ";
+     String WhereDefault = "select distinct(m.menuNo) menuNo, m.menuName menuName, h.brand_brandNo brandNo, b.brandName brandName, m.menuPrice menuPrice, m.menuImg menuImg, m.menuInformation menuInformation, m.menuCalorie menuCalorie from menu m LEFT OUTER JOIN review r on r.menu_menuNo = m.menuNo, brand b, have h ";
      String WhereDefault2 = "where h.menu_menuNo = m.menuNo and h.brand_brandNo = b.brandNo order by b.brandName";
 
     int count = 0;

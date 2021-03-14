@@ -158,14 +158,14 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
                 cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
                 //                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                var urlPath = "http://" + Share.macIP + "/moca/image/\(menuInfoItem.menuImg!)"
-                urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                let url = URL(string: urlPath)
+                
+                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
                 cell.menuImage.image = UIImage(data: data)
                 cell.menuName.text = "\(menuInfoItem.menuName!)"
                 cell.menuPriceCal.text = "\(result!) 원 / \(menuInfoItem.menuCalorie!) kcal"
+                
                 
             } else {
                 // 지은

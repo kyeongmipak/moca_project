@@ -4,6 +4,11 @@
 
 ---
 
+# 유튜브 영상보기
+[모카 유튜브 영상 보기](https://www.youtube.com/watch?v=63zeTRA1V_M, "moca link")
+
+---
+
 ## 프로젝트 소개 및 결과물
 
 ![Moca_img 001](https://user-images.githubusercontent.com/75213680/110662945-578b5e00-8209-11eb-8584-24ad0dad8ffb.jpeg)

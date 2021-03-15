@@ -58,6 +58,9 @@ class BoardInsertModel:NSObject{
     func uploadImageFile(boardTitle: String, boardContent: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
+        //let url = URL(string: "\(filepath), ImageUpload.jsp")!
+        
+        //     var url = URL(string: "http://127.0.0.1:8080/jsp/ImageUpload2.jsp")!
         print("image insert >>>> ")
         var url = "http://" + Share.macIP + "/moca/jsp/board_image_insert.jsp"
         let urlAdd = "?boardTitle=\(boardTitle)&boardContent=\(boardContent)"

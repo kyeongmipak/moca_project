@@ -16,10 +16,8 @@ class BoardUpdateModel:NSObject{
             return nil
         }
         
-        // 바운더리 값을 정하고,
-        // 각 파트의 헤더가 될 라인들을 배열로 만든다.
-        // 이 배열을 \r\n 으로 조인하여 한 덩어리로 만들어서
-        // 데이터로 인코딩한다.
+        // 바운더리 값을 정하고, 각 파트의 헤더가 될 라인들을 배열로 만든다.
+        // 이 배열을 \r\n 으로 조인하여 한 덩어리로 만들어서 데이터로 인코딩한다.
         let boundary = "XXXXX"
         let mimetype = "image/jpeg"
         let headerLines = ["--\(boundary)",

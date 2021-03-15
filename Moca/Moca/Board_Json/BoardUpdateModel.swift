@@ -58,7 +58,7 @@ class BoardUpdateModel:NSObject{
         // 경로를 준비하고
         var url = "http://" + Share.macIP + "/moca/jsp/board_image_update.jsp"
         let urlAdd = "?boarNo=\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)"
-        print("image Update 시작 ----\(boardTitle),\(boardContent)")
+        print("image Update 시작 ----> \(boardNo),\(boardTitle),\(boardContent)")
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlURL = URL(string: url)
@@ -92,10 +92,10 @@ class BoardUpdateModel:NSObject{
 
         var url = "http://127.0.0.1:8080/moca/jsp/board_exImage_update.jsp"
         let urlAdd = "?boardNo=\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)&boardImg=\(boardImg)"
-        print("existing-image Update 시작 ----\(boardTitle),\(boardContent),\(boardImg)")
+        print("existing-image Update 시작 ----\(boardNo),\(boardTitle),\(boardContent),\(boardImg)")
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-        let urlURL:URL = URL(string: url)!
+        let urlURL = URL(string: url)!
         let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
         
         let task = defaultSession.dataTask(with: urlURL){data, response, _ in

@@ -93,7 +93,10 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
             print("self.tempStar\(self.tempStar) = rating\(rating)" )
         } // cosmos setting
     }
-    
+    // 아무곳이나 눌러 softkeyboard 지우기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
     @IBAction func moreMenu(_ sender: UIBarButtonItem) {
         

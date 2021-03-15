@@ -89,7 +89,7 @@ class ReviewUpdateModel:NSObject{
     
     func nonImage(reviewNo: String, reviewContent: String, reviewStar: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         print("model : \(reviewNo)")
-        var url = "http://127.0.0.1:8080/moca/jsp/review_nonImage_update.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/review_nonImage_update.jsp"
         let urlAdd = "?reviewNo=\(reviewNo)&reviewContent=\(reviewContent)&reviewStar=\(reviewStar)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

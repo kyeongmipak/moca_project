@@ -4370,9 +4370,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메뉴명" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr1-II-5Qd">
-                                                    <rect key="frame" x="226" y="49" width="112" height="21"/>
+                                                    <rect key="frame" x="150" y="49" width="188" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -4554,6 +4554,26 @@
             <point key="canvasLocation" x="8671" y="2256"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="CH0-do-Mhc">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="Qfb-j6-zgY">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="TiI-Aa-96G">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="dJG-G6-P2X">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="sZu-VG-oBg">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+        <designable name="tSr-91-KdT">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Tkf-os-rOK"/>
     </inferredMetricsTieBreakers>

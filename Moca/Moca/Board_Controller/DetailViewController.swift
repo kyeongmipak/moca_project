@@ -143,10 +143,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         actionsheet.addAction(UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: { ACTION in
             let resultAlert = UIAlertController(title: "MOCA 알림", message: "정말 삭제하시겠습니까? \n삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
-            let onAction = UIAlertAction(title: "삭제", style: UIAlertAction.Style.default, handler: {ACTION in
+            let onAction = UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: {ACTION in
+                
+                var tempBoardNo2 = self.receiveItem.boardNo
+                print("board No >>>>> \(tempBoardNo2)")
                 
                 let deleteModel = BoardDeleteModel() // instance 선언
-                let result = deleteModel.deleteItems(boardNo: self.receiveItem.boardNo!)
+                let result = deleteModel.deleteItems(boardNo: tempBoardNo2!)
+             
                 
                 if result == true {
                     let resultAlert = UIAlertController(title: "완료", message: "삭제가 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)

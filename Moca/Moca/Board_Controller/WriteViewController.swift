@@ -101,7 +101,7 @@ class WriteViewController: UIViewController,UIImagePickerControllerDelegate & UI
             boardInsertModel.uploadImageFile(boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Upload Success")
                 DispatchQueue.main.async { () -> Void in
                     print("upload image File")
-                    
+                
                     // instance
                     let checkBoardNo = CheckBoardNoModel()
                     checkBoardNo.delegate = self

@@ -3658,7 +3658,7 @@
                                 <rect key="frame" x="125" y="684" width="134" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title=" 사진 첨부하기">
+                                <state key="normal" title=" 사진 수정하기">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <imageReference key="image" image="camera" catalog="system" symbolScale="large"/>
                                 </state>

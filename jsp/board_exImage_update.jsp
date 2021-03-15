@@ -26,8 +26,8 @@ request.setCharacterEncoding("utf-8");
 	    ps = conn_mysql.prepareStatement(A+B);
 	    ps.setString(1, boardTitle);
 		ps.setString(2, boardContent);
-		ps.setString(3, boardNo);
-		ps.setString(4, boardImg);
+		ps.setString(3, boardImg);
+		ps.setString(4, boardNo);
 	    
 	    ps.executeUpdate();
 	

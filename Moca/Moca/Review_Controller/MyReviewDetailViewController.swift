@@ -15,6 +15,7 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
     // MARK: - 변수 setting
     var receiveItem = ReviewDBModel()
     var check = 0
+    var imgcheck = 0
     let imagePickerController = UIImagePickerController()
     var imageURL: URL?
     var rate :Double = Double()
@@ -74,6 +75,7 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
             print("url : \(url)")
             let data = try! Data(contentsOf: url!)
             iv_imgView.image = UIImage(data: data)
+            imgcheck = 1
         }
         print("receiveItem.reviewNo >>>> \(receiveItem.reviewNo!)")
         
@@ -164,6 +166,7 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             iv_imgView.image = image
             imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
+            print("imageURL ________ \(imageURL)")
             lbl_NonPhoto.text = ""
             check = 1
         }
@@ -173,13 +176,15 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
     }
     
     func imgUpload(){
+        let reviewNo = receiveItem.reviewNo!
         let reviewContent = tv_reviewContent.text!
         let reviewStar = tempStar
         let reviewUpdateModel = ReviewUpdateModel()
         
-        if check == 1 {
+        if check == 1 || imgcheck == 1 {
             print("image Update 시작 ----")
-            reviewUpdateModel.uploadImageFile(reviewNo: receiveItem.reviewNo!, reviewContent: reviewContent, reviewStar: reviewStar, at: imageURL!, completionHandler: {_,_ in print("Update Success")
+            reviewUpdateModel.uploadImageFile(reviewNo: reviewNo, reviewContent: reviewContent, reviewStar: reviewStar, at: imageURL!, completionHandler: {_,_ in print("Update Success")
+                print(">>>>잘보내는거마쟌?\(reviewNo)>>>\(reviewContent)>>>\(reviewStar)")
                 DispatchQueue.main.async { () -> Void in
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -187,7 +192,7 @@ class MyReviewDetailViewController: UIViewController, UIImagePickerControllerDel
             })
         } else {
             print("non-image Update 시작 ----\(reviewContent)")
-            reviewUpdateModel.nonImage(reviewNo: receiveItem.reviewNo!, reviewContent: tv_reviewContent.text!, reviewStar: reviewStar, completionHandler: {_,_ in print("Non_image Update Success")
+            reviewUpdateModel.nonImage(reviewNo: reviewNo, reviewContent: reviewContent, reviewStar: reviewStar, completionHandler: {_,_ in print("Non_image Update Success")
                 DispatchQueue.main.async { () -> Void in
                     self.navigationController?.popViewController(animated: true)
                 }

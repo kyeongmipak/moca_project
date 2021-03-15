@@ -56,7 +56,7 @@ class ReviewUpdateModel:NSObject{
     func uploadImageFile(reviewNo: String, reviewContent: String, reviewStar: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
-        var url = "http://" + Share.macIP + "/jsp/review_image_update.jsp"
+        var url = "http://" + Share.macIP + "/moca/jsp/review_image_update.jsp"
         let urlAdd = "?reviewNo\(reviewNo)&reviewContent=\(reviewContent)&reviewStar=\(reviewStar)"
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!

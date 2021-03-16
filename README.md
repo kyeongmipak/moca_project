@@ -5,7 +5,7 @@
 ---
 
 # 유튜브 영상보기
-[모카 유튜브 영상 보기](https://www.youtube.com/watch?v=63zeTRA1V_M, "moca link")
+[모카 유튜브 영상 보기](https://www.youtube.com/watch?v=MXj7nv9pw9E, "moca link")
 
 ---
 

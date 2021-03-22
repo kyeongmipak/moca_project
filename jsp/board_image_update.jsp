@@ -8,10 +8,6 @@
 <%
 
 	request.setCharacterEncoding("utf-8");
-	String boardNo = request.getParameter("boardNo");
-	String boardTitle = request.getParameter("boardTitle");
-	String boardContent = request.getParameter("boardContent");
-
 	//------
 	String savePath = "/usr/local/apache-tomcat-8.5.46/webapps/ROOT/moca/image";
 	int sizeLimit = 10 * 1024 * 1024;
@@ -20,6 +16,10 @@
 
 	File file = multi.getFile("file");
 	String name = multi.getParameter("name");
+	
+	String boardNo = request.getParameter("boardNo");
+	String boardTitle = request.getParameter("boardTitle");
+	String boardContent = request.getParameter("boardContent");
 	
 	// DB
 	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=UTC&characterEncoding=utf8&useSSL=FALSE";
@@ -38,7 +38,7 @@
 	    ps = conn_mysql.prepareStatement(A+B);
 	    ps.setString(1, boardTitle);
 		ps.setString(2, boardContent);
-		ps.setString(3, file.getName);
+		ps.setString(3, file.getName());
 		ps.setString(4, boardNo);
 
 	    ps.executeUpdate();

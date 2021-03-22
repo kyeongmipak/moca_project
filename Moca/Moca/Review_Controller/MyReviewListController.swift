@@ -62,7 +62,7 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
                 }
             }
             self.myReviewList.reloadData()
-        }
+    }
     
     
     // MARK: ViewDidLoad()
@@ -85,11 +85,11 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
         
         print("viewWillAppear")
     }
-
-
     
-  
-     // MARK: - Navigation
+    
+    
+    
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sgMyReviewDetail"{
@@ -107,6 +107,6 @@ class MyReviewListController: UIViewController, UITableViewDataSource, UITableVi
             print("보내긴해 ??? \(detailView.receiveItem.reviewImg)")
         }
     }
- 
+    
     
 } // END

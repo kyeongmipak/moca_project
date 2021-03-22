@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, AllReviewProtocol {
-    func reviewitemDownloaded(items: NSArray) {
+class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PhotoReviewProtocol {
+    func photoReviewitemDownloaded(items: NSArray) {
         print("----itemDownload 함수 작동-----")
         feedItem = NSArray() // feedItem 초기화
         feedItem = items
@@ -17,13 +17,14 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
         receiveItem = []
         
         for i in 0..<feedItem.count {
-            if ITEMS[i].reviewImg != "null"{
+//            if ITEMS[i].reviewImg != "null"{
                 receiveItem.append(ITEMS[i])
-            }
+//            }
         }
         collectionView.reloadData()
     }
     
+
     // MARK: - 변수 Setting
     var feedItem:NSArray = NSArray()
     var receiveItem:[ReviewDBModel] = [] // DBModel 객체 선언
@@ -37,16 +38,15 @@ class ReviewViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
     }
     
     
     // MARK: - Protocol func Setting
     override func viewWillAppear(_ animated: Bool) {
         // instance 선언
-        let allReviewModel = AllReviewModel()
-        allReviewModel.delegate = self
-        allReviewModel.downloadItems()
+        let photoReviewModel = PhotoReviewModel()
+        photoReviewModel.delegate = self
+        photoReviewModel.downloadItems()
     }
     
     

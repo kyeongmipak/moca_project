@@ -18,9 +18,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
     @IBOutlet var lbl_boardInsertDate: UILabel!
     @IBOutlet var rightBarButton: UIBarButtonItem!
     @IBOutlet var btnPhotoview: UIButton!
+    var imgCheck = 0
     var check = 0
     let imagePickerController = UIImagePickerController()
     var imageURL: URL?
+    var existingimageURL: URL?
     
     
     override func viewDidLoad() {
@@ -59,6 +61,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
             let url = URL(string: urlPath)
             let data = try! Data(contentsOf: url!)
             iv_boardImg.image = UIImage(data: data)
+//            imgCheck = 1
+            check = 1
         }
         
         
@@ -121,7 +125,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
             iv_boardImg.image = image
             imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL
 //            lbl_NonPhoto.text = ""
-            check = 1
+            check = 2
         }
         // 켜놓은 앨범 화면 없애기
         dismiss(animated: true, completion: nil)
@@ -143,10 +147,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         actionsheet.addAction(UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: { ACTION in
             let resultAlert = UIAlertController(title: "MOCA 알림", message: "정말 삭제하시겠습니까? \n삭제된 정보는 되돌릴 수 없습니다.", preferredStyle: UIAlertController.Style.alert)
-            let onAction = UIAlertAction(title: "삭제", style: UIAlertAction.Style.default, handler: {ACTION in
+            let onAction = UIAlertAction(title: "삭제", style: UIAlertAction.Style.destructive, handler: {ACTION in
+                
+                var tempBoardNo2 = self.receiveItem.boardNo
+                print("board No >>>>> \(tempBoardNo2)")
                 
                 let deleteModel = BoardDeleteModel() // instance 선언
-                let result = deleteModel.deleteItems(boardNo: self.receiveItem.boardNo!)
+                let result = deleteModel.deleteItems(boardNo: tempBoardNo2!)
+             
                 
                 if result == true {
                     let resultAlert = UIAlertController(title: "완료", message: "삭제가 완료되었습니다.", preferredStyle: UIAlertController.Style.alert)
@@ -174,27 +182,69 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate & 
     } // func end
             
     func imgUpload(){
+        let boardNo = receiveItem.boardNo!
         let boardTitle = txt_boardTitle.text!
         let boardContent = tv_boardContent.text!
+        let boardImg = receiveItem.boardImg!
+        print("boardImg는???????? \(boardImg)")
         let boardUpdateModel = BoardUpdateModel()
         
-        if check == 1 {
-            print("image Update 시작 ----")
-            boardUpdateModel.uploadImageFile(boardNo: receiveItem.boardNo!, boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Update Success")
-                DispatchQueue.main.async { () -> Void in
-                    self.navigationController?.popViewController(animated: true)
-                }
-                print("image Update 완료 ----")
-            })
-        } else {
+        switch check {
+        case 0:
             print("non-image Update 시작 ----\(boardContent)")
-            boardUpdateModel.nonImage(boardNo: receiveItem.boardNo!, boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non_image Update Success")
-                DispatchQueue.main.async { () -> Void in
-                    self.navigationController?.popViewController(animated: true)
-                }
-                print("non-image Update 완료 ----")
-            })
+                        boardUpdateModel.nonImage(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non_image Update Success")
+                            DispatchQueue.main.async { () -> Void in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            print("non-image Update 완료 ----")
+                        })
+        case 1:
+            print("existing-image Update 시작 ----\(boardTitle)\(boardContent)\(boardImg)")
+                     boardUpdateModel.existingImage(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, completionHandler: {_,_ in print("existing image Update Success")
+                         DispatchQueue.main.async { () -> Void in
+                             self.navigationController?.popViewController(animated: true)
+                         }
+                         print("existing-image Update 완료 ----")
+                     })
+        case 2:
+            print("image Update 시작 ----")
+                        boardUpdateModel.uploadImageFile(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Update Success")
+                            DispatchQueue.main.async { () -> Void in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            print("image Update 완료 ----")
+                        })
+        default:
+            break
         }
+        
+        
+//        if check == 1 {
+//            print("image Update 시작 ----")
+//            boardUpdateModel.uploadImageFile(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, at: imageURL!, completionHandler: {_,_ in print("Update Success")
+//                DispatchQueue.main.async { () -> Void in
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//                print("image Update 완료 ----")
+//            })
+//        }
+//         if imgCheck == 1 {
+//            print("existing-image Update 시작 ----\(boardContent)")
+//            boardUpdateModel.existingImage(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, boardImg: boardImg, completionHandler: {_,_ in print("existing image Update Success")
+//                DispatchQueue.main.async { () -> Void in
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//                print("existing-image Update 완료 ----")
+//            })
+//        } else {
+//            print("non-image Update 시작 ----\(boardContent)")
+//            boardUpdateModel.nonImage(boardNo: boardNo, boardTitle: boardTitle, boardContent: boardContent, completionHandler: {_,_ in print("Non_image Update Success")
+//                DispatchQueue.main.async { () -> Void in
+//                    self.navigationController?.popViewController(animated: true)
+//                }
+//                print("non-image Update 완료 ----")
+//            })
+//        }
     }
     
     

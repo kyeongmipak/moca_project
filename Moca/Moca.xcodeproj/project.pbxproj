@@ -79,6 +79,7 @@
 		629B503825EFED6000A236F1 /* RegisterInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B503725EFED6000A236F1 /* RegisterInsertModel.swift */; };
 		629B503B25EFED7800A236F1 /* CheckMenuNoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B503A25EFED7800A236F1 /* CheckMenuNoModel.swift */; };
 		629B503E25EFEDC400A236F1 /* MyReviewListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B503D25EFEDC400A236F1 /* MyReviewListModel.swift */; };
+		62C6ACFD25FE7A5C001EB074 /* PhotoReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C6ACFC25FE7A5C001EB074 /* PhotoReviewModel.swift */; };
 		62EC655C25EF99A500C9FED4 /* WriteReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */; };
 		62EC655F25EF9B0200C9FED4 /* ReviewInsertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EC655E25EF9B0200C9FED4 /* ReviewInsertModel.swift */; };
 		62F015E325E8A7E6007BB073 /* LikeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */; };
@@ -228,6 +229,7 @@
 		629B503725EFED6000A236F1 /* RegisterInsertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterInsertModel.swift; sourceTree = "<group>"; };
 		629B503A25EFED7800A236F1 /* CheckMenuNoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckMenuNoModel.swift; sourceTree = "<group>"; };
 		629B503D25EFEDC400A236F1 /* MyReviewListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListModel.swift; sourceTree = "<group>"; };
+		62C6ACFC25FE7A5C001EB074 /* PhotoReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoReviewModel.swift; sourceTree = "<group>"; };
 		62EC655B25EF99A500C9FED4 /* WriteReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteReviewController.swift; sourceTree = "<group>"; };
 		62EC655E25EF9B0200C9FED4 /* ReviewInsertModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewInsertModel.swift; sourceTree = "<group>"; };
 		62F015E225E8A7E6007BB073 /* LikeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeTableViewCell.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				629B503D25EFEDC400A236F1 /* MyReviewListModel.swift */,
 				621C095425F3C45A00F5FBD0 /* MapLocationModel.swift */,
 				627271A925F5D52300757219 /* SearchMenuInfo.swift */,
+				62C6ACFC25FE7A5C001EB074 /* PhotoReviewModel.swift */,
 			);
 			path = Review_Json;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				626026C725EF561E00F8AF45 /* WriteViewController.swift in Sources */,
 				813B439F25ED446C008B6C44 /* CategoryTabsView.swift in Sources */,
 				626026BE25EF4B6A00F8AF45 /* BoardModel.swift in Sources */,
+				62C6ACFD25FE7A5C001EB074 /* PhotoReviewModel.swift in Sources */,
 				626026FF25EF92C700F8AF45 /* PhotoTableViewCell.swift in Sources */,
 				8148969025E6486200AF92BC /* SearchTableViewCell.swift in Sources */,
 				62603A3725F133F9001312A5 /* EmailPwSearchViewController.swift in Sources */,

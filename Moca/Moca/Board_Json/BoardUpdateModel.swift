@@ -16,10 +16,8 @@ class BoardUpdateModel:NSObject{
             return nil
         }
         
-        // 바운더리 값을 정하고,
-        // 각 파트의 헤더가 될 라인들을 배열로 만든다.
-        // 이 배열을 \r\n 으로 조인하여 한 덩어리로 만들어서
-        // 데이터로 인코딩한다.
+        // 바운더리 값을 정하고, 각 파트의 헤더가 될 라인들을 배열로 만든다.
+        // 이 배열을 \r\n 으로 조인하여 한 덩어리로 만들어서 데이터로 인코딩한다.
         let boundary = "XXXXX"
         let mimetype = "image/jpeg"
         let headerLines = ["--\(boundary)",
@@ -56,8 +54,9 @@ class BoardUpdateModel:NSObject{
     func uploadImageFile(boardNo: String, boardTitle: String, boardContent: String, at filepath: URL, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         
         // 경로를 준비하고
-        var url = "http://" + Share.macIP + "/jsp/board_image_update.jsp"
-        let urlAdd = "?boarNo\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)"
+        var url = "http://" + Share.macIP + "/moca/jsp/board_image_update.jsp"
+        let urlAdd = "?boarNo=\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)"
+        print("image Update 시작 ----> \(boardNo),\(boardTitle),\(boardContent)")
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlURL = URL(string: url)
@@ -87,10 +86,28 @@ class BoardUpdateModel:NSObject{
         }
     }
     
+    func existingImage(boardNo: String, boardTitle: String, boardContent: String, boardImg: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
+
+        var url = "http://127.0.0.1:8080/moca/jsp/board_exImage_update.jsp"
+        let urlAdd = "?boardNo=\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)&boardImg=\(boardImg)"
+        print("existing-image Update 시작 ----\(boardNo),\(boardTitle),\(boardContent),\(boardImg)")
+        url = url + urlAdd
+        url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+        let urlURL = URL(string: url)!
+        let defaultSession = Foundation.URLSession(configuration: URLSessionConfiguration.default)
+        
+        let task = defaultSession.dataTask(with: urlURL){data, response, _ in
+             completionHandler(data, response)
+         }
+        task.resume() // resume()을 해줘야 task가 실행 된다.
+    } // func END
+    
     func nonImage(boardNo: String, boardTitle: String, boardContent: String, completionHandler: @escaping(Data?, URLResponse?) -> Void) {
         print("model : \(boardNo)")
+        
         var url = "http://127.0.0.1:8080/moca/jsp/board_nonImage_update.jsp"
         let urlAdd = "?boardNo=\(boardNo)&boardTitle=\(boardTitle)&boardContent=\(boardContent)"
+        print("nonimage Update 시작 ----\(boardNo),\(boardTitle),\(boardContent)")
         url = url + urlAdd
         url = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlURL:URL = URL(string: url)!

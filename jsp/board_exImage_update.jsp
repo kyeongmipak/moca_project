@@ -7,6 +7,7 @@ request.setCharacterEncoding("utf-8");
 	String boardNo = request.getParameter("boardNo");
 	String boardTitle = request.getParameter("boardTitle");
 	String boardContent = request.getParameter("boardContent");
+	String boardImg = request.getParameter("boardImg");
 		
 //------
 	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=UTC&characterEncoding=utf8&useSSL=FALSE";
@@ -19,13 +20,14 @@ request.setCharacterEncoding("utf-8");
 	    Connection conn_mysql = DriverManager.getConnection(url_mysql,id_mysql,pw_mysql);
 	    Statement stmt_mysql = conn_mysql.createStatement();
 	
-		String A = "update board set boardTitle = ?, boardContent = ? ";
+		String A = "update board set boardTitle = ?, boardContent = ?, boardImg = ? ";
 		String B = "where boardNo = ?";
 	
 	    ps = conn_mysql.prepareStatement(A+B);
 	    ps.setString(1, boardTitle);
 		ps.setString(2, boardContent);
-		ps.setString(3, boardNo);
+		ps.setString(3, boardImg);
+		ps.setString(4, boardNo);
 	    
 	    ps.executeUpdate();
 	

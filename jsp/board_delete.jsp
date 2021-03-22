@@ -3,11 +3,11 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-	String code = request.getParameter("code");
+	String boardNo = request.getParameter("boardNo");
 
 //------
 
-	String url_mysql = "jdbc:mysql://localhost/education?serverTimezone=UTC&characterEncoding=utf8&useSSL=FALSE";
+	String url_mysql = "jdbc:mysql://localhost/moca?serverTimezone=UTC&characterEncoding=utf8&useSSL=FALSE";
 	String id_mysql = "root";
 	String pw_mysql = "qwer1234";
 
@@ -18,13 +18,13 @@
 	    Connection conn_mysql = DriverManager.getConnection(url_mysql,id_mysql,pw_mysql);
 	    Statement stmt_mysql = conn_mysql.createStatement();
 	
-		String A = "delete from student ";
-		String B = "where scode = ?";
+		String A = "DELETE r, b FROM register r inner join board b on b.boardNo = r.board_boardNo ";
+		String B = "where r.board_boardNo = ?";
 
 
 	    ps = conn_mysql.prepareStatement(A+B);
 
-        ps.setString(1, code);
+        ps.setString(1, boardNo);
  
 	    ps.executeUpdate();
 	

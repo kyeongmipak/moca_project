@@ -134,7 +134,7 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuImage.image = UIImage(data: data)
                 cell.menuName.text = "\(menuItem.menuName!)"
                 cell.menuPriceCal.text = "\(result!) 원 / \(menuItem.menuCalorie!) kcal"
-                
+                print("메ㅔㅔㅔ뉴네임ㅁㅁㅁㅁㅁㅁ",menuItem.menuName!)
             } else if rankItem.menuNo != nil{
                 let result = numberFormatter.string(from: NSNumber(value: Int(rankItem.menuPrice!)!))
                 
@@ -158,14 +158,14 @@ class PhotoDetailReviewController: UIViewController, UITableViewDataSource, UITa
                 cell.menuBrandName.text = "\(menuInfoItem.brandName!)"
                 cell.menuContent.text = "\(menuInfoItem.menuInformation!)"
                 //                menuInfoItem.menuImg! = menuInfoItem.menuImg!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                var urlPath = "http://" + Share.macIP + "/moca/image/\(menuInfoItem.menuImg!)"
-                urlPath = urlPath.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
-                let url = URL(string: urlPath)
+                
+                let url = URL(string: "http://127.0.0.1:8080/moca/image/\(menuInfoItem.menuImg!)")
                 
                 let data = try! Data(contentsOf: url!)
                 cell.menuImage.image = UIImage(data: data)
                 cell.menuName.text = "\(menuInfoItem.menuName!)"
                 cell.menuPriceCal.text = "\(result!) 원 / \(menuInfoItem.menuCalorie!) kcal"
+                
                 
             } else {
                 // 지은

@@ -79,7 +79,9 @@ class WriteReviewController: UIViewController, UIImagePickerControllerDelegate &
         attributedStr.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedStr.length))
         lbl_notice.attributedText = attributedStr
         attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: (lbl_notice.text! as NSString).range(of: "삭제"))
-        attributedStr.addAttribute(.foregroundColor, value: UIColor.blue, range: (lbl_notice.text! as NSString).range(of: "수정"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.red, range: (lbl_notice.text! as NSString).range(of: "수정"))
+        attributedStr.addAttribute(.foregroundColor, value: UIColor.blue, range: (lbl_notice.text! as NSString).range(of: "마이페이지 → 나의 리뷰"))
+
         
         // 설정이 적용된 text를 label의 attributedText에 저장
         lbl_notice.attributedText = attributedStr
